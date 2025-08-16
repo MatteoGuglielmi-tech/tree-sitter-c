@@ -858,7 +858,16 @@ module.exports = grammar({
 
     case_statement: $ => prec.right(seq(
       choice(
-        seq('case', field('value', $.expression)),
+        seq('case',
+          choice(
+            field('value', $.expression),
+            seq(
+              field('lower_bound', $.expression),
+              '...',
+              field('upper_bound', $.expression)
+            )
+          )
+        ),
         'default',
       ),
       ':',
