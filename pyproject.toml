@@ -1,33 +1,17 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61.0", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tree-sitter-c"
-description = "C grammar for tree-sitter"
-version = "0.24.1"
-keywords = ["incremental", "parsing", "tree-sitter", "c"]
-classifiers = [
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
-  "Topic :: Software Development :: Compilers",
-  "Topic :: Text Processing :: Linguistic",
-  "Typing :: Typed",
-]
+name = "tree-sitter-extended-c"
+version = "0.0.1"
 authors = [
-  { name = "Max Brunsfeld", email = "maxbrunsfeld@gmail.com" },
-  { name = "Amaan Qureshi", email = "amaanq12@gmail.com" },
+  { name="Matteo Guglielmi", email="matteo.guglielmi.ma.gu@gmail.com" }
 ]
-requires-python = ">=3.10"
-license.text = "MIT"
-readme = "README.md"
+description = "Extended Tree-sitter grammar for C with case ranges"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [ "tree-sitter>=0.25.1", "setuptools" ]
 
-[project.urls]
-Homepage = "https://github.com/tree-sitter/tree-sitter-c"
-
-[project.optional-dependencies]
-core = ["tree-sitter~=0.24"]
-
-[tool.cibuildwheel]
-build = "cp310-*"
-build-frontend = "build"
+[tool.setuptools.packages.find]
+where = ["src"]
