@@ -1,0 +1,39 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "c",
+      "camelcase": "C",
+      "title": "C",
+      "scope": "source.c",
+      "file-types": [
+        "c"
+      ],
+      "injection-regex": "^c$",
+      "class-name": "TreeSitterC"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Extended Tree-sitter grammar for C, supporting non-standard GCC extensions",
+    "authors": [
+      {
+        "name": "Matteo Guglielmi",
+        "email": "matteo.guglielmi.ma.gu@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/MatteoGuglielmi-tech/tree-sitter-c#"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
