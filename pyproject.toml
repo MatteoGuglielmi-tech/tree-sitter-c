@@ -8,7 +8,7 @@ version = "0.0.1"
 authors = [
   { name="Matteo Guglielmi", email="matteo.guglielmi.ma.gu@gmail.com" }
 ]
-description = "Extended Tree-sitter grammar for C with case ranges"
+description = "Extended Tree-sitter grammar for C, supporting non-standard GCC extensions"
 license = "MIT"
 requires-python = ">=3.11"
 dependencies = [ "tree-sitter>=0.25.1", "setuptools" ]
