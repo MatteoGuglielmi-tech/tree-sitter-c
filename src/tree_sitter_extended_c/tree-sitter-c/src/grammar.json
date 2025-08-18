@@ -9868,6 +9868,14 @@
         {
           "type": "STRING",
           "value": "sk_for_each"
+        },
+        {
+          "type": "STRING",
+          "value": "sctp_walk_params"
+        },
+        {
+          "type": "STRING",
+          "value": "sctp_tsnmap_init"
         }
       ]
     },

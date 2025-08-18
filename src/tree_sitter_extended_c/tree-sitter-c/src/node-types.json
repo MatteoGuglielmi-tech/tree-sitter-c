@@ -1839,6 +1839,14 @@
             "named": false
           },
           {
+            "type": "sctp_tsnmap_init",
+            "named": false
+          },
+          {
+            "type": "sctp_walk_params",
+            "named": false
+          },
+          {
             "type": "sk_for_each",
             "named": false
           }
@@ -4820,6 +4828,14 @@
   },
   {
     "type": "return",
+    "named": false
+  },
+  {
+    "type": "sctp_tsnmap_init",
+    "named": false
+  },
+  {
+    "type": "sctp_walk_params",
     "named": false
   },
   {

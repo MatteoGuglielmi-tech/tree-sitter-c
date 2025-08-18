@@ -1433,7 +1433,9 @@ module.exports = grammar({
       'list_for_each_safe',
       'list_for_each',
       'hlist_for_each_entry',
-      'sk_for_each'
+      'sk_for_each',
+      'sctp_walk_params',
+      'sctp_tsnmap_init'
     ),
 
     for_each_statement: $ => prec(1, seq(
