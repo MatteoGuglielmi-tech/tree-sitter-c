@@ -797,7 +797,7 @@ module.exports = grammar({
     ),
 
     _non_case_statement: $ => choice(
-      $.for_each_statement, // linux `list_for_each_entry(...)`
+      $.for_each_statement, // linux macros
       $.attributed_statement,
       $.labeled_statement,
       $.compound_statement,
@@ -969,6 +969,8 @@ module.exports = grammar({
     ),
 
     _expression_not_binary: $ => choice(
+      $.cast_macro,
+      $.list_entry_expression,
       $.min_t_expression, // min_t expressions
       $.asm_register, // asm register
 
@@ -1417,7 +1419,10 @@ module.exports = grammar({
       ')'
     ),
 
-    init_specifier: $ => '__init',
+    init_specifier: $ => choice(
+      '__init',
+      '__cpuinit'
+    ),
     asm_register: $ => choice(
       '32_CS',
       '32_DS',
@@ -1425,6 +1430,7 @@ module.exports = grammar({
 
     _for_each_macro_name: $ => choice(
       'list_for_each_entry',
+      'list_for_each_safe',
       'list_for_each',
       'hlist_for_each_entry',
       'sk_for_each'
@@ -1433,13 +1439,31 @@ module.exports = grammar({
     for_each_statement: $ => prec(1, seq(
       field('name', $._for_each_macro_name),
       '(',
-      field('iterator', $.identifier),
-      ',',
-      field('head', $.expression),
-      ',',
-      field('member', $.identifier),
+      field('arguments', commaSep1($.expression)), // commaSep1 ensures there is at least one argument.
       ')',
       field('body', $.statement)
+    )),
+
+    _cast_macro_name: $ => 'JAS_CAST',
+
+    cast_macro: $ => prec(2, seq(
+      field('name', $._cast_macro_name),
+      '(',
+      field('type', $.type_descriptor),
+      ',',
+      field('value', $.expression),
+      ')'
+    )),
+
+    list_entry_expression: $ => prec(2, seq(
+      'list_entry',
+      '(',
+      field('pointer', $.expression),
+      ',',
+      field('type', $.type_descriptor),
+      ',',
+      field('member', $._field_identifier),
+      ')',
     )),
 
   },

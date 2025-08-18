@@ -144,6 +144,10 @@
         "named": true
       },
       {
+        "type": "cast_macro",
+        "named": true
+      },
+      {
         "type": "char_literal",
         "named": true
       },
@@ -181,6 +185,10 @@
       },
       {
         "type": "identifier",
+        "named": true
+      },
+      {
+        "type": "list_entry_expression",
         "named": true
       },
       {
@@ -1078,6 +1086,42 @@
     }
   },
   {
+    "type": "cast_macro",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "JAS_CAST",
+            "named": false
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "char_literal",
     "named": true,
     "fields": {},
@@ -1750,42 +1794,26 @@
     "type": "for_each_statement",
     "named": true,
     "fields": {
-      "body": {
-        "multiple": false,
+      "arguments": {
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "statement",
-            "named": true
-          }
-        ]
-      },
-      "head": {
-        "multiple": false,
-        "required": true,
-        "types": [
+            "type": ",",
+            "named": false
+          },
           {
             "type": "expression",
             "named": true
           }
         ]
       },
-      "iterator": {
+      "body": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "member": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
+            "type": "statement",
             "named": true
           }
         ]
@@ -1804,6 +1832,10 @@
           },
           {
             "type": "list_for_each_entry",
+            "named": false
+          },
+          {
+            "type": "list_for_each_safe",
             "named": false
           },
           {
@@ -2351,6 +2383,11 @@
     }
   },
   {
+    "type": "init_specifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "initializer_list",
     "named": true,
     "fields": {},
@@ -2473,6 +2510,42 @@
         "types": [
           {
             "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "list_entry_expression",
+    "named": true,
+    "fields": {
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "field_identifier",
+            "named": true
+          }
+        ]
+      },
+      "pointer": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
             "named": true
           }
         ]
@@ -4377,6 +4450,10 @@
     "named": false
   },
   {
+    "type": "JAS_CAST",
+    "named": false
+  },
+  {
     "type": "L\"",
     "named": false
   },
@@ -4481,6 +4558,10 @@
     "named": false
   },
   {
+    "type": "__cpuinit",
+    "named": false
+  },
+  {
     "type": "__declspec",
     "named": false
   },
@@ -4502,6 +4583,10 @@
   },
   {
     "type": "__forceinline",
+    "named": false
+  },
+  {
+    "type": "__init",
     "named": false
   },
   {
@@ -4658,11 +4743,11 @@
     "named": false
   },
   {
-    "type": "init_specifier",
-    "named": true
+    "type": "inline",
+    "named": false
   },
   {
-    "type": "inline",
+    "type": "list_entry",
     "named": false
   },
   {
@@ -4671,6 +4756,10 @@
   },
   {
     "type": "list_for_each_entry",
+    "named": false
+  },
+  {
+    "type": "list_for_each_safe",
     "named": false
   },
   {

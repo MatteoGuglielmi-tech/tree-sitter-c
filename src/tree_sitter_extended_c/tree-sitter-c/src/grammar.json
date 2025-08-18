@@ -6653,6 +6653,14 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "cast_macro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "list_entry_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "min_t_expression"
         },
         {
@@ -9813,8 +9821,17 @@
       ]
     },
     "init_specifier": {
-      "type": "STRING",
-      "value": "__init"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "__init"
+        },
+        {
+          "type": "STRING",
+          "value": "__cpuinit"
+        }
+      ]
     },
     "asm_register": {
       "type": "CHOICE",
@@ -9835,6 +9852,10 @@
         {
           "type": "STRING",
           "value": "list_for_each_entry"
+        },
+        {
+          "type": "STRING",
+          "value": "list_for_each_safe"
         },
         {
           "type": "STRING",
@@ -9870,34 +9891,31 @@
           },
           {
             "type": "FIELD",
-            "name": "iterator",
+            "name": "arguments",
             "content": {
-              "type": "SYMBOL",
-              "name": "identifier"
-            }
-          },
-          {
-            "type": "STRING",
-            "value": ","
-          },
-          {
-            "type": "FIELD",
-            "name": "head",
-            "content": {
-              "type": "SYMBOL",
-              "name": "expression"
-            }
-          },
-          {
-            "type": "STRING",
-            "value": ","
-          },
-          {
-            "type": "FIELD",
-            "name": "member",
-            "content": {
-              "type": "SYMBOL",
-              "name": "identifier"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "expression"
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           },
           {
@@ -9911,6 +9929,108 @@
               "type": "SYMBOL",
               "name": "statement"
             }
+          }
+        ]
+      }
+    },
+    "_cast_macro_name": {
+      "type": "STRING",
+      "value": "JAS_CAST"
+    },
+    "cast_macro": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_cast_macro_name"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_descriptor"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "value",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "list_entry_expression": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "list_entry"
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "pointer",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_descriptor"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "member",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_field_identifier"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
           }
         ]
       }
