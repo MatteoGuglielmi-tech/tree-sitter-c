@@ -5893,6 +5893,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "for_each_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "attributed_statement"
         },
         {
@@ -6650,6 +6654,10 @@
         {
           "type": "SYMBOL",
           "name": "min_t_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "asm_register"
         },
         {
           "type": "SYMBOL",
@@ -9807,6 +9815,105 @@
     "init_specifier": {
       "type": "STRING",
       "value": "__init"
+    },
+    "asm_register": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "32_CS"
+        },
+        {
+          "type": "STRING",
+          "value": "32_DS"
+        }
+      ]
+    },
+    "_for_each_macro_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "list_for_each_entry"
+        },
+        {
+          "type": "STRING",
+          "value": "list_for_each"
+        },
+        {
+          "type": "STRING",
+          "value": "hlist_for_each_entry"
+        },
+        {
+          "type": "STRING",
+          "value": "sk_for_each"
+        }
+      ]
+    },
+    "for_each_statement": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_for_each_macro_name"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "iterator",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "head",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "member",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          },
+          {
+            "type": "FIELD",
+            "name": "body",
+            "content": {
+              "type": "SYMBOL",
+              "name": "statement"
+            }
+          }
+        ]
+      }
     }
   },
   "extras": [

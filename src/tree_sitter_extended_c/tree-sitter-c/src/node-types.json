@@ -124,6 +124,10 @@
         "named": true
       },
       {
+        "type": "asm_register",
+        "named": true
+      },
+      {
         "type": "assignment_expression",
         "named": true
       },
@@ -259,6 +263,10 @@
       },
       {
         "type": "expression_statement",
+        "named": true
+      },
+      {
+        "type": "for_each_statement",
         "named": true
       },
       {
@@ -557,6 +565,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "asm_register",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "assignment_expression",
@@ -989,6 +1002,10 @@
         },
         {
           "type": "expression_statement",
+          "named": true
+        },
+        {
+          "type": "for_each_statement",
           "named": true
         },
         {
@@ -1723,6 +1740,74 @@
           },
           {
             "type": ".",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "for_each_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      },
+      "head": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "iterator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hlist_for_each_entry",
+            "named": false
+          },
+          {
+            "type": "list_for_each",
+            "named": false
+          },
+          {
+            "type": "list_for_each_entry",
+            "named": false
+          },
+          {
+            "type": "sk_for_each",
             "named": false
           }
         ]
@@ -4224,6 +4309,14 @@
     "named": false
   },
   {
+    "type": "32_CS",
+    "named": false
+  },
+  {
+    "type": "32_DS",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -4553,6 +4646,10 @@
     "named": false
   },
   {
+    "type": "hlist_for_each_entry",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
   },
@@ -4566,6 +4663,14 @@
   },
   {
     "type": "inline",
+    "named": false
+  },
+  {
+    "type": "list_for_each",
+    "named": false
+  },
+  {
+    "type": "list_for_each_entry",
     "named": false
   },
   {
@@ -4638,6 +4743,10 @@
   },
   {
     "type": "sizeof",
+    "named": false
+  },
+  {
+    "type": "sk_for_each",
     "named": false
   },
   {

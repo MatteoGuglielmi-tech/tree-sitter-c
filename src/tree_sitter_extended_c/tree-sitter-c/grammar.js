@@ -797,6 +797,7 @@ module.exports = grammar({
     ),
 
     _non_case_statement: $ => choice(
+      $.for_each_statement, // linux `list_for_each_entry(...)`
       $.attributed_statement,
       $.labeled_statement,
       $.compound_statement,
@@ -968,7 +969,9 @@ module.exports = grammar({
     ),
 
     _expression_not_binary: $ => choice(
-      $.min_t_expression,
+      $.min_t_expression, // min_t expressions
+      $.asm_register, // asm register
+
       $.conditional_expression,
       $.assignment_expression,
       $.unary_expression,
@@ -1415,6 +1418,29 @@ module.exports = grammar({
     ),
 
     init_specifier: $ => '__init',
+    asm_register: $ => choice(
+      '32_CS',
+      '32_DS',
+    ),
+
+    _for_each_macro_name: $ => choice(
+      'list_for_each_entry',
+      'list_for_each',
+      'hlist_for_each_entry',
+      'sk_for_each'
+    ),
+
+    for_each_statement: $ => prec(1, seq(
+      field('name', $._for_each_macro_name),
+      '(',
+      field('iterator', $.identifier),
+      ',',
+      field('head', $.expression),
+      ',',
+      field('member', $.identifier),
+      ')',
+      field('body', $.statement)
+    )),
 
   },
 
