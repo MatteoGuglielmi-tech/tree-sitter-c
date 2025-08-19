@@ -1835,7 +1835,15 @@
             "named": false
           },
           {
+            "type": "list_for_each_entry_safe",
+            "named": false
+          },
+          {
             "type": "list_for_each_safe",
+            "named": false
+          },
+          {
+            "type": "receive_queue_for_each_skb",
             "named": false
           },
           {
@@ -4767,6 +4775,10 @@
     "named": false
   },
   {
+    "type": "list_for_each_entry_safe",
+    "named": false
+  },
+  {
     "type": "list_for_each_safe",
     "named": false
   },
@@ -4817,6 +4829,10 @@
   {
     "type": "primitive_type",
     "named": true
+  },
+  {
+    "type": "receive_queue_for_each_skb",
+    "named": false
   },
   {
     "type": "register",

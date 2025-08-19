@@ -1431,11 +1431,13 @@ module.exports = grammar({
     _for_each_macro_name: $ => choice(
       'list_for_each_entry',
       'list_for_each_safe',
+      'list_for_each_entry_safe',
       'list_for_each',
       'hlist_for_each_entry',
       'sk_for_each',
       'sctp_walk_params',
-      'sctp_tsnmap_init'
+      'sctp_tsnmap_init',
+      'receive_queue_for_each_skb'
     ),
 
     for_each_statement: $ => prec(1, seq(

@@ -9859,6 +9859,10 @@
         },
         {
           "type": "STRING",
+          "value": "list_for_each_entry_safe"
+        },
+        {
+          "type": "STRING",
           "value": "list_for_each"
         },
         {
@@ -9876,6 +9880,10 @@
         {
           "type": "STRING",
           "value": "sctp_tsnmap_init"
+        },
+        {
+          "type": "STRING",
+          "value": "receive_queue_for_each_skb"
         }
       ]
     },
