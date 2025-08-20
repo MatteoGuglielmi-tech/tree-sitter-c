@@ -3130,6 +3130,10 @@
         {
           "type": "SYMBOL",
           "name": "init_specifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_attribute"
         }
       ]
     },
@@ -4680,6 +4684,66 @@
         {
           "type": "STRING",
           "value": "__thread"
+        },
+        {
+          "type": "STRING",
+          "value": "REG1"
+        },
+        {
+          "type": "STRING",
+          "value": "REG2"
+        },
+        {
+          "type": "STRING",
+          "value": "REG3"
+        },
+        {
+          "type": "STRING",
+          "value": "REG4"
+        },
+        {
+          "type": "STRING",
+          "value": "REG5"
+        },
+        {
+          "type": "STRING",
+          "value": "REG6"
+        },
+        {
+          "type": "STRING",
+          "value": "REG7"
+        },
+        {
+          "type": "STRING",
+          "value": "REG8"
+        },
+        {
+          "type": "STRING",
+          "value": "REG9"
+        },
+        {
+          "type": "STRING",
+          "value": "REG11"
+        },
+        {
+          "type": "STRING",
+          "value": "REG12"
+        },
+        {
+          "type": "STRING",
+          "value": "REG13"
+        },
+        {
+          "type": "STRING",
+          "value": "REG14"
+        },
+        {
+          "type": "STRING",
+          "value": "REG15"
+        },
+        {
+          "type": "STRING",
+          "value": "REG16"
         }
       ]
     },
@@ -5893,7 +5957,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "for_each_statement"
+          "name": "control_flow_macro_statement"
         },
         {
           "type": "SYMBOL",
@@ -6657,7 +6721,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "list_entry_expression"
+          "name": "custom_macro_expressions"
         },
         {
           "type": "SYMBOL",
@@ -9846,7 +9910,7 @@
         }
       ]
     },
-    "_for_each_macro_name": {
+    "_control_flow_macro_name": {
       "type": "CHOICE",
       "members": [
         {
@@ -9867,6 +9931,10 @@
         },
         {
           "type": "STRING",
+          "value": "list_for_each_entry_rcu"
+        },
+        {
+          "type": "STRING",
           "value": "hlist_for_each_entry"
         },
         {
@@ -9884,10 +9952,18 @@
         {
           "type": "STRING",
           "value": "receive_queue_for_each_skb"
+        },
+        {
+          "type": "STRING",
+          "value": "forall_unix_sockets"
+        },
+        {
+          "type": "STRING",
+          "value": "IFDBG"
         }
       ]
     },
-    "for_each_statement": {
+    "control_flow_macro_statement": {
       "type": "PREC",
       "value": 1,
       "content": {
@@ -9898,7 +9974,7 @@
             "name": "name",
             "content": {
               "type": "SYMBOL",
-              "name": "_for_each_macro_name"
+              "name": "_control_flow_macro_name"
             }
           },
           {
@@ -9998,15 +10074,36 @@
         ]
       }
     },
-    "list_entry_expression": {
+    "ete_lk_macro": {
       "type": "PREC",
       "value": 2,
       "content": {
         "type": "SEQ",
         "members": [
           {
-            "type": "STRING",
-            "value": "list_entry"
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "list_entry"
+                },
+                {
+                  "type": "STRING",
+                  "value": "list_first_entry"
+                },
+                {
+                  "type": "STRING",
+                  "value": "list_first_entry_or_null"
+                },
+                {
+                  "type": "STRING",
+                  "value": "container_of"
+                }
+              ]
+            }
           },
           {
             "type": "STRING",
@@ -10041,7 +10138,7 @@
             "name": "member",
             "content": {
               "type": "SYMBOL",
-              "name": "_field_identifier"
+              "name": "expression"
             }
           },
           {
@@ -10050,6 +10147,310 @@
           }
         ]
       }
+    },
+    "ee_lk_macro": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "list_next_entry"
+                },
+                {
+                  "type": "STRING",
+                  "value": "list_prev_entry"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "pointer",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "member",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "et_lk_macro": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "TALLOC_P"
+                },
+                {
+                  "type": "STRING",
+                  "value": "talloc_get_type_abort"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "arg1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_descriptor"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "eet_lk_macro": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "DLIST_ADD_END"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "arg1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "arg2",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_descriptor"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "glib_macro": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "g_new"
+                },
+                {
+                  "type": "STRING",
+                  "value": "g_new0"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_descriptor"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "count",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "macro_with_statement_arg": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "GNUTLS_HASH_LOOP"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "body",
+            "content": {
+              "type": "SYMBOL",
+              "name": "statement"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "custom_macro_expressions": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ete_lk_macro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ee_lk_macro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "et_lk_macro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "eet_lk_macro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "glib_macro"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "macro_with_statement_arg"
+        }
+      ]
+    },
+    "function_attribute": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "noinline_for_stack"
+        },
+        {
+          "type": "STRING",
+          "value": "noinline"
+        }
+      ]
     }
   },
   "extras": [

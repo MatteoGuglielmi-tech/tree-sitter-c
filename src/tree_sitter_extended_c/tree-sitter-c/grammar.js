@@ -287,7 +287,9 @@ module.exports = grammar({
       $.attribute_declaration,
       $.ms_declspec_modifier,
 
-      $.init_specifier // custom __init specifier, mostly for kernel code
+      // custom
+      $.init_specifier,
+      $.function_attribute
     ),
 
     _declaration_specifiers: $ => prec.right(seq(
@@ -572,6 +574,22 @@ module.exports = grammar({
       '__forceinline',
       'thread_local',
       '__thread',
+      // -- preprocessor macros --
+      'REG1',
+      'REG2',
+      'REG3',
+      'REG4',
+      'REG5',
+      'REG6',
+      'REG7',
+      'REG8',
+      'REG9',
+      'REG11',
+      'REG12',
+      'REG13',
+      'REG14',
+      'REG15',
+      'REG16'
     ),
 
     type_qualifier: $ => choice(
@@ -797,7 +815,7 @@ module.exports = grammar({
     ),
 
     _non_case_statement: $ => choice(
-      $.for_each_statement, // linux macros
+      $.control_flow_macro_statement, // linux macros
       $.attributed_statement,
       $.labeled_statement,
       $.compound_statement,
@@ -970,7 +988,7 @@ module.exports = grammar({
 
     _expression_not_binary: $ => choice(
       $.cast_macro,
-      $.list_entry_expression,
+      $.custom_macro_expressions,
       $.min_t_expression, // min_t expressions
       $.asm_register, // asm register
 
@@ -1428,22 +1446,25 @@ module.exports = grammar({
       '32_DS',
     ),
 
-    _for_each_macro_name: $ => choice(
+    _control_flow_macro_name: $ => choice(
       'list_for_each_entry',
       'list_for_each_safe',
       'list_for_each_entry_safe',
       'list_for_each',
+      'list_for_each_entry_rcu',
       'hlist_for_each_entry',
       'sk_for_each',
       'sctp_walk_params',
       'sctp_tsnmap_init',
-      'receive_queue_for_each_skb'
+      'receive_queue_for_each_skb',
+      'forall_unix_sockets',
+      'IFDBG'
     ),
 
-    for_each_statement: $ => prec(1, seq(
-      field('name', $._for_each_macro_name),
+    control_flow_macro_statement: $ => prec(1, seq(
+      field('name', $._control_flow_macro_name),
       '(',
-      field('arguments', commaSep1($.expression)), // commaSep1 ensures there is at least one argument.
+      field('arguments', commaSep1($.expression)),
       ')',
       field('body', $.statement)
     )),
@@ -1459,16 +1480,103 @@ module.exports = grammar({
       ')'
     )),
 
-    list_entry_expression: $ => prec(2, seq(
-      'list_entry',
+    // MACRO(expression, type, expression)
+    ete_lk_macro: $ => prec(2, seq(
+      field('name', choice(
+        'list_entry',
+        'list_first_entry',
+        'list_first_entry_or_null',
+        'container_of'
+      )),
       '(',
       field('pointer', $.expression),
       ',',
       field('type', $.type_descriptor),
       ',',
-      field('member', $._field_identifier),
-      ')',
+      field('member', $.expression),
+      ')'
     )),
+
+    // MACRO(expression, expression)
+    ee_lk_macro: $ => prec(2, seq(
+      field('name', choice(
+        'list_next_entry',
+        'list_prev_entry'
+      )),
+      '(',
+      field('pointer', $.expression),
+      ',',
+      field('member', $.expression),
+      ')'
+    )),
+
+    // MACRO(expression, type)
+    et_lk_macro: $ => prec(2, seq(
+      field('name', choice(
+        'TALLOC_P',
+        'talloc_get_type_abort'
+      )),
+      '(',
+      field('arg1', $.expression),
+      ',',
+      field('type', $.type_descriptor),
+      ')'
+    )),
+
+    // MACRO(expression, expression, type)
+    eet_lk_macro: $ => prec(2, seq(
+      field('name', choice(
+        'DLIST_ADD_END'
+        // Add other macros with this signature here
+      )),
+      '(',
+      field('arg1', $.expression),
+      ',',
+      field('arg2', $.expression),
+      ',',
+      field('type', $.type_descriptor),
+      ')'
+    )),
+
+    // MACRO(type, expression_count)
+    glib_macro: $ => prec(2, seq(
+      field('name', choice(
+        'g_new', 
+        'g_new0'
+      )),
+      '(',
+      field('type', $.type_descriptor),
+      ',',
+      field('count', $.expression),
+      ')'
+    )),
+
+    macro_with_statement_arg: $ => prec(2, seq(
+      field('name', choice(
+        'GNUTLS_HASH_LOOP'
+        // Add other macros with this signature here
+      )),
+      '(',
+      field('body', $.statement),
+      ')'
+    )),
+
+    custom_macro_expressions: $ => choice(
+      $.ete_lk_macro, // (expression, type, expression) linux kernel macro
+      $.ee_lk_macro,  // (expression, expression) linux kernel macro
+      $.et_lk_macro,  // (expression, type) linux kernel macro
+      $.eet_lk_macro, // (expression, expression, type) linux kernel macro
+      $.glib_macro,   // (expression, type) glib macro
+      $.macro_with_statement_arg
+
+    ),
+
+    function_attribute: $ => choice(
+      'noinline_for_stack',
+      'noinline'
+    ),
+
+
 
   },
 

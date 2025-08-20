@@ -164,6 +164,10 @@
         "named": true
       },
       {
+        "type": "custom_macro_expressions",
+        "named": true
+      },
+      {
         "type": "extension_expression",
         "named": true
       },
@@ -185,10 +189,6 @@
       },
       {
         "type": "identifier",
-        "named": true
-      },
-      {
-        "type": "list_entry_expression",
         "named": true
       },
       {
@@ -266,15 +266,15 @@
         "named": true
       },
       {
+        "type": "control_flow_macro_statement",
+        "named": true
+      },
+      {
         "type": "do_statement",
         "named": true
       },
       {
         "type": "expression_statement",
-        "named": true
-      },
-      {
-        "type": "for_each_statement",
         "named": true
       },
       {
@@ -1001,6 +1001,10 @@
           "named": true
         },
         {
+          "type": "control_flow_macro_statement",
+          "named": true
+        },
+        {
           "type": "declaration",
           "named": true
         },
@@ -1010,10 +1014,6 @@
         },
         {
           "type": "expression_statement",
-          "named": true
-        },
-        {
-          "type": "for_each_statement",
           "named": true
         },
         {
@@ -1320,6 +1320,125 @@
     "fields": {}
   },
   {
+    "type": "control_flow_macro_statement",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "IFDBG",
+            "named": false
+          },
+          {
+            "type": "forall_unix_sockets",
+            "named": false
+          },
+          {
+            "type": "hlist_for_each_entry",
+            "named": false
+          },
+          {
+            "type": "list_for_each",
+            "named": false
+          },
+          {
+            "type": "list_for_each_entry",
+            "named": false
+          },
+          {
+            "type": "list_for_each_entry_rcu",
+            "named": false
+          },
+          {
+            "type": "list_for_each_entry_safe",
+            "named": false
+          },
+          {
+            "type": "list_for_each_safe",
+            "named": false
+          },
+          {
+            "type": "receive_queue_for_each_skb",
+            "named": false
+          },
+          {
+            "type": "sctp_tsnmap_init",
+            "named": false
+          },
+          {
+            "type": "sctp_walk_params",
+            "named": false
+          },
+          {
+            "type": "sk_for_each",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "custom_macro_expressions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ee_lk_macro",
+          "named": true
+        },
+        {
+          "type": "eet_lk_macro",
+          "named": true
+        },
+        {
+          "type": "et_lk_macro",
+          "named": true
+        },
+        {
+          "type": "ete_lk_macro",
+          "named": true
+        },
+        {
+          "type": "glib_macro",
+          "named": true
+        },
+        {
+          "type": "macro_with_statement_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "declaration",
     "named": true,
     "fields": {
@@ -1386,6 +1505,10 @@
         },
         {
           "type": "attribute_specifier",
+          "named": true
+        },
+        {
+          "type": "function_attribute",
           "named": true
         },
         {
@@ -1486,6 +1609,92 @@
         "types": [
           {
             "type": "parenthesized_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ee_lk_macro",
+    "named": true,
+    "fields": {
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "list_next_entry",
+            "named": false
+          },
+          {
+            "type": "list_prev_entry",
+            "named": false
+          }
+        ]
+      },
+      "pointer": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "eet_lk_macro",
+    "named": true,
+    "fields": {
+      "arg1": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "arg2": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "DLIST_ADD_END",
+            "named": false
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
             "named": true
           }
         ]
@@ -1607,6 +1816,104 @@
     }
   },
   {
+    "type": "et_lk_macro",
+    "named": true,
+    "fields": {
+      "arg1": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "TALLOC_P",
+            "named": false
+          },
+          {
+            "type": "talloc_get_type_abort",
+            "named": false
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ete_lk_macro",
+    "named": true,
+    "fields": {
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "container_of",
+            "named": false
+          },
+          {
+            "type": "list_entry",
+            "named": false
+          },
+          {
+            "type": "list_first_entry",
+            "named": false
+          },
+          {
+            "type": "list_first_entry_or_null",
+            "named": false
+          }
+        ]
+      },
+      "pointer": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "expression_statement",
     "named": true,
     "fields": {},
@@ -1679,6 +1986,10 @@
         },
         {
           "type": "bitfield_clause",
+          "named": true
+        },
+        {
+          "type": "function_attribute",
           "named": true
         },
         {
@@ -1791,78 +2102,6 @@
     }
   },
   {
-    "type": "for_each_statement",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "statement",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "hlist_for_each_entry",
-            "named": false
-          },
-          {
-            "type": "list_for_each",
-            "named": false
-          },
-          {
-            "type": "list_for_each_entry",
-            "named": false
-          },
-          {
-            "type": "list_for_each_entry_safe",
-            "named": false
-          },
-          {
-            "type": "list_for_each_safe",
-            "named": false
-          },
-          {
-            "type": "receive_queue_for_each_skb",
-            "named": false
-          },
-          {
-            "type": "sctp_tsnmap_init",
-            "named": false
-          },
-          {
-            "type": "sctp_walk_params",
-            "named": false
-          },
-          {
-            "type": "sk_for_each",
-            "named": false
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "for_statement",
     "named": true,
     "fields": {
@@ -1923,6 +2162,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "function_attribute",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "function_declarator",
@@ -2032,6 +2276,10 @@
           "named": true
         },
         {
+          "type": "function_attribute",
+          "named": true
+        },
+        {
           "type": "init_specifier",
           "named": true
         },
@@ -2071,6 +2319,46 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "glib_macro",
+    "named": true,
+    "fields": {
+      "count": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "g_new",
+            "named": false
+          },
+          {
+            "type": "g_new0",
+            "named": false
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2533,42 +2821,6 @@
     }
   },
   {
-    "type": "list_entry_expression",
-    "named": true,
-    "fields": {
-      "member": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "field_identifier",
-            "named": true
-          }
-        ]
-      },
-      "pointer": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_descriptor",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "macro_type_specifier",
     "named": true,
     "fields": {
@@ -2589,6 +2841,32 @@
           {
             "type": "type_descriptor",
             "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "macro_with_statement_arg",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "GNUTLS_HASH_LOOP",
+            "named": false
           }
         ]
       }
@@ -2767,6 +3045,10 @@
         },
         {
           "type": "attribute_specifier",
+          "named": true
+        },
+        {
+          "type": "function_attribute",
           "named": true
         },
         {
@@ -4462,6 +4744,18 @@
     "named": false
   },
   {
+    "type": "DLIST_ADD_END",
+    "named": false
+  },
+  {
+    "type": "GNUTLS_HASH_LOOP",
+    "named": false
+  },
+  {
+    "type": "IFDBG",
+    "named": false
+  },
+  {
     "type": "IF_DESKTOP",
     "named": false
   },
@@ -4479,6 +4773,70 @@
   },
   {
     "type": "NULL",
+    "named": false
+  },
+  {
+    "type": "REG1",
+    "named": false
+  },
+  {
+    "type": "REG11",
+    "named": false
+  },
+  {
+    "type": "REG12",
+    "named": false
+  },
+  {
+    "type": "REG13",
+    "named": false
+  },
+  {
+    "type": "REG14",
+    "named": false
+  },
+  {
+    "type": "REG15",
+    "named": false
+  },
+  {
+    "type": "REG16",
+    "named": false
+  },
+  {
+    "type": "REG2",
+    "named": false
+  },
+  {
+    "type": "REG3",
+    "named": false
+  },
+  {
+    "type": "REG4",
+    "named": false
+  },
+  {
+    "type": "REG5",
+    "named": false
+  },
+  {
+    "type": "REG6",
+    "named": false
+  },
+  {
+    "type": "REG7",
+    "named": false
+  },
+  {
+    "type": "REG8",
+    "named": false
+  },
+  {
+    "type": "REG9",
+    "named": false
+  },
+  {
+    "type": "TALLOC_P",
     "named": false
   },
   {
@@ -4699,6 +5057,10 @@
     "named": false
   },
   {
+    "type": "container_of",
+    "named": false
+  },
+  {
     "type": "continue",
     "named": false
   },
@@ -4743,6 +5105,18 @@
     "named": false
   },
   {
+    "type": "forall_unix_sockets",
+    "named": false
+  },
+  {
+    "type": "g_new",
+    "named": false
+  },
+  {
+    "type": "g_new0",
+    "named": false
+  },
+  {
     "type": "goto",
     "named": false
   },
@@ -4767,6 +5141,14 @@
     "named": false
   },
   {
+    "type": "list_first_entry",
+    "named": false
+  },
+  {
+    "type": "list_first_entry_or_null",
+    "named": false
+  },
+  {
     "type": "list_for_each",
     "named": false
   },
@@ -4775,11 +5157,23 @@
     "named": false
   },
   {
+    "type": "list_for_each_entry_rcu",
+    "named": false
+  },
+  {
     "type": "list_for_each_entry_safe",
     "named": false
   },
   {
     "type": "list_for_each_safe",
+    "named": false
+  },
+  {
+    "type": "list_next_entry",
+    "named": false
+  },
+  {
+    "type": "list_prev_entry",
     "named": false
   },
   {
@@ -4801,6 +5195,14 @@
   {
     "type": "ms_unsigned_ptr_modifier",
     "named": true
+  },
+  {
+    "type": "noinline",
+    "named": false
+  },
+  {
+    "type": "noinline_for_stack",
+    "named": false
   },
   {
     "type": "noreturn",
@@ -4893,6 +5295,10 @@
   {
     "type": "system_lib_string",
     "named": true
+  },
+  {
+    "type": "talloc_get_type_abort",
+    "named": false
   },
   {
     "type": "thread_local",
