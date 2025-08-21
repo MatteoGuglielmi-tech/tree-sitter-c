@@ -815,6 +815,7 @@ module.exports = grammar({
     ),
 
     _non_case_statement: $ => choice(
+      $.macro_wrapped_statement,
       $.declaration_macro_statement,
       $.control_flow_macro_statement, // linux macros
       $.attributed_statement,
@@ -1602,6 +1603,14 @@ module.exports = grammar({
       field('value', $.expression),
       ')',
       ';'
+    ),
+
+    macro_wrapped_statement: $ => seq(
+      field('name', choice(
+        'BEGINfunc',
+        'ENDfunc'
+      )),
+      field('statement', $.statement)
     ),
 
 

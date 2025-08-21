@@ -298,6 +298,10 @@
         "named": true
       },
       {
+        "type": "macro_wrapped_statement",
+        "named": true
+      },
+      {
         "type": "return_statement",
         "named": true
       },
@@ -1038,6 +1042,10 @@
         },
         {
           "type": "labeled_statement",
+          "named": true
+        },
+        {
+          "type": "macro_wrapped_statement",
           "named": true
         },
         {
@@ -2929,6 +2937,36 @@
           {
             "type": "GNUTLS_HASH_LOOP",
             "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "macro_wrapped_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "BEGINfunc",
+            "named": false
+          },
+          {
+            "type": "ENDfunc",
+            "named": false
+          }
+        ]
+      },
+      "statement": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "statement",
+            "named": true
           }
         ]
       }
@@ -4840,6 +4878,10 @@
     "named": false
   },
   {
+    "type": "BEGINfunc",
+    "named": false
+  },
+  {
     "type": "CS",
     "named": false
   },
@@ -4849,6 +4891,10 @@
   },
   {
     "type": "DLIST_ADD_END",
+    "named": false
+  },
+  {
+    "type": "ENDfunc",
     "named": false
   },
   {
