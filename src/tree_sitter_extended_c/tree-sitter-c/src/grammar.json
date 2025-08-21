@@ -10422,6 +10422,47 @@
         ]
       }
     },
+    "va_arg_expression": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "va_arg"
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "list",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_descriptor"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
     "custom_macro_expressions": {
       "type": "CHOICE",
       "members": [
@@ -10448,6 +10489,10 @@
         {
           "type": "SYMBOL",
           "name": "macro_with_statement_arg"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "va_arg_expression"
         }
       ]
     },

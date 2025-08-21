@@ -1562,6 +1562,15 @@ module.exports = grammar({
       ')'
     )),
 
+    // va_arg(argument_list, type_name)
+    va_arg_expression: $ => prec(2, seq(
+      'va_arg',
+      '(',
+      field('list', $.expression),
+      ',',
+      field('type', $.type_descriptor),
+      ')'
+    )),
 
     custom_macro_expressions: $ => choice(
       $.ete_lk_macro, // (expression, type, expression) linux kernel macro
@@ -1569,8 +1578,8 @@ module.exports = grammar({
       $.et_lk_macro,  // (expression, type) linux kernel macro
       $.eet_lk_macro, // (expression, expression, type) linux kernel macro
       $.glib_macro,   // (expression, type) glib macro
-      $.macro_with_statement_arg
-
+      $.macro_with_statement_arg,
+      $.va_arg_expression
     ),
 
     function_attribute: $ => choice(
@@ -1593,6 +1602,7 @@ module.exports = grammar({
       ')',
       ';'
     ),
+
 
   },
 

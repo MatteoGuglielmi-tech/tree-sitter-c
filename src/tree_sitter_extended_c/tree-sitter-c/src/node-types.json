@@ -1442,6 +1442,10 @@
         {
           "type": "macro_with_statement_arg",
           "named": true
+        },
+        {
+          "type": "va_arg_expression",
+          "named": true
         }
       ]
     }
@@ -4567,6 +4571,32 @@
     }
   },
   {
+    "type": "va_arg_expression",
+    "named": true,
+    "fields": {
+      "list": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "variadic_parameter",
     "named": true,
     "fields": {}
@@ -5420,6 +5450,10 @@
   },
   {
     "type": "unsigned",
+    "named": false
+  },
+  {
+    "type": "va_arg",
     "named": false
   },
   {
