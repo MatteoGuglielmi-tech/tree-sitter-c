@@ -1459,7 +1459,8 @@ module.exports = grammar({
       'sctp_tsnmap_init',
       'receive_queue_for_each_skb',
       'forall_unix_sockets',
-      'IFDBG'
+      'IFDBG',
+      'xt_entry_foreach'
     ),
 
     control_flow_macro_statement: $ => prec(1, seq(

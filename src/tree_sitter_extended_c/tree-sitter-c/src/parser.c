@@ -17,9 +17,9 @@
 #define LANGUAGE_VERSION 15
 #define STATE_COUNT 2222
 #define LARGE_STATE_COUNT 833
-#define SYMBOL_COUNT 433
+#define SYMBOL_COUNT 434
 #define ALIAS_COUNT 3
-#define TOKEN_COUNT 215
+#define TOKEN_COUNT 216
 #define EXTERNAL_TOKEN_COUNT 0
 #define FIELD_COUNT 49
 #define MAX_ALIAS_SEQUENCE_LENGTH 9
@@ -223,246 +223,247 @@ enum ts_symbol_identifiers {
   anon_sym_receive_queue_for_each_skb = 193,
   anon_sym_forall_unix_sockets = 194,
   anon_sym_IFDBG = 195,
-  anon_sym_JAS_CAST = 196,
-  anon_sym_list_entry = 197,
-  anon_sym_list_first_entry = 198,
-  anon_sym_list_first_entry_or_null = 199,
-  anon_sym_container_of = 200,
-  anon_sym_list_next_entry = 201,
-  anon_sym_list_prev_entry = 202,
-  anon_sym_TALLOC_P = 203,
-  anon_sym_talloc_get_type_abort = 204,
-  anon_sym_DLIST_ADD_END = 205,
-  anon_sym_g_new = 206,
-  anon_sym_g_new0 = 207,
-  anon_sym_GNUTLS_HASH_LOOP = 208,
-  anon_sym_va_arg = 209,
-  anon_sym_noinline_for_stack = 210,
-  anon_sym_noinline = 211,
-  anon_sym___must_check = 212,
-  anon_sym_SCTP_STATIC = 213,
-  anon_sym_DECLARE_SOCKADDR = 214,
-  sym_translation_unit = 215,
-  sym__top_level_item = 216,
-  sym__block_item = 217,
-  sym_preproc_include = 218,
-  sym_preproc_def = 219,
-  sym_preproc_function_def = 220,
-  sym_preproc_params = 221,
-  sym_preproc_call = 222,
-  sym_preproc_if = 223,
-  sym_preproc_ifdef = 224,
-  sym_preproc_else = 225,
-  sym_preproc_elif = 226,
-  sym_preproc_elifdef = 227,
-  sym_preproc_if_in_field_declaration_list = 228,
-  sym_preproc_ifdef_in_field_declaration_list = 229,
-  sym_preproc_else_in_field_declaration_list = 230,
-  sym_preproc_elif_in_field_declaration_list = 231,
-  sym_preproc_elifdef_in_field_declaration_list = 232,
-  sym_preproc_if_in_enumerator_list = 233,
-  sym_preproc_ifdef_in_enumerator_list = 234,
-  sym_preproc_else_in_enumerator_list = 235,
-  sym_preproc_elif_in_enumerator_list = 236,
-  sym_preproc_elifdef_in_enumerator_list = 237,
-  sym_preproc_if_in_enumerator_list_no_comma = 238,
-  sym_preproc_ifdef_in_enumerator_list_no_comma = 239,
-  sym_preproc_else_in_enumerator_list_no_comma = 240,
-  sym_preproc_elif_in_enumerator_list_no_comma = 241,
-  sym_preproc_elifdef_in_enumerator_list_no_comma = 242,
-  sym__preproc_expression = 243,
-  sym_preproc_parenthesized_expression = 244,
-  sym_preproc_defined = 245,
-  sym_preproc_unary_expression = 246,
-  sym_preproc_call_expression = 247,
-  sym_preproc_argument_list = 248,
-  sym_preproc_binary_expression = 249,
-  sym_function_definition = 250,
-  sym__old_style_function_definition = 251,
-  sym_declaration = 252,
-  sym_type_definition = 253,
-  sym__type_definition_type = 254,
-  sym__type_definition_declarators = 255,
-  sym__declaration_modifiers = 256,
-  sym__declaration_specifiers = 257,
-  sym_linkage_specification = 258,
-  sym_attribute_specifier = 259,
-  sym_attribute = 260,
-  sym_attribute_declaration = 261,
-  sym_ms_declspec_modifier = 262,
-  sym_ms_based_modifier = 263,
-  sym_ms_call_modifier = 264,
-  sym_ms_unaligned_ptr_modifier = 265,
-  sym_ms_pointer_modifier = 266,
-  sym_declaration_list = 267,
-  sym__declarator = 268,
-  sym__declaration_declarator = 269,
-  sym__field_declarator = 270,
-  sym__type_declarator = 271,
-  sym__abstract_declarator = 272,
-  sym_parenthesized_declarator = 273,
-  sym_parenthesized_field_declarator = 274,
-  sym_parenthesized_type_declarator = 275,
-  sym_abstract_parenthesized_declarator = 276,
-  sym_attributed_declarator = 277,
-  sym_attributed_field_declarator = 278,
-  sym_attributed_type_declarator = 279,
-  sym_pointer_declarator = 280,
-  sym_pointer_field_declarator = 281,
-  sym_pointer_type_declarator = 282,
-  sym_abstract_pointer_declarator = 283,
-  sym_function_declarator = 284,
-  sym__function_declaration_declarator = 285,
-  sym_function_field_declarator = 286,
-  sym_function_type_declarator = 287,
-  sym_abstract_function_declarator = 288,
-  sym__old_style_function_declarator = 289,
-  sym_array_declarator = 290,
-  sym_array_field_declarator = 291,
-  sym_array_type_declarator = 292,
-  sym_abstract_array_declarator = 293,
-  sym_init_declarator = 294,
-  sym_compound_statement = 295,
-  sym_storage_class_specifier = 296,
-  sym_type_qualifier = 297,
-  sym_alignas_qualifier = 298,
-  sym_type_specifier = 299,
-  sym_sized_type_specifier = 300,
-  sym_enum_specifier = 301,
-  sym_enumerator_list = 302,
-  sym_struct_specifier = 303,
-  sym_union_specifier = 304,
-  sym_field_declaration_list = 305,
-  sym__field_declaration_list_item = 306,
-  sym_field_declaration = 307,
-  sym__field_declaration_declarator = 308,
-  sym_bitfield_clause = 309,
-  sym_enumerator = 310,
-  sym_variadic_parameter = 311,
-  sym_parameter_list = 312,
-  sym__old_style_parameter_list = 313,
-  sym_parameter_declaration = 314,
-  sym_attributed_statement = 315,
-  sym_statement = 316,
-  sym__top_level_statement = 317,
-  sym_labeled_statement = 318,
-  sym__top_level_expression_statement = 319,
-  sym_expression_statement = 320,
-  sym_if_statement = 321,
-  sym_else_clause = 322,
-  sym_switch_statement = 323,
-  sym_case_statement = 324,
-  sym_while_statement = 325,
-  sym_do_statement = 326,
-  sym_for_statement = 327,
-  sym__for_statement_body = 328,
-  sym_return_statement = 329,
-  sym_break_statement = 330,
-  sym_continue_statement = 331,
-  sym_goto_statement = 332,
-  sym_seh_try_statement = 333,
-  sym_seh_except_clause = 334,
-  sym_seh_finally_clause = 335,
-  sym_seh_leave_statement = 336,
-  sym_expression = 337,
-  sym__string = 338,
-  sym_comma_expression = 339,
-  sym_conditional_expression = 340,
-  sym_assignment_expression = 341,
-  sym_pointer_expression = 342,
-  sym_unary_expression = 343,
-  sym_binary_expression = 344,
-  sym_update_expression = 345,
-  sym_cast_expression = 346,
-  sym_type_descriptor = 347,
-  sym_sizeof_expression = 348,
-  sym_alignof_expression = 349,
-  sym_offsetof_expression = 350,
-  sym_generic_expression = 351,
-  sym_subscript_expression = 352,
-  sym_call_expression = 353,
-  sym_gnu_asm_expression = 354,
-  sym_gnu_asm_qualifier = 355,
-  sym_gnu_asm_output_operand_list = 356,
-  sym_gnu_asm_output_operand = 357,
-  sym_gnu_asm_input_operand_list = 358,
-  sym_gnu_asm_input_operand = 359,
-  sym_gnu_asm_clobber_list = 360,
-  sym_gnu_asm_goto_list = 361,
-  sym_extension_expression = 362,
-  sym_argument_list = 363,
-  sym_field_expression = 364,
-  sym_compound_literal_expression = 365,
-  sym_parenthesized_expression = 366,
-  sym_initializer_list = 367,
-  sym_initializer_pair = 368,
-  sym_subscript_designator = 369,
-  sym_subscript_range_designator = 370,
-  sym_field_designator = 371,
-  sym_char_literal = 372,
-  sym_concatenated_string = 373,
-  sym_string_literal = 374,
-  sym_null = 375,
-  sym__empty_declaration = 376,
-  sym_macro_type_specifier = 377,
-  sym_min_t_expression = 378,
-  sym_if_desktop_macro = 379,
-  sym_init_specifier = 380,
-  sym_asm_register = 381,
-  sym__control_flow_macro_name = 382,
-  sym_control_flow_macro_statement = 383,
-  sym__cast_macro_name = 384,
-  sym_cast_macro = 385,
-  sym_ete_lk_macro = 386,
-  sym_ee_lk_macro = 387,
-  sym_et_lk_macro = 388,
-  sym_eet_lk_macro = 389,
-  sym_glib_macro = 390,
-  sym_macro_with_statement_arg = 391,
-  sym_va_arg_expression = 392,
-  sym_custom_macro_expressions = 393,
-  sym_function_attribute = 394,
-  sym_declaration_macro_statement = 395,
-  aux_sym_translation_unit_repeat1 = 396,
-  aux_sym_preproc_params_repeat1 = 397,
-  aux_sym_preproc_if_repeat1 = 398,
-  aux_sym_preproc_if_in_field_declaration_list_repeat1 = 399,
-  aux_sym_preproc_if_in_enumerator_list_repeat1 = 400,
-  aux_sym_preproc_if_in_enumerator_list_no_comma_repeat1 = 401,
-  aux_sym_preproc_argument_list_repeat1 = 402,
-  aux_sym__old_style_function_definition_repeat1 = 403,
-  aux_sym_declaration_repeat1 = 404,
-  aux_sym_type_definition_repeat1 = 405,
-  aux_sym__type_definition_type_repeat1 = 406,
-  aux_sym__type_definition_declarators_repeat1 = 407,
-  aux_sym__declaration_specifiers_repeat1 = 408,
-  aux_sym_attribute_declaration_repeat1 = 409,
-  aux_sym_attributed_declarator_repeat1 = 410,
-  aux_sym_pointer_declarator_repeat1 = 411,
-  aux_sym_function_declarator_repeat1 = 412,
-  aux_sym_array_declarator_repeat1 = 413,
-  aux_sym_sized_type_specifier_repeat1 = 414,
-  aux_sym_enumerator_list_repeat1 = 415,
-  aux_sym__field_declaration_declarator_repeat1 = 416,
-  aux_sym_parameter_list_repeat1 = 417,
-  aux_sym__old_style_parameter_list_repeat1 = 418,
-  aux_sym_case_statement_repeat1 = 419,
-  aux_sym_generic_expression_repeat1 = 420,
-  aux_sym_gnu_asm_expression_repeat1 = 421,
-  aux_sym_gnu_asm_output_operand_list_repeat1 = 422,
-  aux_sym_gnu_asm_input_operand_list_repeat1 = 423,
-  aux_sym_gnu_asm_clobber_list_repeat1 = 424,
-  aux_sym_gnu_asm_goto_list_repeat1 = 425,
-  aux_sym_argument_list_repeat1 = 426,
-  aux_sym_initializer_list_repeat1 = 427,
-  aux_sym_initializer_pair_repeat1 = 428,
-  aux_sym_char_literal_repeat1 = 429,
-  aux_sym_concatenated_string_repeat1 = 430,
-  aux_sym_string_literal_repeat1 = 431,
-  aux_sym_control_flow_macro_statement_repeat1 = 432,
-  alias_sym_field_identifier = 433,
-  alias_sym_statement_identifier = 434,
-  alias_sym_type_identifier = 435,
+  anon_sym_xt_entry_foreach = 196,
+  anon_sym_JAS_CAST = 197,
+  anon_sym_list_entry = 198,
+  anon_sym_list_first_entry = 199,
+  anon_sym_list_first_entry_or_null = 200,
+  anon_sym_container_of = 201,
+  anon_sym_list_next_entry = 202,
+  anon_sym_list_prev_entry = 203,
+  anon_sym_TALLOC_P = 204,
+  anon_sym_talloc_get_type_abort = 205,
+  anon_sym_DLIST_ADD_END = 206,
+  anon_sym_g_new = 207,
+  anon_sym_g_new0 = 208,
+  anon_sym_GNUTLS_HASH_LOOP = 209,
+  anon_sym_va_arg = 210,
+  anon_sym_noinline_for_stack = 211,
+  anon_sym_noinline = 212,
+  anon_sym___must_check = 213,
+  anon_sym_SCTP_STATIC = 214,
+  anon_sym_DECLARE_SOCKADDR = 215,
+  sym_translation_unit = 216,
+  sym__top_level_item = 217,
+  sym__block_item = 218,
+  sym_preproc_include = 219,
+  sym_preproc_def = 220,
+  sym_preproc_function_def = 221,
+  sym_preproc_params = 222,
+  sym_preproc_call = 223,
+  sym_preproc_if = 224,
+  sym_preproc_ifdef = 225,
+  sym_preproc_else = 226,
+  sym_preproc_elif = 227,
+  sym_preproc_elifdef = 228,
+  sym_preproc_if_in_field_declaration_list = 229,
+  sym_preproc_ifdef_in_field_declaration_list = 230,
+  sym_preproc_else_in_field_declaration_list = 231,
+  sym_preproc_elif_in_field_declaration_list = 232,
+  sym_preproc_elifdef_in_field_declaration_list = 233,
+  sym_preproc_if_in_enumerator_list = 234,
+  sym_preproc_ifdef_in_enumerator_list = 235,
+  sym_preproc_else_in_enumerator_list = 236,
+  sym_preproc_elif_in_enumerator_list = 237,
+  sym_preproc_elifdef_in_enumerator_list = 238,
+  sym_preproc_if_in_enumerator_list_no_comma = 239,
+  sym_preproc_ifdef_in_enumerator_list_no_comma = 240,
+  sym_preproc_else_in_enumerator_list_no_comma = 241,
+  sym_preproc_elif_in_enumerator_list_no_comma = 242,
+  sym_preproc_elifdef_in_enumerator_list_no_comma = 243,
+  sym__preproc_expression = 244,
+  sym_preproc_parenthesized_expression = 245,
+  sym_preproc_defined = 246,
+  sym_preproc_unary_expression = 247,
+  sym_preproc_call_expression = 248,
+  sym_preproc_argument_list = 249,
+  sym_preproc_binary_expression = 250,
+  sym_function_definition = 251,
+  sym__old_style_function_definition = 252,
+  sym_declaration = 253,
+  sym_type_definition = 254,
+  sym__type_definition_type = 255,
+  sym__type_definition_declarators = 256,
+  sym__declaration_modifiers = 257,
+  sym__declaration_specifiers = 258,
+  sym_linkage_specification = 259,
+  sym_attribute_specifier = 260,
+  sym_attribute = 261,
+  sym_attribute_declaration = 262,
+  sym_ms_declspec_modifier = 263,
+  sym_ms_based_modifier = 264,
+  sym_ms_call_modifier = 265,
+  sym_ms_unaligned_ptr_modifier = 266,
+  sym_ms_pointer_modifier = 267,
+  sym_declaration_list = 268,
+  sym__declarator = 269,
+  sym__declaration_declarator = 270,
+  sym__field_declarator = 271,
+  sym__type_declarator = 272,
+  sym__abstract_declarator = 273,
+  sym_parenthesized_declarator = 274,
+  sym_parenthesized_field_declarator = 275,
+  sym_parenthesized_type_declarator = 276,
+  sym_abstract_parenthesized_declarator = 277,
+  sym_attributed_declarator = 278,
+  sym_attributed_field_declarator = 279,
+  sym_attributed_type_declarator = 280,
+  sym_pointer_declarator = 281,
+  sym_pointer_field_declarator = 282,
+  sym_pointer_type_declarator = 283,
+  sym_abstract_pointer_declarator = 284,
+  sym_function_declarator = 285,
+  sym__function_declaration_declarator = 286,
+  sym_function_field_declarator = 287,
+  sym_function_type_declarator = 288,
+  sym_abstract_function_declarator = 289,
+  sym__old_style_function_declarator = 290,
+  sym_array_declarator = 291,
+  sym_array_field_declarator = 292,
+  sym_array_type_declarator = 293,
+  sym_abstract_array_declarator = 294,
+  sym_init_declarator = 295,
+  sym_compound_statement = 296,
+  sym_storage_class_specifier = 297,
+  sym_type_qualifier = 298,
+  sym_alignas_qualifier = 299,
+  sym_type_specifier = 300,
+  sym_sized_type_specifier = 301,
+  sym_enum_specifier = 302,
+  sym_enumerator_list = 303,
+  sym_struct_specifier = 304,
+  sym_union_specifier = 305,
+  sym_field_declaration_list = 306,
+  sym__field_declaration_list_item = 307,
+  sym_field_declaration = 308,
+  sym__field_declaration_declarator = 309,
+  sym_bitfield_clause = 310,
+  sym_enumerator = 311,
+  sym_variadic_parameter = 312,
+  sym_parameter_list = 313,
+  sym__old_style_parameter_list = 314,
+  sym_parameter_declaration = 315,
+  sym_attributed_statement = 316,
+  sym_statement = 317,
+  sym__top_level_statement = 318,
+  sym_labeled_statement = 319,
+  sym__top_level_expression_statement = 320,
+  sym_expression_statement = 321,
+  sym_if_statement = 322,
+  sym_else_clause = 323,
+  sym_switch_statement = 324,
+  sym_case_statement = 325,
+  sym_while_statement = 326,
+  sym_do_statement = 327,
+  sym_for_statement = 328,
+  sym__for_statement_body = 329,
+  sym_return_statement = 330,
+  sym_break_statement = 331,
+  sym_continue_statement = 332,
+  sym_goto_statement = 333,
+  sym_seh_try_statement = 334,
+  sym_seh_except_clause = 335,
+  sym_seh_finally_clause = 336,
+  sym_seh_leave_statement = 337,
+  sym_expression = 338,
+  sym__string = 339,
+  sym_comma_expression = 340,
+  sym_conditional_expression = 341,
+  sym_assignment_expression = 342,
+  sym_pointer_expression = 343,
+  sym_unary_expression = 344,
+  sym_binary_expression = 345,
+  sym_update_expression = 346,
+  sym_cast_expression = 347,
+  sym_type_descriptor = 348,
+  sym_sizeof_expression = 349,
+  sym_alignof_expression = 350,
+  sym_offsetof_expression = 351,
+  sym_generic_expression = 352,
+  sym_subscript_expression = 353,
+  sym_call_expression = 354,
+  sym_gnu_asm_expression = 355,
+  sym_gnu_asm_qualifier = 356,
+  sym_gnu_asm_output_operand_list = 357,
+  sym_gnu_asm_output_operand = 358,
+  sym_gnu_asm_input_operand_list = 359,
+  sym_gnu_asm_input_operand = 360,
+  sym_gnu_asm_clobber_list = 361,
+  sym_gnu_asm_goto_list = 362,
+  sym_extension_expression = 363,
+  sym_argument_list = 364,
+  sym_field_expression = 365,
+  sym_compound_literal_expression = 366,
+  sym_parenthesized_expression = 367,
+  sym_initializer_list = 368,
+  sym_initializer_pair = 369,
+  sym_subscript_designator = 370,
+  sym_subscript_range_designator = 371,
+  sym_field_designator = 372,
+  sym_char_literal = 373,
+  sym_concatenated_string = 374,
+  sym_string_literal = 375,
+  sym_null = 376,
+  sym__empty_declaration = 377,
+  sym_macro_type_specifier = 378,
+  sym_min_t_expression = 379,
+  sym_if_desktop_macro = 380,
+  sym_init_specifier = 381,
+  sym_asm_register = 382,
+  sym__control_flow_macro_name = 383,
+  sym_control_flow_macro_statement = 384,
+  sym__cast_macro_name = 385,
+  sym_cast_macro = 386,
+  sym_ete_lk_macro = 387,
+  sym_ee_lk_macro = 388,
+  sym_et_lk_macro = 389,
+  sym_eet_lk_macro = 390,
+  sym_glib_macro = 391,
+  sym_macro_with_statement_arg = 392,
+  sym_va_arg_expression = 393,
+  sym_custom_macro_expressions = 394,
+  sym_function_attribute = 395,
+  sym_declaration_macro_statement = 396,
+  aux_sym_translation_unit_repeat1 = 397,
+  aux_sym_preproc_params_repeat1 = 398,
+  aux_sym_preproc_if_repeat1 = 399,
+  aux_sym_preproc_if_in_field_declaration_list_repeat1 = 400,
+  aux_sym_preproc_if_in_enumerator_list_repeat1 = 401,
+  aux_sym_preproc_if_in_enumerator_list_no_comma_repeat1 = 402,
+  aux_sym_preproc_argument_list_repeat1 = 403,
+  aux_sym__old_style_function_definition_repeat1 = 404,
+  aux_sym_declaration_repeat1 = 405,
+  aux_sym_type_definition_repeat1 = 406,
+  aux_sym__type_definition_type_repeat1 = 407,
+  aux_sym__type_definition_declarators_repeat1 = 408,
+  aux_sym__declaration_specifiers_repeat1 = 409,
+  aux_sym_attribute_declaration_repeat1 = 410,
+  aux_sym_attributed_declarator_repeat1 = 411,
+  aux_sym_pointer_declarator_repeat1 = 412,
+  aux_sym_function_declarator_repeat1 = 413,
+  aux_sym_array_declarator_repeat1 = 414,
+  aux_sym_sized_type_specifier_repeat1 = 415,
+  aux_sym_enumerator_list_repeat1 = 416,
+  aux_sym__field_declaration_declarator_repeat1 = 417,
+  aux_sym_parameter_list_repeat1 = 418,
+  aux_sym__old_style_parameter_list_repeat1 = 419,
+  aux_sym_case_statement_repeat1 = 420,
+  aux_sym_generic_expression_repeat1 = 421,
+  aux_sym_gnu_asm_expression_repeat1 = 422,
+  aux_sym_gnu_asm_output_operand_list_repeat1 = 423,
+  aux_sym_gnu_asm_input_operand_list_repeat1 = 424,
+  aux_sym_gnu_asm_clobber_list_repeat1 = 425,
+  aux_sym_gnu_asm_goto_list_repeat1 = 426,
+  aux_sym_argument_list_repeat1 = 427,
+  aux_sym_initializer_list_repeat1 = 428,
+  aux_sym_initializer_pair_repeat1 = 429,
+  aux_sym_char_literal_repeat1 = 430,
+  aux_sym_concatenated_string_repeat1 = 431,
+  aux_sym_string_literal_repeat1 = 432,
+  aux_sym_control_flow_macro_statement_repeat1 = 433,
+  alias_sym_field_identifier = 434,
+  alias_sym_statement_identifier = 435,
+  alias_sym_type_identifier = 436,
 };
 
 static const char * const ts_symbol_names[] = {
@@ -662,6 +663,7 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_receive_queue_for_each_skb] = "receive_queue_for_each_skb",
   [anon_sym_forall_unix_sockets] = "forall_unix_sockets",
   [anon_sym_IFDBG] = "IFDBG",
+  [anon_sym_xt_entry_foreach] = "xt_entry_foreach",
   [anon_sym_JAS_CAST] = "JAS_CAST",
   [anon_sym_list_entry] = "list_entry",
   [anon_sym_list_first_entry] = "list_first_entry",
@@ -1101,6 +1103,7 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_receive_queue_for_each_skb] = anon_sym_receive_queue_for_each_skb,
   [anon_sym_forall_unix_sockets] = anon_sym_forall_unix_sockets,
   [anon_sym_IFDBG] = anon_sym_IFDBG,
+  [anon_sym_xt_entry_foreach] = anon_sym_xt_entry_foreach,
   [anon_sym_JAS_CAST] = anon_sym_JAS_CAST,
   [anon_sym_list_entry] = anon_sym_list_entry,
   [anon_sym_list_first_entry] = anon_sym_list_first_entry,
@@ -2125,6 +2128,10 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .named = false,
   },
   [anon_sym_IFDBG] = {
+    .visible = true,
+    .named = false,
+  },
+  [anon_sym_xt_entry_foreach] = {
     .visible = true,
     .named = false,
   },
@@ -4257,8 +4264,8 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
   [392] = 357,
   [393] = 94,
   [394] = 142,
-  [395] = 147,
-  [396] = 396,
+  [395] = 395,
+  [396] = 147,
   [397] = 138,
   [398] = 148,
   [399] = 159,
@@ -8922,2721 +8929,2770 @@ static bool ts_lex_keywords(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'u') ADVANCE(31);
       if (lookahead == 'v') ADVANCE(32);
       if (lookahead == 'w') ADVANCE(33);
+      if (lookahead == 'x') ADVANCE(34);
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(0);
       END_STATE();
     case 1:
-      if (lookahead == 'S') ADVANCE(34);
+      if (lookahead == 'S') ADVANCE(35);
       END_STATE();
     case 2:
-      if (lookahead == 'E') ADVANCE(35);
-      if (lookahead == 'L') ADVANCE(36);
+      if (lookahead == 'E') ADVANCE(36);
+      if (lookahead == 'L') ADVANCE(37);
       END_STATE();
     case 3:
-      if (lookahead == 'A') ADVANCE(37);
+      if (lookahead == 'A') ADVANCE(38);
       END_STATE();
     case 4:
-      if (lookahead == 'N') ADVANCE(38);
+      if (lookahead == 'N') ADVANCE(39);
       END_STATE();
     case 5:
-      if (lookahead == 'F') ADVANCE(39);
+      if (lookahead == 'F') ADVANCE(40);
       END_STATE();
     case 6:
-      if (lookahead == 'A') ADVANCE(40);
+      if (lookahead == 'A') ADVANCE(41);
       END_STATE();
     case 7:
-      if (lookahead == 'U') ADVANCE(41);
+      if (lookahead == 'U') ADVANCE(42);
       END_STATE();
     case 8:
-      if (lookahead == 'E') ADVANCE(42);
+      if (lookahead == 'E') ADVANCE(43);
       END_STATE();
     case 9:
-      if (lookahead == 'C') ADVANCE(43);
+      if (lookahead == 'C') ADVANCE(44);
       END_STATE();
     case 10:
-      if (lookahead == 'A') ADVANCE(44);
-      if (lookahead == 'R') ADVANCE(45);
+      if (lookahead == 'A') ADVANCE(45);
+      if (lookahead == 'R') ADVANCE(46);
       END_STATE();
     case 11:
-      if (lookahead == 'S') ADVANCE(46);
+      if (lookahead == 'S') ADVANCE(47);
       END_STATE();
     case 12:
       if (lookahead == '\n') SKIP(0);
-      if (lookahead == '\r') SKIP(47);
+      if (lookahead == '\r') SKIP(48);
       END_STATE();
     case 13:
-      if (lookahead == 'A') ADVANCE(48);
-      if (lookahead == 'G') ADVANCE(49);
-      if (lookahead == 'N') ADVANCE(50);
-      if (lookahead == '_') ADVANCE(51);
-      if (lookahead == 'a') ADVANCE(52);
-      if (lookahead == 'u') ADVANCE(53);
+      if (lookahead == 'A') ADVANCE(49);
+      if (lookahead == 'G') ADVANCE(50);
+      if (lookahead == 'N') ADVANCE(51);
+      if (lookahead == '_') ADVANCE(52);
+      if (lookahead == 'a') ADVANCE(53);
+      if (lookahead == 'u') ADVANCE(54);
       END_STATE();
     case 14:
-      if (lookahead == 'l') ADVANCE(54);
-      if (lookahead == 's') ADVANCE(55);
-      if (lookahead == 'u') ADVANCE(56);
+      if (lookahead == 'l') ADVANCE(55);
+      if (lookahead == 's') ADVANCE(56);
+      if (lookahead == 'u') ADVANCE(57);
       END_STATE();
     case 15:
-      if (lookahead == 'o') ADVANCE(57);
-      if (lookahead == 'r') ADVANCE(58);
+      if (lookahead == 'o') ADVANCE(58);
+      if (lookahead == 'r') ADVANCE(59);
       END_STATE();
     case 16:
-      if (lookahead == 'a') ADVANCE(59);
-      if (lookahead == 'h') ADVANCE(60);
-      if (lookahead == 'o') ADVANCE(61);
+      if (lookahead == 'a') ADVANCE(60);
+      if (lookahead == 'h') ADVANCE(61);
+      if (lookahead == 'o') ADVANCE(62);
       END_STATE();
     case 17:
-      if (lookahead == 'e') ADVANCE(62);
-      if (lookahead == 'o') ADVANCE(63);
+      if (lookahead == 'e') ADVANCE(63);
+      if (lookahead == 'o') ADVANCE(64);
       END_STATE();
     case 18:
-      if (lookahead == 'l') ADVANCE(64);
-      if (lookahead == 'n') ADVANCE(65);
-      if (lookahead == 'x') ADVANCE(66);
+      if (lookahead == 'l') ADVANCE(65);
+      if (lookahead == 'n') ADVANCE(66);
+      if (lookahead == 'x') ADVANCE(67);
       END_STATE();
     case 19:
-      if (lookahead == 'a') ADVANCE(67);
-      if (lookahead == 'l') ADVANCE(68);
-      if (lookahead == 'o') ADVANCE(69);
+      if (lookahead == 'a') ADVANCE(68);
+      if (lookahead == 'l') ADVANCE(69);
+      if (lookahead == 'o') ADVANCE(70);
       END_STATE();
     case 20:
-      if (lookahead == '_') ADVANCE(70);
-      if (lookahead == 'o') ADVANCE(71);
+      if (lookahead == '_') ADVANCE(71);
+      if (lookahead == 'o') ADVANCE(72);
       END_STATE();
     case 21:
-      if (lookahead == 'l') ADVANCE(72);
+      if (lookahead == 'l') ADVANCE(73);
       END_STATE();
     case 22:
-      if (lookahead == 'f') ADVANCE(73);
-      if (lookahead == 'n') ADVANCE(74);
+      if (lookahead == 'f') ADVANCE(74);
+      if (lookahead == 'n') ADVANCE(75);
       END_STATE();
     case 23:
-      if (lookahead == 'i') ADVANCE(75);
-      if (lookahead == 'o') ADVANCE(76);
+      if (lookahead == 'i') ADVANCE(76);
+      if (lookahead == 'o') ADVANCE(77);
       END_STATE();
     case 24:
-      if (lookahead == 'a') ADVANCE(77);
-      if (lookahead == 'i') ADVANCE(78);
+      if (lookahead == 'a') ADVANCE(78);
+      if (lookahead == 'i') ADVANCE(79);
       END_STATE();
     case 25:
-      if (lookahead == 'o') ADVANCE(79);
-      if (lookahead == 'u') ADVANCE(80);
+      if (lookahead == 'o') ADVANCE(80);
+      if (lookahead == 'u') ADVANCE(81);
       END_STATE();
     case 26:
-      if (lookahead == 'f') ADVANCE(81);
+      if (lookahead == 'f') ADVANCE(82);
       END_STATE();
     case 27:
-      if (lookahead == 't') ADVANCE(82);
+      if (lookahead == 't') ADVANCE(83);
       END_STATE();
     case 28:
-      if (lookahead == 'e') ADVANCE(83);
+      if (lookahead == 'e') ADVANCE(84);
       END_STATE();
     case 29:
-      if (lookahead == 'c') ADVANCE(84);
-      if (lookahead == 'h') ADVANCE(85);
-      if (lookahead == 'i') ADVANCE(86);
-      if (lookahead == 'k') ADVANCE(87);
-      if (lookahead == 's') ADVANCE(88);
-      if (lookahead == 't') ADVANCE(89);
-      if (lookahead == 'w') ADVANCE(90);
+      if (lookahead == 'c') ADVANCE(85);
+      if (lookahead == 'h') ADVANCE(86);
+      if (lookahead == 'i') ADVANCE(87);
+      if (lookahead == 'k') ADVANCE(88);
+      if (lookahead == 's') ADVANCE(89);
+      if (lookahead == 't') ADVANCE(90);
+      if (lookahead == 'w') ADVANCE(91);
       END_STATE();
     case 30:
-      if (lookahead == 'a') ADVANCE(91);
-      if (lookahead == 'h') ADVANCE(92);
-      if (lookahead == 'r') ADVANCE(93);
-      if (lookahead == 'y') ADVANCE(94);
+      if (lookahead == 'a') ADVANCE(92);
+      if (lookahead == 'h') ADVANCE(93);
+      if (lookahead == 'r') ADVANCE(94);
+      if (lookahead == 'y') ADVANCE(95);
       END_STATE();
     case 31:
-      if (lookahead == 'i') ADVANCE(95);
-      if (lookahead == 'n') ADVANCE(96);
+      if (lookahead == 'i') ADVANCE(96);
+      if (lookahead == 'n') ADVANCE(97);
       END_STATE();
     case 32:
-      if (lookahead == 'a') ADVANCE(97);
-      if (lookahead == 'o') ADVANCE(98);
+      if (lookahead == 'a') ADVANCE(98);
+      if (lookahead == 'o') ADVANCE(99);
       END_STATE();
     case 33:
-      if (lookahead == 'h') ADVANCE(99);
+      if (lookahead == 'h') ADVANCE(100);
       END_STATE();
     case 34:
-      ACCEPT_TOKEN(anon_sym_CS);
+      if (lookahead == 't') ADVANCE(101);
       END_STATE();
     case 35:
-      if (lookahead == 'C') ADVANCE(100);
+      ACCEPT_TOKEN(anon_sym_CS);
       END_STATE();
     case 36:
-      if (lookahead == 'I') ADVANCE(101);
+      if (lookahead == 'C') ADVANCE(102);
       END_STATE();
     case 37:
-      if (lookahead == 'L') ADVANCE(102);
+      if (lookahead == 'I') ADVANCE(103);
       END_STATE();
     case 38:
-      if (lookahead == 'U') ADVANCE(103);
+      if (lookahead == 'L') ADVANCE(104);
       END_STATE();
     case 39:
-      if (lookahead == 'D') ADVANCE(104);
-      if (lookahead == '_') ADVANCE(105);
+      if (lookahead == 'U') ADVANCE(105);
       END_STATE();
     case 40:
-      if (lookahead == 'S') ADVANCE(106);
+      if (lookahead == 'D') ADVANCE(106);
+      if (lookahead == '_') ADVANCE(107);
       END_STATE();
     case 41:
-      if (lookahead == 'L') ADVANCE(107);
+      if (lookahead == 'S') ADVANCE(108);
       END_STATE();
     case 42:
-      if (lookahead == 'G') ADVANCE(108);
+      if (lookahead == 'L') ADVANCE(109);
       END_STATE();
     case 43:
-      if (lookahead == 'T') ADVANCE(109);
+      if (lookahead == 'G') ADVANCE(110);
       END_STATE();
     case 44:
-      if (lookahead == 'L') ADVANCE(110);
+      if (lookahead == 'T') ADVANCE(111);
       END_STATE();
     case 45:
-      if (lookahead == 'U') ADVANCE(111);
+      if (lookahead == 'L') ADVANCE(112);
       END_STATE();
     case 46:
-      ACCEPT_TOKEN(anon_sym_US);
+      if (lookahead == 'U') ADVANCE(113);
       END_STATE();
     case 47:
-      if (lookahead == '\n') SKIP(0);
+      ACCEPT_TOKEN(anon_sym_US);
       END_STATE();
     case 48:
-      if (lookahead == 'l') ADVANCE(112);
-      if (lookahead == 't') ADVANCE(113);
+      if (lookahead == '\n') SKIP(0);
       END_STATE();
     case 49:
-      if (lookahead == 'e') ADVANCE(114);
+      if (lookahead == 'l') ADVANCE(114);
+      if (lookahead == 't') ADVANCE(115);
       END_STATE();
     case 50:
-      if (lookahead == 'o') ADVANCE(115);
+      if (lookahead == 'e') ADVANCE(116);
       END_STATE();
     case 51:
-      ADVANCE_MAP(
-        'a', 116,
-        'b', 117,
-        'c', 118,
-        'd', 119,
-        'e', 120,
-        'f', 121,
-        'i', 122,
-        'l', 123,
-        'm', 124,
-        'r', 125,
-        's', 126,
-        't', 127,
-        'u', 128,
-        'v', 129,
-      );
+      if (lookahead == 'o') ADVANCE(117);
       END_STATE();
     case 52:
-      if (lookahead == 'l') ADVANCE(130);
+      ADVANCE_MAP(
+        'a', 118,
+        'b', 119,
+        'c', 120,
+        'd', 121,
+        'e', 122,
+        'f', 123,
+        'i', 124,
+        'l', 125,
+        'm', 126,
+        'r', 127,
+        's', 128,
+        't', 129,
+        'u', 130,
+        'v', 131,
+      );
       END_STATE();
     case 53:
-      if (lookahead == 'n') ADVANCE(131);
+      if (lookahead == 'l') ADVANCE(132);
       END_STATE();
     case 54:
-      if (lookahead == 'i') ADVANCE(132);
+      if (lookahead == 'n') ADVANCE(133);
       END_STATE();
     case 55:
-      if (lookahead == 'm') ADVANCE(133);
+      if (lookahead == 'i') ADVANCE(134);
       END_STATE();
     case 56:
-      if (lookahead == 't') ADVANCE(134);
+      if (lookahead == 'm') ADVANCE(135);
       END_STATE();
     case 57:
-      if (lookahead == 'o') ADVANCE(135);
+      if (lookahead == 't') ADVANCE(136);
       END_STATE();
     case 58:
-      if (lookahead == 'e') ADVANCE(136);
+      if (lookahead == 'o') ADVANCE(137);
       END_STATE();
     case 59:
-      if (lookahead == 's') ADVANCE(137);
+      if (lookahead == 'e') ADVANCE(138);
       END_STATE();
     case 60:
-      if (lookahead == 'a') ADVANCE(138);
+      if (lookahead == 's') ADVANCE(139);
       END_STATE();
     case 61:
-      if (lookahead == 'n') ADVANCE(139);
+      if (lookahead == 'a') ADVANCE(140);
       END_STATE();
     case 62:
-      if (lookahead == 'f') ADVANCE(140);
+      if (lookahead == 'n') ADVANCE(141);
       END_STATE();
     case 63:
-      ACCEPT_TOKEN(anon_sym_do);
-      if (lookahead == 'u') ADVANCE(141);
+      if (lookahead == 'f') ADVANCE(142);
       END_STATE();
     case 64:
-      if (lookahead == 's') ADVANCE(142);
-      END_STATE();
-    case 65:
+      ACCEPT_TOKEN(anon_sym_do);
       if (lookahead == 'u') ADVANCE(143);
       END_STATE();
+    case 65:
+      if (lookahead == 's') ADVANCE(144);
+      END_STATE();
     case 66:
-      if (lookahead == 't') ADVANCE(144);
+      if (lookahead == 'u') ADVANCE(145);
       END_STATE();
     case 67:
-      if (lookahead == 'l') ADVANCE(145);
+      if (lookahead == 't') ADVANCE(146);
       END_STATE();
     case 68:
-      if (lookahead == 'o') ADVANCE(146);
+      if (lookahead == 'l') ADVANCE(147);
       END_STATE();
     case 69:
-      if (lookahead == 'r') ADVANCE(147);
+      if (lookahead == 'o') ADVANCE(148);
       END_STATE();
     case 70:
-      if (lookahead == 'n') ADVANCE(148);
+      if (lookahead == 'r') ADVANCE(149);
       END_STATE();
     case 71:
-      if (lookahead == 't') ADVANCE(149);
+      if (lookahead == 'n') ADVANCE(150);
       END_STATE();
     case 72:
-      if (lookahead == 'i') ADVANCE(150);
+      if (lookahead == 't') ADVANCE(151);
       END_STATE();
     case 73:
-      ACCEPT_TOKEN(anon_sym_if);
+      if (lookahead == 'i') ADVANCE(152);
       END_STATE();
     case 74:
-      if (lookahead == 'l') ADVANCE(151);
-      if (lookahead == 't') ADVANCE(152);
+      ACCEPT_TOKEN(anon_sym_if);
       END_STATE();
     case 75:
-      if (lookahead == 's') ADVANCE(153);
+      if (lookahead == 'l') ADVANCE(153);
+      if (lookahead == 't') ADVANCE(154);
       END_STATE();
     case 76:
-      if (lookahead == 'n') ADVANCE(154);
+      if (lookahead == 's') ADVANCE(155);
       END_STATE();
     case 77:
-      if (lookahead == 'x') ADVANCE(155);
-      END_STATE();
-    case 78:
       if (lookahead == 'n') ADVANCE(156);
       END_STATE();
+    case 78:
+      if (lookahead == 'x') ADVANCE(157);
+      END_STATE();
     case 79:
-      if (lookahead == 'i') ADVANCE(157);
-      if (lookahead == 'r') ADVANCE(158);
+      if (lookahead == 'n') ADVANCE(158);
       END_STATE();
     case 80:
-      if (lookahead == 'l') ADVANCE(159);
+      if (lookahead == 'i') ADVANCE(159);
+      if (lookahead == 'r') ADVANCE(160);
       END_STATE();
     case 81:
-      if (lookahead == 'f') ADVANCE(160);
+      if (lookahead == 'l') ADVANCE(161);
       END_STATE();
     case 82:
-      if (lookahead == 'r') ADVANCE(161);
+      if (lookahead == 'f') ADVANCE(162);
       END_STATE();
     case 83:
-      if (lookahead == 'c') ADVANCE(162);
-      if (lookahead == 'g') ADVANCE(163);
-      if (lookahead == 's') ADVANCE(164);
-      if (lookahead == 't') ADVANCE(165);
+      if (lookahead == 'r') ADVANCE(163);
       END_STATE();
     case 84:
-      if (lookahead == 't') ADVANCE(166);
+      if (lookahead == 'c') ADVANCE(164);
+      if (lookahead == 'g') ADVANCE(165);
+      if (lookahead == 's') ADVANCE(166);
+      if (lookahead == 't') ADVANCE(167);
       END_STATE();
     case 85:
-      if (lookahead == 'o') ADVANCE(167);
+      if (lookahead == 't') ADVANCE(168);
       END_STATE();
     case 86:
-      if (lookahead == 'g') ADVANCE(168);
-      if (lookahead == 'z') ADVANCE(169);
+      if (lookahead == 'o') ADVANCE(169);
       END_STATE();
     case 87:
-      if (lookahead == '_') ADVANCE(170);
+      if (lookahead == 'g') ADVANCE(170);
+      if (lookahead == 'z') ADVANCE(171);
       END_STATE();
     case 88:
-      if (lookahead == 'i') ADVANCE(171);
+      if (lookahead == '_') ADVANCE(172);
       END_STATE();
     case 89:
-      if (lookahead == 'a') ADVANCE(172);
-      if (lookahead == 'r') ADVANCE(173);
+      if (lookahead == 'i') ADVANCE(173);
       END_STATE();
     case 90:
-      if (lookahead == 'i') ADVANCE(174);
+      if (lookahead == 'a') ADVANCE(174);
+      if (lookahead == 'r') ADVANCE(175);
       END_STATE();
     case 91:
-      if (lookahead == 'l') ADVANCE(175);
+      if (lookahead == 'i') ADVANCE(176);
       END_STATE();
     case 92:
-      if (lookahead == 'r') ADVANCE(176);
+      if (lookahead == 'l') ADVANCE(177);
       END_STATE();
     case 93:
-      if (lookahead == 'u') ADVANCE(177);
+      if (lookahead == 'r') ADVANCE(178);
       END_STATE();
     case 94:
-      if (lookahead == 'p') ADVANCE(178);
+      if (lookahead == 'u') ADVANCE(179);
       END_STATE();
     case 95:
-      if (lookahead == 'n') ADVANCE(179);
+      if (lookahead == 'p') ADVANCE(180);
       END_STATE();
     case 96:
-      if (lookahead == 'i') ADVANCE(180);
-      if (lookahead == 's') ADVANCE(181);
+      if (lookahead == 'n') ADVANCE(181);
       END_STATE();
     case 97:
-      if (lookahead == '_') ADVANCE(182);
+      if (lookahead == 'i') ADVANCE(182);
+      if (lookahead == 's') ADVANCE(183);
       END_STATE();
     case 98:
-      if (lookahead == 'i') ADVANCE(183);
-      if (lookahead == 'l') ADVANCE(184);
+      if (lookahead == '_') ADVANCE(184);
       END_STATE();
     case 99:
       if (lookahead == 'i') ADVANCE(185);
+      if (lookahead == 'l') ADVANCE(186);
       END_STATE();
     case 100:
-      if (lookahead == 'L') ADVANCE(186);
+      if (lookahead == 'i') ADVANCE(187);
       END_STATE();
     case 101:
-      if (lookahead == 'S') ADVANCE(187);
+      if (lookahead == '_') ADVANCE(188);
       END_STATE();
     case 102:
-      if (lookahead == 'S') ADVANCE(188);
+      if (lookahead == 'L') ADVANCE(189);
       END_STATE();
     case 103:
-      if (lookahead == 'T') ADVANCE(189);
+      if (lookahead == 'S') ADVANCE(190);
       END_STATE();
     case 104:
-      if (lookahead == 'B') ADVANCE(190);
+      if (lookahead == 'S') ADVANCE(191);
       END_STATE();
     case 105:
-      if (lookahead == 'D') ADVANCE(191);
+      if (lookahead == 'T') ADVANCE(192);
       END_STATE();
     case 106:
-      if (lookahead == '_') ADVANCE(192);
+      if (lookahead == 'B') ADVANCE(193);
       END_STATE();
     case 107:
-      if (lookahead == 'L') ADVANCE(193);
+      if (lookahead == 'D') ADVANCE(194);
       END_STATE();
     case 108:
-      ADVANCE_MAP(
-        '1', 194,
-        '2', 195,
-        '3', 196,
-        '4', 197,
-        '5', 198,
-        '6', 199,
-        '7', 200,
-        '8', 201,
-        '9', 202,
-      );
+      if (lookahead == '_') ADVANCE(195);
       END_STATE();
     case 109:
-      if (lookahead == 'P') ADVANCE(203);
+      if (lookahead == 'L') ADVANCE(196);
       END_STATE();
     case 110:
-      if (lookahead == 'L') ADVANCE(204);
+      ADVANCE_MAP(
+        '1', 197,
+        '2', 198,
+        '3', 199,
+        '4', 200,
+        '5', 201,
+        '6', 202,
+        '7', 203,
+        '8', 204,
+        '9', 205,
+      );
       END_STATE();
     case 111:
-      if (lookahead == 'E') ADVANCE(205);
+      if (lookahead == 'P') ADVANCE(206);
       END_STATE();
     case 112:
-      if (lookahead == 'i') ADVANCE(206);
+      if (lookahead == 'L') ADVANCE(207);
       END_STATE();
     case 113:
-      if (lookahead == 'o') ADVANCE(207);
+      if (lookahead == 'E') ADVANCE(208);
       END_STATE();
     case 114:
-      if (lookahead == 'n') ADVANCE(208);
+      if (lookahead == 'i') ADVANCE(209);
       END_STATE();
     case 115:
-      if (lookahead == 'n') ADVANCE(209);
-      if (lookahead == 'r') ADVANCE(210);
+      if (lookahead == 'o') ADVANCE(210);
       END_STATE();
     case 116:
-      if (lookahead == 'l') ADVANCE(211);
-      if (lookahead == 's') ADVANCE(212);
-      if (lookahead == 't') ADVANCE(213);
+      if (lookahead == 'n') ADVANCE(211);
       END_STATE();
     case 117:
-      if (lookahead == 'a') ADVANCE(214);
+      if (lookahead == 'n') ADVANCE(212);
+      if (lookahead == 'r') ADVANCE(213);
       END_STATE();
     case 118:
-      if (lookahead == 'd') ADVANCE(215);
-      if (lookahead == 'l') ADVANCE(216);
-      if (lookahead == 'p') ADVANCE(217);
+      if (lookahead == 'l') ADVANCE(214);
+      if (lookahead == 's') ADVANCE(215);
+      if (lookahead == 't') ADVANCE(216);
       END_STATE();
     case 119:
-      if (lookahead == 'e') ADVANCE(218);
+      if (lookahead == 'a') ADVANCE(217);
       END_STATE();
     case 120:
-      if (lookahead == 'x') ADVANCE(219);
+      if (lookahead == 'd') ADVANCE(218);
+      if (lookahead == 'l') ADVANCE(219);
+      if (lookahead == 'p') ADVANCE(220);
       END_STATE();
     case 121:
-      if (lookahead == 'a') ADVANCE(220);
-      if (lookahead == 'i') ADVANCE(221);
-      if (lookahead == 'o') ADVANCE(222);
+      if (lookahead == 'e') ADVANCE(221);
       END_STATE();
     case 122:
-      if (lookahead == 'n') ADVANCE(223);
+      if (lookahead == 'x') ADVANCE(222);
       END_STATE();
     case 123:
-      if (lookahead == 'e') ADVANCE(224);
+      if (lookahead == 'a') ADVANCE(223);
+      if (lookahead == 'i') ADVANCE(224);
+      if (lookahead == 'o') ADVANCE(225);
       END_STATE();
     case 124:
-      if (lookahead == 'u') ADVANCE(225);
+      if (lookahead == 'n') ADVANCE(226);
       END_STATE();
     case 125:
-      if (lookahead == 'e') ADVANCE(226);
+      if (lookahead == 'e') ADVANCE(227);
       END_STATE();
     case 126:
-      if (lookahead == 'p') ADVANCE(227);
-      if (lookahead == 't') ADVANCE(228);
+      if (lookahead == 'u') ADVANCE(228);
       END_STATE();
     case 127:
-      if (lookahead == 'h') ADVANCE(229);
-      if (lookahead == 'r') ADVANCE(230);
+      if (lookahead == 'e') ADVANCE(229);
       END_STATE();
     case 128:
-      if (lookahead == 'n') ADVANCE(231);
-      if (lookahead == 'p') ADVANCE(232);
+      if (lookahead == 'p') ADVANCE(230);
+      if (lookahead == 't') ADVANCE(231);
       END_STATE();
     case 129:
-      if (lookahead == 'e') ADVANCE(233);
-      if (lookahead == 'o') ADVANCE(234);
+      if (lookahead == 'h') ADVANCE(232);
+      if (lookahead == 'r') ADVANCE(233);
       END_STATE();
     case 130:
-      if (lookahead == 'i') ADVANCE(235);
+      if (lookahead == 'n') ADVANCE(234);
+      if (lookahead == 'p') ADVANCE(235);
       END_STATE();
     case 131:
-      if (lookahead == 'a') ADVANCE(236);
+      if (lookahead == 'e') ADVANCE(236);
+      if (lookahead == 'o') ADVANCE(237);
       END_STATE();
     case 132:
-      if (lookahead == 'g') ADVANCE(237);
+      if (lookahead == 'i') ADVANCE(238);
       END_STATE();
     case 133:
-      ACCEPT_TOKEN(anon_sym_asm);
+      if (lookahead == 'a') ADVANCE(239);
       END_STATE();
     case 134:
-      if (lookahead == 'o') ADVANCE(238);
+      if (lookahead == 'g') ADVANCE(240);
       END_STATE();
     case 135:
-      if (lookahead == 'l') ADVANCE(239);
+      ACCEPT_TOKEN(anon_sym_asm);
       END_STATE();
     case 136:
-      if (lookahead == 'a') ADVANCE(240);
+      if (lookahead == 'o') ADVANCE(241);
       END_STATE();
     case 137:
-      if (lookahead == 'e') ADVANCE(241);
+      if (lookahead == 'l') ADVANCE(242);
       END_STATE();
     case 138:
-      if (lookahead == 'r') ADVANCE(242);
+      if (lookahead == 'a') ADVANCE(243);
       END_STATE();
     case 139:
-      if (lookahead == 's') ADVANCE(243);
-      if (lookahead == 't') ADVANCE(244);
+      if (lookahead == 'e') ADVANCE(244);
       END_STATE();
     case 140:
-      if (lookahead == 'a') ADVANCE(245);
-      if (lookahead == 'i') ADVANCE(246);
+      if (lookahead == 'r') ADVANCE(245);
       END_STATE();
     case 141:
-      if (lookahead == 'b') ADVANCE(247);
+      if (lookahead == 's') ADVANCE(246);
+      if (lookahead == 't') ADVANCE(247);
       END_STATE();
     case 142:
-      if (lookahead == 'e') ADVANCE(248);
+      if (lookahead == 'a') ADVANCE(248);
+      if (lookahead == 'i') ADVANCE(249);
       END_STATE();
     case 143:
-      if (lookahead == 'm') ADVANCE(249);
+      if (lookahead == 'b') ADVANCE(250);
       END_STATE();
     case 144:
-      if (lookahead == 'e') ADVANCE(250);
+      if (lookahead == 'e') ADVANCE(251);
       END_STATE();
     case 145:
-      if (lookahead == 's') ADVANCE(251);
+      if (lookahead == 'm') ADVANCE(252);
       END_STATE();
     case 146:
-      if (lookahead == 'a') ADVANCE(252);
+      if (lookahead == 'e') ADVANCE(253);
       END_STATE();
     case 147:
-      ACCEPT_TOKEN(anon_sym_for);
-      if (lookahead == 'a') ADVANCE(253);
+      if (lookahead == 's') ADVANCE(254);
       END_STATE();
     case 148:
-      if (lookahead == 'e') ADVANCE(254);
+      if (lookahead == 'a') ADVANCE(255);
       END_STATE();
     case 149:
-      if (lookahead == 'o') ADVANCE(255);
+      ACCEPT_TOKEN(anon_sym_for);
+      if (lookahead == 'a') ADVANCE(256);
       END_STATE();
     case 150:
-      if (lookahead == 's') ADVANCE(256);
+      if (lookahead == 'e') ADVANCE(257);
       END_STATE();
     case 151:
-      if (lookahead == 'i') ADVANCE(257);
+      if (lookahead == 'o') ADVANCE(258);
       END_STATE();
     case 152:
-      ACCEPT_TOKEN(sym_primitive_type);
-      if (lookahead == '1') ADVANCE(258);
-      if (lookahead == '3') ADVANCE(259);
-      if (lookahead == '6') ADVANCE(260);
-      if (lookahead == '8') ADVANCE(261);
-      if (lookahead == 'p') ADVANCE(262);
+      if (lookahead == 's') ADVANCE(259);
       END_STATE();
     case 153:
-      if (lookahead == 't') ADVANCE(263);
+      if (lookahead == 'i') ADVANCE(260);
       END_STATE();
     case 154:
-      if (lookahead == 'g') ADVANCE(264);
+      ACCEPT_TOKEN(sym_primitive_type);
+      if (lookahead == '1') ADVANCE(261);
+      if (lookahead == '3') ADVANCE(262);
+      if (lookahead == '6') ADVANCE(263);
+      if (lookahead == '8') ADVANCE(264);
+      if (lookahead == 'p') ADVANCE(265);
       END_STATE();
     case 155:
-      if (lookahead == '_') ADVANCE(265);
+      if (lookahead == 't') ADVANCE(266);
       END_STATE();
     case 156:
-      if (lookahead == '_') ADVANCE(266);
+      if (lookahead == 'g') ADVANCE(267);
       END_STATE();
     case 157:
-      if (lookahead == 'n') ADVANCE(267);
+      if (lookahead == '_') ADVANCE(268);
       END_STATE();
     case 158:
-      if (lookahead == 'e') ADVANCE(268);
+      if (lookahead == '_') ADVANCE(269);
       END_STATE();
     case 159:
-      if (lookahead == 'l') ADVANCE(269);
+      if (lookahead == 'n') ADVANCE(270);
       END_STATE();
     case 160:
-      if (lookahead == 's') ADVANCE(270);
+      if (lookahead == 'e') ADVANCE(271);
       END_STATE();
     case 161:
-      if (lookahead == 'd') ADVANCE(271);
+      if (lookahead == 'l') ADVANCE(272);
       END_STATE();
     case 162:
-      if (lookahead == 'e') ADVANCE(272);
+      if (lookahead == 's') ADVANCE(273);
       END_STATE();
     case 163:
-      if (lookahead == 'i') ADVANCE(273);
+      if (lookahead == 'd') ADVANCE(274);
       END_STATE();
     case 164:
-      if (lookahead == 't') ADVANCE(274);
+      if (lookahead == 'e') ADVANCE(275);
       END_STATE();
     case 165:
-      if (lookahead == 'u') ADVANCE(275);
+      if (lookahead == 'i') ADVANCE(276);
       END_STATE();
     case 166:
-      if (lookahead == 'p') ADVANCE(276);
+      if (lookahead == 't') ADVANCE(277);
       END_STATE();
     case 167:
-      if (lookahead == 'r') ADVANCE(277);
+      if (lookahead == 'u') ADVANCE(278);
       END_STATE();
     case 168:
-      if (lookahead == 'n') ADVANCE(278);
+      if (lookahead == 'p') ADVANCE(279);
       END_STATE();
     case 169:
-      if (lookahead == 'e') ADVANCE(279);
+      if (lookahead == 'r') ADVANCE(280);
       END_STATE();
     case 170:
-      if (lookahead == 'f') ADVANCE(280);
+      if (lookahead == 'n') ADVANCE(281);
       END_STATE();
     case 171:
-      if (lookahead == 'z') ADVANCE(281);
+      if (lookahead == 'e') ADVANCE(282);
       END_STATE();
     case 172:
-      if (lookahead == 't') ADVANCE(282);
+      if (lookahead == 'f') ADVANCE(283);
       END_STATE();
     case 173:
-      if (lookahead == 'u') ADVANCE(283);
+      if (lookahead == 'z') ADVANCE(284);
       END_STATE();
     case 174:
-      if (lookahead == 't') ADVANCE(284);
+      if (lookahead == 't') ADVANCE(285);
       END_STATE();
     case 175:
-      if (lookahead == 'l') ADVANCE(285);
+      if (lookahead == 'u') ADVANCE(286);
       END_STATE();
     case 176:
-      if (lookahead == 'e') ADVANCE(286);
+      if (lookahead == 't') ADVANCE(287);
       END_STATE();
     case 177:
-      if (lookahead == 'e') ADVANCE(205);
+      if (lookahead == 'l') ADVANCE(288);
       END_STATE();
     case 178:
-      if (lookahead == 'e') ADVANCE(287);
+      if (lookahead == 'e') ADVANCE(289);
       END_STATE();
     case 179:
-      if (lookahead == 't') ADVANCE(288);
+      if (lookahead == 'e') ADVANCE(208);
       END_STATE();
     case 180:
-      if (lookahead == 'o') ADVANCE(289);
+      if (lookahead == 'e') ADVANCE(290);
       END_STATE();
     case 181:
-      if (lookahead == 'i') ADVANCE(290);
+      if (lookahead == 't') ADVANCE(291);
       END_STATE();
     case 182:
-      if (lookahead == 'a') ADVANCE(291);
+      if (lookahead == 'o') ADVANCE(292);
       END_STATE();
     case 183:
-      if (lookahead == 'd') ADVANCE(239);
+      if (lookahead == 'i') ADVANCE(293);
       END_STATE();
     case 184:
-      if (lookahead == 'a') ADVANCE(292);
+      if (lookahead == 'a') ADVANCE(294);
       END_STATE();
     case 185:
-      if (lookahead == 'l') ADVANCE(293);
+      if (lookahead == 'd') ADVANCE(242);
       END_STATE();
     case 186:
-      if (lookahead == 'A') ADVANCE(294);
+      if (lookahead == 'a') ADVANCE(295);
       END_STATE();
     case 187:
-      if (lookahead == 'T') ADVANCE(295);
+      if (lookahead == 'l') ADVANCE(296);
       END_STATE();
     case 188:
-      if (lookahead == 'E') ADVANCE(296);
+      if (lookahead == 'e') ADVANCE(297);
       END_STATE();
     case 189:
-      if (lookahead == 'L') ADVANCE(297);
+      if (lookahead == 'A') ADVANCE(298);
       END_STATE();
     case 190:
-      if (lookahead == 'G') ADVANCE(298);
+      if (lookahead == 'T') ADVANCE(299);
       END_STATE();
     case 191:
-      if (lookahead == 'E') ADVANCE(299);
+      if (lookahead == 'E') ADVANCE(300);
       END_STATE();
     case 192:
-      if (lookahead == 'C') ADVANCE(300);
+      if (lookahead == 'L') ADVANCE(301);
       END_STATE();
     case 193:
-      ACCEPT_TOKEN(anon_sym_NULL);
+      if (lookahead == 'G') ADVANCE(302);
       END_STATE();
     case 194:
-      ACCEPT_TOKEN(anon_sym_REG1);
-      if (lookahead == '1') ADVANCE(301);
-      if (lookahead == '2') ADVANCE(302);
-      if (lookahead == '3') ADVANCE(303);
-      if (lookahead == '4') ADVANCE(304);
-      if (lookahead == '5') ADVANCE(305);
-      if (lookahead == '6') ADVANCE(306);
+      if (lookahead == 'E') ADVANCE(303);
       END_STATE();
     case 195:
-      ACCEPT_TOKEN(anon_sym_REG2);
+      if (lookahead == 'C') ADVANCE(304);
       END_STATE();
     case 196:
-      ACCEPT_TOKEN(anon_sym_REG3);
+      ACCEPT_TOKEN(anon_sym_NULL);
       END_STATE();
     case 197:
-      ACCEPT_TOKEN(anon_sym_REG4);
+      ACCEPT_TOKEN(anon_sym_REG1);
+      if (lookahead == '1') ADVANCE(305);
+      if (lookahead == '2') ADVANCE(306);
+      if (lookahead == '3') ADVANCE(307);
+      if (lookahead == '4') ADVANCE(308);
+      if (lookahead == '5') ADVANCE(309);
+      if (lookahead == '6') ADVANCE(310);
       END_STATE();
     case 198:
-      ACCEPT_TOKEN(anon_sym_REG5);
+      ACCEPT_TOKEN(anon_sym_REG2);
       END_STATE();
     case 199:
-      ACCEPT_TOKEN(anon_sym_REG6);
+      ACCEPT_TOKEN(anon_sym_REG3);
       END_STATE();
     case 200:
-      ACCEPT_TOKEN(anon_sym_REG7);
+      ACCEPT_TOKEN(anon_sym_REG4);
       END_STATE();
     case 201:
-      ACCEPT_TOKEN(anon_sym_REG8);
+      ACCEPT_TOKEN(anon_sym_REG5);
       END_STATE();
     case 202:
-      ACCEPT_TOKEN(anon_sym_REG9);
+      ACCEPT_TOKEN(anon_sym_REG6);
       END_STATE();
     case 203:
-      if (lookahead == '_') ADVANCE(307);
+      ACCEPT_TOKEN(anon_sym_REG7);
       END_STATE();
     case 204:
-      if (lookahead == 'O') ADVANCE(308);
+      ACCEPT_TOKEN(anon_sym_REG8);
       END_STATE();
     case 205:
-      ACCEPT_TOKEN(sym_true);
+      ACCEPT_TOKEN(anon_sym_REG9);
       END_STATE();
     case 206:
-      if (lookahead == 'g') ADVANCE(309);
+      if (lookahead == '_') ADVANCE(311);
       END_STATE();
     case 207:
-      if (lookahead == 'm') ADVANCE(310);
+      if (lookahead == 'O') ADVANCE(312);
       END_STATE();
     case 208:
-      if (lookahead == 'e') ADVANCE(311);
+      ACCEPT_TOKEN(sym_true);
       END_STATE();
     case 209:
-      if (lookahead == 'n') ADVANCE(312);
+      if (lookahead == 'g') ADVANCE(313);
       END_STATE();
     case 210:
-      if (lookahead == 'e') ADVANCE(313);
+      if (lookahead == 'm') ADVANCE(314);
       END_STATE();
     case 211:
-      if (lookahead == 'i') ADVANCE(314);
+      if (lookahead == 'e') ADVANCE(315);
       END_STATE();
     case 212:
-      if (lookahead == 'm') ADVANCE(315);
+      if (lookahead == 'n') ADVANCE(316);
       END_STATE();
     case 213:
-      if (lookahead == 't') ADVANCE(316);
+      if (lookahead == 'e') ADVANCE(317);
       END_STATE();
     case 214:
-      if (lookahead == 's') ADVANCE(317);
+      if (lookahead == 'i') ADVANCE(318);
       END_STATE();
     case 215:
-      if (lookahead == 'e') ADVANCE(318);
+      if (lookahead == 'm') ADVANCE(319);
       END_STATE();
     case 216:
-      if (lookahead == 'r') ADVANCE(319);
+      if (lookahead == 't') ADVANCE(320);
       END_STATE();
     case 217:
-      if (lookahead == 'u') ADVANCE(320);
+      if (lookahead == 's') ADVANCE(321);
       END_STATE();
     case 218:
-      if (lookahead == 'c') ADVANCE(321);
+      if (lookahead == 'e') ADVANCE(322);
       END_STATE();
     case 219:
-      if (lookahead == 'c') ADVANCE(322);
-      if (lookahead == 't') ADVANCE(323);
+      if (lookahead == 'r') ADVANCE(323);
       END_STATE();
     case 220:
-      if (lookahead == 's') ADVANCE(324);
+      if (lookahead == 'u') ADVANCE(324);
       END_STATE();
     case 221:
-      if (lookahead == 'n') ADVANCE(325);
+      if (lookahead == 'c') ADVANCE(325);
       END_STATE();
     case 222:
-      if (lookahead == 'r') ADVANCE(326);
+      if (lookahead == 'c') ADVANCE(326);
+      if (lookahead == 't') ADVANCE(327);
       END_STATE();
     case 223:
-      if (lookahead == 'i') ADVANCE(327);
-      if (lookahead == 'l') ADVANCE(328);
+      if (lookahead == 's') ADVANCE(328);
       END_STATE();
     case 224:
-      if (lookahead == 'a') ADVANCE(329);
+      if (lookahead == 'n') ADVANCE(329);
       END_STATE();
     case 225:
-      if (lookahead == 's') ADVANCE(330);
+      if (lookahead == 'r') ADVANCE(330);
       END_STATE();
     case 226:
-      if (lookahead == 's') ADVANCE(331);
+      if (lookahead == 'i') ADVANCE(331);
+      if (lookahead == 'l') ADVANCE(332);
       END_STATE();
     case 227:
-      if (lookahead == 't') ADVANCE(332);
+      if (lookahead == 'a') ADVANCE(333);
       END_STATE();
     case 228:
-      if (lookahead == 'd') ADVANCE(333);
+      if (lookahead == 's') ADVANCE(334);
       END_STATE();
     case 229:
-      if (lookahead == 'i') ADVANCE(334);
-      if (lookahead == 'r') ADVANCE(335);
+      if (lookahead == 's') ADVANCE(335);
       END_STATE();
     case 230:
-      if (lookahead == 'y') ADVANCE(336);
+      if (lookahead == 't') ADVANCE(336);
       END_STATE();
     case 231:
-      if (lookahead == 'a') ADVANCE(337);
+      if (lookahead == 'd') ADVANCE(337);
       END_STATE();
     case 232:
-      if (lookahead == 't') ADVANCE(338);
+      if (lookahead == 'i') ADVANCE(338);
+      if (lookahead == 'r') ADVANCE(339);
       END_STATE();
     case 233:
-      if (lookahead == 'c') ADVANCE(339);
+      if (lookahead == 'y') ADVANCE(340);
       END_STATE();
     case 234:
-      if (lookahead == 'l') ADVANCE(340);
+      if (lookahead == 'a') ADVANCE(341);
       END_STATE();
     case 235:
-      if (lookahead == 'g') ADVANCE(341);
+      if (lookahead == 't') ADVANCE(342);
       END_STATE();
     case 236:
-      if (lookahead == 'l') ADVANCE(342);
+      if (lookahead == 'c') ADVANCE(343);
       END_STATE();
     case 237:
-      if (lookahead == 'n') ADVANCE(343);
+      if (lookahead == 'l') ADVANCE(344);
       END_STATE();
     case 238:
-      ACCEPT_TOKEN(anon_sym_auto);
+      if (lookahead == 'g') ADVANCE(345);
       END_STATE();
     case 239:
-      ACCEPT_TOKEN(sym_primitive_type);
+      if (lookahead == 'l') ADVANCE(346);
       END_STATE();
     case 240:
-      if (lookahead == 'k') ADVANCE(344);
+      if (lookahead == 'n') ADVANCE(347);
       END_STATE();
     case 241:
-      ACCEPT_TOKEN(anon_sym_case);
+      ACCEPT_TOKEN(anon_sym_auto);
       END_STATE();
     case 242:
       ACCEPT_TOKEN(sym_primitive_type);
-      if (lookahead == '1') ADVANCE(345);
-      if (lookahead == '3') ADVANCE(346);
-      if (lookahead == '6') ADVANCE(347);
-      if (lookahead == '8') ADVANCE(348);
-      if (lookahead == 'p') ADVANCE(349);
       END_STATE();
     case 243:
-      if (lookahead == 't') ADVANCE(350);
+      if (lookahead == 'k') ADVANCE(348);
       END_STATE();
     case 244:
-      if (lookahead == 'a') ADVANCE(351);
-      if (lookahead == 'i') ADVANCE(352);
+      ACCEPT_TOKEN(anon_sym_case);
       END_STATE();
     case 245:
-      if (lookahead == 'u') ADVANCE(353);
+      ACCEPT_TOKEN(sym_primitive_type);
+      if (lookahead == '1') ADVANCE(349);
+      if (lookahead == '3') ADVANCE(350);
+      if (lookahead == '6') ADVANCE(351);
+      if (lookahead == '8') ADVANCE(352);
+      if (lookahead == 'p') ADVANCE(353);
       END_STATE();
     case 246:
-      if (lookahead == 'n') ADVANCE(354);
+      if (lookahead == 't') ADVANCE(354);
       END_STATE();
     case 247:
-      if (lookahead == 'l') ADVANCE(355);
+      if (lookahead == 'a') ADVANCE(355);
+      if (lookahead == 'i') ADVANCE(356);
       END_STATE();
     case 248:
-      ACCEPT_TOKEN(anon_sym_else);
+      if (lookahead == 'u') ADVANCE(357);
       END_STATE();
     case 249:
-      ACCEPT_TOKEN(anon_sym_enum);
+      if (lookahead == 'n') ADVANCE(358);
       END_STATE();
     case 250:
-      if (lookahead == 'r') ADVANCE(356);
+      if (lookahead == 'l') ADVANCE(359);
       END_STATE();
     case 251:
-      if (lookahead == 'e') ADVANCE(296);
+      ACCEPT_TOKEN(anon_sym_else);
       END_STATE();
     case 252:
-      if (lookahead == 't') ADVANCE(239);
+      ACCEPT_TOKEN(anon_sym_enum);
       END_STATE();
     case 253:
-      if (lookahead == 'l') ADVANCE(357);
+      if (lookahead == 'r') ADVANCE(360);
       END_STATE();
     case 254:
-      if (lookahead == 'w') ADVANCE(358);
+      if (lookahead == 'e') ADVANCE(300);
       END_STATE();
     case 255:
-      ACCEPT_TOKEN(anon_sym_goto);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 256:
-      if (lookahead == 't') ADVANCE(359);
+      if (lookahead == 'l') ADVANCE(361);
       END_STATE();
     case 257:
-      if (lookahead == 'n') ADVANCE(360);
+      if (lookahead == 'w') ADVANCE(362);
       END_STATE();
     case 258:
-      if (lookahead == '6') ADVANCE(361);
+      ACCEPT_TOKEN(anon_sym_goto);
       END_STATE();
     case 259:
-      if (lookahead == '2') ADVANCE(362);
+      if (lookahead == 't') ADVANCE(363);
       END_STATE();
     case 260:
-      if (lookahead == '4') ADVANCE(363);
+      if (lookahead == 'n') ADVANCE(364);
       END_STATE();
     case 261:
-      if (lookahead == '_') ADVANCE(364);
+      if (lookahead == '6') ADVANCE(365);
       END_STATE();
     case 262:
-      if (lookahead == 't') ADVANCE(365);
+      if (lookahead == '2') ADVANCE(366);
       END_STATE();
     case 263:
-      if (lookahead == '_') ADVANCE(366);
+      if (lookahead == '4') ADVANCE(367);
       END_STATE();
     case 264:
-      ACCEPT_TOKEN(anon_sym_long);
+      if (lookahead == '_') ADVANCE(368);
       END_STATE();
     case 265:
-      if (lookahead == 'a') ADVANCE(367);
+      if (lookahead == 't') ADVANCE(369);
       END_STATE();
     case 266:
-      if (lookahead == 't') ADVANCE(368);
+      if (lookahead == '_') ADVANCE(370);
       END_STATE();
     case 267:
-      if (lookahead == 'l') ADVANCE(369);
+      ACCEPT_TOKEN(anon_sym_long);
       END_STATE();
     case 268:
-      if (lookahead == 't') ADVANCE(370);
+      if (lookahead == 'a') ADVANCE(371);
       END_STATE();
     case 269:
-      if (lookahead == 'p') ADVANCE(371);
+      if (lookahead == 't') ADVANCE(372);
       END_STATE();
     case 270:
-      if (lookahead == 'e') ADVANCE(372);
+      if (lookahead == 'l') ADVANCE(373);
       END_STATE();
     case 271:
-      if (lookahead == 'i') ADVANCE(373);
+      if (lookahead == 't') ADVANCE(374);
       END_STATE();
     case 272:
-      if (lookahead == 'i') ADVANCE(374);
+      if (lookahead == 'p') ADVANCE(375);
       END_STATE();
     case 273:
-      if (lookahead == 's') ADVANCE(375);
+      if (lookahead == 'e') ADVANCE(376);
       END_STATE();
     case 274:
-      if (lookahead == 'r') ADVANCE(376);
+      if (lookahead == 'i') ADVANCE(377);
       END_STATE();
     case 275:
-      if (lookahead == 'r') ADVANCE(377);
+      if (lookahead == 'i') ADVANCE(378);
       END_STATE();
     case 276:
-      if (lookahead == '_') ADVANCE(378);
+      if (lookahead == 's') ADVANCE(379);
       END_STATE();
     case 277:
-      if (lookahead == 't') ADVANCE(379);
+      if (lookahead == 'r') ADVANCE(380);
       END_STATE();
     case 278:
-      if (lookahead == 'e') ADVANCE(380);
+      if (lookahead == 'r') ADVANCE(381);
       END_STATE();
     case 279:
-      if (lookahead == '_') ADVANCE(381);
-      if (lookahead == 'o') ADVANCE(382);
+      if (lookahead == '_') ADVANCE(382);
       END_STATE();
     case 280:
-      if (lookahead == 'o') ADVANCE(383);
+      if (lookahead == 't') ADVANCE(383);
       END_STATE();
     case 281:
       if (lookahead == 'e') ADVANCE(384);
       END_STATE();
     case 282:
-      if (lookahead == 'i') ADVANCE(385);
+      if (lookahead == '_') ADVANCE(385);
+      if (lookahead == 'o') ADVANCE(386);
       END_STATE();
     case 283:
-      if (lookahead == 'c') ADVANCE(386);
+      if (lookahead == 'o') ADVANCE(387);
       END_STATE();
     case 284:
-      if (lookahead == 'c') ADVANCE(387);
+      if (lookahead == 'e') ADVANCE(388);
       END_STATE();
     case 285:
-      if (lookahead == 'o') ADVANCE(388);
+      if (lookahead == 'i') ADVANCE(389);
       END_STATE();
     case 286:
-      if (lookahead == 'a') ADVANCE(389);
+      if (lookahead == 'c') ADVANCE(390);
       END_STATE();
     case 287:
-      if (lookahead == 'd') ADVANCE(390);
+      if (lookahead == 'c') ADVANCE(391);
       END_STATE();
     case 288:
-      if (lookahead == '1') ADVANCE(391);
-      if (lookahead == '3') ADVANCE(392);
-      if (lookahead == '6') ADVANCE(393);
-      if (lookahead == '8') ADVANCE(394);
-      if (lookahead == 'p') ADVANCE(395);
+      if (lookahead == 'o') ADVANCE(392);
       END_STATE();
     case 289:
-      if (lookahead == 'n') ADVANCE(396);
+      if (lookahead == 'a') ADVANCE(393);
       END_STATE();
     case 290:
-      if (lookahead == 'g') ADVANCE(397);
+      if (lookahead == 'd') ADVANCE(394);
       END_STATE();
     case 291:
-      if (lookahead == 'r') ADVANCE(398);
+      if (lookahead == '1') ADVANCE(395);
+      if (lookahead == '3') ADVANCE(396);
+      if (lookahead == '6') ADVANCE(397);
+      if (lookahead == '8') ADVANCE(398);
+      if (lookahead == 'p') ADVANCE(399);
       END_STATE();
     case 292:
-      if (lookahead == 't') ADVANCE(399);
+      if (lookahead == 'n') ADVANCE(400);
       END_STATE();
     case 293:
-      if (lookahead == 'e') ADVANCE(400);
+      if (lookahead == 'g') ADVANCE(401);
       END_STATE();
     case 294:
-      if (lookahead == 'R') ADVANCE(401);
+      if (lookahead == 'r') ADVANCE(402);
       END_STATE();
     case 295:
-      if (lookahead == '_') ADVANCE(402);
+      if (lookahead == 't') ADVANCE(403);
       END_STATE();
     case 296:
-      ACCEPT_TOKEN(sym_false);
+      if (lookahead == 'e') ADVANCE(404);
       END_STATE();
     case 297:
-      if (lookahead == 'S') ADVANCE(403);
+      if (lookahead == 'n') ADVANCE(405);
       END_STATE();
     case 298:
-      ACCEPT_TOKEN(anon_sym_IFDBG);
+      if (lookahead == 'R') ADVANCE(406);
       END_STATE();
     case 299:
-      if (lookahead == 'S') ADVANCE(404);
+      if (lookahead == '_') ADVANCE(407);
       END_STATE();
     case 300:
-      if (lookahead == 'A') ADVANCE(405);
+      ACCEPT_TOKEN(sym_false);
       END_STATE();
     case 301:
-      ACCEPT_TOKEN(anon_sym_REG11);
+      if (lookahead == 'S') ADVANCE(408);
       END_STATE();
     case 302:
-      ACCEPT_TOKEN(anon_sym_REG12);
+      ACCEPT_TOKEN(anon_sym_IFDBG);
       END_STATE();
     case 303:
-      ACCEPT_TOKEN(anon_sym_REG13);
+      if (lookahead == 'S') ADVANCE(409);
       END_STATE();
     case 304:
-      ACCEPT_TOKEN(anon_sym_REG14);
+      if (lookahead == 'A') ADVANCE(410);
       END_STATE();
     case 305:
-      ACCEPT_TOKEN(anon_sym_REG15);
+      ACCEPT_TOKEN(anon_sym_REG11);
       END_STATE();
     case 306:
-      ACCEPT_TOKEN(anon_sym_REG16);
+      ACCEPT_TOKEN(anon_sym_REG12);
       END_STATE();
     case 307:
-      if (lookahead == 'S') ADVANCE(406);
+      ACCEPT_TOKEN(anon_sym_REG13);
       END_STATE();
     case 308:
-      if (lookahead == 'C') ADVANCE(407);
+      ACCEPT_TOKEN(anon_sym_REG14);
       END_STATE();
     case 309:
-      if (lookahead == 'n') ADVANCE(408);
+      ACCEPT_TOKEN(anon_sym_REG15);
       END_STATE();
     case 310:
-      if (lookahead == 'i') ADVANCE(409);
+      ACCEPT_TOKEN(anon_sym_REG16);
       END_STATE();
     case 311:
-      if (lookahead == 'r') ADVANCE(410);
+      if (lookahead == 'S') ADVANCE(411);
       END_STATE();
     case 312:
-      if (lookahead == 'u') ADVANCE(411);
+      if (lookahead == 'C') ADVANCE(412);
       END_STATE();
     case 313:
-      if (lookahead == 't') ADVANCE(412);
+      if (lookahead == 'n') ADVANCE(413);
       END_STATE();
     case 314:
-      if (lookahead == 'g') ADVANCE(413);
+      if (lookahead == 'i') ADVANCE(414);
       END_STATE();
     case 315:
-      ACCEPT_TOKEN(anon_sym___asm);
-      if (lookahead == '_') ADVANCE(414);
-      END_STATE();
-    case 316:
       if (lookahead == 'r') ADVANCE(415);
       END_STATE();
+    case 316:
+      if (lookahead == 'u') ADVANCE(416);
+      END_STATE();
     case 317:
-      if (lookahead == 'e') ADVANCE(416);
+      if (lookahead == 't') ADVANCE(417);
       END_STATE();
     case 318:
-      if (lookahead == 'c') ADVANCE(417);
+      if (lookahead == 'g') ADVANCE(418);
       END_STATE();
     case 319:
-      if (lookahead == 'c') ADVANCE(418);
+      ACCEPT_TOKEN(anon_sym___asm);
+      if (lookahead == '_') ADVANCE(419);
       END_STATE();
     case 320:
-      if (lookahead == 'i') ADVANCE(419);
+      if (lookahead == 'r') ADVANCE(420);
       END_STATE();
     case 321:
-      if (lookahead == 'l') ADVANCE(420);
-      END_STATE();
-    case 322:
       if (lookahead == 'e') ADVANCE(421);
       END_STATE();
+    case 322:
+      if (lookahead == 'c') ADVANCE(422);
+      END_STATE();
     case 323:
-      if (lookahead == 'e') ADVANCE(422);
+      if (lookahead == 'c') ADVANCE(423);
       END_STATE();
     case 324:
-      if (lookahead == 't') ADVANCE(423);
+      if (lookahead == 'i') ADVANCE(424);
       END_STATE();
     case 325:
-      if (lookahead == 'a') ADVANCE(424);
+      if (lookahead == 'l') ADVANCE(425);
       END_STATE();
     case 326:
-      if (lookahead == 'c') ADVANCE(425);
+      if (lookahead == 'e') ADVANCE(426);
       END_STATE();
     case 327:
-      if (lookahead == 't') ADVANCE(426);
+      if (lookahead == 'e') ADVANCE(427);
       END_STATE();
     case 328:
-      if (lookahead == 'i') ADVANCE(427);
+      if (lookahead == 't') ADVANCE(428);
       END_STATE();
     case 329:
-      if (lookahead == 'v') ADVANCE(428);
+      if (lookahead == 'a') ADVANCE(429);
       END_STATE();
     case 330:
-      if (lookahead == 't') ADVANCE(429);
+      if (lookahead == 'c') ADVANCE(430);
       END_STATE();
     case 331:
-      if (lookahead == 't') ADVANCE(430);
+      if (lookahead == 't') ADVANCE(431);
       END_STATE();
     case 332:
-      if (lookahead == 'r') ADVANCE(431);
+      if (lookahead == 'i') ADVANCE(432);
       END_STATE();
     case 333:
-      if (lookahead == 'c') ADVANCE(432);
+      if (lookahead == 'v') ADVANCE(433);
       END_STATE();
     case 334:
-      if (lookahead == 's') ADVANCE(433);
+      if (lookahead == 't') ADVANCE(434);
       END_STATE();
     case 335:
-      if (lookahead == 'e') ADVANCE(434);
+      if (lookahead == 't') ADVANCE(435);
       END_STATE();
     case 336:
-      ACCEPT_TOKEN(anon_sym___try);
-      END_STATE();
-    case 337:
-      if (lookahead == 'l') ADVANCE(435);
-      END_STATE();
-    case 338:
       if (lookahead == 'r') ADVANCE(436);
       END_STATE();
+    case 337:
+      if (lookahead == 'c') ADVANCE(437);
+      END_STATE();
+    case 338:
+      if (lookahead == 's') ADVANCE(438);
+      END_STATE();
     case 339:
-      if (lookahead == 't') ADVANCE(437);
+      if (lookahead == 'e') ADVANCE(439);
       END_STATE();
     case 340:
-      if (lookahead == 'a') ADVANCE(438);
+      ACCEPT_TOKEN(anon_sym___try);
       END_STATE();
     case 341:
-      if (lookahead == 'n') ADVANCE(439);
+      if (lookahead == 'l') ADVANCE(440);
       END_STATE();
     case 342:
-      if (lookahead == 'i') ADVANCE(440);
+      if (lookahead == 'r') ADVANCE(441);
       END_STATE();
     case 343:
-      if (lookahead == 'a') ADVANCE(441);
-      if (lookahead == 'o') ADVANCE(442);
+      if (lookahead == 't') ADVANCE(442);
       END_STATE();
     case 344:
-      ACCEPT_TOKEN(anon_sym_break);
+      if (lookahead == 'a') ADVANCE(443);
       END_STATE();
     case 345:
-      if (lookahead == '6') ADVANCE(443);
+      if (lookahead == 'n') ADVANCE(444);
       END_STATE();
     case 346:
-      if (lookahead == '2') ADVANCE(444);
+      if (lookahead == 'i') ADVANCE(445);
       END_STATE();
     case 347:
-      if (lookahead == '4') ADVANCE(445);
+      if (lookahead == 'a') ADVANCE(446);
+      if (lookahead == 'o') ADVANCE(447);
       END_STATE();
     case 348:
-      if (lookahead == '_') ADVANCE(446);
+      ACCEPT_TOKEN(anon_sym_break);
       END_STATE();
     case 349:
-      if (lookahead == 't') ADVANCE(447);
+      if (lookahead == '6') ADVANCE(448);
       END_STATE();
     case 350:
-      ACCEPT_TOKEN(anon_sym_const);
-      if (lookahead == 'e') ADVANCE(448);
+      if (lookahead == '2') ADVANCE(449);
       END_STATE();
     case 351:
-      if (lookahead == 'i') ADVANCE(449);
+      if (lookahead == '4') ADVANCE(450);
       END_STATE();
     case 352:
-      if (lookahead == 'n') ADVANCE(450);
+      if (lookahead == '_') ADVANCE(451);
       END_STATE();
     case 353:
-      if (lookahead == 'l') ADVANCE(451);
+      if (lookahead == 't') ADVANCE(452);
       END_STATE();
     case 354:
-      if (lookahead == 'e') ADVANCE(452);
+      ACCEPT_TOKEN(anon_sym_const);
+      if (lookahead == 'e') ADVANCE(453);
       END_STATE();
     case 355:
-      if (lookahead == 'e') ADVANCE(239);
+      if (lookahead == 'i') ADVANCE(454);
       END_STATE();
     case 356:
-      if (lookahead == 'n') ADVANCE(453);
+      if (lookahead == 'n') ADVANCE(455);
       END_STATE();
     case 357:
-      if (lookahead == 'l') ADVANCE(454);
+      if (lookahead == 'l') ADVANCE(456);
       END_STATE();
     case 358:
-      ACCEPT_TOKEN(anon_sym_g_new);
-      if (lookahead == '0') ADVANCE(455);
-      END_STATE();
-    case 359:
-      if (lookahead == '_') ADVANCE(456);
-      END_STATE();
-    case 360:
       if (lookahead == 'e') ADVANCE(457);
       END_STATE();
+    case 359:
+      if (lookahead == 'e') ADVANCE(242);
+      END_STATE();
+    case 360:
+      if (lookahead == 'n') ADVANCE(458);
+      END_STATE();
     case 361:
-      if (lookahead == '_') ADVANCE(458);
+      if (lookahead == 'l') ADVANCE(459);
       END_STATE();
     case 362:
-      if (lookahead == '_') ADVANCE(459);
+      ACCEPT_TOKEN(anon_sym_g_new);
+      if (lookahead == '0') ADVANCE(460);
       END_STATE();
     case 363:
-      if (lookahead == '_') ADVANCE(460);
+      if (lookahead == '_') ADVANCE(461);
       END_STATE();
     case 364:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'e') ADVANCE(462);
       END_STATE();
     case 365:
-      if (lookahead == 'r') ADVANCE(461);
+      if (lookahead == '_') ADVANCE(463);
       END_STATE();
     case 366:
-      if (lookahead == 'e') ADVANCE(462);
-      if (lookahead == 'f') ADVANCE(463);
-      if (lookahead == 'n') ADVANCE(464);
-      if (lookahead == 'p') ADVANCE(465);
+      if (lookahead == '_') ADVANCE(464);
       END_STATE();
     case 367:
-      if (lookahead == 'l') ADVANCE(466);
+      if (lookahead == '_') ADVANCE(465);
       END_STATE();
     case 368:
-      ACCEPT_TOKEN(anon_sym_min_t);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 369:
-      if (lookahead == 'i') ADVANCE(467);
+      if (lookahead == 'r') ADVANCE(466);
       END_STATE();
     case 370:
-      if (lookahead == 'u') ADVANCE(468);
+      if (lookahead == 'e') ADVANCE(467);
+      if (lookahead == 'f') ADVANCE(468);
+      if (lookahead == 'n') ADVANCE(469);
+      if (lookahead == 'p') ADVANCE(470);
       END_STATE();
     case 371:
-      if (lookahead == 't') ADVANCE(469);
+      if (lookahead == 'l') ADVANCE(471);
       END_STATE();
     case 372:
-      if (lookahead == 't') ADVANCE(470);
+      ACCEPT_TOKEN(anon_sym_min_t);
       END_STATE();
     case 373:
-      if (lookahead == 'f') ADVANCE(471);
+      if (lookahead == 'i') ADVANCE(472);
       END_STATE();
     case 374:
-      if (lookahead == 'v') ADVANCE(472);
+      if (lookahead == 'u') ADVANCE(473);
       END_STATE();
     case 375:
-      if (lookahead == 't') ADVANCE(473);
+      if (lookahead == 't') ADVANCE(474);
       END_STATE();
     case 376:
-      if (lookahead == 'i') ADVANCE(474);
+      if (lookahead == 't') ADVANCE(475);
       END_STATE();
     case 377:
-      if (lookahead == 'n') ADVANCE(475);
+      if (lookahead == 'f') ADVANCE(476);
       END_STATE();
     case 378:
-      if (lookahead == 't') ADVANCE(476);
-      if (lookahead == 'w') ADVANCE(477);
+      if (lookahead == 'v') ADVANCE(477);
       END_STATE();
     case 379:
-      ACCEPT_TOKEN(anon_sym_short);
+      if (lookahead == 't') ADVANCE(478);
       END_STATE();
     case 380:
-      if (lookahead == 'd') ADVANCE(478);
+      if (lookahead == 'i') ADVANCE(479);
       END_STATE();
     case 381:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'n') ADVANCE(480);
       END_STATE();
     case 382:
-      if (lookahead == 'f') ADVANCE(479);
+      if (lookahead == 't') ADVANCE(481);
+      if (lookahead == 'w') ADVANCE(482);
       END_STATE();
     case 383:
-      if (lookahead == 'r') ADVANCE(480);
+      ACCEPT_TOKEN(anon_sym_short);
       END_STATE();
     case 384:
-      if (lookahead == '_') ADVANCE(481);
+      if (lookahead == 'd') ADVANCE(483);
       END_STATE();
     case 385:
-      if (lookahead == 'c') ADVANCE(482);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 386:
-      if (lookahead == 't') ADVANCE(483);
+      if (lookahead == 'f') ADVANCE(484);
       END_STATE();
     case 387:
-      if (lookahead == 'h') ADVANCE(484);
+      if (lookahead == 'r') ADVANCE(485);
       END_STATE();
     case 388:
-      if (lookahead == 'c') ADVANCE(485);
+      if (lookahead == '_') ADVANCE(486);
       END_STATE();
     case 389:
-      if (lookahead == 'd') ADVANCE(486);
+      if (lookahead == 'c') ADVANCE(487);
       END_STATE();
     case 390:
-      if (lookahead == 'e') ADVANCE(487);
+      if (lookahead == 't') ADVANCE(488);
       END_STATE();
     case 391:
-      if (lookahead == '6') ADVANCE(488);
+      if (lookahead == 'h') ADVANCE(489);
       END_STATE();
     case 392:
-      if (lookahead == '2') ADVANCE(489);
+      if (lookahead == 'c') ADVANCE(490);
       END_STATE();
     case 393:
-      if (lookahead == '4') ADVANCE(490);
+      if (lookahead == 'd') ADVANCE(491);
       END_STATE();
     case 394:
-      if (lookahead == '_') ADVANCE(491);
+      if (lookahead == 'e') ADVANCE(492);
       END_STATE();
     case 395:
-      if (lookahead == 't') ADVANCE(492);
+      if (lookahead == '6') ADVANCE(493);
       END_STATE();
     case 396:
-      ACCEPT_TOKEN(anon_sym_union);
+      if (lookahead == '2') ADVANCE(494);
       END_STATE();
     case 397:
-      if (lookahead == 'n') ADVANCE(493);
+      if (lookahead == '4') ADVANCE(495);
       END_STATE();
     case 398:
-      if (lookahead == 'g') ADVANCE(494);
+      if (lookahead == '_') ADVANCE(496);
       END_STATE();
     case 399:
-      if (lookahead == 'i') ADVANCE(495);
+      if (lookahead == 't') ADVANCE(497);
       END_STATE();
     case 400:
-      ACCEPT_TOKEN(anon_sym_while);
+      ACCEPT_TOKEN(anon_sym_union);
       END_STATE();
     case 401:
-      if (lookahead == 'E') ADVANCE(496);
+      if (lookahead == 'n') ADVANCE(498);
       END_STATE();
     case 402:
-      if (lookahead == 'A') ADVANCE(497);
+      if (lookahead == 'g') ADVANCE(499);
       END_STATE();
     case 403:
-      if (lookahead == '_') ADVANCE(498);
+      if (lookahead == 'i') ADVANCE(500);
       END_STATE();
     case 404:
-      if (lookahead == 'K') ADVANCE(499);
+      ACCEPT_TOKEN(anon_sym_while);
       END_STATE();
     case 405:
-      if (lookahead == 'S') ADVANCE(500);
+      if (lookahead == 't') ADVANCE(501);
       END_STATE();
     case 406:
-      if (lookahead == 'T') ADVANCE(501);
+      if (lookahead == 'E') ADVANCE(502);
       END_STATE();
     case 407:
-      if (lookahead == '_') ADVANCE(502);
+      if (lookahead == 'A') ADVANCE(503);
       END_STATE();
     case 408:
-      if (lookahead == 'a') ADVANCE(503);
-      if (lookahead == 'o') ADVANCE(504);
+      if (lookahead == '_') ADVANCE(504);
       END_STATE();
     case 409:
-      if (lookahead == 'c') ADVANCE(505);
+      if (lookahead == 'K') ADVANCE(505);
       END_STATE();
     case 410:
-      if (lookahead == 'i') ADVANCE(506);
+      if (lookahead == 'S') ADVANCE(506);
       END_STATE();
     case 411:
-      if (lookahead == 'l') ADVANCE(507);
+      if (lookahead == 'T') ADVANCE(507);
       END_STATE();
     case 412:
-      if (lookahead == 'u') ADVANCE(508);
+      if (lookahead == '_') ADVANCE(508);
       END_STATE();
     case 413:
-      if (lookahead == 'n') ADVANCE(509);
+      if (lookahead == 'a') ADVANCE(509);
+      if (lookahead == 'o') ADVANCE(510);
       END_STATE();
     case 414:
-      if (lookahead == '_') ADVANCE(510);
+      if (lookahead == 'c') ADVANCE(511);
       END_STATE();
     case 415:
-      if (lookahead == 'i') ADVANCE(511);
+      if (lookahead == 'i') ADVANCE(512);
       END_STATE();
     case 416:
-      if (lookahead == 'd') ADVANCE(512);
-      END_STATE();
-    case 417:
       if (lookahead == 'l') ADVANCE(513);
       END_STATE();
-    case 418:
-      if (lookahead == 'a') ADVANCE(514);
+    case 417:
+      if (lookahead == 'u') ADVANCE(514);
       END_STATE();
-    case 419:
+    case 418:
       if (lookahead == 'n') ADVANCE(515);
       END_STATE();
+    case 419:
+      if (lookahead == '_') ADVANCE(516);
+      END_STATE();
     case 420:
-      if (lookahead == 's') ADVANCE(516);
+      if (lookahead == 'i') ADVANCE(517);
       END_STATE();
     case 421:
-      if (lookahead == 'p') ADVANCE(517);
+      if (lookahead == 'd') ADVANCE(518);
       END_STATE();
     case 422:
-      if (lookahead == 'n') ADVANCE(518);
+      if (lookahead == 'l') ADVANCE(519);
       END_STATE();
     case 423:
-      if (lookahead == 'c') ADVANCE(519);
+      if (lookahead == 'a') ADVANCE(520);
       END_STATE();
     case 424:
-      if (lookahead == 'l') ADVANCE(520);
+      if (lookahead == 'n') ADVANCE(521);
       END_STATE();
     case 425:
-      if (lookahead == 'e') ADVANCE(521);
+      if (lookahead == 's') ADVANCE(522);
       END_STATE();
     case 426:
-      ACCEPT_TOKEN(anon_sym___init);
+      if (lookahead == 'p') ADVANCE(523);
       END_STATE();
     case 427:
-      if (lookahead == 'n') ADVANCE(522);
+      if (lookahead == 'n') ADVANCE(524);
       END_STATE();
     case 428:
-      if (lookahead == 'e') ADVANCE(523);
+      if (lookahead == 'c') ADVANCE(525);
       END_STATE();
     case 429:
-      if (lookahead == '_') ADVANCE(524);
+      if (lookahead == 'l') ADVANCE(526);
       END_STATE();
     case 430:
-      if (lookahead == 'r') ADVANCE(525);
+      if (lookahead == 'e') ADVANCE(527);
       END_STATE();
     case 431:
-      ACCEPT_TOKEN(sym_ms_signed_ptr_modifier);
+      ACCEPT_TOKEN(anon_sym___init);
       END_STATE();
     case 432:
-      if (lookahead == 'a') ADVANCE(526);
+      if (lookahead == 'n') ADVANCE(528);
       END_STATE();
     case 433:
-      if (lookahead == 'c') ADVANCE(527);
+      if (lookahead == 'e') ADVANCE(529);
       END_STATE();
     case 434:
-      if (lookahead == 'a') ADVANCE(528);
+      if (lookahead == '_') ADVANCE(530);
       END_STATE();
     case 435:
-      if (lookahead == 'i') ADVANCE(529);
+      if (lookahead == 'r') ADVANCE(531);
       END_STATE();
     case 436:
-      ACCEPT_TOKEN(sym_ms_unsigned_ptr_modifier);
+      ACCEPT_TOKEN(sym_ms_signed_ptr_modifier);
       END_STATE();
     case 437:
-      if (lookahead == 'o') ADVANCE(530);
+      if (lookahead == 'a') ADVANCE(532);
       END_STATE();
     case 438:
-      if (lookahead == 't') ADVANCE(531);
+      if (lookahead == 'c') ADVANCE(533);
       END_STATE();
     case 439:
-      if (lookahead == 'o') ADVANCE(532);
+      if (lookahead == 'a') ADVANCE(534);
       END_STATE();
     case 440:
-      if (lookahead == 'g') ADVANCE(533);
+      if (lookahead == 'i') ADVANCE(535);
       END_STATE();
     case 441:
-      if (lookahead == 's') ADVANCE(534);
+      ACCEPT_TOKEN(sym_ms_unsigned_ptr_modifier);
       END_STATE();
     case 442:
-      if (lookahead == 'f') ADVANCE(535);
+      if (lookahead == 'o') ADVANCE(536);
       END_STATE();
     case 443:
-      if (lookahead == '_') ADVANCE(536);
+      if (lookahead == 't') ADVANCE(537);
       END_STATE();
     case 444:
-      if (lookahead == '_') ADVANCE(537);
+      if (lookahead == 'o') ADVANCE(538);
       END_STATE();
     case 445:
-      if (lookahead == '_') ADVANCE(538);
+      if (lookahead == 'g') ADVANCE(539);
       END_STATE();
     case 446:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 's') ADVANCE(540);
       END_STATE();
     case 447:
-      if (lookahead == 'r') ADVANCE(539);
+      if (lookahead == 'f') ADVANCE(541);
       END_STATE();
     case 448:
-      if (lookahead == 'x') ADVANCE(540);
+      if (lookahead == '_') ADVANCE(542);
       END_STATE();
     case 449:
-      if (lookahead == 'n') ADVANCE(541);
+      if (lookahead == '_') ADVANCE(543);
       END_STATE();
     case 450:
-      if (lookahead == 'u') ADVANCE(542);
+      if (lookahead == '_') ADVANCE(544);
       END_STATE();
     case 451:
-      if (lookahead == 't') ADVANCE(543);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 452:
-      if (lookahead == 'd') ADVANCE(544);
+      if (lookahead == 'r') ADVANCE(545);
       END_STATE();
     case 453:
-      ACCEPT_TOKEN(anon_sym_extern);
+      if (lookahead == 'x') ADVANCE(546);
       END_STATE();
     case 454:
-      if (lookahead == '_') ADVANCE(545);
+      if (lookahead == 'n') ADVANCE(547);
       END_STATE();
     case 455:
-      ACCEPT_TOKEN(anon_sym_g_new0);
+      if (lookahead == 'u') ADVANCE(548);
       END_STATE();
     case 456:
-      if (lookahead == 'f') ADVANCE(546);
+      if (lookahead == 't') ADVANCE(549);
       END_STATE();
     case 457:
-      ACCEPT_TOKEN(anon_sym_inline);
+      if (lookahead == 'd') ADVANCE(550);
       END_STATE();
     case 458:
-      if (lookahead == 't') ADVANCE(239);
+      ACCEPT_TOKEN(anon_sym_extern);
       END_STATE();
     case 459:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == '_') ADVANCE(551);
       END_STATE();
     case 460:
-      if (lookahead == 't') ADVANCE(239);
+      ACCEPT_TOKEN(anon_sym_g_new0);
       END_STATE();
     case 461:
-      if (lookahead == '_') ADVANCE(547);
+      if (lookahead == 'f') ADVANCE(552);
       END_STATE();
     case 462:
-      if (lookahead == 'n') ADVANCE(548);
+      ACCEPT_TOKEN(anon_sym_inline);
       END_STATE();
     case 463:
-      if (lookahead == 'i') ADVANCE(549);
-      if (lookahead == 'o') ADVANCE(550);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 464:
-      if (lookahead == 'e') ADVANCE(551);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 465:
-      if (lookahead == 'r') ADVANCE(552);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 466:
-      if (lookahead == 'i') ADVANCE(553);
+      if (lookahead == '_') ADVANCE(553);
       END_STATE();
     case 467:
       if (lookahead == 'n') ADVANCE(554);
       END_STATE();
     case 468:
-      if (lookahead == 'r') ADVANCE(555);
+      if (lookahead == 'i') ADVANCE(555);
+      if (lookahead == 'o') ADVANCE(556);
       END_STATE();
     case 469:
-      if (lookahead == 'r') ADVANCE(556);
+      if (lookahead == 'e') ADVANCE(557);
       END_STATE();
     case 470:
-      if (lookahead == 'o') ADVANCE(557);
+      if (lookahead == 'r') ADVANCE(558);
       END_STATE();
     case 471:
-      if (lookahead == 'f') ADVANCE(558);
+      if (lookahead == 'i') ADVANCE(559);
       END_STATE();
     case 472:
-      if (lookahead == 'e') ADVANCE(559);
+      if (lookahead == 'n') ADVANCE(560);
       END_STATE();
     case 473:
-      if (lookahead == 'e') ADVANCE(560);
+      if (lookahead == 'r') ADVANCE(561);
       END_STATE();
     case 474:
-      if (lookahead == 'c') ADVANCE(561);
+      if (lookahead == 'r') ADVANCE(562);
       END_STATE();
     case 475:
-      ACCEPT_TOKEN(anon_sym_return);
+      if (lookahead == 'o') ADVANCE(563);
       END_STATE();
     case 476:
-      if (lookahead == 's') ADVANCE(562);
+      if (lookahead == 'f') ADVANCE(564);
       END_STATE();
     case 477:
-      if (lookahead == 'a') ADVANCE(563);
+      if (lookahead == 'e') ADVANCE(565);
       END_STATE();
     case 478:
-      ACCEPT_TOKEN(anon_sym_signed);
+      if (lookahead == 'e') ADVANCE(566);
       END_STATE();
     case 479:
-      ACCEPT_TOKEN(anon_sym_sizeof);
+      if (lookahead == 'c') ADVANCE(567);
       END_STATE();
     case 480:
-      if (lookahead == '_') ADVANCE(564);
+      ACCEPT_TOKEN(anon_sym_return);
       END_STATE();
     case 481:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 's') ADVANCE(568);
       END_STATE();
     case 482:
-      ACCEPT_TOKEN(anon_sym_static);
+      if (lookahead == 'a') ADVANCE(569);
       END_STATE();
     case 483:
-      ACCEPT_TOKEN(anon_sym_struct);
+      ACCEPT_TOKEN(anon_sym_signed);
       END_STATE();
     case 484:
-      ACCEPT_TOKEN(anon_sym_switch);
+      ACCEPT_TOKEN(anon_sym_sizeof);
       END_STATE();
     case 485:
-      if (lookahead == '_') ADVANCE(565);
-      END_STATE();
-    case 486:
-      if (lookahead == '_') ADVANCE(566);
-      END_STATE();
-    case 487:
-      if (lookahead == 'f') ADVANCE(567);
-      END_STATE();
-    case 488:
-      if (lookahead == '_') ADVANCE(568);
-      END_STATE();
-    case 489:
-      if (lookahead == '_') ADVANCE(569);
-      END_STATE();
-    case 490:
       if (lookahead == '_') ADVANCE(570);
       END_STATE();
+    case 486:
+      if (lookahead == 't') ADVANCE(242);
+      END_STATE();
+    case 487:
+      ACCEPT_TOKEN(anon_sym_static);
+      END_STATE();
+    case 488:
+      ACCEPT_TOKEN(anon_sym_struct);
+      END_STATE();
+    case 489:
+      ACCEPT_TOKEN(anon_sym_switch);
+      END_STATE();
+    case 490:
+      if (lookahead == '_') ADVANCE(571);
+      END_STATE();
     case 491:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == '_') ADVANCE(572);
       END_STATE();
     case 492:
-      if (lookahead == 'r') ADVANCE(571);
+      if (lookahead == 'f') ADVANCE(573);
       END_STATE();
     case 493:
-      if (lookahead == 'e') ADVANCE(572);
-      END_STATE();
-    case 494:
-      ACCEPT_TOKEN(anon_sym_va_arg);
-      END_STATE();
-    case 495:
-      if (lookahead == 'l') ADVANCE(573);
-      END_STATE();
-    case 496:
       if (lookahead == '_') ADVANCE(574);
       END_STATE();
+    case 494:
+      if (lookahead == '_') ADVANCE(575);
+      END_STATE();
+    case 495:
+      if (lookahead == '_') ADVANCE(576);
+      END_STATE();
+    case 496:
+      if (lookahead == 't') ADVANCE(242);
+      END_STATE();
     case 497:
-      if (lookahead == 'D') ADVANCE(575);
+      if (lookahead == 'r') ADVANCE(577);
       END_STATE();
     case 498:
-      if (lookahead == 'H') ADVANCE(576);
+      if (lookahead == 'e') ADVANCE(578);
       END_STATE();
     case 499:
-      if (lookahead == 'T') ADVANCE(577);
+      ACCEPT_TOKEN(anon_sym_va_arg);
       END_STATE();
     case 500:
-      if (lookahead == 'T') ADVANCE(578);
+      if (lookahead == 'l') ADVANCE(579);
       END_STATE();
     case 501:
-      if (lookahead == 'A') ADVANCE(579);
+      if (lookahead == 'r') ADVANCE(580);
       END_STATE();
     case 502:
-      if (lookahead == 'P') ADVANCE(580);
+      if (lookahead == '_') ADVANCE(581);
       END_STATE();
     case 503:
-      if (lookahead == 's') ADVANCE(581);
+      if (lookahead == 'D') ADVANCE(582);
       END_STATE();
     case 504:
-      if (lookahead == 'f') ADVANCE(582);
+      if (lookahead == 'H') ADVANCE(583);
       END_STATE();
     case 505:
-      ACCEPT_TOKEN(anon_sym__Atomic);
+      if (lookahead == 'T') ADVANCE(584);
       END_STATE();
     case 506:
-      if (lookahead == 'c') ADVANCE(583);
+      if (lookahead == 'T') ADVANCE(585);
       END_STATE();
     case 507:
-      if (lookahead == 'l') ADVANCE(584);
+      if (lookahead == 'A') ADVANCE(586);
       END_STATE();
     case 508:
-      if (lookahead == 'r') ADVANCE(585);
+      if (lookahead == 'P') ADVANCE(587);
       END_STATE();
     case 509:
-      if (lookahead == 'o') ADVANCE(586);
+      if (lookahead == 's') ADVANCE(588);
       END_STATE();
     case 510:
-      ACCEPT_TOKEN(anon_sym___asm__);
+      if (lookahead == 'f') ADVANCE(589);
       END_STATE();
     case 511:
-      if (lookahead == 'b') ADVANCE(587);
+      ACCEPT_TOKEN(anon_sym__Atomic);
       END_STATE();
     case 512:
-      ACCEPT_TOKEN(anon_sym___based);
+      if (lookahead == 'c') ADVANCE(590);
       END_STATE();
     case 513:
-      ACCEPT_TOKEN(anon_sym___cdecl);
+      if (lookahead == 'l') ADVANCE(591);
       END_STATE();
     case 514:
-      if (lookahead == 'l') ADVANCE(588);
+      if (lookahead == 'r') ADVANCE(592);
       END_STATE();
     case 515:
-      if (lookahead == 'i') ADVANCE(589);
+      if (lookahead == 'o') ADVANCE(593);
       END_STATE();
     case 516:
-      if (lookahead == 'p') ADVANCE(590);
+      ACCEPT_TOKEN(anon_sym___asm__);
       END_STATE();
     case 517:
-      if (lookahead == 't') ADVANCE(591);
+      if (lookahead == 'b') ADVANCE(594);
       END_STATE();
     case 518:
-      if (lookahead == 's') ADVANCE(592);
+      ACCEPT_TOKEN(anon_sym___based);
       END_STATE();
     case 519:
-      if (lookahead == 'a') ADVANCE(593);
+      ACCEPT_TOKEN(anon_sym___cdecl);
       END_STATE();
     case 520:
-      if (lookahead == 'l') ADVANCE(594);
+      if (lookahead == 'l') ADVANCE(595);
       END_STATE();
     case 521:
-      if (lookahead == 'i') ADVANCE(595);
+      if (lookahead == 'i') ADVANCE(596);
       END_STATE();
     case 522:
-      if (lookahead == 'e') ADVANCE(596);
+      if (lookahead == 'p') ADVANCE(597);
       END_STATE();
     case 523:
-      ACCEPT_TOKEN(anon_sym___leave);
+      if (lookahead == 't') ADVANCE(598);
       END_STATE();
     case 524:
-      if (lookahead == 'c') ADVANCE(597);
+      if (lookahead == 's') ADVANCE(599);
       END_STATE();
     case 525:
-      if (lookahead == 'i') ADVANCE(598);
-      END_STATE();
-    case 526:
-      if (lookahead == 'l') ADVANCE(599);
-      END_STATE();
-    case 527:
       if (lookahead == 'a') ADVANCE(600);
       END_STATE();
+    case 526:
+      if (lookahead == 'l') ADVANCE(601);
+      END_STATE();
+    case 527:
+      if (lookahead == 'i') ADVANCE(602);
+      END_STATE();
     case 528:
-      if (lookahead == 'd') ADVANCE(601);
+      if (lookahead == 'e') ADVANCE(603);
       END_STATE();
     case 529:
-      if (lookahead == 'g') ADVANCE(602);
+      ACCEPT_TOKEN(anon_sym___leave);
       END_STATE();
     case 530:
-      if (lookahead == 'r') ADVANCE(603);
+      if (lookahead == 'c') ADVANCE(604);
       END_STATE();
     case 531:
-      if (lookahead == 'i') ADVANCE(604);
+      if (lookahead == 'i') ADVANCE(605);
       END_STATE();
     case 532:
-      if (lookahead == 'f') ADVANCE(605);
+      if (lookahead == 'l') ADVANCE(606);
       END_STATE();
     case 533:
-      if (lookahead == 'n') ADVANCE(606);
+      if (lookahead == 'a') ADVANCE(607);
       END_STATE();
     case 534:
-      ACCEPT_TOKEN(anon_sym_alignas);
+      if (lookahead == 'd') ADVANCE(608);
       END_STATE();
     case 535:
-      ACCEPT_TOKEN(anon_sym_alignof);
+      if (lookahead == 'g') ADVANCE(609);
       END_STATE();
     case 536:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'r') ADVANCE(610);
       END_STATE();
     case 537:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'i') ADVANCE(611);
       END_STATE();
     case 538:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'f') ADVANCE(612);
       END_STATE();
     case 539:
-      if (lookahead == '_') ADVANCE(607);
+      if (lookahead == 'n') ADVANCE(613);
       END_STATE();
     case 540:
-      if (lookahead == 'p') ADVANCE(608);
+      ACCEPT_TOKEN(anon_sym_alignas);
       END_STATE();
     case 541:
-      if (lookahead == 'e') ADVANCE(609);
+      ACCEPT_TOKEN(anon_sym_alignof);
       END_STATE();
     case 542:
-      if (lookahead == 'e') ADVANCE(610);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 543:
-      ACCEPT_TOKEN(anon_sym_default);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 544:
-      ACCEPT_TOKEN(anon_sym_defined);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 545:
-      if (lookahead == 'u') ADVANCE(611);
+      if (lookahead == '_') ADVANCE(614);
       END_STATE();
     case 546:
-      if (lookahead == 'o') ADVANCE(612);
+      if (lookahead == 'p') ADVANCE(615);
       END_STATE();
     case 547:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'e') ADVANCE(616);
       END_STATE();
     case 548:
-      if (lookahead == 't') ADVANCE(613);
-      END_STATE();
-    case 549:
-      if (lookahead == 'r') ADVANCE(614);
-      END_STATE();
-    case 550:
-      if (lookahead == 'r') ADVANCE(615);
-      END_STATE();
-    case 551:
-      if (lookahead == 'x') ADVANCE(616);
-      END_STATE();
-    case 552:
       if (lookahead == 'e') ADVANCE(617);
       END_STATE();
+    case 549:
+      ACCEPT_TOKEN(anon_sym_default);
+      END_STATE();
+    case 550:
+      ACCEPT_TOKEN(anon_sym_defined);
+      END_STATE();
+    case 551:
+      if (lookahead == 'u') ADVANCE(618);
+      END_STATE();
+    case 552:
+      if (lookahead == 'o') ADVANCE(619);
+      END_STATE();
     case 553:
-      if (lookahead == 'g') ADVANCE(618);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 554:
-      if (lookahead == 'e') ADVANCE(619);
+      if (lookahead == 't') ADVANCE(620);
       END_STATE();
     case 555:
-      if (lookahead == 'n') ADVANCE(620);
+      if (lookahead == 'r') ADVANCE(621);
       END_STATE();
     case 556:
-      ACCEPT_TOKEN(anon_sym_nullptr);
-      if (lookahead == '_') ADVANCE(621);
+      if (lookahead == 'r') ADVANCE(622);
       END_STATE();
     case 557:
-      if (lookahead == 'f') ADVANCE(622);
+      if (lookahead == 'x') ADVANCE(623);
       END_STATE();
     case 558:
-      if (lookahead == '_') ADVANCE(623);
+      if (lookahead == 'e') ADVANCE(624);
       END_STATE();
     case 559:
-      if (lookahead == '_') ADVANCE(624);
+      if (lookahead == 'g') ADVANCE(625);
       END_STATE();
     case 560:
-      if (lookahead == 'r') ADVANCE(625);
+      if (lookahead == 'e') ADVANCE(626);
       END_STATE();
     case 561:
-      if (lookahead == 't') ADVANCE(626);
-      END_STATE();
-    case 562:
       if (lookahead == 'n') ADVANCE(627);
       END_STATE();
+    case 562:
+      ACCEPT_TOKEN(anon_sym_nullptr);
+      if (lookahead == '_') ADVANCE(628);
+      END_STATE();
     case 563:
-      if (lookahead == 'l') ADVANCE(628);
+      if (lookahead == 'f') ADVANCE(629);
       END_STATE();
     case 564:
-      if (lookahead == 'e') ADVANCE(629);
+      if (lookahead == '_') ADVANCE(630);
       END_STATE();
     case 565:
-      if (lookahead == 'g') ADVANCE(630);
+      if (lookahead == '_') ADVANCE(631);
       END_STATE();
     case 566:
-      if (lookahead == 'l') ADVANCE(631);
+      if (lookahead == 'r') ADVANCE(632);
       END_STATE();
     case 567:
-      ACCEPT_TOKEN(anon_sym_typedef);
+      if (lookahead == 't') ADVANCE(633);
       END_STATE();
     case 568:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'n') ADVANCE(634);
       END_STATE();
     case 569:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'l') ADVANCE(635);
       END_STATE();
     case 570:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'e') ADVANCE(636);
       END_STATE();
     case 571:
-      if (lookahead == '_') ADVANCE(632);
+      if (lookahead == 'g') ADVANCE(637);
       END_STATE();
     case 572:
-      if (lookahead == 'd') ADVANCE(633);
+      if (lookahead == 'l') ADVANCE(638);
       END_STATE();
     case 573:
-      if (lookahead == 'e') ADVANCE(634);
+      ACCEPT_TOKEN(anon_sym_typedef);
       END_STATE();
     case 574:
-      if (lookahead == 'S') ADVANCE(635);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 575:
-      if (lookahead == 'D') ADVANCE(636);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 576:
-      if (lookahead == 'A') ADVANCE(637);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 577:
-      if (lookahead == 'O') ADVANCE(638);
+      if (lookahead == '_') ADVANCE(639);
       END_STATE();
     case 578:
-      ACCEPT_TOKEN(anon_sym_JAS_CAST);
+      if (lookahead == 'd') ADVANCE(640);
       END_STATE();
     case 579:
-      if (lookahead == 'T') ADVANCE(639);
+      if (lookahead == 'e') ADVANCE(641);
       END_STATE();
     case 580:
-      ACCEPT_TOKEN(anon_sym_TALLOC_P);
+      if (lookahead == 'y') ADVANCE(642);
       END_STATE();
     case 581:
-      ACCEPT_TOKEN(anon_sym__Alignas);
+      if (lookahead == 'S') ADVANCE(643);
       END_STATE();
     case 582:
-      ACCEPT_TOKEN(anon_sym__Alignof);
+      if (lookahead == 'D') ADVANCE(644);
       END_STATE();
     case 583:
-      ACCEPT_TOKEN(anon_sym__Generic);
+      if (lookahead == 'A') ADVANCE(645);
       END_STATE();
     case 584:
-      ACCEPT_TOKEN(anon_sym__Nonnull);
+      if (lookahead == 'O') ADVANCE(646);
       END_STATE();
     case 585:
-      if (lookahead == 'n') ADVANCE(640);
+      ACCEPT_TOKEN(anon_sym_JAS_CAST);
       END_STATE();
     case 586:
-      if (lookahead == 'f') ADVANCE(641);
+      if (lookahead == 'T') ADVANCE(647);
       END_STATE();
     case 587:
-      if (lookahead == 'u') ADVANCE(642);
+      ACCEPT_TOKEN(anon_sym_TALLOC_P);
       END_STATE();
     case 588:
-      if (lookahead == 'l') ADVANCE(643);
+      ACCEPT_TOKEN(anon_sym__Alignas);
       END_STATE();
     case 589:
-      if (lookahead == 't') ADVANCE(644);
+      ACCEPT_TOKEN(anon_sym__Alignof);
       END_STATE();
     case 590:
-      if (lookahead == 'e') ADVANCE(645);
+      ACCEPT_TOKEN(anon_sym__Generic);
       END_STATE();
     case 591:
-      ACCEPT_TOKEN(anon_sym___except);
+      ACCEPT_TOKEN(anon_sym__Nonnull);
       END_STATE();
     case 592:
-      if (lookahead == 'i') ADVANCE(646);
+      if (lookahead == 'n') ADVANCE(648);
       END_STATE();
     case 593:
-      if (lookahead == 'l') ADVANCE(647);
+      if (lookahead == 'f') ADVANCE(649);
       END_STATE();
     case 594:
-      if (lookahead == 'y') ADVANCE(648);
+      if (lookahead == 'u') ADVANCE(650);
       END_STATE();
     case 595:
-      if (lookahead == 'n') ADVANCE(649);
+      if (lookahead == 'l') ADVANCE(651);
       END_STATE();
     case 596:
-      ACCEPT_TOKEN(anon_sym___inline);
-      if (lookahead == '_') ADVANCE(650);
+      if (lookahead == 't') ADVANCE(652);
       END_STATE();
     case 597:
-      if (lookahead == 'h') ADVANCE(651);
+      if (lookahead == 'e') ADVANCE(653);
       END_STATE();
     case 598:
-      if (lookahead == 'c') ADVANCE(652);
+      ACCEPT_TOKEN(anon_sym___except);
       END_STATE();
     case 599:
-      if (lookahead == 'l') ADVANCE(653);
+      if (lookahead == 'i') ADVANCE(654);
       END_STATE();
     case 600:
-      if (lookahead == 'l') ADVANCE(654);
+      if (lookahead == 'l') ADVANCE(655);
       END_STATE();
     case 601:
-      ACCEPT_TOKEN(anon_sym___thread);
+      if (lookahead == 'y') ADVANCE(656);
       END_STATE();
     case 602:
-      if (lookahead == 'n') ADVANCE(655);
+      if (lookahead == 'n') ADVANCE(657);
       END_STATE();
     case 603:
-      if (lookahead == 'c') ADVANCE(656);
+      ACCEPT_TOKEN(anon_sym___inline);
+      if (lookahead == '_') ADVANCE(658);
       END_STATE();
     case 604:
-      if (lookahead == 'l') ADVANCE(657);
+      if (lookahead == 'h') ADVANCE(659);
       END_STATE();
     case 605:
-      ACCEPT_TOKEN(anon_sym__alignof);
+      if (lookahead == 'c') ADVANCE(660);
       END_STATE();
     case 606:
-      if (lookahead == 'e') ADVANCE(658);
+      if (lookahead == 'l') ADVANCE(661);
       END_STATE();
     case 607:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 'l') ADVANCE(662);
       END_STATE();
     case 608:
-      if (lookahead == 'r') ADVANCE(659);
+      ACCEPT_TOKEN(anon_sym___thread);
       END_STATE();
     case 609:
-      if (lookahead == 'r') ADVANCE(660);
+      if (lookahead == 'n') ADVANCE(663);
       END_STATE();
     case 610:
-      ACCEPT_TOKEN(anon_sym_continue);
+      if (lookahead == 'c') ADVANCE(664);
       END_STATE();
     case 611:
-      if (lookahead == 'n') ADVANCE(661);
+      if (lookahead == 'l') ADVANCE(665);
       END_STATE();
     case 612:
-      if (lookahead == 'r') ADVANCE(662);
+      ACCEPT_TOKEN(anon_sym__alignof);
       END_STATE();
     case 613:
-      if (lookahead == 'r') ADVANCE(663);
+      if (lookahead == 'e') ADVANCE(666);
       END_STATE();
     case 614:
-      if (lookahead == 's') ADVANCE(664);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 615:
-      if (lookahead == '_') ADVANCE(665);
+      if (lookahead == 'r') ADVANCE(667);
       END_STATE();
     case 616:
-      if (lookahead == 't') ADVANCE(666);
+      if (lookahead == 'r') ADVANCE(668);
       END_STATE();
     case 617:
-      if (lookahead == 'v') ADVANCE(667);
+      ACCEPT_TOKEN(anon_sym_continue);
       END_STATE();
     case 618:
-      if (lookahead == 'n') ADVANCE(668);
+      if (lookahead == 'n') ADVANCE(669);
       END_STATE();
     case 619:
-      ACCEPT_TOKEN(anon_sym_noinline);
-      if (lookahead == '_') ADVANCE(669);
+      if (lookahead == 'r') ADVANCE(670);
       END_STATE();
     case 620:
-      ACCEPT_TOKEN(anon_sym_noreturn);
+      if (lookahead == 'r') ADVANCE(671);
       END_STATE();
     case 621:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 's') ADVANCE(672);
       END_STATE();
     case 622:
-      ACCEPT_TOKEN(anon_sym_offsetof);
+      if (lookahead == '_') ADVANCE(673);
       END_STATE();
     case 623:
-      if (lookahead == 't') ADVANCE(239);
+      if (lookahead == 't') ADVANCE(674);
       END_STATE();
     case 624:
-      if (lookahead == 'q') ADVANCE(670);
+      if (lookahead == 'v') ADVANCE(675);
       END_STATE();
     case 625:
-      ACCEPT_TOKEN(anon_sym_register);
+      if (lookahead == 'n') ADVANCE(676);
       END_STATE();
     case 626:
-      ACCEPT_TOKEN(anon_sym_restrict);
-      END_STATE();
-    case 627:
-      if (lookahead == 'm') ADVANCE(671);
-      END_STATE();
-    case 628:
-      if (lookahead == 'k') ADVANCE(672);
-      END_STATE();
-    case 629:
-      if (lookahead == 'a') ADVANCE(673);
-      END_STATE();
-    case 630:
-      if (lookahead == 'e') ADVANCE(674);
-      END_STATE();
-    case 631:
-      if (lookahead == 'o') ADVANCE(675);
-      END_STATE();
-    case 632:
-      if (lookahead == 't') ADVANCE(239);
-      END_STATE();
-    case 633:
-      ACCEPT_TOKEN(anon_sym_unsigned);
-      END_STATE();
-    case 634:
-      ACCEPT_TOKEN(anon_sym_volatile);
-      END_STATE();
-    case 635:
-      if (lookahead == 'O') ADVANCE(676);
-      END_STATE();
-    case 636:
+      ACCEPT_TOKEN(anon_sym_noinline);
       if (lookahead == '_') ADVANCE(677);
       END_STATE();
+    case 627:
+      ACCEPT_TOKEN(anon_sym_noreturn);
+      END_STATE();
+    case 628:
+      if (lookahead == 't') ADVANCE(242);
+      END_STATE();
+    case 629:
+      ACCEPT_TOKEN(anon_sym_offsetof);
+      END_STATE();
+    case 630:
+      if (lookahead == 't') ADVANCE(242);
+      END_STATE();
+    case 631:
+      if (lookahead == 'q') ADVANCE(678);
+      END_STATE();
+    case 632:
+      ACCEPT_TOKEN(anon_sym_register);
+      END_STATE();
+    case 633:
+      ACCEPT_TOKEN(anon_sym_restrict);
+      END_STATE();
+    case 634:
+      if (lookahead == 'm') ADVANCE(679);
+      END_STATE();
+    case 635:
+      if (lookahead == 'k') ADVANCE(680);
+      END_STATE();
+    case 636:
+      if (lookahead == 'a') ADVANCE(681);
+      END_STATE();
     case 637:
-      if (lookahead == 'S') ADVANCE(678);
+      if (lookahead == 'e') ADVANCE(682);
       END_STATE();
     case 638:
-      if (lookahead == 'P') ADVANCE(679);
+      if (lookahead == 'o') ADVANCE(683);
       END_STATE();
     case 639:
-      if (lookahead == 'I') ADVANCE(680);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 640:
-      ACCEPT_TOKEN(anon_sym__Noreturn);
+      ACCEPT_TOKEN(anon_sym_unsigned);
       END_STATE();
     case 641:
-      ACCEPT_TOKEN(anon_sym___alignof);
-      if (lookahead == '_') ADVANCE(681);
+      ACCEPT_TOKEN(anon_sym_volatile);
       END_STATE();
     case 642:
-      if (lookahead == 't') ADVANCE(682);
+      if (lookahead == '_') ADVANCE(684);
       END_STATE();
     case 643:
-      ACCEPT_TOKEN(anon_sym___clrcall);
+      if (lookahead == 'O') ADVANCE(685);
       END_STATE();
     case 644:
-      ACCEPT_TOKEN(anon_sym___cpuinit);
+      if (lookahead == '_') ADVANCE(686);
       END_STATE();
     case 645:
-      if (lookahead == 'c') ADVANCE(683);
+      if (lookahead == 'S') ADVANCE(687);
       END_STATE();
     case 646:
-      if (lookahead == 'o') ADVANCE(684);
+      if (lookahead == 'P') ADVANCE(688);
       END_STATE();
     case 647:
-      if (lookahead == 'l') ADVANCE(685);
+      if (lookahead == 'I') ADVANCE(689);
       END_STATE();
     case 648:
-      ACCEPT_TOKEN(anon_sym___finally);
+      ACCEPT_TOKEN(anon_sym__Noreturn);
       END_STATE();
     case 649:
-      if (lookahead == 'l') ADVANCE(686);
+      ACCEPT_TOKEN(anon_sym___alignof);
+      if (lookahead == '_') ADVANCE(690);
       END_STATE();
     case 650:
-      if (lookahead == '_') ADVANCE(687);
+      if (lookahead == 't') ADVANCE(691);
       END_STATE();
     case 651:
-      if (lookahead == 'e') ADVANCE(688);
+      ACCEPT_TOKEN(anon_sym___clrcall);
       END_STATE();
     case 652:
-      if (lookahead == 't') ADVANCE(689);
+      ACCEPT_TOKEN(anon_sym___cpuinit);
       END_STATE();
     case 653:
-      ACCEPT_TOKEN(anon_sym___stdcall);
+      if (lookahead == 'c') ADVANCE(692);
       END_STATE();
     case 654:
-      if (lookahead == 'l') ADVANCE(690);
+      if (lookahead == 'o') ADVANCE(693);
       END_STATE();
     case 655:
-      if (lookahead == 'e') ADVANCE(691);
+      if (lookahead == 'l') ADVANCE(694);
       END_STATE();
     case 656:
-      if (lookahead == 'a') ADVANCE(692);
+      ACCEPT_TOKEN(anon_sym___finally);
       END_STATE();
     case 657:
-      if (lookahead == 'e') ADVANCE(693);
+      if (lookahead == 'l') ADVANCE(695);
       END_STATE();
     case 658:
-      if (lookahead == 'd') ADVANCE(694);
+      if (lookahead == '_') ADVANCE(696);
       END_STATE();
     case 659:
-      ACCEPT_TOKEN(anon_sym_constexpr);
+      if (lookahead == 'e') ADVANCE(697);
       END_STATE();
     case 660:
-      if (lookahead == '_') ADVANCE(695);
+      if (lookahead == 't') ADVANCE(698);
       END_STATE();
     case 661:
-      if (lookahead == 'i') ADVANCE(696);
+      ACCEPT_TOKEN(anon_sym___stdcall);
       END_STATE();
     case 662:
-      if (lookahead == '_') ADVANCE(697);
+      if (lookahead == 'l') ADVANCE(699);
       END_STATE();
     case 663:
-      if (lookahead == 'y') ADVANCE(698);
-      END_STATE();
-    case 664:
-      if (lookahead == 't') ADVANCE(699);
-      END_STATE();
-    case 665:
       if (lookahead == 'e') ADVANCE(700);
       END_STATE();
+    case 664:
+      if (lookahead == 'a') ADVANCE(701);
+      END_STATE();
+    case 665:
+      if (lookahead == 'e') ADVANCE(702);
+      END_STATE();
     case 666:
-      if (lookahead == '_') ADVANCE(701);
+      if (lookahead == 'd') ADVANCE(703);
       END_STATE();
     case 667:
-      if (lookahead == '_') ADVANCE(702);
+      ACCEPT_TOKEN(anon_sym_constexpr);
       END_STATE();
     case 668:
-      if (lookahead == '_') ADVANCE(703);
+      if (lookahead == '_') ADVANCE(704);
       END_STATE();
     case 669:
-      if (lookahead == 'f') ADVANCE(704);
+      if (lookahead == 'i') ADVANCE(705);
       END_STATE();
     case 670:
-      if (lookahead == 'u') ADVANCE(705);
+      if (lookahead == '_') ADVANCE(706);
       END_STATE();
     case 671:
-      if (lookahead == 'a') ADVANCE(706);
+      if (lookahead == 'y') ADVANCE(707);
       END_STATE();
     case 672:
-      if (lookahead == '_') ADVANCE(707);
+      if (lookahead == 't') ADVANCE(708);
       END_STATE();
     case 673:
-      if (lookahead == 'c') ADVANCE(708);
+      if (lookahead == 'e') ADVANCE(709);
       END_STATE();
     case 674:
-      if (lookahead == 't') ADVANCE(709);
+      if (lookahead == '_') ADVANCE(710);
       END_STATE();
     case 675:
-      if (lookahead == 'c') ADVANCE(710);
+      if (lookahead == '_') ADVANCE(711);
       END_STATE();
     case 676:
-      if (lookahead == 'C') ADVANCE(711);
+      if (lookahead == '_') ADVANCE(712);
       END_STATE();
     case 677:
-      if (lookahead == 'E') ADVANCE(712);
+      if (lookahead == 'f') ADVANCE(713);
       END_STATE();
     case 678:
-      if (lookahead == 'H') ADVANCE(713);
+      if (lookahead == 'u') ADVANCE(714);
       END_STATE();
     case 679:
-      ACCEPT_TOKEN(anon_sym_IF_DESKTOP);
+      if (lookahead == 'a') ADVANCE(715);
       END_STATE();
     case 680:
-      if (lookahead == 'C') ADVANCE(714);
+      if (lookahead == '_') ADVANCE(716);
       END_STATE();
     case 681:
-      if (lookahead == '_') ADVANCE(715);
+      if (lookahead == 'c') ADVANCE(717);
       END_STATE();
     case 682:
-      if (lookahead == 'e') ADVANCE(716);
+      if (lookahead == 't') ADVANCE(718);
       END_STATE();
     case 683:
-      ACCEPT_TOKEN(anon_sym___declspec);
-      END_STATE();
-    case 684:
-      if (lookahead == 'n') ADVANCE(717);
-      END_STATE();
-    case 685:
-      ACCEPT_TOKEN(anon_sym___fastcall);
-      END_STATE();
-    case 686:
-      if (lookahead == 'i') ADVANCE(718);
-      END_STATE();
-    case 687:
-      ACCEPT_TOKEN(anon_sym___inline__);
-      END_STATE();
-    case 688:
       if (lookahead == 'c') ADVANCE(719);
       END_STATE();
+    case 684:
+      if (lookahead == 'f') ADVANCE(720);
+      END_STATE();
+    case 685:
+      if (lookahead == 'C') ADVANCE(721);
+      END_STATE();
+    case 686:
+      if (lookahead == 'E') ADVANCE(722);
+      END_STATE();
+    case 687:
+      if (lookahead == 'H') ADVANCE(723);
+      END_STATE();
+    case 688:
+      ACCEPT_TOKEN(anon_sym_IF_DESKTOP);
+      END_STATE();
     case 689:
-      ACCEPT_TOKEN(sym_ms_restrict_modifier);
-      if (lookahead == '_') ADVANCE(720);
+      if (lookahead == 'C') ADVANCE(724);
       END_STATE();
     case 690:
-      ACCEPT_TOKEN(anon_sym___thiscall);
+      if (lookahead == '_') ADVANCE(725);
       END_STATE();
     case 691:
-      if (lookahead == 'd') ADVANCE(721);
-      END_STATE();
-    case 692:
-      if (lookahead == 'l') ADVANCE(722);
-      END_STATE();
-    case 693:
-      if (lookahead == '_') ADVANCE(723);
-      END_STATE();
-    case 694:
-      ACCEPT_TOKEN(anon_sym__unaligned);
-      END_STATE();
-    case 695:
-      if (lookahead == 'o') ADVANCE(724);
-      END_STATE();
-    case 696:
-      if (lookahead == 'x') ADVANCE(725);
-      END_STATE();
-    case 697:
       if (lookahead == 'e') ADVANCE(726);
       END_STATE();
+    case 692:
+      ACCEPT_TOKEN(anon_sym___declspec);
+      END_STATE();
+    case 693:
+      if (lookahead == 'n') ADVANCE(727);
+      END_STATE();
+    case 694:
+      ACCEPT_TOKEN(anon_sym___fastcall);
+      END_STATE();
+    case 695:
+      if (lookahead == 'i') ADVANCE(728);
+      END_STATE();
+    case 696:
+      ACCEPT_TOKEN(anon_sym___inline__);
+      END_STATE();
+    case 697:
+      if (lookahead == 'c') ADVANCE(729);
+      END_STATE();
     case 698:
-      ACCEPT_TOKEN(anon_sym_list_entry);
+      ACCEPT_TOKEN(sym_ms_restrict_modifier);
+      if (lookahead == '_') ADVANCE(730);
       END_STATE();
     case 699:
-      if (lookahead == '_') ADVANCE(727);
+      ACCEPT_TOKEN(anon_sym___thiscall);
       END_STATE();
     case 700:
-      if (lookahead == 'a') ADVANCE(728);
+      if (lookahead == 'd') ADVANCE(731);
       END_STATE();
     case 701:
-      if (lookahead == 'e') ADVANCE(729);
+      if (lookahead == 'l') ADVANCE(732);
       END_STATE();
     case 702:
-      if (lookahead == 'e') ADVANCE(730);
+      if (lookahead == '_') ADVANCE(733);
       END_STATE();
     case 703:
-      if (lookahead == 't') ADVANCE(239);
+      ACCEPT_TOKEN(anon_sym__unaligned);
       END_STATE();
     case 704:
-      if (lookahead == 'o') ADVANCE(731);
+      if (lookahead == 'o') ADVANCE(734);
       END_STATE();
     case 705:
-      if (lookahead == 'e') ADVANCE(732);
+      if (lookahead == 'x') ADVANCE(735);
       END_STATE();
     case 706:
-      if (lookahead == 'p') ADVANCE(733);
+      if (lookahead == 'e') ADVANCE(736);
       END_STATE();
     case 707:
-      if (lookahead == 'p') ADVANCE(734);
+      ACCEPT_TOKEN(anon_sym_list_entry);
       END_STATE();
     case 708:
-      if (lookahead == 'h') ADVANCE(735);
+      if (lookahead == '_') ADVANCE(737);
       END_STATE();
     case 709:
-      if (lookahead == '_') ADVANCE(736);
+      if (lookahead == 'a') ADVANCE(738);
       END_STATE();
     case 710:
-      if (lookahead == 'a') ADVANCE(737);
+      if (lookahead == 'e') ADVANCE(739);
       END_STATE();
     case 711:
-      if (lookahead == 'K') ADVANCE(738);
+      if (lookahead == 'e') ADVANCE(740);
       END_STATE();
     case 712:
-      if (lookahead == 'N') ADVANCE(739);
+      if (lookahead == 't') ADVANCE(242);
       END_STATE();
     case 713:
-      if (lookahead == '_') ADVANCE(740);
+      if (lookahead == 'o') ADVANCE(741);
       END_STATE();
     case 714:
-      ACCEPT_TOKEN(anon_sym_SCTP_STATIC);
+      if (lookahead == 'e') ADVANCE(742);
       END_STATE();
     case 715:
-      ACCEPT_TOKEN(anon_sym___alignof__);
+      if (lookahead == 'p') ADVANCE(743);
       END_STATE();
     case 716:
-      ACCEPT_TOKEN(anon_sym___attribute);
-      if (lookahead == '_') ADVANCE(741);
+      if (lookahead == 'p') ADVANCE(744);
       END_STATE();
     case 717:
-      if (lookahead == '_') ADVANCE(742);
+      if (lookahead == 'h') ADVANCE(745);
       END_STATE();
     case 718:
-      if (lookahead == 'n') ADVANCE(743);
+      if (lookahead == '_') ADVANCE(746);
       END_STATE();
     case 719:
-      if (lookahead == 'k') ADVANCE(744);
+      if (lookahead == 'a') ADVANCE(747);
       END_STATE();
     case 720:
-      if (lookahead == '_') ADVANCE(745);
+      if (lookahead == 'o') ADVANCE(748);
       END_STATE();
     case 721:
-      ACCEPT_TOKEN(anon_sym___unaligned);
+      if (lookahead == 'K') ADVANCE(749);
       END_STATE();
     case 722:
-      if (lookahead == 'l') ADVANCE(746);
+      if (lookahead == 'N') ADVANCE(750);
       END_STATE();
     case 723:
-      if (lookahead == '_') ADVANCE(747);
+      if (lookahead == '_') ADVANCE(751);
       END_STATE();
     case 724:
-      if (lookahead == 'f') ADVANCE(748);
+      ACCEPT_TOKEN(anon_sym_SCTP_STATIC);
       END_STATE();
     case 725:
-      if (lookahead == '_') ADVANCE(749);
+      ACCEPT_TOKEN(anon_sym___alignof__);
       END_STATE();
     case 726:
-      if (lookahead == 'a') ADVANCE(750);
+      ACCEPT_TOKEN(anon_sym___attribute);
+      if (lookahead == '_') ADVANCE(752);
       END_STATE();
     case 727:
-      if (lookahead == 'e') ADVANCE(751);
+      if (lookahead == '_') ADVANCE(753);
       END_STATE();
     case 728:
-      if (lookahead == 'c') ADVANCE(752);
-      END_STATE();
-    case 729:
-      if (lookahead == 'n') ADVANCE(753);
-      END_STATE();
-    case 730:
       if (lookahead == 'n') ADVANCE(754);
       END_STATE();
+    case 729:
+      if (lookahead == 'k') ADVANCE(755);
+      END_STATE();
+    case 730:
+      if (lookahead == '_') ADVANCE(756);
+      END_STATE();
     case 731:
-      if (lookahead == 'r') ADVANCE(755);
+      ACCEPT_TOKEN(anon_sym___unaligned);
       END_STATE();
     case 732:
-      if (lookahead == 'u') ADVANCE(756);
+      if (lookahead == 'l') ADVANCE(757);
       END_STATE();
     case 733:
-      if (lookahead == '_') ADVANCE(757);
+      if (lookahead == '_') ADVANCE(758);
       END_STATE();
     case 734:
-      if (lookahead == 'a') ADVANCE(758);
+      if (lookahead == 'f') ADVANCE(759);
       END_STATE();
     case 735:
-      ACCEPT_TOKEN(anon_sym_sk_for_each);
+      if (lookahead == '_') ADVANCE(760);
       END_STATE();
     case 736:
-      if (lookahead == 't') ADVANCE(759);
+      if (lookahead == 'a') ADVANCE(761);
       END_STATE();
     case 737:
-      if (lookahead == 'l') ADVANCE(760);
+      if (lookahead == 'e') ADVANCE(762);
       END_STATE();
     case 738:
-      if (lookahead == 'A') ADVANCE(761);
+      if (lookahead == 'c') ADVANCE(763);
       END_STATE();
     case 739:
-      if (lookahead == 'D') ADVANCE(762);
+      if (lookahead == 'n') ADVANCE(764);
       END_STATE();
     case 740:
-      if (lookahead == 'L') ADVANCE(763);
+      if (lookahead == 'n') ADVANCE(765);
       END_STATE();
     case 741:
-      if (lookahead == '_') ADVANCE(764);
+      if (lookahead == 'r') ADVANCE(766);
       END_STATE();
     case 742:
-      if (lookahead == '_') ADVANCE(765);
+      if (lookahead == 'u') ADVANCE(767);
       END_STATE();
     case 743:
-      if (lookahead == 'e') ADVANCE(766);
+      if (lookahead == '_') ADVANCE(768);
       END_STATE();
     case 744:
-      ACCEPT_TOKEN(anon_sym___must_check);
+      if (lookahead == 'a') ADVANCE(769);
       END_STATE();
     case 745:
-      ACCEPT_TOKEN(anon_sym___restrict__);
+      ACCEPT_TOKEN(anon_sym_sk_for_each);
       END_STATE();
     case 746:
-      ACCEPT_TOKEN(anon_sym___vectorcall);
+      if (lookahead == 't') ADVANCE(770);
       END_STATE();
     case 747:
-      ACCEPT_TOKEN(anon_sym___volatile__);
+      if (lookahead == 'l') ADVANCE(771);
       END_STATE();
     case 748:
-      ACCEPT_TOKEN(anon_sym_container_of);
+      if (lookahead == 'r') ADVANCE(772);
       END_STATE();
     case 749:
-      if (lookahead == 's') ADVANCE(767);
+      if (lookahead == 'A') ADVANCE(773);
       END_STATE();
     case 750:
-      if (lookahead == 'c') ADVANCE(768);
+      if (lookahead == 'D') ADVANCE(774);
       END_STATE();
     case 751:
-      if (lookahead == 'n') ADVANCE(769);
+      if (lookahead == 'L') ADVANCE(775);
       END_STATE();
     case 752:
-      if (lookahead == 'h') ADVANCE(770);
+      if (lookahead == '_') ADVANCE(776);
       END_STATE();
     case 753:
-      if (lookahead == 't') ADVANCE(771);
+      if (lookahead == '_') ADVANCE(777);
       END_STATE();
     case 754:
-      if (lookahead == 't') ADVANCE(772);
+      if (lookahead == 'e') ADVANCE(778);
       END_STATE();
     case 755:
-      if (lookahead == '_') ADVANCE(773);
+      ACCEPT_TOKEN(anon_sym___must_check);
       END_STATE();
     case 756:
-      if (lookahead == 'e') ADVANCE(774);
+      ACCEPT_TOKEN(anon_sym___restrict__);
       END_STATE();
     case 757:
-      if (lookahead == 'i') ADVANCE(775);
+      ACCEPT_TOKEN(anon_sym___vectorcall);
       END_STATE();
     case 758:
-      if (lookahead == 'r') ADVANCE(776);
+      ACCEPT_TOKEN(anon_sym___volatile__);
       END_STATE();
     case 759:
-      if (lookahead == 'y') ADVANCE(777);
+      ACCEPT_TOKEN(anon_sym_container_of);
       END_STATE();
     case 760:
-      ACCEPT_TOKEN(anon_sym_thread_local);
+      if (lookahead == 's') ADVANCE(779);
       END_STATE();
     case 761:
-      if (lookahead == 'D') ADVANCE(778);
+      if (lookahead == 'c') ADVANCE(780);
       END_STATE();
     case 762:
-      ACCEPT_TOKEN(anon_sym_DLIST_ADD_END);
+      if (lookahead == 'n') ADVANCE(781);
       END_STATE();
     case 763:
-      if (lookahead == 'O') ADVANCE(779);
+      if (lookahead == 'h') ADVANCE(782);
       END_STATE();
     case 764:
-      ACCEPT_TOKEN(anon_sym___attribute__);
+      if (lookahead == 't') ADVANCE(783);
       END_STATE();
     case 765:
-      ACCEPT_TOKEN(anon_sym___extension__);
+      if (lookahead == 't') ADVANCE(784);
       END_STATE();
     case 766:
-      ACCEPT_TOKEN(anon_sym___forceinline);
+      if (lookahead == '_') ADVANCE(785);
       END_STATE();
     case 767:
-      if (lookahead == 'o') ADVANCE(780);
+      if (lookahead == 'e') ADVANCE(786);
       END_STATE();
     case 768:
-      if (lookahead == 'h') ADVANCE(781);
+      if (lookahead == 'i') ADVANCE(787);
       END_STATE();
     case 769:
-      if (lookahead == 't') ADVANCE(782);
+      if (lookahead == 'r') ADVANCE(788);
       END_STATE();
     case 770:
-      ACCEPT_TOKEN(anon_sym_list_for_each);
-      if (lookahead == '_') ADVANCE(783);
+      if (lookahead == 'y') ADVANCE(789);
       END_STATE();
     case 771:
-      if (lookahead == 'r') ADVANCE(784);
+      ACCEPT_TOKEN(anon_sym_thread_local);
       END_STATE();
     case 772:
-      if (lookahead == 'r') ADVANCE(785);
+      if (lookahead == 'e') ADVANCE(790);
       END_STATE();
     case 773:
-      if (lookahead == 's') ADVANCE(786);
-      END_STATE();
-    case 774:
-      if (lookahead == '_') ADVANCE(787);
-      END_STATE();
-    case 775:
-      if (lookahead == 'n') ADVANCE(788);
-      END_STATE();
-    case 776:
-      if (lookahead == 'a') ADVANCE(789);
-      END_STATE();
-    case 777:
-      if (lookahead == 'p') ADVANCE(790);
-      END_STATE();
-    case 778:
       if (lookahead == 'D') ADVANCE(791);
       END_STATE();
-    case 779:
+    case 774:
+      ACCEPT_TOKEN(anon_sym_DLIST_ADD_END);
+      END_STATE();
+    case 775:
       if (lookahead == 'O') ADVANCE(792);
       END_STATE();
+    case 776:
+      ACCEPT_TOKEN(anon_sym___attribute__);
+      END_STATE();
+    case 777:
+      ACCEPT_TOKEN(anon_sym___extension__);
+      END_STATE();
+    case 778:
+      ACCEPT_TOKEN(anon_sym___forceinline);
+      END_STATE();
+    case 779:
+      if (lookahead == 'o') ADVANCE(793);
+      END_STATE();
     case 780:
-      if (lookahead == 'c') ADVANCE(793);
+      if (lookahead == 'h') ADVANCE(794);
       END_STATE();
     case 781:
-      if (lookahead == '_') ADVANCE(794);
+      if (lookahead == 't') ADVANCE(795);
       END_STATE();
     case 782:
-      if (lookahead == 'r') ADVANCE(795);
+      ACCEPT_TOKEN(anon_sym_list_for_each);
+      if (lookahead == '_') ADVANCE(796);
       END_STATE();
     case 783:
-      if (lookahead == 'e') ADVANCE(796);
-      if (lookahead == 's') ADVANCE(797);
+      if (lookahead == 'r') ADVANCE(797);
       END_STATE();
     case 784:
-      if (lookahead == 'y') ADVANCE(798);
+      if (lookahead == 'r') ADVANCE(798);
       END_STATE();
     case 785:
-      if (lookahead == 'y') ADVANCE(799);
+      if (lookahead == 's') ADVANCE(799);
       END_STATE();
     case 786:
-      if (lookahead == 't') ADVANCE(800);
+      if (lookahead == '_') ADVANCE(800);
       END_STATE();
     case 787:
-      if (lookahead == 'f') ADVANCE(801);
+      if (lookahead == 'n') ADVANCE(801);
       END_STATE();
     case 788:
-      if (lookahead == 'i') ADVANCE(802);
+      if (lookahead == 'a') ADVANCE(802);
       END_STATE();
     case 789:
-      if (lookahead == 'm') ADVANCE(803);
+      if (lookahead == 'p') ADVANCE(803);
       END_STATE();
     case 790:
-      if (lookahead == 'e') ADVANCE(804);
+      if (lookahead == 'a') ADVANCE(804);
       END_STATE();
     case 791:
-      if (lookahead == 'R') ADVANCE(805);
+      if (lookahead == 'D') ADVANCE(805);
       END_STATE();
     case 792:
-      if (lookahead == 'P') ADVANCE(806);
+      if (lookahead == 'O') ADVANCE(806);
       END_STATE();
     case 793:
-      if (lookahead == 'k') ADVANCE(807);
+      if (lookahead == 'c') ADVANCE(807);
       END_STATE();
     case 794:
-      if (lookahead == 'e') ADVANCE(808);
+      if (lookahead == '_') ADVANCE(808);
       END_STATE();
     case 795:
-      if (lookahead == 'y') ADVANCE(809);
+      if (lookahead == 'r') ADVANCE(809);
       END_STATE();
     case 796:
-      if (lookahead == 'n') ADVANCE(810);
+      if (lookahead == 'e') ADVANCE(810);
+      if (lookahead == 's') ADVANCE(811);
       END_STATE();
     case 797:
-      if (lookahead == 'a') ADVANCE(811);
+      if (lookahead == 'y') ADVANCE(812);
       END_STATE();
     case 798:
-      ACCEPT_TOKEN(anon_sym_list_next_entry);
+      if (lookahead == 'y') ADVANCE(813);
       END_STATE();
     case 799:
-      ACCEPT_TOKEN(anon_sym_list_prev_entry);
-      END_STATE();
-    case 800:
-      if (lookahead == 'a') ADVANCE(812);
-      END_STATE();
-    case 801:
-      if (lookahead == 'o') ADVANCE(813);
-      END_STATE();
-    case 802:
       if (lookahead == 't') ADVANCE(814);
       END_STATE();
+    case 800:
+      if (lookahead == 'f') ADVANCE(815);
+      END_STATE();
+    case 801:
+      if (lookahead == 'i') ADVANCE(816);
+      END_STATE();
+    case 802:
+      if (lookahead == 'm') ADVANCE(817);
+      END_STATE();
     case 803:
-      if (lookahead == 's') ADVANCE(815);
+      if (lookahead == 'e') ADVANCE(818);
       END_STATE();
     case 804:
-      if (lookahead == '_') ADVANCE(816);
+      if (lookahead == 'c') ADVANCE(819);
       END_STATE();
     case 805:
-      ACCEPT_TOKEN(anon_sym_DECLARE_SOCKADDR);
+      if (lookahead == 'R') ADVANCE(820);
       END_STATE();
     case 806:
-      ACCEPT_TOKEN(anon_sym_GNUTLS_HASH_LOOP);
+      if (lookahead == 'P') ADVANCE(821);
       END_STATE();
     case 807:
-      if (lookahead == 'e') ADVANCE(817);
+      if (lookahead == 'k') ADVANCE(822);
       END_STATE();
     case 808:
-      if (lookahead == 'n') ADVANCE(818);
+      if (lookahead == 'e') ADVANCE(823);
       END_STATE();
     case 809:
-      ACCEPT_TOKEN(anon_sym_list_first_entry);
-      if (lookahead == '_') ADVANCE(819);
+      if (lookahead == 'y') ADVANCE(824);
       END_STATE();
     case 810:
-      if (lookahead == 't') ADVANCE(820);
+      if (lookahead == 'n') ADVANCE(825);
       END_STATE();
     case 811:
-      if (lookahead == 'f') ADVANCE(821);
+      if (lookahead == 'a') ADVANCE(826);
       END_STATE();
     case 812:
-      if (lookahead == 'c') ADVANCE(822);
+      ACCEPT_TOKEN(anon_sym_list_next_entry);
       END_STATE();
     case 813:
-      if (lookahead == 'r') ADVANCE(823);
+      ACCEPT_TOKEN(anon_sym_list_prev_entry);
       END_STATE();
     case 814:
-      ACCEPT_TOKEN(anon_sym_sctp_tsnmap_init);
+      if (lookahead == 'a') ADVANCE(827);
       END_STATE();
     case 815:
-      ACCEPT_TOKEN(anon_sym_sctp_walk_params);
+      if (lookahead == 'o') ADVANCE(828);
       END_STATE();
     case 816:
-      if (lookahead == 'a') ADVANCE(824);
+      if (lookahead == 't') ADVANCE(829);
       END_STATE();
     case 817:
-      if (lookahead == 't') ADVANCE(825);
+      if (lookahead == 's') ADVANCE(830);
       END_STATE();
     case 818:
-      if (lookahead == 't') ADVANCE(826);
-      END_STATE();
-    case 819:
-      if (lookahead == 'o') ADVANCE(827);
-      END_STATE();
-    case 820:
-      if (lookahead == 'r') ADVANCE(828);
-      END_STATE();
-    case 821:
-      if (lookahead == 'e') ADVANCE(829);
-      END_STATE();
-    case 822:
-      if (lookahead == 'k') ADVANCE(830);
-      END_STATE();
-    case 823:
       if (lookahead == '_') ADVANCE(831);
       END_STATE();
+    case 819:
+      if (lookahead == 'h') ADVANCE(832);
+      END_STATE();
+    case 820:
+      ACCEPT_TOKEN(anon_sym_DECLARE_SOCKADDR);
+      END_STATE();
+    case 821:
+      ACCEPT_TOKEN(anon_sym_GNUTLS_HASH_LOOP);
+      END_STATE();
+    case 822:
+      if (lookahead == 'e') ADVANCE(833);
+      END_STATE();
+    case 823:
+      if (lookahead == 'n') ADVANCE(834);
+      END_STATE();
     case 824:
-      if (lookahead == 'b') ADVANCE(832);
+      ACCEPT_TOKEN(anon_sym_list_first_entry);
+      if (lookahead == '_') ADVANCE(835);
       END_STATE();
     case 825:
-      if (lookahead == 's') ADVANCE(833);
+      if (lookahead == 't') ADVANCE(836);
       END_STATE();
     case 826:
-      if (lookahead == 'r') ADVANCE(834);
+      if (lookahead == 'f') ADVANCE(837);
       END_STATE();
     case 827:
-      if (lookahead == 'r') ADVANCE(835);
+      if (lookahead == 'c') ADVANCE(838);
       END_STATE();
     case 828:
-      if (lookahead == 'y') ADVANCE(836);
+      if (lookahead == 'r') ADVANCE(839);
       END_STATE();
     case 829:
-      ACCEPT_TOKEN(anon_sym_list_for_each_safe);
+      ACCEPT_TOKEN(anon_sym_sctp_tsnmap_init);
       END_STATE();
     case 830:
-      ACCEPT_TOKEN(anon_sym_noinline_for_stack);
+      ACCEPT_TOKEN(anon_sym_sctp_walk_params);
       END_STATE();
     case 831:
-      if (lookahead == 'e') ADVANCE(837);
+      if (lookahead == 'a') ADVANCE(840);
       END_STATE();
     case 832:
-      if (lookahead == 'o') ADVANCE(838);
+      ACCEPT_TOKEN(anon_sym_xt_entry_foreach);
       END_STATE();
     case 833:
-      ACCEPT_TOKEN(anon_sym_forall_unix_sockets);
+      if (lookahead == 't') ADVANCE(841);
       END_STATE();
     case 834:
-      if (lookahead == 'y') ADVANCE(839);
+      if (lookahead == 't') ADVANCE(842);
       END_STATE();
     case 835:
-      if (lookahead == '_') ADVANCE(840);
+      if (lookahead == 'o') ADVANCE(843);
       END_STATE();
     case 836:
-      ACCEPT_TOKEN(anon_sym_list_for_each_entry);
-      if (lookahead == '_') ADVANCE(841);
+      if (lookahead == 'r') ADVANCE(844);
       END_STATE();
     case 837:
-      if (lookahead == 'a') ADVANCE(842);
+      if (lookahead == 'e') ADVANCE(845);
       END_STATE();
     case 838:
-      if (lookahead == 'r') ADVANCE(843);
+      if (lookahead == 'k') ADVANCE(846);
       END_STATE();
     case 839:
-      ACCEPT_TOKEN(anon_sym_hlist_for_each_entry);
+      if (lookahead == '_') ADVANCE(847);
       END_STATE();
     case 840:
-      if (lookahead == 'n') ADVANCE(844);
+      if (lookahead == 'b') ADVANCE(848);
       END_STATE();
     case 841:
-      if (lookahead == 'r') ADVANCE(845);
-      if (lookahead == 's') ADVANCE(846);
+      if (lookahead == 's') ADVANCE(849);
       END_STATE();
     case 842:
-      if (lookahead == 'c') ADVANCE(847);
+      if (lookahead == 'r') ADVANCE(850);
       END_STATE();
     case 843:
-      if (lookahead == 't') ADVANCE(848);
+      if (lookahead == 'r') ADVANCE(851);
       END_STATE();
     case 844:
-      if (lookahead == 'u') ADVANCE(849);
+      if (lookahead == 'y') ADVANCE(852);
       END_STATE();
     case 845:
-      if (lookahead == 'c') ADVANCE(850);
+      ACCEPT_TOKEN(anon_sym_list_for_each_safe);
       END_STATE();
     case 846:
-      if (lookahead == 'a') ADVANCE(851);
+      ACCEPT_TOKEN(anon_sym_noinline_for_stack);
       END_STATE();
     case 847:
-      if (lookahead == 'h') ADVANCE(852);
+      if (lookahead == 'e') ADVANCE(853);
       END_STATE();
     case 848:
-      ACCEPT_TOKEN(anon_sym_talloc_get_type_abort);
+      if (lookahead == 'o') ADVANCE(854);
       END_STATE();
     case 849:
-      if (lookahead == 'l') ADVANCE(853);
+      ACCEPT_TOKEN(anon_sym_forall_unix_sockets);
       END_STATE();
     case 850:
-      if (lookahead == 'u') ADVANCE(854);
+      if (lookahead == 'y') ADVANCE(855);
       END_STATE();
     case 851:
-      if (lookahead == 'f') ADVANCE(855);
-      END_STATE();
-    case 852:
       if (lookahead == '_') ADVANCE(856);
       END_STATE();
+    case 852:
+      ACCEPT_TOKEN(anon_sym_list_for_each_entry);
+      if (lookahead == '_') ADVANCE(857);
+      END_STATE();
     case 853:
-      if (lookahead == 'l') ADVANCE(857);
+      if (lookahead == 'a') ADVANCE(858);
       END_STATE();
     case 854:
-      ACCEPT_TOKEN(anon_sym_list_for_each_entry_rcu);
+      if (lookahead == 'r') ADVANCE(859);
       END_STATE();
     case 855:
-      if (lookahead == 'e') ADVANCE(858);
+      ACCEPT_TOKEN(anon_sym_hlist_for_each_entry);
       END_STATE();
     case 856:
-      if (lookahead == 's') ADVANCE(859);
+      if (lookahead == 'n') ADVANCE(860);
       END_STATE();
     case 857:
-      ACCEPT_TOKEN(anon_sym_list_first_entry_or_null);
+      if (lookahead == 'r') ADVANCE(861);
+      if (lookahead == 's') ADVANCE(862);
       END_STATE();
     case 858:
-      ACCEPT_TOKEN(anon_sym_list_for_each_entry_safe);
+      if (lookahead == 'c') ADVANCE(863);
       END_STATE();
     case 859:
-      if (lookahead == 'k') ADVANCE(860);
+      if (lookahead == 't') ADVANCE(864);
       END_STATE();
     case 860:
-      if (lookahead == 'b') ADVANCE(861);
+      if (lookahead == 'u') ADVANCE(865);
       END_STATE();
     case 861:
+      if (lookahead == 'c') ADVANCE(866);
+      END_STATE();
+    case 862:
+      if (lookahead == 'a') ADVANCE(867);
+      END_STATE();
+    case 863:
+      if (lookahead == 'h') ADVANCE(868);
+      END_STATE();
+    case 864:
+      ACCEPT_TOKEN(anon_sym_talloc_get_type_abort);
+      END_STATE();
+    case 865:
+      if (lookahead == 'l') ADVANCE(869);
+      END_STATE();
+    case 866:
+      if (lookahead == 'u') ADVANCE(870);
+      END_STATE();
+    case 867:
+      if (lookahead == 'f') ADVANCE(871);
+      END_STATE();
+    case 868:
+      if (lookahead == '_') ADVANCE(872);
+      END_STATE();
+    case 869:
+      if (lookahead == 'l') ADVANCE(873);
+      END_STATE();
+    case 870:
+      ACCEPT_TOKEN(anon_sym_list_for_each_entry_rcu);
+      END_STATE();
+    case 871:
+      if (lookahead == 'e') ADVANCE(874);
+      END_STATE();
+    case 872:
+      if (lookahead == 's') ADVANCE(875);
+      END_STATE();
+    case 873:
+      ACCEPT_TOKEN(anon_sym_list_first_entry_or_null);
+      END_STATE();
+    case 874:
+      ACCEPT_TOKEN(anon_sym_list_for_each_entry_safe);
+      END_STATE();
+    case 875:
+      if (lookahead == 'k') ADVANCE(876);
+      END_STATE();
+    case 876:
+      if (lookahead == 'b') ADVANCE(877);
+      END_STATE();
+    case 877:
       ACCEPT_TOKEN(anon_sym_receive_queue_for_each_skb);
       END_STATE();
     default:
@@ -14058,6 +14114,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1),
     [anon_sym_forall_unix_sockets] = ACTIONS(1),
     [anon_sym_IFDBG] = ACTIONS(1),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1),
     [anon_sym_JAS_CAST] = ACTIONS(1),
     [anon_sym_list_entry] = ACTIONS(1),
     [anon_sym_list_first_entry] = ACTIONS(1),
@@ -14095,7 +14152,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1245),
     [sym_linkage_specification] = STATE(71),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(722),
     [sym_compound_statement] = STATE(71),
@@ -14325,7 +14382,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(5),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -14541,6 +14598,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -14580,7 +14638,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -14796,6 +14854,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -14835,7 +14894,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(6),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -15051,6 +15110,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -15090,7 +15150,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -15306,6 +15366,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -15345,7 +15406,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -15561,6 +15622,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -15600,7 +15662,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(9),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -15816,6 +15878,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -15855,7 +15918,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(10),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -16071,6 +16134,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -16110,7 +16174,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -16326,6 +16390,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -16365,7 +16430,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -16581,6 +16646,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -16620,7 +16686,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(13),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -16836,6 +16902,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -16875,7 +16942,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(14),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -17091,6 +17158,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -17130,7 +17198,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -17346,6 +17414,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -17385,7 +17454,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -17601,6 +17670,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -17640,7 +17710,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(17),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -17856,6 +17926,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -17895,7 +17966,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(18),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -18111,6 +18182,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -18150,7 +18222,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -18366,6 +18438,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -18405,7 +18478,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -18621,6 +18694,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -18660,7 +18734,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(21),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -18876,6 +18950,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -18915,7 +18990,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(3),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -19131,6 +19206,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -19170,7 +19246,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -19386,6 +19462,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -19422,7 +19499,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1241),
     [sym_linkage_specification] = STATE(22),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(720),
     [sym_compound_statement] = STATE(123),
@@ -19638,6 +19715,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(395),
     [anon_sym_forall_unix_sockets] = ACTIONS(395),
     [anon_sym_IFDBG] = ACTIONS(395),
+    [anon_sym_xt_entry_foreach] = ACTIONS(395),
     [anon_sym_JAS_CAST] = ACTIONS(398),
     [anon_sym_list_entry] = ACTIONS(401),
     [anon_sym_list_first_entry] = ACTIONS(401),
@@ -19674,7 +19752,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(39),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -19886,6 +19964,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -19922,7 +20001,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -20134,6 +20213,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -20170,7 +20250,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(35),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -20382,6 +20462,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -20418,7 +20499,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1243),
     [sym_linkage_specification] = STATE(26),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(715),
     [sym_compound_statement] = STATE(242),
@@ -20630,6 +20711,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(563),
     [anon_sym_forall_unix_sockets] = ACTIONS(563),
     [anon_sym_IFDBG] = ACTIONS(563),
+    [anon_sym_xt_entry_foreach] = ACTIONS(563),
     [anon_sym_JAS_CAST] = ACTIONS(398),
     [anon_sym_list_entry] = ACTIONS(401),
     [anon_sym_list_first_entry] = ACTIONS(401),
@@ -20666,7 +20748,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -20878,6 +20960,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(646),
     [anon_sym_forall_unix_sockets] = ACTIONS(646),
     [anon_sym_IFDBG] = ACTIONS(646),
+    [anon_sym_xt_entry_foreach] = ACTIONS(646),
     [anon_sym_JAS_CAST] = ACTIONS(398),
     [anon_sym_list_entry] = ACTIONS(401),
     [anon_sym_list_first_entry] = ACTIONS(401),
@@ -20914,7 +20997,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(29),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -21126,6 +21209,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -21162,7 +21246,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -21374,6 +21458,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -21410,7 +21495,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(32),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -21622,6 +21707,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -21658,7 +21744,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1243),
     [sym_linkage_specification] = STATE(26),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(715),
     [sym_compound_statement] = STATE(242),
@@ -21870,6 +21956,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -21906,7 +21993,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -22118,6 +22205,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -22154,7 +22242,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(34),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -22366,6 +22454,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -22402,7 +22491,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -22614,6 +22703,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -22650,7 +22740,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -22862,6 +22952,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -22898,7 +22989,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(37),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -23110,6 +23201,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -23146,7 +23238,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -23358,6 +23450,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -23394,7 +23487,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(40),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -23606,6 +23699,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -23642,7 +23736,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -23854,6 +23948,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -23890,7 +23985,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(27),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -24102,6 +24197,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -24138,7 +24234,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1243),
     [sym_linkage_specification] = STATE(31),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(715),
     [sym_compound_statement] = STATE(242),
@@ -24350,6 +24446,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -24386,7 +24483,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1244),
     [sym_linkage_specification] = STATE(24),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(723),
     [sym_compound_statement] = STATE(184),
@@ -24598,6 +24695,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -24624,7 +24722,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1260),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(48),
     [sym_storage_class_specifier] = STATE(724),
@@ -24837,6 +24935,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -24863,7 +24962,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1260),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(49),
     [sym_storage_class_specifier] = STATE(724),
@@ -25076,6 +25175,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -25102,7 +25202,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1260),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(45),
     [sym_storage_class_specifier] = STATE(724),
@@ -25315,6 +25415,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(879),
     [anon_sym_forall_unix_sockets] = ACTIONS(879),
     [anon_sym_IFDBG] = ACTIONS(879),
+    [anon_sym_xt_entry_foreach] = ACTIONS(879),
     [anon_sym_JAS_CAST] = ACTIONS(882),
     [anon_sym_list_entry] = ACTIONS(885),
     [anon_sym_list_first_entry] = ACTIONS(885),
@@ -25341,7 +25442,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1260),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(47),
     [sym_storage_class_specifier] = STATE(724),
@@ -25554,6 +25655,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -25580,7 +25682,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1260),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(45),
     [sym_storage_class_specifier] = STATE(724),
@@ -25793,6 +25895,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -25819,7 +25922,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1260),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(45),
     [sym_storage_class_specifier] = STATE(724),
@@ -26032,6 +26135,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -26058,7 +26162,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1260),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(45),
     [sym_storage_class_specifier] = STATE(724),
@@ -26271,6 +26375,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -26297,7 +26402,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(59),
     [sym_storage_class_specifier] = STATE(724),
@@ -26506,6 +26611,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -26532,7 +26638,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1252),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(54),
     [sym_storage_class_specifier] = STATE(724),
@@ -26741,6 +26847,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -26767,7 +26874,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1252),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(55),
     [sym_storage_class_specifier] = STATE(724),
@@ -26976,6 +27083,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -27002,7 +27110,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(61),
     [sym_storage_class_specifier] = STATE(724),
@@ -27211,6 +27319,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -27237,7 +27346,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1252),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(56),
     [sym_storage_class_specifier] = STATE(724),
@@ -27446,6 +27555,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -27472,7 +27582,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1252),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(56),
     [sym_storage_class_specifier] = STATE(724),
@@ -27681,6 +27791,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -27707,7 +27818,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1252),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(56),
     [sym_storage_class_specifier] = STATE(724),
@@ -27916,6 +28027,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(992),
     [anon_sym_forall_unix_sockets] = ACTIONS(992),
     [anon_sym_IFDBG] = ACTIONS(992),
+    [anon_sym_xt_entry_foreach] = ACTIONS(992),
     [anon_sym_JAS_CAST] = ACTIONS(882),
     [anon_sym_list_entry] = ACTIONS(885),
     [anon_sym_list_first_entry] = ACTIONS(885),
@@ -27942,7 +28054,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1252),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(58),
     [sym_storage_class_specifier] = STATE(724),
@@ -28151,6 +28263,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -28177,7 +28290,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1252),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(56),
     [sym_storage_class_specifier] = STATE(724),
@@ -28386,6 +28499,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -28412,7 +28526,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(61),
     [sym_storage_class_specifier] = STATE(724),
@@ -28621,6 +28735,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -28647,7 +28762,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1247),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(63),
     [sym_storage_class_specifier] = STATE(724),
@@ -28856,6 +28971,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -28882,7 +28998,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(61),
     [sym_storage_class_specifier] = STATE(724),
@@ -29091,6 +29207,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1052),
     [anon_sym_forall_unix_sockets] = ACTIONS(1052),
     [anon_sym_IFDBG] = ACTIONS(1052),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1052),
     [anon_sym_JAS_CAST] = ACTIONS(882),
     [anon_sym_list_entry] = ACTIONS(885),
     [anon_sym_list_first_entry] = ACTIONS(885),
@@ -29117,7 +29234,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1247),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(64),
     [sym_storage_class_specifier] = STATE(724),
@@ -29326,6 +29443,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -29352,7 +29470,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1247),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(65),
     [sym_storage_class_specifier] = STATE(724),
@@ -29561,6 +29679,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -29587,7 +29706,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1247),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(65),
     [sym_storage_class_specifier] = STATE(724),
@@ -29796,6 +29915,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -29822,7 +29942,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1247),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(65),
     [sym_storage_class_specifier] = STATE(724),
@@ -30031,6 +30151,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1106),
     [anon_sym_forall_unix_sockets] = ACTIONS(1106),
     [anon_sym_IFDBG] = ACTIONS(1106),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1106),
     [anon_sym_JAS_CAST] = ACTIONS(882),
     [anon_sym_list_entry] = ACTIONS(885),
     [anon_sym_list_first_entry] = ACTIONS(885),
@@ -30057,7 +30178,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1247),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(68),
     [sym_storage_class_specifier] = STATE(724),
@@ -30266,6 +30387,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -30292,7 +30414,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(70),
     [sym_storage_class_specifier] = STATE(724),
@@ -30501,6 +30623,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -30527,7 +30650,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1247),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(65),
     [sym_storage_class_specifier] = STATE(724),
@@ -30736,6 +30859,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -30762,7 +30886,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(53),
     [sym_storage_class_specifier] = STATE(724),
@@ -30971,6 +31095,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -30997,7 +31122,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(61),
     [sym_storage_class_specifier] = STATE(724),
@@ -31206,6 +31331,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -31242,7 +31368,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1245),
     [sym_linkage_specification] = STATE(72),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(722),
     [sym_compound_statement] = STATE(72),
@@ -31469,7 +31595,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_specifiers] = STATE(1245),
     [sym_linkage_specification] = STATE(72),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_ms_call_modifier] = STATE(722),
     [sym_compound_statement] = STATE(72),
@@ -31686,7 +31812,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(74),
     [sym_storage_class_specifier] = STATE(724),
@@ -31881,6 +32007,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -31907,7 +32034,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(74),
     [sym_storage_class_specifier] = STATE(724),
@@ -32102,6 +32229,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1326),
     [anon_sym_forall_unix_sockets] = ACTIONS(1326),
     [anon_sym_IFDBG] = ACTIONS(1326),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1326),
     [anon_sym_JAS_CAST] = ACTIONS(882),
     [anon_sym_list_entry] = ACTIONS(885),
     [anon_sym_list_first_entry] = ACTIONS(885),
@@ -32128,7 +32256,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(73),
     [sym_storage_class_specifier] = STATE(724),
@@ -32323,6 +32451,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -32349,7 +32478,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(77),
     [sym_storage_class_specifier] = STATE(724),
@@ -32544,6 +32673,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -32570,7 +32700,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(74),
     [sym_storage_class_specifier] = STATE(724),
@@ -32765,6 +32895,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -32791,7 +32922,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(74),
     [sym_storage_class_specifier] = STATE(724),
@@ -32986,6 +33117,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -33012,7 +33144,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(78),
     [sym_storage_class_specifier] = STATE(724),
@@ -33207,6 +33339,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -33232,7 +33365,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(184),
     [sym_storage_class_specifier] = STATE(724),
@@ -33427,6 +33560,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -33452,7 +33586,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1257),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(231),
     [sym_storage_class_specifier] = STATE(724),
@@ -33647,6 +33781,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -33672,7 +33807,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1252),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(184),
     [sym_storage_class_specifier] = STATE(724),
@@ -33867,6 +34002,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -33892,7 +34028,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1260),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(123),
     [sym_storage_class_specifier] = STATE(724),
@@ -34087,6 +34223,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -34112,7 +34249,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym__declaration_modifiers] = STATE(724),
     [sym__declaration_specifiers] = STATE(1247),
     [sym_attribute_specifier] = STATE(724),
-    [sym_attribute_declaration] = STATE(396),
+    [sym_attribute_declaration] = STATE(395),
     [sym_ms_declspec_modifier] = STATE(724),
     [sym_compound_statement] = STATE(242),
     [sym_storage_class_specifier] = STATE(724),
@@ -34307,6 +34444,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -36026,6 +36164,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1341),
     [anon_sym_forall_unix_sockets] = ACTIONS(1341),
     [anon_sym_IFDBG] = ACTIONS(1341),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1341),
     [anon_sym_JAS_CAST] = ACTIONS(1341),
     [anon_sym_list_entry] = ACTIONS(1341),
     [anon_sym_list_first_entry] = ACTIONS(1341),
@@ -36187,6 +36326,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1347),
     [anon_sym_forall_unix_sockets] = ACTIONS(1347),
     [anon_sym_IFDBG] = ACTIONS(1347),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1347),
     [anon_sym_JAS_CAST] = ACTIONS(1347),
     [anon_sym_list_entry] = ACTIONS(1347),
     [anon_sym_list_first_entry] = ACTIONS(1347),
@@ -36348,6 +36488,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1351),
     [anon_sym_forall_unix_sockets] = ACTIONS(1351),
     [anon_sym_IFDBG] = ACTIONS(1351),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1351),
     [anon_sym_JAS_CAST] = ACTIONS(1351),
     [anon_sym_list_entry] = ACTIONS(1351),
     [anon_sym_list_first_entry] = ACTIONS(1351),
@@ -36509,6 +36650,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1357),
     [anon_sym_forall_unix_sockets] = ACTIONS(1357),
     [anon_sym_IFDBG] = ACTIONS(1357),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1357),
     [anon_sym_JAS_CAST] = ACTIONS(1357),
     [anon_sym_list_entry] = ACTIONS(1357),
     [anon_sym_list_first_entry] = ACTIONS(1357),
@@ -36670,6 +36812,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1359),
     [anon_sym_forall_unix_sockets] = ACTIONS(1359),
     [anon_sym_IFDBG] = ACTIONS(1359),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1359),
     [anon_sym_JAS_CAST] = ACTIONS(1359),
     [anon_sym_list_entry] = ACTIONS(1359),
     [anon_sym_list_first_entry] = ACTIONS(1359),
@@ -36831,6 +36974,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1363),
     [anon_sym_forall_unix_sockets] = ACTIONS(1363),
     [anon_sym_IFDBG] = ACTIONS(1363),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1363),
     [anon_sym_JAS_CAST] = ACTIONS(1363),
     [anon_sym_list_entry] = ACTIONS(1363),
     [anon_sym_list_first_entry] = ACTIONS(1363),
@@ -36992,6 +37136,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1351),
     [anon_sym_forall_unix_sockets] = ACTIONS(1351),
     [anon_sym_IFDBG] = ACTIONS(1351),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1351),
     [anon_sym_JAS_CAST] = ACTIONS(1351),
     [anon_sym_list_entry] = ACTIONS(1351),
     [anon_sym_list_first_entry] = ACTIONS(1351),
@@ -37153,6 +37298,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1367),
     [anon_sym_forall_unix_sockets] = ACTIONS(1367),
     [anon_sym_IFDBG] = ACTIONS(1367),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1367),
     [anon_sym_JAS_CAST] = ACTIONS(1367),
     [anon_sym_list_entry] = ACTIONS(1367),
     [anon_sym_list_first_entry] = ACTIONS(1367),
@@ -37314,6 +37460,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1371),
     [anon_sym_forall_unix_sockets] = ACTIONS(1371),
     [anon_sym_IFDBG] = ACTIONS(1371),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1371),
     [anon_sym_JAS_CAST] = ACTIONS(1371),
     [anon_sym_list_entry] = ACTIONS(1371),
     [anon_sym_list_first_entry] = ACTIONS(1371),
@@ -37475,6 +37622,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1375),
     [anon_sym_forall_unix_sockets] = ACTIONS(1375),
     [anon_sym_IFDBG] = ACTIONS(1375),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1375),
     [anon_sym_JAS_CAST] = ACTIONS(1375),
     [anon_sym_list_entry] = ACTIONS(1375),
     [anon_sym_list_first_entry] = ACTIONS(1375),
@@ -37636,6 +37784,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1379),
     [anon_sym_forall_unix_sockets] = ACTIONS(1379),
     [anon_sym_IFDBG] = ACTIONS(1379),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1379),
     [anon_sym_JAS_CAST] = ACTIONS(1379),
     [anon_sym_list_entry] = ACTIONS(1379),
     [anon_sym_list_first_entry] = ACTIONS(1379),
@@ -37797,6 +37946,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1383),
     [anon_sym_forall_unix_sockets] = ACTIONS(1383),
     [anon_sym_IFDBG] = ACTIONS(1383),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1383),
     [anon_sym_JAS_CAST] = ACTIONS(1383),
     [anon_sym_list_entry] = ACTIONS(1383),
     [anon_sym_list_first_entry] = ACTIONS(1383),
@@ -37958,6 +38108,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1387),
     [anon_sym_forall_unix_sockets] = ACTIONS(1387),
     [anon_sym_IFDBG] = ACTIONS(1387),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1387),
     [anon_sym_JAS_CAST] = ACTIONS(1387),
     [anon_sym_list_entry] = ACTIONS(1387),
     [anon_sym_list_first_entry] = ACTIONS(1387),
@@ -38119,6 +38270,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1387),
     [anon_sym_forall_unix_sockets] = ACTIONS(1387),
     [anon_sym_IFDBG] = ACTIONS(1387),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1387),
     [anon_sym_JAS_CAST] = ACTIONS(1387),
     [anon_sym_list_entry] = ACTIONS(1387),
     [anon_sym_list_first_entry] = ACTIONS(1387),
@@ -38280,6 +38432,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1391),
     [anon_sym_forall_unix_sockets] = ACTIONS(1391),
     [anon_sym_IFDBG] = ACTIONS(1391),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1391),
     [anon_sym_JAS_CAST] = ACTIONS(1391),
     [anon_sym_list_entry] = ACTIONS(1391),
     [anon_sym_list_first_entry] = ACTIONS(1391),
@@ -38441,6 +38594,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1395),
     [anon_sym_forall_unix_sockets] = ACTIONS(1395),
     [anon_sym_IFDBG] = ACTIONS(1395),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1395),
     [anon_sym_JAS_CAST] = ACTIONS(1395),
     [anon_sym_list_entry] = ACTIONS(1395),
     [anon_sym_list_first_entry] = ACTIONS(1395),
@@ -38602,6 +38756,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1399),
     [anon_sym_forall_unix_sockets] = ACTIONS(1399),
     [anon_sym_IFDBG] = ACTIONS(1399),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1399),
     [anon_sym_JAS_CAST] = ACTIONS(1399),
     [anon_sym_list_entry] = ACTIONS(1399),
     [anon_sym_list_first_entry] = ACTIONS(1399),
@@ -38763,6 +38918,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1403),
     [anon_sym_forall_unix_sockets] = ACTIONS(1403),
     [anon_sym_IFDBG] = ACTIONS(1403),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1403),
     [anon_sym_JAS_CAST] = ACTIONS(1403),
     [anon_sym_list_entry] = ACTIONS(1403),
     [anon_sym_list_first_entry] = ACTIONS(1403),
@@ -38924,6 +39080,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1407),
     [anon_sym_forall_unix_sockets] = ACTIONS(1407),
     [anon_sym_IFDBG] = ACTIONS(1407),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1407),
     [anon_sym_JAS_CAST] = ACTIONS(1407),
     [anon_sym_list_entry] = ACTIONS(1407),
     [anon_sym_list_first_entry] = ACTIONS(1407),
@@ -39085,6 +39242,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1411),
     [anon_sym_forall_unix_sockets] = ACTIONS(1411),
     [anon_sym_IFDBG] = ACTIONS(1411),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1411),
     [anon_sym_JAS_CAST] = ACTIONS(1411),
     [anon_sym_list_entry] = ACTIONS(1411),
     [anon_sym_list_first_entry] = ACTIONS(1411),
@@ -39246,6 +39404,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1415),
     [anon_sym_forall_unix_sockets] = ACTIONS(1415),
     [anon_sym_IFDBG] = ACTIONS(1415),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1415),
     [anon_sym_JAS_CAST] = ACTIONS(1415),
     [anon_sym_list_entry] = ACTIONS(1415),
     [anon_sym_list_first_entry] = ACTIONS(1415),
@@ -39407,6 +39566,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1419),
     [anon_sym_forall_unix_sockets] = ACTIONS(1419),
     [anon_sym_IFDBG] = ACTIONS(1419),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1419),
     [anon_sym_JAS_CAST] = ACTIONS(1419),
     [anon_sym_list_entry] = ACTIONS(1419),
     [anon_sym_list_first_entry] = ACTIONS(1419),
@@ -39568,6 +39728,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1425),
     [anon_sym_forall_unix_sockets] = ACTIONS(1425),
     [anon_sym_IFDBG] = ACTIONS(1425),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1425),
     [anon_sym_JAS_CAST] = ACTIONS(1425),
     [anon_sym_list_entry] = ACTIONS(1425),
     [anon_sym_list_first_entry] = ACTIONS(1425),
@@ -39729,6 +39890,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1425),
     [anon_sym_forall_unix_sockets] = ACTIONS(1425),
     [anon_sym_IFDBG] = ACTIONS(1425),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1425),
     [anon_sym_JAS_CAST] = ACTIONS(1425),
     [anon_sym_list_entry] = ACTIONS(1425),
     [anon_sym_list_first_entry] = ACTIONS(1425),
@@ -39890,6 +40052,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1357),
     [anon_sym_forall_unix_sockets] = ACTIONS(1357),
     [anon_sym_IFDBG] = ACTIONS(1357),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1357),
     [anon_sym_JAS_CAST] = ACTIONS(1357),
     [anon_sym_list_entry] = ACTIONS(1357),
     [anon_sym_list_first_entry] = ACTIONS(1357),
@@ -40051,6 +40214,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1429),
     [anon_sym_forall_unix_sockets] = ACTIONS(1429),
     [anon_sym_IFDBG] = ACTIONS(1429),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1429),
     [anon_sym_JAS_CAST] = ACTIONS(1429),
     [anon_sym_list_entry] = ACTIONS(1429),
     [anon_sym_list_first_entry] = ACTIONS(1429),
@@ -40212,6 +40376,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1433),
     [anon_sym_forall_unix_sockets] = ACTIONS(1433),
     [anon_sym_IFDBG] = ACTIONS(1433),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1433),
     [anon_sym_JAS_CAST] = ACTIONS(1433),
     [anon_sym_list_entry] = ACTIONS(1433),
     [anon_sym_list_first_entry] = ACTIONS(1433),
@@ -40373,6 +40538,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1437),
     [anon_sym_forall_unix_sockets] = ACTIONS(1437),
     [anon_sym_IFDBG] = ACTIONS(1437),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1437),
     [anon_sym_JAS_CAST] = ACTIONS(1437),
     [anon_sym_list_entry] = ACTIONS(1437),
     [anon_sym_list_first_entry] = ACTIONS(1437),
@@ -40534,6 +40700,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1441),
     [anon_sym_forall_unix_sockets] = ACTIONS(1441),
     [anon_sym_IFDBG] = ACTIONS(1441),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1441),
     [anon_sym_JAS_CAST] = ACTIONS(1441),
     [anon_sym_list_entry] = ACTIONS(1441),
     [anon_sym_list_first_entry] = ACTIONS(1441),
@@ -40695,6 +40862,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1445),
     [anon_sym_forall_unix_sockets] = ACTIONS(1445),
     [anon_sym_IFDBG] = ACTIONS(1445),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1445),
     [anon_sym_JAS_CAST] = ACTIONS(1445),
     [anon_sym_list_entry] = ACTIONS(1445),
     [anon_sym_list_first_entry] = ACTIONS(1445),
@@ -40856,6 +41024,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1449),
     [anon_sym_forall_unix_sockets] = ACTIONS(1449),
     [anon_sym_IFDBG] = ACTIONS(1449),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1449),
     [anon_sym_JAS_CAST] = ACTIONS(1449),
     [anon_sym_list_entry] = ACTIONS(1449),
     [anon_sym_list_first_entry] = ACTIONS(1449),
@@ -41017,6 +41186,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1453),
     [anon_sym_forall_unix_sockets] = ACTIONS(1453),
     [anon_sym_IFDBG] = ACTIONS(1453),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1453),
     [anon_sym_JAS_CAST] = ACTIONS(1453),
     [anon_sym_list_entry] = ACTIONS(1453),
     [anon_sym_list_first_entry] = ACTIONS(1453),
@@ -41178,6 +41348,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1457),
     [anon_sym_forall_unix_sockets] = ACTIONS(1457),
     [anon_sym_IFDBG] = ACTIONS(1457),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1457),
     [anon_sym_JAS_CAST] = ACTIONS(1457),
     [anon_sym_list_entry] = ACTIONS(1457),
     [anon_sym_list_first_entry] = ACTIONS(1457),
@@ -41339,6 +41510,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1461),
     [anon_sym_forall_unix_sockets] = ACTIONS(1461),
     [anon_sym_IFDBG] = ACTIONS(1461),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1461),
     [anon_sym_JAS_CAST] = ACTIONS(1461),
     [anon_sym_list_entry] = ACTIONS(1461),
     [anon_sym_list_first_entry] = ACTIONS(1461),
@@ -41500,6 +41672,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1461),
     [anon_sym_forall_unix_sockets] = ACTIONS(1461),
     [anon_sym_IFDBG] = ACTIONS(1461),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1461),
     [anon_sym_JAS_CAST] = ACTIONS(1461),
     [anon_sym_list_entry] = ACTIONS(1461),
     [anon_sym_list_first_entry] = ACTIONS(1461),
@@ -41661,6 +41834,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1465),
     [anon_sym_forall_unix_sockets] = ACTIONS(1465),
     [anon_sym_IFDBG] = ACTIONS(1465),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1465),
     [anon_sym_JAS_CAST] = ACTIONS(1465),
     [anon_sym_list_entry] = ACTIONS(1465),
     [anon_sym_list_first_entry] = ACTIONS(1465),
@@ -41822,6 +41996,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1469),
     [anon_sym_forall_unix_sockets] = ACTIONS(1469),
     [anon_sym_IFDBG] = ACTIONS(1469),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1469),
     [anon_sym_JAS_CAST] = ACTIONS(1469),
     [anon_sym_list_entry] = ACTIONS(1469),
     [anon_sym_list_first_entry] = ACTIONS(1469),
@@ -41983,6 +42158,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1473),
     [anon_sym_forall_unix_sockets] = ACTIONS(1473),
     [anon_sym_IFDBG] = ACTIONS(1473),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1473),
     [anon_sym_JAS_CAST] = ACTIONS(1473),
     [anon_sym_list_entry] = ACTIONS(1473),
     [anon_sym_list_first_entry] = ACTIONS(1473),
@@ -42144,6 +42320,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1477),
     [anon_sym_forall_unix_sockets] = ACTIONS(1477),
     [anon_sym_IFDBG] = ACTIONS(1477),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1477),
     [anon_sym_JAS_CAST] = ACTIONS(1477),
     [anon_sym_list_entry] = ACTIONS(1477),
     [anon_sym_list_first_entry] = ACTIONS(1477),
@@ -42305,6 +42482,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1481),
     [anon_sym_forall_unix_sockets] = ACTIONS(1481),
     [anon_sym_IFDBG] = ACTIONS(1481),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1481),
     [anon_sym_JAS_CAST] = ACTIONS(1481),
     [anon_sym_list_entry] = ACTIONS(1481),
     [anon_sym_list_first_entry] = ACTIONS(1481),
@@ -42466,6 +42644,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1485),
     [anon_sym_forall_unix_sockets] = ACTIONS(1485),
     [anon_sym_IFDBG] = ACTIONS(1485),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1485),
     [anon_sym_JAS_CAST] = ACTIONS(1485),
     [anon_sym_list_entry] = ACTIONS(1485),
     [anon_sym_list_first_entry] = ACTIONS(1485),
@@ -42627,6 +42806,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1489),
     [anon_sym_forall_unix_sockets] = ACTIONS(1489),
     [anon_sym_IFDBG] = ACTIONS(1489),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1489),
     [anon_sym_JAS_CAST] = ACTIONS(1489),
     [anon_sym_list_entry] = ACTIONS(1489),
     [anon_sym_list_first_entry] = ACTIONS(1489),
@@ -42788,6 +42968,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1493),
     [anon_sym_forall_unix_sockets] = ACTIONS(1493),
     [anon_sym_IFDBG] = ACTIONS(1493),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1493),
     [anon_sym_JAS_CAST] = ACTIONS(1493),
     [anon_sym_list_entry] = ACTIONS(1493),
     [anon_sym_list_first_entry] = ACTIONS(1493),
@@ -42949,6 +43130,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1415),
     [anon_sym_forall_unix_sockets] = ACTIONS(1415),
     [anon_sym_IFDBG] = ACTIONS(1415),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1415),
     [anon_sym_JAS_CAST] = ACTIONS(1415),
     [anon_sym_list_entry] = ACTIONS(1415),
     [anon_sym_list_first_entry] = ACTIONS(1415),
@@ -43109,6 +43291,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1497),
     [anon_sym_forall_unix_sockets] = ACTIONS(1497),
     [anon_sym_IFDBG] = ACTIONS(1497),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1497),
     [anon_sym_JAS_CAST] = ACTIONS(1497),
     [anon_sym_list_entry] = ACTIONS(1497),
     [anon_sym_list_first_entry] = ACTIONS(1497),
@@ -43269,6 +43452,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1501),
     [anon_sym_forall_unix_sockets] = ACTIONS(1501),
     [anon_sym_IFDBG] = ACTIONS(1501),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1501),
     [anon_sym_JAS_CAST] = ACTIONS(1501),
     [anon_sym_list_entry] = ACTIONS(1501),
     [anon_sym_list_first_entry] = ACTIONS(1501),
@@ -43429,6 +43613,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1505),
     [anon_sym_forall_unix_sockets] = ACTIONS(1505),
     [anon_sym_IFDBG] = ACTIONS(1505),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1505),
     [anon_sym_JAS_CAST] = ACTIONS(1505),
     [anon_sym_list_entry] = ACTIONS(1505),
     [anon_sym_list_first_entry] = ACTIONS(1505),
@@ -43589,6 +43774,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1509),
     [anon_sym_forall_unix_sockets] = ACTIONS(1509),
     [anon_sym_IFDBG] = ACTIONS(1509),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1509),
     [anon_sym_JAS_CAST] = ACTIONS(1509),
     [anon_sym_list_entry] = ACTIONS(1509),
     [anon_sym_list_first_entry] = ACTIONS(1509),
@@ -43749,6 +43935,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1515),
     [anon_sym_forall_unix_sockets] = ACTIONS(1515),
     [anon_sym_IFDBG] = ACTIONS(1515),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1515),
     [anon_sym_JAS_CAST] = ACTIONS(1515),
     [anon_sym_list_entry] = ACTIONS(1515),
     [anon_sym_list_first_entry] = ACTIONS(1515),
@@ -43909,6 +44096,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1519),
     [anon_sym_forall_unix_sockets] = ACTIONS(1519),
     [anon_sym_IFDBG] = ACTIONS(1519),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1519),
     [anon_sym_JAS_CAST] = ACTIONS(1519),
     [anon_sym_list_entry] = ACTIONS(1519),
     [anon_sym_list_first_entry] = ACTIONS(1519),
@@ -44069,6 +44257,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1523),
     [anon_sym_forall_unix_sockets] = ACTIONS(1523),
     [anon_sym_IFDBG] = ACTIONS(1523),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1523),
     [anon_sym_JAS_CAST] = ACTIONS(1523),
     [anon_sym_list_entry] = ACTIONS(1523),
     [anon_sym_list_first_entry] = ACTIONS(1523),
@@ -44229,6 +44418,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1527),
     [anon_sym_forall_unix_sockets] = ACTIONS(1527),
     [anon_sym_IFDBG] = ACTIONS(1527),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1527),
     [anon_sym_JAS_CAST] = ACTIONS(1527),
     [anon_sym_list_entry] = ACTIONS(1527),
     [anon_sym_list_first_entry] = ACTIONS(1527),
@@ -44389,6 +44579,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1531),
     [anon_sym_forall_unix_sockets] = ACTIONS(1531),
     [anon_sym_IFDBG] = ACTIONS(1531),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1531),
     [anon_sym_JAS_CAST] = ACTIONS(1531),
     [anon_sym_list_entry] = ACTIONS(1531),
     [anon_sym_list_first_entry] = ACTIONS(1531),
@@ -44549,6 +44740,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1535),
     [anon_sym_forall_unix_sockets] = ACTIONS(1535),
     [anon_sym_IFDBG] = ACTIONS(1535),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1535),
     [anon_sym_JAS_CAST] = ACTIONS(1535),
     [anon_sym_list_entry] = ACTIONS(1535),
     [anon_sym_list_first_entry] = ACTIONS(1535),
@@ -44709,6 +44901,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1539),
     [anon_sym_forall_unix_sockets] = ACTIONS(1539),
     [anon_sym_IFDBG] = ACTIONS(1539),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1539),
     [anon_sym_JAS_CAST] = ACTIONS(1539),
     [anon_sym_list_entry] = ACTIONS(1539),
     [anon_sym_list_first_entry] = ACTIONS(1539),
@@ -44869,6 +45062,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1543),
     [anon_sym_forall_unix_sockets] = ACTIONS(1543),
     [anon_sym_IFDBG] = ACTIONS(1543),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1543),
     [anon_sym_JAS_CAST] = ACTIONS(1543),
     [anon_sym_list_entry] = ACTIONS(1543),
     [anon_sym_list_first_entry] = ACTIONS(1543),
@@ -45029,6 +45223,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1547),
     [anon_sym_forall_unix_sockets] = ACTIONS(1547),
     [anon_sym_IFDBG] = ACTIONS(1547),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1547),
     [anon_sym_JAS_CAST] = ACTIONS(1547),
     [anon_sym_list_entry] = ACTIONS(1547),
     [anon_sym_list_first_entry] = ACTIONS(1547),
@@ -45189,6 +45384,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1551),
     [anon_sym_forall_unix_sockets] = ACTIONS(1551),
     [anon_sym_IFDBG] = ACTIONS(1551),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1551),
     [anon_sym_JAS_CAST] = ACTIONS(1551),
     [anon_sym_list_entry] = ACTIONS(1551),
     [anon_sym_list_first_entry] = ACTIONS(1551),
@@ -45349,6 +45545,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1555),
     [anon_sym_forall_unix_sockets] = ACTIONS(1555),
     [anon_sym_IFDBG] = ACTIONS(1555),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1555),
     [anon_sym_JAS_CAST] = ACTIONS(1555),
     [anon_sym_list_entry] = ACTIONS(1555),
     [anon_sym_list_first_entry] = ACTIONS(1555),
@@ -45509,6 +45706,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1559),
     [anon_sym_forall_unix_sockets] = ACTIONS(1559),
     [anon_sym_IFDBG] = ACTIONS(1559),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1559),
     [anon_sym_JAS_CAST] = ACTIONS(1559),
     [anon_sym_list_entry] = ACTIONS(1559),
     [anon_sym_list_first_entry] = ACTIONS(1559),
@@ -45669,6 +45867,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1563),
     [anon_sym_forall_unix_sockets] = ACTIONS(1563),
     [anon_sym_IFDBG] = ACTIONS(1563),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1563),
     [anon_sym_JAS_CAST] = ACTIONS(1563),
     [anon_sym_list_entry] = ACTIONS(1563),
     [anon_sym_list_first_entry] = ACTIONS(1563),
@@ -45829,6 +46028,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1567),
     [anon_sym_forall_unix_sockets] = ACTIONS(1567),
     [anon_sym_IFDBG] = ACTIONS(1567),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1567),
     [anon_sym_JAS_CAST] = ACTIONS(1567),
     [anon_sym_list_entry] = ACTIONS(1567),
     [anon_sym_list_first_entry] = ACTIONS(1567),
@@ -45989,6 +46189,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1571),
     [anon_sym_forall_unix_sockets] = ACTIONS(1571),
     [anon_sym_IFDBG] = ACTIONS(1571),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1571),
     [anon_sym_JAS_CAST] = ACTIONS(1571),
     [anon_sym_list_entry] = ACTIONS(1571),
     [anon_sym_list_first_entry] = ACTIONS(1571),
@@ -46149,6 +46350,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1575),
     [anon_sym_forall_unix_sockets] = ACTIONS(1575),
     [anon_sym_IFDBG] = ACTIONS(1575),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1575),
     [anon_sym_JAS_CAST] = ACTIONS(1575),
     [anon_sym_list_entry] = ACTIONS(1575),
     [anon_sym_list_first_entry] = ACTIONS(1575),
@@ -46309,6 +46511,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1579),
     [anon_sym_forall_unix_sockets] = ACTIONS(1579),
     [anon_sym_IFDBG] = ACTIONS(1579),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1579),
     [anon_sym_JAS_CAST] = ACTIONS(1579),
     [anon_sym_list_entry] = ACTIONS(1579),
     [anon_sym_list_first_entry] = ACTIONS(1579),
@@ -46469,6 +46672,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1583),
     [anon_sym_forall_unix_sockets] = ACTIONS(1583),
     [anon_sym_IFDBG] = ACTIONS(1583),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1583),
     [anon_sym_JAS_CAST] = ACTIONS(1583),
     [anon_sym_list_entry] = ACTIONS(1583),
     [anon_sym_list_first_entry] = ACTIONS(1583),
@@ -46629,6 +46833,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1587),
     [anon_sym_forall_unix_sockets] = ACTIONS(1587),
     [anon_sym_IFDBG] = ACTIONS(1587),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1587),
     [anon_sym_JAS_CAST] = ACTIONS(1587),
     [anon_sym_list_entry] = ACTIONS(1587),
     [anon_sym_list_first_entry] = ACTIONS(1587),
@@ -46789,6 +46994,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1591),
     [anon_sym_forall_unix_sockets] = ACTIONS(1591),
     [anon_sym_IFDBG] = ACTIONS(1591),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1591),
     [anon_sym_JAS_CAST] = ACTIONS(1591),
     [anon_sym_list_entry] = ACTIONS(1591),
     [anon_sym_list_first_entry] = ACTIONS(1591),
@@ -46949,6 +47155,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1595),
     [anon_sym_forall_unix_sockets] = ACTIONS(1595),
     [anon_sym_IFDBG] = ACTIONS(1595),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1595),
     [anon_sym_JAS_CAST] = ACTIONS(1595),
     [anon_sym_list_entry] = ACTIONS(1595),
     [anon_sym_list_first_entry] = ACTIONS(1595),
@@ -47109,6 +47316,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1599),
     [anon_sym_forall_unix_sockets] = ACTIONS(1599),
     [anon_sym_IFDBG] = ACTIONS(1599),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1599),
     [anon_sym_JAS_CAST] = ACTIONS(1599),
     [anon_sym_list_entry] = ACTIONS(1599),
     [anon_sym_list_first_entry] = ACTIONS(1599),
@@ -47269,6 +47477,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1603),
     [anon_sym_forall_unix_sockets] = ACTIONS(1603),
     [anon_sym_IFDBG] = ACTIONS(1603),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1603),
     [anon_sym_JAS_CAST] = ACTIONS(1603),
     [anon_sym_list_entry] = ACTIONS(1603),
     [anon_sym_list_first_entry] = ACTIONS(1603),
@@ -47427,6 +47636,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1347),
     [anon_sym_forall_unix_sockets] = ACTIONS(1347),
     [anon_sym_IFDBG] = ACTIONS(1347),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1347),
     [anon_sym_JAS_CAST] = ACTIONS(1347),
     [anon_sym_list_entry] = ACTIONS(1347),
     [anon_sym_list_first_entry] = ACTIONS(1347),
@@ -47585,6 +47795,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1407),
     [anon_sym_forall_unix_sockets] = ACTIONS(1407),
     [anon_sym_IFDBG] = ACTIONS(1407),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1407),
     [anon_sym_JAS_CAST] = ACTIONS(1407),
     [anon_sym_list_entry] = ACTIONS(1407),
     [anon_sym_list_first_entry] = ACTIONS(1407),
@@ -47743,6 +47954,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1415),
     [anon_sym_forall_unix_sockets] = ACTIONS(1415),
     [anon_sym_IFDBG] = ACTIONS(1415),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1415),
     [anon_sym_JAS_CAST] = ACTIONS(1415),
     [anon_sym_list_entry] = ACTIONS(1415),
     [anon_sym_list_first_entry] = ACTIONS(1415),
@@ -47901,6 +48113,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1341),
     [anon_sym_forall_unix_sockets] = ACTIONS(1341),
     [anon_sym_IFDBG] = ACTIONS(1341),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1341),
     [anon_sym_JAS_CAST] = ACTIONS(1341),
     [anon_sym_list_entry] = ACTIONS(1341),
     [anon_sym_list_first_entry] = ACTIONS(1341),
@@ -48059,6 +48272,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1415),
     [anon_sym_forall_unix_sockets] = ACTIONS(1415),
     [anon_sym_IFDBG] = ACTIONS(1415),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1415),
     [anon_sym_JAS_CAST] = ACTIONS(1415),
     [anon_sym_list_entry] = ACTIONS(1415),
     [anon_sym_list_first_entry] = ACTIONS(1415),
@@ -48217,6 +48431,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1473),
     [anon_sym_forall_unix_sockets] = ACTIONS(1473),
     [anon_sym_IFDBG] = ACTIONS(1473),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1473),
     [anon_sym_JAS_CAST] = ACTIONS(1473),
     [anon_sym_list_entry] = ACTIONS(1473),
     [anon_sym_list_first_entry] = ACTIONS(1473),
@@ -48375,6 +48590,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1477),
     [anon_sym_forall_unix_sockets] = ACTIONS(1477),
     [anon_sym_IFDBG] = ACTIONS(1477),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1477),
     [anon_sym_JAS_CAST] = ACTIONS(1477),
     [anon_sym_list_entry] = ACTIONS(1477),
     [anon_sym_list_first_entry] = ACTIONS(1477),
@@ -48533,6 +48749,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1481),
     [anon_sym_forall_unix_sockets] = ACTIONS(1481),
     [anon_sym_IFDBG] = ACTIONS(1481),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1481),
     [anon_sym_JAS_CAST] = ACTIONS(1481),
     [anon_sym_list_entry] = ACTIONS(1481),
     [anon_sym_list_first_entry] = ACTIONS(1481),
@@ -48691,6 +48908,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1425),
     [anon_sym_forall_unix_sockets] = ACTIONS(1425),
     [anon_sym_IFDBG] = ACTIONS(1425),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1425),
     [anon_sym_JAS_CAST] = ACTIONS(1425),
     [anon_sym_list_entry] = ACTIONS(1425),
     [anon_sym_list_first_entry] = ACTIONS(1425),
@@ -48849,6 +49067,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1425),
     [anon_sym_forall_unix_sockets] = ACTIONS(1425),
     [anon_sym_IFDBG] = ACTIONS(1425),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1425),
     [anon_sym_JAS_CAST] = ACTIONS(1425),
     [anon_sym_list_entry] = ACTIONS(1425),
     [anon_sym_list_first_entry] = ACTIONS(1425),
@@ -49007,6 +49226,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1429),
     [anon_sym_forall_unix_sockets] = ACTIONS(1429),
     [anon_sym_IFDBG] = ACTIONS(1429),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1429),
     [anon_sym_JAS_CAST] = ACTIONS(1429),
     [anon_sym_list_entry] = ACTIONS(1429),
     [anon_sym_list_first_entry] = ACTIONS(1429),
@@ -49165,6 +49385,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1433),
     [anon_sym_forall_unix_sockets] = ACTIONS(1433),
     [anon_sym_IFDBG] = ACTIONS(1433),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1433),
     [anon_sym_JAS_CAST] = ACTIONS(1433),
     [anon_sym_list_entry] = ACTIONS(1433),
     [anon_sym_list_first_entry] = ACTIONS(1433),
@@ -49323,6 +49544,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1437),
     [anon_sym_forall_unix_sockets] = ACTIONS(1437),
     [anon_sym_IFDBG] = ACTIONS(1437),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1437),
     [anon_sym_JAS_CAST] = ACTIONS(1437),
     [anon_sym_list_entry] = ACTIONS(1437),
     [anon_sym_list_first_entry] = ACTIONS(1437),
@@ -49481,6 +49703,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1441),
     [anon_sym_forall_unix_sockets] = ACTIONS(1441),
     [anon_sym_IFDBG] = ACTIONS(1441),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1441),
     [anon_sym_JAS_CAST] = ACTIONS(1441),
     [anon_sym_list_entry] = ACTIONS(1441),
     [anon_sym_list_first_entry] = ACTIONS(1441),
@@ -49639,6 +49862,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1449),
     [anon_sym_forall_unix_sockets] = ACTIONS(1449),
     [anon_sym_IFDBG] = ACTIONS(1449),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1449),
     [anon_sym_JAS_CAST] = ACTIONS(1449),
     [anon_sym_list_entry] = ACTIONS(1449),
     [anon_sym_list_first_entry] = ACTIONS(1449),
@@ -49797,6 +50021,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1453),
     [anon_sym_forall_unix_sockets] = ACTIONS(1453),
     [anon_sym_IFDBG] = ACTIONS(1453),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1453),
     [anon_sym_JAS_CAST] = ACTIONS(1453),
     [anon_sym_list_entry] = ACTIONS(1453),
     [anon_sym_list_first_entry] = ACTIONS(1453),
@@ -49955,6 +50180,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1391),
     [anon_sym_forall_unix_sockets] = ACTIONS(1391),
     [anon_sym_IFDBG] = ACTIONS(1391),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1391),
     [anon_sym_JAS_CAST] = ACTIONS(1391),
     [anon_sym_list_entry] = ACTIONS(1391),
     [anon_sym_list_first_entry] = ACTIONS(1391),
@@ -50113,6 +50339,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1461),
     [anon_sym_forall_unix_sockets] = ACTIONS(1461),
     [anon_sym_IFDBG] = ACTIONS(1461),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1461),
     [anon_sym_JAS_CAST] = ACTIONS(1461),
     [anon_sym_list_entry] = ACTIONS(1461),
     [anon_sym_list_first_entry] = ACTIONS(1461),
@@ -50271,6 +50498,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1461),
     [anon_sym_forall_unix_sockets] = ACTIONS(1461),
     [anon_sym_IFDBG] = ACTIONS(1461),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1461),
     [anon_sym_JAS_CAST] = ACTIONS(1461),
     [anon_sym_list_entry] = ACTIONS(1461),
     [anon_sym_list_first_entry] = ACTIONS(1461),
@@ -50429,6 +50657,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1445),
     [anon_sym_forall_unix_sockets] = ACTIONS(1445),
     [anon_sym_IFDBG] = ACTIONS(1445),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1445),
     [anon_sym_JAS_CAST] = ACTIONS(1445),
     [anon_sym_list_entry] = ACTIONS(1445),
     [anon_sym_list_first_entry] = ACTIONS(1445),
@@ -50587,6 +50816,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1465),
     [anon_sym_forall_unix_sockets] = ACTIONS(1465),
     [anon_sym_IFDBG] = ACTIONS(1465),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1465),
     [anon_sym_JAS_CAST] = ACTIONS(1465),
     [anon_sym_list_entry] = ACTIONS(1465),
     [anon_sym_list_first_entry] = ACTIONS(1465),
@@ -50745,6 +50975,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1469),
     [anon_sym_forall_unix_sockets] = ACTIONS(1469),
     [anon_sym_IFDBG] = ACTIONS(1469),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1469),
     [anon_sym_JAS_CAST] = ACTIONS(1469),
     [anon_sym_list_entry] = ACTIONS(1469),
     [anon_sym_list_first_entry] = ACTIONS(1469),
@@ -50903,6 +51134,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1395),
     [anon_sym_forall_unix_sockets] = ACTIONS(1395),
     [anon_sym_IFDBG] = ACTIONS(1395),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1395),
     [anon_sym_JAS_CAST] = ACTIONS(1395),
     [anon_sym_list_entry] = ACTIONS(1395),
     [anon_sym_list_first_entry] = ACTIONS(1395),
@@ -51061,6 +51293,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1359),
     [anon_sym_forall_unix_sockets] = ACTIONS(1359),
     [anon_sym_IFDBG] = ACTIONS(1359),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1359),
     [anon_sym_JAS_CAST] = ACTIONS(1359),
     [anon_sym_list_entry] = ACTIONS(1359),
     [anon_sym_list_first_entry] = ACTIONS(1359),
@@ -51219,6 +51452,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1367),
     [anon_sym_forall_unix_sockets] = ACTIONS(1367),
     [anon_sym_IFDBG] = ACTIONS(1367),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1367),
     [anon_sym_JAS_CAST] = ACTIONS(1367),
     [anon_sym_list_entry] = ACTIONS(1367),
     [anon_sym_list_first_entry] = ACTIONS(1367),
@@ -51377,6 +51611,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1485),
     [anon_sym_forall_unix_sockets] = ACTIONS(1485),
     [anon_sym_IFDBG] = ACTIONS(1485),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1485),
     [anon_sym_JAS_CAST] = ACTIONS(1485),
     [anon_sym_list_entry] = ACTIONS(1485),
     [anon_sym_list_first_entry] = ACTIONS(1485),
@@ -51535,6 +51770,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1403),
     [anon_sym_forall_unix_sockets] = ACTIONS(1403),
     [anon_sym_IFDBG] = ACTIONS(1403),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1403),
     [anon_sym_JAS_CAST] = ACTIONS(1403),
     [anon_sym_list_entry] = ACTIONS(1403),
     [anon_sym_list_first_entry] = ACTIONS(1403),
@@ -51693,6 +51929,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1341),
     [anon_sym_forall_unix_sockets] = ACTIONS(1341),
     [anon_sym_IFDBG] = ACTIONS(1341),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1341),
     [anon_sym_JAS_CAST] = ACTIONS(1341),
     [anon_sym_list_entry] = ACTIONS(1341),
     [anon_sym_list_first_entry] = ACTIONS(1341),
@@ -51851,6 +52088,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1489),
     [anon_sym_forall_unix_sockets] = ACTIONS(1489),
     [anon_sym_IFDBG] = ACTIONS(1489),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1489),
     [anon_sym_JAS_CAST] = ACTIONS(1489),
     [anon_sym_list_entry] = ACTIONS(1489),
     [anon_sym_list_first_entry] = ACTIONS(1489),
@@ -52009,6 +52247,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1493),
     [anon_sym_forall_unix_sockets] = ACTIONS(1493),
     [anon_sym_IFDBG] = ACTIONS(1493),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1493),
     [anon_sym_JAS_CAST] = ACTIONS(1493),
     [anon_sym_list_entry] = ACTIONS(1493),
     [anon_sym_list_first_entry] = ACTIONS(1493),
@@ -52167,6 +52406,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1399),
     [anon_sym_forall_unix_sockets] = ACTIONS(1399),
     [anon_sym_IFDBG] = ACTIONS(1399),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1399),
     [anon_sym_JAS_CAST] = ACTIONS(1399),
     [anon_sym_list_entry] = ACTIONS(1399),
     [anon_sym_list_first_entry] = ACTIONS(1399),
@@ -52325,6 +52565,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1341),
     [anon_sym_forall_unix_sockets] = ACTIONS(1341),
     [anon_sym_IFDBG] = ACTIONS(1341),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1341),
     [anon_sym_JAS_CAST] = ACTIONS(1341),
     [anon_sym_list_entry] = ACTIONS(1341),
     [anon_sym_list_first_entry] = ACTIONS(1341),
@@ -52483,6 +52724,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1363),
     [anon_sym_forall_unix_sockets] = ACTIONS(1363),
     [anon_sym_IFDBG] = ACTIONS(1363),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1363),
     [anon_sym_JAS_CAST] = ACTIONS(1363),
     [anon_sym_list_entry] = ACTIONS(1363),
     [anon_sym_list_first_entry] = ACTIONS(1363),
@@ -52641,6 +52883,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1371),
     [anon_sym_forall_unix_sockets] = ACTIONS(1371),
     [anon_sym_IFDBG] = ACTIONS(1371),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1371),
     [anon_sym_JAS_CAST] = ACTIONS(1371),
     [anon_sym_list_entry] = ACTIONS(1371),
     [anon_sym_list_first_entry] = ACTIONS(1371),
@@ -52799,6 +53042,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1375),
     [anon_sym_forall_unix_sockets] = ACTIONS(1375),
     [anon_sym_IFDBG] = ACTIONS(1375),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1375),
     [anon_sym_JAS_CAST] = ACTIONS(1375),
     [anon_sym_list_entry] = ACTIONS(1375),
     [anon_sym_list_first_entry] = ACTIONS(1375),
@@ -52957,6 +53201,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1379),
     [anon_sym_forall_unix_sockets] = ACTIONS(1379),
     [anon_sym_IFDBG] = ACTIONS(1379),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1379),
     [anon_sym_JAS_CAST] = ACTIONS(1379),
     [anon_sym_list_entry] = ACTIONS(1379),
     [anon_sym_list_first_entry] = ACTIONS(1379),
@@ -53115,6 +53360,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1383),
     [anon_sym_forall_unix_sockets] = ACTIONS(1383),
     [anon_sym_IFDBG] = ACTIONS(1383),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1383),
     [anon_sym_JAS_CAST] = ACTIONS(1383),
     [anon_sym_list_entry] = ACTIONS(1383),
     [anon_sym_list_first_entry] = ACTIONS(1383),
@@ -53273,6 +53519,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1387),
     [anon_sym_forall_unix_sockets] = ACTIONS(1387),
     [anon_sym_IFDBG] = ACTIONS(1387),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1387),
     [anon_sym_JAS_CAST] = ACTIONS(1387),
     [anon_sym_list_entry] = ACTIONS(1387),
     [anon_sym_list_first_entry] = ACTIONS(1387),
@@ -53431,6 +53678,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1387),
     [anon_sym_forall_unix_sockets] = ACTIONS(1387),
     [anon_sym_IFDBG] = ACTIONS(1387),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1387),
     [anon_sym_JAS_CAST] = ACTIONS(1387),
     [anon_sym_list_entry] = ACTIONS(1387),
     [anon_sym_list_first_entry] = ACTIONS(1387),
@@ -53589,6 +53837,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1457),
     [anon_sym_forall_unix_sockets] = ACTIONS(1457),
     [anon_sym_IFDBG] = ACTIONS(1457),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1457),
     [anon_sym_JAS_CAST] = ACTIONS(1457),
     [anon_sym_list_entry] = ACTIONS(1457),
     [anon_sym_list_first_entry] = ACTIONS(1457),
@@ -53746,6 +53995,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1425),
     [anon_sym_forall_unix_sockets] = ACTIONS(1425),
     [anon_sym_IFDBG] = ACTIONS(1425),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1425),
     [anon_sym_JAS_CAST] = ACTIONS(1425),
     [anon_sym_list_entry] = ACTIONS(1425),
     [anon_sym_list_first_entry] = ACTIONS(1425),
@@ -53903,6 +54153,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1425),
     [anon_sym_forall_unix_sockets] = ACTIONS(1425),
     [anon_sym_IFDBG] = ACTIONS(1425),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1425),
     [anon_sym_JAS_CAST] = ACTIONS(1425),
     [anon_sym_list_entry] = ACTIONS(1425),
     [anon_sym_list_first_entry] = ACTIONS(1425),
@@ -54060,6 +54311,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1429),
     [anon_sym_forall_unix_sockets] = ACTIONS(1429),
     [anon_sym_IFDBG] = ACTIONS(1429),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1429),
     [anon_sym_JAS_CAST] = ACTIONS(1429),
     [anon_sym_list_entry] = ACTIONS(1429),
     [anon_sym_list_first_entry] = ACTIONS(1429),
@@ -54217,6 +54469,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1433),
     [anon_sym_forall_unix_sockets] = ACTIONS(1433),
     [anon_sym_IFDBG] = ACTIONS(1433),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1433),
     [anon_sym_JAS_CAST] = ACTIONS(1433),
     [anon_sym_list_entry] = ACTIONS(1433),
     [anon_sym_list_first_entry] = ACTIONS(1433),
@@ -54374,6 +54627,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1437),
     [anon_sym_forall_unix_sockets] = ACTIONS(1437),
     [anon_sym_IFDBG] = ACTIONS(1437),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1437),
     [anon_sym_JAS_CAST] = ACTIONS(1437),
     [anon_sym_list_entry] = ACTIONS(1437),
     [anon_sym_list_first_entry] = ACTIONS(1437),
@@ -54531,6 +54785,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1441),
     [anon_sym_forall_unix_sockets] = ACTIONS(1441),
     [anon_sym_IFDBG] = ACTIONS(1441),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1441),
     [anon_sym_JAS_CAST] = ACTIONS(1441),
     [anon_sym_list_entry] = ACTIONS(1441),
     [anon_sym_list_first_entry] = ACTIONS(1441),
@@ -54688,6 +54943,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1449),
     [anon_sym_forall_unix_sockets] = ACTIONS(1449),
     [anon_sym_IFDBG] = ACTIONS(1449),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1449),
     [anon_sym_JAS_CAST] = ACTIONS(1449),
     [anon_sym_list_entry] = ACTIONS(1449),
     [anon_sym_list_first_entry] = ACTIONS(1449),
@@ -54845,6 +55101,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1453),
     [anon_sym_forall_unix_sockets] = ACTIONS(1453),
     [anon_sym_IFDBG] = ACTIONS(1453),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1453),
     [anon_sym_JAS_CAST] = ACTIONS(1453),
     [anon_sym_list_entry] = ACTIONS(1453),
     [anon_sym_list_first_entry] = ACTIONS(1453),
@@ -55002,6 +55259,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1457),
     [anon_sym_forall_unix_sockets] = ACTIONS(1457),
     [anon_sym_IFDBG] = ACTIONS(1457),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1457),
     [anon_sym_JAS_CAST] = ACTIONS(1457),
     [anon_sym_list_entry] = ACTIONS(1457),
     [anon_sym_list_first_entry] = ACTIONS(1457),
@@ -55159,6 +55417,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1461),
     [anon_sym_forall_unix_sockets] = ACTIONS(1461),
     [anon_sym_IFDBG] = ACTIONS(1461),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1461),
     [anon_sym_JAS_CAST] = ACTIONS(1461),
     [anon_sym_list_entry] = ACTIONS(1461),
     [anon_sym_list_first_entry] = ACTIONS(1461),
@@ -55316,6 +55575,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1461),
     [anon_sym_forall_unix_sockets] = ACTIONS(1461),
     [anon_sym_IFDBG] = ACTIONS(1461),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1461),
     [anon_sym_JAS_CAST] = ACTIONS(1461),
     [anon_sym_list_entry] = ACTIONS(1461),
     [anon_sym_list_first_entry] = ACTIONS(1461),
@@ -55473,6 +55733,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1465),
     [anon_sym_forall_unix_sockets] = ACTIONS(1465),
     [anon_sym_IFDBG] = ACTIONS(1465),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1465),
     [anon_sym_JAS_CAST] = ACTIONS(1465),
     [anon_sym_list_entry] = ACTIONS(1465),
     [anon_sym_list_first_entry] = ACTIONS(1465),
@@ -55630,6 +55891,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1469),
     [anon_sym_forall_unix_sockets] = ACTIONS(1469),
     [anon_sym_IFDBG] = ACTIONS(1469),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1469),
     [anon_sym_JAS_CAST] = ACTIONS(1469),
     [anon_sym_list_entry] = ACTIONS(1469),
     [anon_sym_list_first_entry] = ACTIONS(1469),
@@ -55787,6 +56049,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1395),
     [anon_sym_forall_unix_sockets] = ACTIONS(1395),
     [anon_sym_IFDBG] = ACTIONS(1395),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1395),
     [anon_sym_JAS_CAST] = ACTIONS(1395),
     [anon_sym_list_entry] = ACTIONS(1395),
     [anon_sym_list_first_entry] = ACTIONS(1395),
@@ -55944,6 +56207,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1359),
     [anon_sym_forall_unix_sockets] = ACTIONS(1359),
     [anon_sym_IFDBG] = ACTIONS(1359),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1359),
     [anon_sym_JAS_CAST] = ACTIONS(1359),
     [anon_sym_list_entry] = ACTIONS(1359),
     [anon_sym_list_first_entry] = ACTIONS(1359),
@@ -56101,6 +56365,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1367),
     [anon_sym_forall_unix_sockets] = ACTIONS(1367),
     [anon_sym_IFDBG] = ACTIONS(1367),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1367),
     [anon_sym_JAS_CAST] = ACTIONS(1367),
     [anon_sym_list_entry] = ACTIONS(1367),
     [anon_sym_list_first_entry] = ACTIONS(1367),
@@ -56258,6 +56523,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1403),
     [anon_sym_forall_unix_sockets] = ACTIONS(1403),
     [anon_sym_IFDBG] = ACTIONS(1403),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1403),
     [anon_sym_JAS_CAST] = ACTIONS(1403),
     [anon_sym_list_entry] = ACTIONS(1403),
     [anon_sym_list_first_entry] = ACTIONS(1403),
@@ -56415,6 +56681,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1419),
     [anon_sym_forall_unix_sockets] = ACTIONS(1419),
     [anon_sym_IFDBG] = ACTIONS(1419),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1419),
     [anon_sym_JAS_CAST] = ACTIONS(1419),
     [anon_sym_list_entry] = ACTIONS(1419),
     [anon_sym_list_first_entry] = ACTIONS(1419),
@@ -56572,6 +56839,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1473),
     [anon_sym_forall_unix_sockets] = ACTIONS(1473),
     [anon_sym_IFDBG] = ACTIONS(1473),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1473),
     [anon_sym_JAS_CAST] = ACTIONS(1473),
     [anon_sym_list_entry] = ACTIONS(1473),
     [anon_sym_list_first_entry] = ACTIONS(1473),
@@ -56729,6 +56997,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1477),
     [anon_sym_forall_unix_sockets] = ACTIONS(1477),
     [anon_sym_IFDBG] = ACTIONS(1477),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1477),
     [anon_sym_JAS_CAST] = ACTIONS(1477),
     [anon_sym_list_entry] = ACTIONS(1477),
     [anon_sym_list_first_entry] = ACTIONS(1477),
@@ -56886,6 +57155,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1481),
     [anon_sym_forall_unix_sockets] = ACTIONS(1481),
     [anon_sym_IFDBG] = ACTIONS(1481),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1481),
     [anon_sym_JAS_CAST] = ACTIONS(1481),
     [anon_sym_list_entry] = ACTIONS(1481),
     [anon_sym_list_first_entry] = ACTIONS(1481),
@@ -57043,6 +57313,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1419),
     [anon_sym_forall_unix_sockets] = ACTIONS(1419),
     [anon_sym_IFDBG] = ACTIONS(1419),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1419),
     [anon_sym_JAS_CAST] = ACTIONS(1419),
     [anon_sym_list_entry] = ACTIONS(1419),
     [anon_sym_list_first_entry] = ACTIONS(1419),
@@ -57200,6 +57471,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1485),
     [anon_sym_forall_unix_sockets] = ACTIONS(1485),
     [anon_sym_IFDBG] = ACTIONS(1485),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1485),
     [anon_sym_JAS_CAST] = ACTIONS(1485),
     [anon_sym_list_entry] = ACTIONS(1485),
     [anon_sym_list_first_entry] = ACTIONS(1485),
@@ -57357,6 +57629,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1489),
     [anon_sym_forall_unix_sockets] = ACTIONS(1489),
     [anon_sym_IFDBG] = ACTIONS(1489),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1489),
     [anon_sym_JAS_CAST] = ACTIONS(1489),
     [anon_sym_list_entry] = ACTIONS(1489),
     [anon_sym_list_first_entry] = ACTIONS(1489),
@@ -57514,6 +57787,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1493),
     [anon_sym_forall_unix_sockets] = ACTIONS(1493),
     [anon_sym_IFDBG] = ACTIONS(1493),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1493),
     [anon_sym_JAS_CAST] = ACTIONS(1493),
     [anon_sym_list_entry] = ACTIONS(1493),
     [anon_sym_list_first_entry] = ACTIONS(1493),
@@ -57671,6 +57945,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1351),
     [anon_sym_forall_unix_sockets] = ACTIONS(1351),
     [anon_sym_IFDBG] = ACTIONS(1351),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1351),
     [anon_sym_JAS_CAST] = ACTIONS(1351),
     [anon_sym_list_entry] = ACTIONS(1351),
     [anon_sym_list_first_entry] = ACTIONS(1351),
@@ -57828,6 +58103,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1445),
     [anon_sym_forall_unix_sockets] = ACTIONS(1445),
     [anon_sym_IFDBG] = ACTIONS(1445),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1445),
     [anon_sym_JAS_CAST] = ACTIONS(1445),
     [anon_sym_list_entry] = ACTIONS(1445),
     [anon_sym_list_first_entry] = ACTIONS(1445),
@@ -57985,6 +58261,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1363),
     [anon_sym_forall_unix_sockets] = ACTIONS(1363),
     [anon_sym_IFDBG] = ACTIONS(1363),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1363),
     [anon_sym_JAS_CAST] = ACTIONS(1363),
     [anon_sym_list_entry] = ACTIONS(1363),
     [anon_sym_list_first_entry] = ACTIONS(1363),
@@ -58142,6 +58419,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1371),
     [anon_sym_forall_unix_sockets] = ACTIONS(1371),
     [anon_sym_IFDBG] = ACTIONS(1371),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1371),
     [anon_sym_JAS_CAST] = ACTIONS(1371),
     [anon_sym_list_entry] = ACTIONS(1371),
     [anon_sym_list_first_entry] = ACTIONS(1371),
@@ -58299,6 +58577,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1375),
     [anon_sym_forall_unix_sockets] = ACTIONS(1375),
     [anon_sym_IFDBG] = ACTIONS(1375),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1375),
     [anon_sym_JAS_CAST] = ACTIONS(1375),
     [anon_sym_list_entry] = ACTIONS(1375),
     [anon_sym_list_first_entry] = ACTIONS(1375),
@@ -58456,6 +58735,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1379),
     [anon_sym_forall_unix_sockets] = ACTIONS(1379),
     [anon_sym_IFDBG] = ACTIONS(1379),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1379),
     [anon_sym_JAS_CAST] = ACTIONS(1379),
     [anon_sym_list_entry] = ACTIONS(1379),
     [anon_sym_list_first_entry] = ACTIONS(1379),
@@ -58613,6 +58893,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1383),
     [anon_sym_forall_unix_sockets] = ACTIONS(1383),
     [anon_sym_IFDBG] = ACTIONS(1383),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1383),
     [anon_sym_JAS_CAST] = ACTIONS(1383),
     [anon_sym_list_entry] = ACTIONS(1383),
     [anon_sym_list_first_entry] = ACTIONS(1383),
@@ -58770,6 +59051,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1387),
     [anon_sym_forall_unix_sockets] = ACTIONS(1387),
     [anon_sym_IFDBG] = ACTIONS(1387),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1387),
     [anon_sym_JAS_CAST] = ACTIONS(1387),
     [anon_sym_list_entry] = ACTIONS(1387),
     [anon_sym_list_first_entry] = ACTIONS(1387),
@@ -58927,6 +59209,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1387),
     [anon_sym_forall_unix_sockets] = ACTIONS(1387),
     [anon_sym_IFDBG] = ACTIONS(1387),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1387),
     [anon_sym_JAS_CAST] = ACTIONS(1387),
     [anon_sym_list_entry] = ACTIONS(1387),
     [anon_sym_list_first_entry] = ACTIONS(1387),
@@ -59084,6 +59367,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1407),
     [anon_sym_forall_unix_sockets] = ACTIONS(1407),
     [anon_sym_IFDBG] = ACTIONS(1407),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1407),
     [anon_sym_JAS_CAST] = ACTIONS(1407),
     [anon_sym_list_entry] = ACTIONS(1407),
     [anon_sym_list_first_entry] = ACTIONS(1407),
@@ -59241,6 +59525,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1407),
     [anon_sym_forall_unix_sockets] = ACTIONS(1407),
     [anon_sym_IFDBG] = ACTIONS(1407),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1407),
     [anon_sym_JAS_CAST] = ACTIONS(1407),
     [anon_sym_list_entry] = ACTIONS(1407),
     [anon_sym_list_first_entry] = ACTIONS(1407),
@@ -59398,6 +59683,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1357),
     [anon_sym_forall_unix_sockets] = ACTIONS(1357),
     [anon_sym_IFDBG] = ACTIONS(1357),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1357),
     [anon_sym_JAS_CAST] = ACTIONS(1357),
     [anon_sym_list_entry] = ACTIONS(1357),
     [anon_sym_list_first_entry] = ACTIONS(1357),
@@ -59555,6 +59841,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1445),
     [anon_sym_forall_unix_sockets] = ACTIONS(1445),
     [anon_sym_IFDBG] = ACTIONS(1445),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1445),
     [anon_sym_JAS_CAST] = ACTIONS(1445),
     [anon_sym_list_entry] = ACTIONS(1445),
     [anon_sym_list_first_entry] = ACTIONS(1445),
@@ -59712,6 +59999,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1473),
     [anon_sym_forall_unix_sockets] = ACTIONS(1473),
     [anon_sym_IFDBG] = ACTIONS(1473),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1473),
     [anon_sym_JAS_CAST] = ACTIONS(1473),
     [anon_sym_list_entry] = ACTIONS(1473),
     [anon_sym_list_first_entry] = ACTIONS(1473),
@@ -59869,6 +60157,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1477),
     [anon_sym_forall_unix_sockets] = ACTIONS(1477),
     [anon_sym_IFDBG] = ACTIONS(1477),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1477),
     [anon_sym_JAS_CAST] = ACTIONS(1477),
     [anon_sym_list_entry] = ACTIONS(1477),
     [anon_sym_list_first_entry] = ACTIONS(1477),
@@ -60026,6 +60315,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1481),
     [anon_sym_forall_unix_sockets] = ACTIONS(1481),
     [anon_sym_IFDBG] = ACTIONS(1481),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1481),
     [anon_sym_JAS_CAST] = ACTIONS(1481),
     [anon_sym_list_entry] = ACTIONS(1481),
     [anon_sym_list_first_entry] = ACTIONS(1481),
@@ -60183,6 +60473,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1485),
     [anon_sym_forall_unix_sockets] = ACTIONS(1485),
     [anon_sym_IFDBG] = ACTIONS(1485),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1485),
     [anon_sym_JAS_CAST] = ACTIONS(1485),
     [anon_sym_list_entry] = ACTIONS(1485),
     [anon_sym_list_first_entry] = ACTIONS(1485),
@@ -60340,6 +60631,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1489),
     [anon_sym_forall_unix_sockets] = ACTIONS(1489),
     [anon_sym_IFDBG] = ACTIONS(1489),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1489),
     [anon_sym_JAS_CAST] = ACTIONS(1489),
     [anon_sym_list_entry] = ACTIONS(1489),
     [anon_sym_list_first_entry] = ACTIONS(1489),
@@ -60497,6 +60789,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1493),
     [anon_sym_forall_unix_sockets] = ACTIONS(1493),
     [anon_sym_IFDBG] = ACTIONS(1493),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1493),
     [anon_sym_JAS_CAST] = ACTIONS(1493),
     [anon_sym_list_entry] = ACTIONS(1493),
     [anon_sym_list_first_entry] = ACTIONS(1493),
@@ -60654,6 +60947,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1425),
     [anon_sym_forall_unix_sockets] = ACTIONS(1425),
     [anon_sym_IFDBG] = ACTIONS(1425),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1425),
     [anon_sym_JAS_CAST] = ACTIONS(1425),
     [anon_sym_list_entry] = ACTIONS(1425),
     [anon_sym_list_first_entry] = ACTIONS(1425),
@@ -60811,6 +61105,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1363),
     [anon_sym_forall_unix_sockets] = ACTIONS(1363),
     [anon_sym_IFDBG] = ACTIONS(1363),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1363),
     [anon_sym_JAS_CAST] = ACTIONS(1363),
     [anon_sym_list_entry] = ACTIONS(1363),
     [anon_sym_list_first_entry] = ACTIONS(1363),
@@ -60968,6 +61263,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1371),
     [anon_sym_forall_unix_sockets] = ACTIONS(1371),
     [anon_sym_IFDBG] = ACTIONS(1371),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1371),
     [anon_sym_JAS_CAST] = ACTIONS(1371),
     [anon_sym_list_entry] = ACTIONS(1371),
     [anon_sym_list_first_entry] = ACTIONS(1371),
@@ -61125,6 +61421,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1375),
     [anon_sym_forall_unix_sockets] = ACTIONS(1375),
     [anon_sym_IFDBG] = ACTIONS(1375),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1375),
     [anon_sym_JAS_CAST] = ACTIONS(1375),
     [anon_sym_list_entry] = ACTIONS(1375),
     [anon_sym_list_first_entry] = ACTIONS(1375),
@@ -61282,6 +61579,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1379),
     [anon_sym_forall_unix_sockets] = ACTIONS(1379),
     [anon_sym_IFDBG] = ACTIONS(1379),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1379),
     [anon_sym_JAS_CAST] = ACTIONS(1379),
     [anon_sym_list_entry] = ACTIONS(1379),
     [anon_sym_list_first_entry] = ACTIONS(1379),
@@ -61439,6 +61737,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1383),
     [anon_sym_forall_unix_sockets] = ACTIONS(1383),
     [anon_sym_IFDBG] = ACTIONS(1383),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1383),
     [anon_sym_JAS_CAST] = ACTIONS(1383),
     [anon_sym_list_entry] = ACTIONS(1383),
     [anon_sym_list_first_entry] = ACTIONS(1383),
@@ -61596,6 +61895,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1391),
     [anon_sym_forall_unix_sockets] = ACTIONS(1391),
     [anon_sym_IFDBG] = ACTIONS(1391),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1391),
     [anon_sym_JAS_CAST] = ACTIONS(1391),
     [anon_sym_list_entry] = ACTIONS(1391),
     [anon_sym_list_first_entry] = ACTIONS(1391),
@@ -61753,6 +62053,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1347),
     [anon_sym_forall_unix_sockets] = ACTIONS(1347),
     [anon_sym_IFDBG] = ACTIONS(1347),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1347),
     [anon_sym_JAS_CAST] = ACTIONS(1347),
     [anon_sym_list_entry] = ACTIONS(1347),
     [anon_sym_list_first_entry] = ACTIONS(1347),
@@ -61910,6 +62211,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1399),
     [anon_sym_forall_unix_sockets] = ACTIONS(1399),
     [anon_sym_IFDBG] = ACTIONS(1399),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1399),
     [anon_sym_JAS_CAST] = ACTIONS(1399),
     [anon_sym_list_entry] = ACTIONS(1399),
     [anon_sym_list_first_entry] = ACTIONS(1399),
@@ -62067,6 +62369,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1411),
     [anon_sym_forall_unix_sockets] = ACTIONS(1411),
     [anon_sym_IFDBG] = ACTIONS(1411),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1411),
     [anon_sym_JAS_CAST] = ACTIONS(1411),
     [anon_sym_list_entry] = ACTIONS(1411),
     [anon_sym_list_first_entry] = ACTIONS(1411),
@@ -62224,6 +62527,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1429),
     [anon_sym_forall_unix_sockets] = ACTIONS(1429),
     [anon_sym_IFDBG] = ACTIONS(1429),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1429),
     [anon_sym_JAS_CAST] = ACTIONS(1429),
     [anon_sym_list_entry] = ACTIONS(1429),
     [anon_sym_list_first_entry] = ACTIONS(1429),
@@ -62381,6 +62685,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1433),
     [anon_sym_forall_unix_sockets] = ACTIONS(1433),
     [anon_sym_IFDBG] = ACTIONS(1433),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1433),
     [anon_sym_JAS_CAST] = ACTIONS(1433),
     [anon_sym_list_entry] = ACTIONS(1433),
     [anon_sym_list_first_entry] = ACTIONS(1433),
@@ -62538,6 +62843,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1437),
     [anon_sym_forall_unix_sockets] = ACTIONS(1437),
     [anon_sym_IFDBG] = ACTIONS(1437),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1437),
     [anon_sym_JAS_CAST] = ACTIONS(1437),
     [anon_sym_list_entry] = ACTIONS(1437),
     [anon_sym_list_first_entry] = ACTIONS(1437),
@@ -62695,6 +63001,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1441),
     [anon_sym_forall_unix_sockets] = ACTIONS(1441),
     [anon_sym_IFDBG] = ACTIONS(1441),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1441),
     [anon_sym_JAS_CAST] = ACTIONS(1441),
     [anon_sym_list_entry] = ACTIONS(1441),
     [anon_sym_list_first_entry] = ACTIONS(1441),
@@ -62852,6 +63159,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1449),
     [anon_sym_forall_unix_sockets] = ACTIONS(1449),
     [anon_sym_IFDBG] = ACTIONS(1449),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1449),
     [anon_sym_JAS_CAST] = ACTIONS(1449),
     [anon_sym_list_entry] = ACTIONS(1449),
     [anon_sym_list_first_entry] = ACTIONS(1449),
@@ -63009,6 +63317,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1453),
     [anon_sym_forall_unix_sockets] = ACTIONS(1453),
     [anon_sym_IFDBG] = ACTIONS(1453),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1453),
     [anon_sym_JAS_CAST] = ACTIONS(1453),
     [anon_sym_list_entry] = ACTIONS(1453),
     [anon_sym_list_first_entry] = ACTIONS(1453),
@@ -63166,6 +63475,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1465),
     [anon_sym_forall_unix_sockets] = ACTIONS(1465),
     [anon_sym_IFDBG] = ACTIONS(1465),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1465),
     [anon_sym_JAS_CAST] = ACTIONS(1465),
     [anon_sym_list_entry] = ACTIONS(1465),
     [anon_sym_list_first_entry] = ACTIONS(1465),
@@ -63323,6 +63633,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1469),
     [anon_sym_forall_unix_sockets] = ACTIONS(1469),
     [anon_sym_IFDBG] = ACTIONS(1469),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1469),
     [anon_sym_JAS_CAST] = ACTIONS(1469),
     [anon_sym_list_entry] = ACTIONS(1469),
     [anon_sym_list_first_entry] = ACTIONS(1469),
@@ -63480,6 +63791,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1395),
     [anon_sym_forall_unix_sockets] = ACTIONS(1395),
     [anon_sym_IFDBG] = ACTIONS(1395),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1395),
     [anon_sym_JAS_CAST] = ACTIONS(1395),
     [anon_sym_list_entry] = ACTIONS(1395),
     [anon_sym_list_first_entry] = ACTIONS(1395),
@@ -63637,6 +63949,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1367),
     [anon_sym_forall_unix_sockets] = ACTIONS(1367),
     [anon_sym_IFDBG] = ACTIONS(1367),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1367),
     [anon_sym_JAS_CAST] = ACTIONS(1367),
     [anon_sym_list_entry] = ACTIONS(1367),
     [anon_sym_list_first_entry] = ACTIONS(1367),
@@ -63794,6 +64107,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1403),
     [anon_sym_forall_unix_sockets] = ACTIONS(1403),
     [anon_sym_IFDBG] = ACTIONS(1403),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1403),
     [anon_sym_JAS_CAST] = ACTIONS(1403),
     [anon_sym_list_entry] = ACTIONS(1403),
     [anon_sym_list_first_entry] = ACTIONS(1403),
@@ -63951,6 +64265,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1387),
     [anon_sym_forall_unix_sockets] = ACTIONS(1387),
     [anon_sym_IFDBG] = ACTIONS(1387),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1387),
     [anon_sym_JAS_CAST] = ACTIONS(1387),
     [anon_sym_list_entry] = ACTIONS(1387),
     [anon_sym_list_first_entry] = ACTIONS(1387),
@@ -64108,6 +64423,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1387),
     [anon_sym_forall_unix_sockets] = ACTIONS(1387),
     [anon_sym_IFDBG] = ACTIONS(1387),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1387),
     [anon_sym_JAS_CAST] = ACTIONS(1387),
     [anon_sym_list_entry] = ACTIONS(1387),
     [anon_sym_list_first_entry] = ACTIONS(1387),
@@ -64265,6 +64581,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1415),
     [anon_sym_forall_unix_sockets] = ACTIONS(1415),
     [anon_sym_IFDBG] = ACTIONS(1415),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1415),
     [anon_sym_JAS_CAST] = ACTIONS(1415),
     [anon_sym_list_entry] = ACTIONS(1415),
     [anon_sym_list_first_entry] = ACTIONS(1415),
@@ -64422,6 +64739,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1415),
     [anon_sym_forall_unix_sockets] = ACTIONS(1415),
     [anon_sym_IFDBG] = ACTIONS(1415),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1415),
     [anon_sym_JAS_CAST] = ACTIONS(1415),
     [anon_sym_list_entry] = ACTIONS(1415),
     [anon_sym_list_first_entry] = ACTIONS(1415),
@@ -64579,6 +64897,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1425),
     [anon_sym_forall_unix_sockets] = ACTIONS(1425),
     [anon_sym_IFDBG] = ACTIONS(1425),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1425),
     [anon_sym_JAS_CAST] = ACTIONS(1425),
     [anon_sym_list_entry] = ACTIONS(1425),
     [anon_sym_list_first_entry] = ACTIONS(1425),
@@ -64736,6 +65055,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1457),
     [anon_sym_forall_unix_sockets] = ACTIONS(1457),
     [anon_sym_IFDBG] = ACTIONS(1457),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1457),
     [anon_sym_JAS_CAST] = ACTIONS(1457),
     [anon_sym_list_entry] = ACTIONS(1457),
     [anon_sym_list_first_entry] = ACTIONS(1457),
@@ -64893,6 +65213,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1461),
     [anon_sym_forall_unix_sockets] = ACTIONS(1461),
     [anon_sym_IFDBG] = ACTIONS(1461),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1461),
     [anon_sym_JAS_CAST] = ACTIONS(1461),
     [anon_sym_list_entry] = ACTIONS(1461),
     [anon_sym_list_first_entry] = ACTIONS(1461),
@@ -65050,6 +65371,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1461),
     [anon_sym_forall_unix_sockets] = ACTIONS(1461),
     [anon_sym_IFDBG] = ACTIONS(1461),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1461),
     [anon_sym_JAS_CAST] = ACTIONS(1461),
     [anon_sym_list_entry] = ACTIONS(1461),
     [anon_sym_list_first_entry] = ACTIONS(1461),
@@ -65207,6 +65529,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1359),
     [anon_sym_forall_unix_sockets] = ACTIONS(1359),
     [anon_sym_IFDBG] = ACTIONS(1359),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1359),
     [anon_sym_JAS_CAST] = ACTIONS(1359),
     [anon_sym_list_entry] = ACTIONS(1359),
     [anon_sym_list_first_entry] = ACTIONS(1359),
@@ -65364,6 +65687,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1391),
     [anon_sym_forall_unix_sockets] = ACTIONS(1391),
     [anon_sym_IFDBG] = ACTIONS(1391),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1391),
     [anon_sym_JAS_CAST] = ACTIONS(1391),
     [anon_sym_list_entry] = ACTIONS(1391),
     [anon_sym_list_first_entry] = ACTIONS(1391),
@@ -65521,6 +65845,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1347),
     [anon_sym_forall_unix_sockets] = ACTIONS(1347),
     [anon_sym_IFDBG] = ACTIONS(1347),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1347),
     [anon_sym_JAS_CAST] = ACTIONS(1347),
     [anon_sym_list_entry] = ACTIONS(1347),
     [anon_sym_list_first_entry] = ACTIONS(1347),
@@ -65678,6 +66003,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1399),
     [anon_sym_forall_unix_sockets] = ACTIONS(1399),
     [anon_sym_IFDBG] = ACTIONS(1399),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1399),
     [anon_sym_JAS_CAST] = ACTIONS(1399),
     [anon_sym_list_entry] = ACTIONS(1399),
     [anon_sym_list_first_entry] = ACTIONS(1399),
@@ -65835,6 +66161,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1411),
     [anon_sym_forall_unix_sockets] = ACTIONS(1411),
     [anon_sym_IFDBG] = ACTIONS(1411),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1411),
     [anon_sym_JAS_CAST] = ACTIONS(1411),
     [anon_sym_list_entry] = ACTIONS(1411),
     [anon_sym_list_first_entry] = ACTIONS(1411),
@@ -65992,6 +66319,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1357),
     [anon_sym_forall_unix_sockets] = ACTIONS(1357),
     [anon_sym_IFDBG] = ACTIONS(1357),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1357),
     [anon_sym_JAS_CAST] = ACTIONS(1357),
     [anon_sym_list_entry] = ACTIONS(1357),
     [anon_sym_list_first_entry] = ACTIONS(1357),
@@ -66149,6 +66477,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1415),
     [anon_sym_forall_unix_sockets] = ACTIONS(1415),
     [anon_sym_IFDBG] = ACTIONS(1415),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1415),
     [anon_sym_JAS_CAST] = ACTIONS(1415),
     [anon_sym_list_entry] = ACTIONS(1415),
     [anon_sym_list_first_entry] = ACTIONS(1415),
@@ -66306,6 +66635,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1415),
     [anon_sym_forall_unix_sockets] = ACTIONS(1415),
     [anon_sym_IFDBG] = ACTIONS(1415),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1415),
     [anon_sym_JAS_CAST] = ACTIONS(1415),
     [anon_sym_list_entry] = ACTIONS(1415),
     [anon_sym_list_first_entry] = ACTIONS(1415),
@@ -66463,6 +66793,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1351),
     [anon_sym_forall_unix_sockets] = ACTIONS(1351),
     [anon_sym_IFDBG] = ACTIONS(1351),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1351),
     [anon_sym_JAS_CAST] = ACTIONS(1351),
     [anon_sym_list_entry] = ACTIONS(1351),
     [anon_sym_list_first_entry] = ACTIONS(1351),
@@ -66619,6 +66950,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1571),
     [anon_sym_forall_unix_sockets] = ACTIONS(1571),
     [anon_sym_IFDBG] = ACTIONS(1571),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1571),
     [anon_sym_JAS_CAST] = ACTIONS(1571),
     [anon_sym_list_entry] = ACTIONS(1571),
     [anon_sym_list_first_entry] = ACTIONS(1571),
@@ -66775,6 +67107,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1505),
     [anon_sym_forall_unix_sockets] = ACTIONS(1505),
     [anon_sym_IFDBG] = ACTIONS(1505),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1505),
     [anon_sym_JAS_CAST] = ACTIONS(1505),
     [anon_sym_list_entry] = ACTIONS(1505),
     [anon_sym_list_first_entry] = ACTIONS(1505),
@@ -66931,6 +67264,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1567),
     [anon_sym_forall_unix_sockets] = ACTIONS(1567),
     [anon_sym_IFDBG] = ACTIONS(1567),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1567),
     [anon_sym_JAS_CAST] = ACTIONS(1567),
     [anon_sym_list_entry] = ACTIONS(1567),
     [anon_sym_list_first_entry] = ACTIONS(1567),
@@ -67087,6 +67421,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1509),
     [anon_sym_forall_unix_sockets] = ACTIONS(1509),
     [anon_sym_IFDBG] = ACTIONS(1509),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1509),
     [anon_sym_JAS_CAST] = ACTIONS(1509),
     [anon_sym_list_entry] = ACTIONS(1509),
     [anon_sym_list_first_entry] = ACTIONS(1509),
@@ -67243,6 +67578,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1501),
     [anon_sym_forall_unix_sockets] = ACTIONS(1501),
     [anon_sym_IFDBG] = ACTIONS(1501),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1501),
     [anon_sym_JAS_CAST] = ACTIONS(1501),
     [anon_sym_list_entry] = ACTIONS(1501),
     [anon_sym_list_first_entry] = ACTIONS(1501),
@@ -67399,6 +67735,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1551),
     [anon_sym_forall_unix_sockets] = ACTIONS(1551),
     [anon_sym_IFDBG] = ACTIONS(1551),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1551),
     [anon_sym_JAS_CAST] = ACTIONS(1551),
     [anon_sym_list_entry] = ACTIONS(1551),
     [anon_sym_list_first_entry] = ACTIONS(1551),
@@ -67555,6 +67892,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1555),
     [anon_sym_forall_unix_sockets] = ACTIONS(1555),
     [anon_sym_IFDBG] = ACTIONS(1555),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1555),
     [anon_sym_JAS_CAST] = ACTIONS(1555),
     [anon_sym_list_entry] = ACTIONS(1555),
     [anon_sym_list_first_entry] = ACTIONS(1555),
@@ -67711,6 +68049,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1543),
     [anon_sym_forall_unix_sockets] = ACTIONS(1543),
     [anon_sym_IFDBG] = ACTIONS(1543),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1543),
     [anon_sym_JAS_CAST] = ACTIONS(1543),
     [anon_sym_list_entry] = ACTIONS(1543),
     [anon_sym_list_first_entry] = ACTIONS(1543),
@@ -67867,6 +68206,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1571),
     [anon_sym_forall_unix_sockets] = ACTIONS(1571),
     [anon_sym_IFDBG] = ACTIONS(1571),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1571),
     [anon_sym_JAS_CAST] = ACTIONS(1571),
     [anon_sym_list_entry] = ACTIONS(1571),
     [anon_sym_list_first_entry] = ACTIONS(1571),
@@ -68023,6 +68363,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1575),
     [anon_sym_forall_unix_sockets] = ACTIONS(1575),
     [anon_sym_IFDBG] = ACTIONS(1575),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1575),
     [anon_sym_JAS_CAST] = ACTIONS(1575),
     [anon_sym_list_entry] = ACTIONS(1575),
     [anon_sym_list_first_entry] = ACTIONS(1575),
@@ -68179,6 +68520,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1579),
     [anon_sym_forall_unix_sockets] = ACTIONS(1579),
     [anon_sym_IFDBG] = ACTIONS(1579),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1579),
     [anon_sym_JAS_CAST] = ACTIONS(1579),
     [anon_sym_list_entry] = ACTIONS(1579),
     [anon_sym_list_first_entry] = ACTIONS(1579),
@@ -68335,6 +68677,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1587),
     [anon_sym_forall_unix_sockets] = ACTIONS(1587),
     [anon_sym_IFDBG] = ACTIONS(1587),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1587),
     [anon_sym_JAS_CAST] = ACTIONS(1587),
     [anon_sym_list_entry] = ACTIONS(1587),
     [anon_sym_list_first_entry] = ACTIONS(1587),
@@ -68491,6 +68834,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1497),
     [anon_sym_forall_unix_sockets] = ACTIONS(1497),
     [anon_sym_IFDBG] = ACTIONS(1497),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1497),
     [anon_sym_JAS_CAST] = ACTIONS(1497),
     [anon_sym_list_entry] = ACTIONS(1497),
     [anon_sym_list_first_entry] = ACTIONS(1497),
@@ -68647,6 +68991,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1591),
     [anon_sym_forall_unix_sockets] = ACTIONS(1591),
     [anon_sym_IFDBG] = ACTIONS(1591),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1591),
     [anon_sym_JAS_CAST] = ACTIONS(1591),
     [anon_sym_list_entry] = ACTIONS(1591),
     [anon_sym_list_first_entry] = ACTIONS(1591),
@@ -68803,6 +69148,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1509),
     [anon_sym_forall_unix_sockets] = ACTIONS(1509),
     [anon_sym_IFDBG] = ACTIONS(1509),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1509),
     [anon_sym_JAS_CAST] = ACTIONS(1509),
     [anon_sym_list_entry] = ACTIONS(1509),
     [anon_sym_list_first_entry] = ACTIONS(1509),
@@ -68959,6 +69305,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1583),
     [anon_sym_forall_unix_sockets] = ACTIONS(1583),
     [anon_sym_IFDBG] = ACTIONS(1583),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1583),
     [anon_sym_JAS_CAST] = ACTIONS(1583),
     [anon_sym_list_entry] = ACTIONS(1583),
     [anon_sym_list_first_entry] = ACTIONS(1583),
@@ -69115,6 +69462,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1595),
     [anon_sym_forall_unix_sockets] = ACTIONS(1595),
     [anon_sym_IFDBG] = ACTIONS(1595),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1595),
     [anon_sym_JAS_CAST] = ACTIONS(1595),
     [anon_sym_list_entry] = ACTIONS(1595),
     [anon_sym_list_first_entry] = ACTIONS(1595),
@@ -69271,6 +69619,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1515),
     [anon_sym_forall_unix_sockets] = ACTIONS(1515),
     [anon_sym_IFDBG] = ACTIONS(1515),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1515),
     [anon_sym_JAS_CAST] = ACTIONS(1515),
     [anon_sym_list_entry] = ACTIONS(1515),
     [anon_sym_list_first_entry] = ACTIONS(1515),
@@ -69427,6 +69776,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1519),
     [anon_sym_forall_unix_sockets] = ACTIONS(1519),
     [anon_sym_IFDBG] = ACTIONS(1519),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1519),
     [anon_sym_JAS_CAST] = ACTIONS(1519),
     [anon_sym_list_entry] = ACTIONS(1519),
     [anon_sym_list_first_entry] = ACTIONS(1519),
@@ -69583,6 +69933,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1587),
     [anon_sym_forall_unix_sockets] = ACTIONS(1587),
     [anon_sym_IFDBG] = ACTIONS(1587),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1587),
     [anon_sym_JAS_CAST] = ACTIONS(1587),
     [anon_sym_list_entry] = ACTIONS(1587),
     [anon_sym_list_first_entry] = ACTIONS(1587),
@@ -69739,6 +70090,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1599),
     [anon_sym_forall_unix_sockets] = ACTIONS(1599),
     [anon_sym_IFDBG] = ACTIONS(1599),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1599),
     [anon_sym_JAS_CAST] = ACTIONS(1599),
     [anon_sym_list_entry] = ACTIONS(1599),
     [anon_sym_list_first_entry] = ACTIONS(1599),
@@ -69895,6 +70247,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1603),
     [anon_sym_forall_unix_sockets] = ACTIONS(1603),
     [anon_sym_IFDBG] = ACTIONS(1603),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1603),
     [anon_sym_JAS_CAST] = ACTIONS(1603),
     [anon_sym_list_entry] = ACTIONS(1603),
     [anon_sym_list_first_entry] = ACTIONS(1603),
@@ -70051,6 +70404,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1501),
     [anon_sym_forall_unix_sockets] = ACTIONS(1501),
     [anon_sym_IFDBG] = ACTIONS(1501),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1501),
     [anon_sym_JAS_CAST] = ACTIONS(1501),
     [anon_sym_list_entry] = ACTIONS(1501),
     [anon_sym_list_first_entry] = ACTIONS(1501),
@@ -70207,6 +70561,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1523),
     [anon_sym_forall_unix_sockets] = ACTIONS(1523),
     [anon_sym_IFDBG] = ACTIONS(1523),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1523),
     [anon_sym_JAS_CAST] = ACTIONS(1523),
     [anon_sym_list_entry] = ACTIONS(1523),
     [anon_sym_list_first_entry] = ACTIONS(1523),
@@ -70363,6 +70718,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1527),
     [anon_sym_forall_unix_sockets] = ACTIONS(1527),
     [anon_sym_IFDBG] = ACTIONS(1527),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1527),
     [anon_sym_JAS_CAST] = ACTIONS(1527),
     [anon_sym_list_entry] = ACTIONS(1527),
     [anon_sym_list_first_entry] = ACTIONS(1527),
@@ -70519,6 +70875,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1531),
     [anon_sym_forall_unix_sockets] = ACTIONS(1531),
     [anon_sym_IFDBG] = ACTIONS(1531),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1531),
     [anon_sym_JAS_CAST] = ACTIONS(1531),
     [anon_sym_list_entry] = ACTIONS(1531),
     [anon_sym_list_first_entry] = ACTIONS(1531),
@@ -70675,6 +71032,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1535),
     [anon_sym_forall_unix_sockets] = ACTIONS(1535),
     [anon_sym_IFDBG] = ACTIONS(1535),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1535),
     [anon_sym_JAS_CAST] = ACTIONS(1535),
     [anon_sym_list_entry] = ACTIONS(1535),
     [anon_sym_list_first_entry] = ACTIONS(1535),
@@ -70831,6 +71189,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1563),
     [anon_sym_forall_unix_sockets] = ACTIONS(1563),
     [anon_sym_IFDBG] = ACTIONS(1563),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1563),
     [anon_sym_JAS_CAST] = ACTIONS(1563),
     [anon_sym_list_entry] = ACTIONS(1563),
     [anon_sym_list_first_entry] = ACTIONS(1563),
@@ -70987,6 +71346,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1515),
     [anon_sym_forall_unix_sockets] = ACTIONS(1515),
     [anon_sym_IFDBG] = ACTIONS(1515),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1515),
     [anon_sym_JAS_CAST] = ACTIONS(1515),
     [anon_sym_list_entry] = ACTIONS(1515),
     [anon_sym_list_first_entry] = ACTIONS(1515),
@@ -71143,6 +71503,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1527),
     [anon_sym_forall_unix_sockets] = ACTIONS(1527),
     [anon_sym_IFDBG] = ACTIONS(1527),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1527),
     [anon_sym_JAS_CAST] = ACTIONS(1527),
     [anon_sym_list_entry] = ACTIONS(1527),
     [anon_sym_list_first_entry] = ACTIONS(1527),
@@ -71299,6 +71660,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1535),
     [anon_sym_forall_unix_sockets] = ACTIONS(1535),
     [anon_sym_IFDBG] = ACTIONS(1535),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1535),
     [anon_sym_JAS_CAST] = ACTIONS(1535),
     [anon_sym_list_entry] = ACTIONS(1535),
     [anon_sym_list_first_entry] = ACTIONS(1535),
@@ -71455,6 +71817,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1547),
     [anon_sym_forall_unix_sockets] = ACTIONS(1547),
     [anon_sym_IFDBG] = ACTIONS(1547),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1547),
     [anon_sym_JAS_CAST] = ACTIONS(1547),
     [anon_sym_list_entry] = ACTIONS(1547),
     [anon_sym_list_first_entry] = ACTIONS(1547),
@@ -71611,6 +71974,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1551),
     [anon_sym_forall_unix_sockets] = ACTIONS(1551),
     [anon_sym_IFDBG] = ACTIONS(1551),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1551),
     [anon_sym_JAS_CAST] = ACTIONS(1551),
     [anon_sym_list_entry] = ACTIONS(1551),
     [anon_sym_list_first_entry] = ACTIONS(1551),
@@ -71767,6 +72131,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1583),
     [anon_sym_forall_unix_sockets] = ACTIONS(1583),
     [anon_sym_IFDBG] = ACTIONS(1583),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1583),
     [anon_sym_JAS_CAST] = ACTIONS(1583),
     [anon_sym_list_entry] = ACTIONS(1583),
     [anon_sym_list_first_entry] = ACTIONS(1583),
@@ -71923,6 +72288,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1505),
     [anon_sym_forall_unix_sockets] = ACTIONS(1505),
     [anon_sym_IFDBG] = ACTIONS(1505),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1505),
     [anon_sym_JAS_CAST] = ACTIONS(1505),
     [anon_sym_list_entry] = ACTIONS(1505),
     [anon_sym_list_first_entry] = ACTIONS(1505),
@@ -72079,6 +72445,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1523),
     [anon_sym_forall_unix_sockets] = ACTIONS(1523),
     [anon_sym_IFDBG] = ACTIONS(1523),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1523),
     [anon_sym_JAS_CAST] = ACTIONS(1523),
     [anon_sym_list_entry] = ACTIONS(1523),
     [anon_sym_list_first_entry] = ACTIONS(1523),
@@ -72235,6 +72602,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1531),
     [anon_sym_forall_unix_sockets] = ACTIONS(1531),
     [anon_sym_IFDBG] = ACTIONS(1531),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1531),
     [anon_sym_JAS_CAST] = ACTIONS(1531),
     [anon_sym_list_entry] = ACTIONS(1531),
     [anon_sym_list_first_entry] = ACTIONS(1531),
@@ -72391,6 +72759,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1539),
     [anon_sym_forall_unix_sockets] = ACTIONS(1539),
     [anon_sym_IFDBG] = ACTIONS(1539),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1539),
     [anon_sym_JAS_CAST] = ACTIONS(1539),
     [anon_sym_list_entry] = ACTIONS(1539),
     [anon_sym_list_first_entry] = ACTIONS(1539),
@@ -72547,6 +72916,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1539),
     [anon_sym_forall_unix_sockets] = ACTIONS(1539),
     [anon_sym_IFDBG] = ACTIONS(1539),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1539),
     [anon_sym_JAS_CAST] = ACTIONS(1539),
     [anon_sym_list_entry] = ACTIONS(1539),
     [anon_sym_list_first_entry] = ACTIONS(1539),
@@ -72703,6 +73073,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1559),
     [anon_sym_forall_unix_sockets] = ACTIONS(1559),
     [anon_sym_IFDBG] = ACTIONS(1559),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1559),
     [anon_sym_JAS_CAST] = ACTIONS(1559),
     [anon_sym_list_entry] = ACTIONS(1559),
     [anon_sym_list_first_entry] = ACTIONS(1559),
@@ -72859,6 +73230,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1497),
     [anon_sym_forall_unix_sockets] = ACTIONS(1497),
     [anon_sym_IFDBG] = ACTIONS(1497),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1497),
     [anon_sym_JAS_CAST] = ACTIONS(1497),
     [anon_sym_list_entry] = ACTIONS(1497),
     [anon_sym_list_first_entry] = ACTIONS(1497),
@@ -73015,6 +73387,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1591),
     [anon_sym_forall_unix_sockets] = ACTIONS(1591),
     [anon_sym_IFDBG] = ACTIONS(1591),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1591),
     [anon_sym_JAS_CAST] = ACTIONS(1591),
     [anon_sym_list_entry] = ACTIONS(1591),
     [anon_sym_list_first_entry] = ACTIONS(1591),
@@ -73171,6 +73544,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1547),
     [anon_sym_forall_unix_sockets] = ACTIONS(1547),
     [anon_sym_IFDBG] = ACTIONS(1547),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1547),
     [anon_sym_JAS_CAST] = ACTIONS(1547),
     [anon_sym_list_entry] = ACTIONS(1547),
     [anon_sym_list_first_entry] = ACTIONS(1547),
@@ -73327,6 +73701,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1575),
     [anon_sym_forall_unix_sockets] = ACTIONS(1575),
     [anon_sym_IFDBG] = ACTIONS(1575),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1575),
     [anon_sym_JAS_CAST] = ACTIONS(1575),
     [anon_sym_list_entry] = ACTIONS(1575),
     [anon_sym_list_first_entry] = ACTIONS(1575),
@@ -73483,6 +73858,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1563),
     [anon_sym_forall_unix_sockets] = ACTIONS(1563),
     [anon_sym_IFDBG] = ACTIONS(1563),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1563),
     [anon_sym_JAS_CAST] = ACTIONS(1563),
     [anon_sym_list_entry] = ACTIONS(1563),
     [anon_sym_list_first_entry] = ACTIONS(1563),
@@ -73639,6 +74015,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1579),
     [anon_sym_forall_unix_sockets] = ACTIONS(1579),
     [anon_sym_IFDBG] = ACTIONS(1579),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1579),
     [anon_sym_JAS_CAST] = ACTIONS(1579),
     [anon_sym_list_entry] = ACTIONS(1579),
     [anon_sym_list_first_entry] = ACTIONS(1579),
@@ -73795,6 +74172,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1567),
     [anon_sym_forall_unix_sockets] = ACTIONS(1567),
     [anon_sym_IFDBG] = ACTIONS(1567),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1567),
     [anon_sym_JAS_CAST] = ACTIONS(1567),
     [anon_sym_list_entry] = ACTIONS(1567),
     [anon_sym_list_first_entry] = ACTIONS(1567),
@@ -73951,6 +74329,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1595),
     [anon_sym_forall_unix_sockets] = ACTIONS(1595),
     [anon_sym_IFDBG] = ACTIONS(1595),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1595),
     [anon_sym_JAS_CAST] = ACTIONS(1595),
     [anon_sym_list_entry] = ACTIONS(1595),
     [anon_sym_list_first_entry] = ACTIONS(1595),
@@ -74107,6 +74486,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1599),
     [anon_sym_forall_unix_sockets] = ACTIONS(1599),
     [anon_sym_IFDBG] = ACTIONS(1599),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1599),
     [anon_sym_JAS_CAST] = ACTIONS(1599),
     [anon_sym_list_entry] = ACTIONS(1599),
     [anon_sym_list_first_entry] = ACTIONS(1599),
@@ -74263,6 +74643,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1603),
     [anon_sym_forall_unix_sockets] = ACTIONS(1603),
     [anon_sym_IFDBG] = ACTIONS(1603),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1603),
     [anon_sym_JAS_CAST] = ACTIONS(1603),
     [anon_sym_list_entry] = ACTIONS(1603),
     [anon_sym_list_first_entry] = ACTIONS(1603),
@@ -74419,6 +74800,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1543),
     [anon_sym_forall_unix_sockets] = ACTIONS(1543),
     [anon_sym_IFDBG] = ACTIONS(1543),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1543),
     [anon_sym_JAS_CAST] = ACTIONS(1543),
     [anon_sym_list_entry] = ACTIONS(1543),
     [anon_sym_list_first_entry] = ACTIONS(1543),
@@ -74575,6 +74957,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1555),
     [anon_sym_forall_unix_sockets] = ACTIONS(1555),
     [anon_sym_IFDBG] = ACTIONS(1555),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1555),
     [anon_sym_JAS_CAST] = ACTIONS(1555),
     [anon_sym_list_entry] = ACTIONS(1555),
     [anon_sym_list_first_entry] = ACTIONS(1555),
@@ -74731,6 +75114,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1559),
     [anon_sym_forall_unix_sockets] = ACTIONS(1559),
     [anon_sym_IFDBG] = ACTIONS(1559),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1559),
     [anon_sym_JAS_CAST] = ACTIONS(1559),
     [anon_sym_list_entry] = ACTIONS(1559),
     [anon_sym_list_first_entry] = ACTIONS(1559),
@@ -74887,6 +75271,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1519),
     [anon_sym_forall_unix_sockets] = ACTIONS(1519),
     [anon_sym_IFDBG] = ACTIONS(1519),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1519),
     [anon_sym_JAS_CAST] = ACTIONS(1519),
     [anon_sym_list_entry] = ACTIONS(1519),
     [anon_sym_list_first_entry] = ACTIONS(1519),
@@ -75788,6 +76173,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1631),
     [anon_sym_forall_unix_sockets] = ACTIONS(1631),
     [anon_sym_IFDBG] = ACTIONS(1631),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1631),
     [anon_sym_JAS_CAST] = ACTIONS(1631),
     [anon_sym_list_entry] = ACTIONS(1631),
     [anon_sym_list_first_entry] = ACTIONS(1631),
@@ -75939,6 +76325,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -76086,6 +76473,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -76233,6 +76621,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -76380,6 +76769,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1747),
     [anon_sym_forall_unix_sockets] = ACTIONS(1747),
     [anon_sym_IFDBG] = ACTIONS(1747),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1747),
     [anon_sym_JAS_CAST] = ACTIONS(1750),
     [anon_sym_list_entry] = ACTIONS(1753),
     [anon_sym_list_first_entry] = ACTIONS(1753),
@@ -76527,6 +76917,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -76674,6 +77065,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -76821,6 +77213,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -76968,6 +77361,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -77115,6 +77509,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -77262,6 +77657,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -77409,6 +77805,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -77556,6 +77953,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -77703,6 +78101,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1829),
     [anon_sym_forall_unix_sockets] = ACTIONS(1829),
     [anon_sym_IFDBG] = ACTIONS(1829),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1829),
     [anon_sym_JAS_CAST] = ACTIONS(1750),
     [anon_sym_list_entry] = ACTIONS(1753),
     [anon_sym_list_first_entry] = ACTIONS(1753),
@@ -77850,6 +78249,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -77997,6 +78397,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -78140,6 +78541,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1835),
     [anon_sym_forall_unix_sockets] = ACTIONS(1835),
     [anon_sym_IFDBG] = ACTIONS(1835),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1835),
     [anon_sym_JAS_CAST] = ACTIONS(1835),
     [anon_sym_list_entry] = ACTIONS(1835),
     [anon_sym_list_first_entry] = ACTIONS(1835),
@@ -78291,6 +78693,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -78438,6 +78841,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -78585,6 +78989,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -78732,6 +79137,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1887),
     [anon_sym_forall_unix_sockets] = ACTIONS(1887),
     [anon_sym_IFDBG] = ACTIONS(1887),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1887),
     [anon_sym_JAS_CAST] = ACTIONS(1750),
     [anon_sym_list_entry] = ACTIONS(1753),
     [anon_sym_list_first_entry] = ACTIONS(1753),
@@ -78879,6 +79285,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -79026,6 +79433,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -79173,6 +79581,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -79320,6 +79729,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -79467,6 +79877,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -79614,6 +80025,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -79761,6 +80173,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -79908,6 +80321,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -80055,6 +80469,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1914),
     [anon_sym_forall_unix_sockets] = ACTIONS(1914),
     [anon_sym_IFDBG] = ACTIONS(1914),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1914),
     [anon_sym_JAS_CAST] = ACTIONS(1750),
     [anon_sym_list_entry] = ACTIONS(1753),
     [anon_sym_list_first_entry] = ACTIONS(1753),
@@ -80202,6 +80617,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -80349,6 +80765,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -80496,6 +80913,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -80643,6 +81061,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -80790,6 +81209,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -80937,6 +81357,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -81084,6 +81505,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1965),
     [anon_sym_forall_unix_sockets] = ACTIONS(1965),
     [anon_sym_IFDBG] = ACTIONS(1965),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1965),
     [anon_sym_JAS_CAST] = ACTIONS(1750),
     [anon_sym_list_entry] = ACTIONS(1753),
     [anon_sym_list_first_entry] = ACTIONS(1753),
@@ -81231,6 +81653,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -81378,6 +81801,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -81525,6 +81949,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(189),
     [anon_sym_forall_unix_sockets] = ACTIONS(189),
     [anon_sym_IFDBG] = ACTIONS(189),
+    [anon_sym_xt_entry_foreach] = ACTIONS(189),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -81672,6 +82097,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -81819,6 +82245,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(710),
     [anon_sym_forall_unix_sockets] = ACTIONS(710),
     [anon_sym_IFDBG] = ACTIONS(710),
+    [anon_sym_xt_entry_foreach] = ACTIONS(710),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -81966,6 +82393,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(930),
     [anon_sym_forall_unix_sockets] = ACTIONS(930),
     [anon_sym_IFDBG] = ACTIONS(930),
+    [anon_sym_xt_entry_foreach] = ACTIONS(930),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -82113,6 +82541,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -82260,6 +82689,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -82407,6 +82837,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1309),
     [anon_sym_forall_unix_sockets] = ACTIONS(1309),
     [anon_sym_IFDBG] = ACTIONS(1309),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1309),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -82554,6 +82985,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(480),
     [anon_sym_forall_unix_sockets] = ACTIONS(480),
     [anon_sym_IFDBG] = ACTIONS(480),
+    [anon_sym_xt_entry_foreach] = ACTIONS(480),
     [anon_sym_JAS_CAST] = ACTIONS(111),
     [anon_sym_list_entry] = ACTIONS(113),
     [anon_sym_list_first_entry] = ACTIONS(113),
@@ -82694,6 +83126,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1341),
     [anon_sym_forall_unix_sockets] = ACTIONS(1341),
     [anon_sym_IFDBG] = ACTIONS(1341),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1341),
     [anon_sym_JAS_CAST] = ACTIONS(1341),
     [anon_sym_list_entry] = ACTIONS(1341),
     [anon_sym_list_first_entry] = ACTIONS(1341),
@@ -82858,6 +83291,149 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_SCTP_STATIC] = ACTIONS(1515),
   },
   [STATE(395)] = {
+    [sym_identifier] = ACTIONS(1973),
+    [anon_sym_LPAREN2] = ACTIONS(1976),
+    [anon_sym_BANG] = ACTIONS(1976),
+    [anon_sym_TILDE] = ACTIONS(1976),
+    [anon_sym_DASH] = ACTIONS(1978),
+    [anon_sym_PLUS] = ACTIONS(1978),
+    [anon_sym_STAR] = ACTIONS(1976),
+    [anon_sym_AMP] = ACTIONS(1976),
+    [anon_sym_SEMI] = ACTIONS(1976),
+    [anon_sym___extension__] = ACTIONS(1973),
+    [anon_sym_extern] = ACTIONS(1980),
+    [anon_sym___attribute__] = ACTIONS(1980),
+    [anon_sym___attribute] = ACTIONS(1980),
+    [anon_sym_LBRACK_LBRACK] = ACTIONS(1982),
+    [anon_sym___declspec] = ACTIONS(1980),
+    [anon_sym_LBRACE] = ACTIONS(1976),
+    [anon_sym_signed] = ACTIONS(1980),
+    [anon_sym_unsigned] = ACTIONS(1980),
+    [anon_sym_long] = ACTIONS(1980),
+    [anon_sym_short] = ACTIONS(1980),
+    [anon_sym_static] = ACTIONS(1980),
+    [anon_sym_auto] = ACTIONS(1980),
+    [anon_sym_register] = ACTIONS(1980),
+    [anon_sym_inline] = ACTIONS(1980),
+    [anon_sym___inline] = ACTIONS(1980),
+    [anon_sym___inline__] = ACTIONS(1980),
+    [anon_sym___forceinline] = ACTIONS(1980),
+    [anon_sym_thread_local] = ACTIONS(1980),
+    [anon_sym___thread] = ACTIONS(1980),
+    [anon_sym_REG1] = ACTIONS(1980),
+    [anon_sym_REG2] = ACTIONS(1980),
+    [anon_sym_REG3] = ACTIONS(1980),
+    [anon_sym_REG4] = ACTIONS(1980),
+    [anon_sym_REG5] = ACTIONS(1980),
+    [anon_sym_REG6] = ACTIONS(1980),
+    [anon_sym_REG7] = ACTIONS(1980),
+    [anon_sym_REG8] = ACTIONS(1980),
+    [anon_sym_REG9] = ACTIONS(1980),
+    [anon_sym_REG11] = ACTIONS(1980),
+    [anon_sym_REG12] = ACTIONS(1980),
+    [anon_sym_REG13] = ACTIONS(1980),
+    [anon_sym_REG14] = ACTIONS(1980),
+    [anon_sym_REG15] = ACTIONS(1980),
+    [anon_sym_REG16] = ACTIONS(1980),
+    [anon_sym_const] = ACTIONS(1980),
+    [anon_sym_constexpr] = ACTIONS(1980),
+    [anon_sym_volatile] = ACTIONS(1980),
+    [anon_sym_restrict] = ACTIONS(1980),
+    [anon_sym___restrict__] = ACTIONS(1980),
+    [anon_sym__Atomic] = ACTIONS(1980),
+    [anon_sym__Noreturn] = ACTIONS(1980),
+    [anon_sym_noreturn] = ACTIONS(1980),
+    [anon_sym__Nonnull] = ACTIONS(1980),
+    [anon_sym_alignas] = ACTIONS(1980),
+    [anon_sym__Alignas] = ACTIONS(1980),
+    [sym_primitive_type] = ACTIONS(1980),
+    [anon_sym_enum] = ACTIONS(1980),
+    [anon_sym_struct] = ACTIONS(1980),
+    [anon_sym_union] = ACTIONS(1980),
+    [anon_sym_if] = ACTIONS(1978),
+    [anon_sym_switch] = ACTIONS(1978),
+    [anon_sym_case] = ACTIONS(1978),
+    [anon_sym_default] = ACTIONS(1978),
+    [anon_sym_while] = ACTIONS(1978),
+    [anon_sym_do] = ACTIONS(1978),
+    [anon_sym_for] = ACTIONS(1978),
+    [anon_sym_return] = ACTIONS(1978),
+    [anon_sym_break] = ACTIONS(1978),
+    [anon_sym_continue] = ACTIONS(1978),
+    [anon_sym_goto] = ACTIONS(1978),
+    [anon_sym___try] = ACTIONS(1978),
+    [anon_sym___leave] = ACTIONS(1978),
+    [anon_sym_US] = ACTIONS(1978),
+    [anon_sym_CS] = ACTIONS(1978),
+    [anon_sym_DASH_DASH] = ACTIONS(1976),
+    [anon_sym_PLUS_PLUS] = ACTIONS(1976),
+    [anon_sym_sizeof] = ACTIONS(1978),
+    [anon_sym___alignof__] = ACTIONS(1978),
+    [anon_sym___alignof] = ACTIONS(1978),
+    [anon_sym__alignof] = ACTIONS(1978),
+    [anon_sym_alignof] = ACTIONS(1978),
+    [anon_sym__Alignof] = ACTIONS(1978),
+    [anon_sym_offsetof] = ACTIONS(1978),
+    [anon_sym__Generic] = ACTIONS(1978),
+    [anon_sym_asm] = ACTIONS(1978),
+    [anon_sym___asm__] = ACTIONS(1978),
+    [anon_sym___asm] = ACTIONS(1978),
+    [sym_number_literal] = ACTIONS(1978),
+    [anon_sym_L_SQUOTE] = ACTIONS(1976),
+    [anon_sym_u_SQUOTE] = ACTIONS(1976),
+    [anon_sym_U_SQUOTE] = ACTIONS(1976),
+    [anon_sym_u8_SQUOTE] = ACTIONS(1976),
+    [anon_sym_SQUOTE] = ACTIONS(1976),
+    [anon_sym_L_DQUOTE] = ACTIONS(1976),
+    [anon_sym_u_DQUOTE] = ACTIONS(1976),
+    [anon_sym_U_DQUOTE] = ACTIONS(1976),
+    [anon_sym_u8_DQUOTE] = ACTIONS(1976),
+    [anon_sym_DQUOTE] = ACTIONS(1976),
+    [sym_true] = ACTIONS(1978),
+    [sym_false] = ACTIONS(1978),
+    [anon_sym_NULL] = ACTIONS(1978),
+    [anon_sym_nullptr] = ACTIONS(1978),
+    [sym_comment] = ACTIONS(3),
+    [anon_sym_min_t] = ACTIONS(1978),
+    [anon_sym_IF_DESKTOP] = ACTIONS(1980),
+    [anon_sym___init] = ACTIONS(1980),
+    [anon_sym___cpuinit] = ACTIONS(1980),
+    [anon_sym_32_CS] = ACTIONS(1976),
+    [anon_sym_32_DS] = ACTIONS(1976),
+    [anon_sym_list_for_each_entry] = ACTIONS(1978),
+    [anon_sym_list_for_each_safe] = ACTIONS(1978),
+    [anon_sym_list_for_each_entry_safe] = ACTIONS(1978),
+    [anon_sym_list_for_each] = ACTIONS(1978),
+    [anon_sym_list_for_each_entry_rcu] = ACTIONS(1978),
+    [anon_sym_hlist_for_each_entry] = ACTIONS(1978),
+    [anon_sym_sk_for_each] = ACTIONS(1978),
+    [anon_sym_sctp_walk_params] = ACTIONS(1978),
+    [anon_sym_sctp_tsnmap_init] = ACTIONS(1978),
+    [anon_sym_receive_queue_for_each_skb] = ACTIONS(1978),
+    [anon_sym_forall_unix_sockets] = ACTIONS(1978),
+    [anon_sym_IFDBG] = ACTIONS(1978),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1978),
+    [anon_sym_JAS_CAST] = ACTIONS(1978),
+    [anon_sym_list_entry] = ACTIONS(1978),
+    [anon_sym_list_first_entry] = ACTIONS(1978),
+    [anon_sym_list_first_entry_or_null] = ACTIONS(1978),
+    [anon_sym_container_of] = ACTIONS(1978),
+    [anon_sym_list_next_entry] = ACTIONS(1978),
+    [anon_sym_list_prev_entry] = ACTIONS(1978),
+    [anon_sym_TALLOC_P] = ACTIONS(1978),
+    [anon_sym_talloc_get_type_abort] = ACTIONS(1978),
+    [anon_sym_DLIST_ADD_END] = ACTIONS(1978),
+    [anon_sym_g_new] = ACTIONS(1978),
+    [anon_sym_g_new0] = ACTIONS(1978),
+    [anon_sym_GNUTLS_HASH_LOOP] = ACTIONS(1978),
+    [anon_sym_va_arg] = ACTIONS(1978),
+    [anon_sym_noinline_for_stack] = ACTIONS(1980),
+    [anon_sym_noinline] = ACTIONS(1980),
+    [anon_sym___must_check] = ACTIONS(1980),
+    [anon_sym_SCTP_STATIC] = ACTIONS(1980),
+    [anon_sym_DECLARE_SOCKADDR] = ACTIONS(1978),
+  },
+  [STATE(396)] = {
     [ts_builtin_sym_end] = ACTIONS(1537),
     [sym_identifier] = ACTIONS(1535),
     [aux_sym_preproc_include_token1] = ACTIONS(1535),
@@ -82999,148 +83575,6 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_noinline] = ACTIONS(1535),
     [anon_sym___must_check] = ACTIONS(1535),
     [anon_sym_SCTP_STATIC] = ACTIONS(1535),
-  },
-  [STATE(396)] = {
-    [sym_identifier] = ACTIONS(1973),
-    [anon_sym_LPAREN2] = ACTIONS(1976),
-    [anon_sym_BANG] = ACTIONS(1976),
-    [anon_sym_TILDE] = ACTIONS(1976),
-    [anon_sym_DASH] = ACTIONS(1978),
-    [anon_sym_PLUS] = ACTIONS(1978),
-    [anon_sym_STAR] = ACTIONS(1976),
-    [anon_sym_AMP] = ACTIONS(1976),
-    [anon_sym_SEMI] = ACTIONS(1976),
-    [anon_sym___extension__] = ACTIONS(1973),
-    [anon_sym_extern] = ACTIONS(1980),
-    [anon_sym___attribute__] = ACTIONS(1980),
-    [anon_sym___attribute] = ACTIONS(1980),
-    [anon_sym_LBRACK_LBRACK] = ACTIONS(1982),
-    [anon_sym___declspec] = ACTIONS(1980),
-    [anon_sym_LBRACE] = ACTIONS(1976),
-    [anon_sym_signed] = ACTIONS(1980),
-    [anon_sym_unsigned] = ACTIONS(1980),
-    [anon_sym_long] = ACTIONS(1980),
-    [anon_sym_short] = ACTIONS(1980),
-    [anon_sym_static] = ACTIONS(1980),
-    [anon_sym_auto] = ACTIONS(1980),
-    [anon_sym_register] = ACTIONS(1980),
-    [anon_sym_inline] = ACTIONS(1980),
-    [anon_sym___inline] = ACTIONS(1980),
-    [anon_sym___inline__] = ACTIONS(1980),
-    [anon_sym___forceinline] = ACTIONS(1980),
-    [anon_sym_thread_local] = ACTIONS(1980),
-    [anon_sym___thread] = ACTIONS(1980),
-    [anon_sym_REG1] = ACTIONS(1980),
-    [anon_sym_REG2] = ACTIONS(1980),
-    [anon_sym_REG3] = ACTIONS(1980),
-    [anon_sym_REG4] = ACTIONS(1980),
-    [anon_sym_REG5] = ACTIONS(1980),
-    [anon_sym_REG6] = ACTIONS(1980),
-    [anon_sym_REG7] = ACTIONS(1980),
-    [anon_sym_REG8] = ACTIONS(1980),
-    [anon_sym_REG9] = ACTIONS(1980),
-    [anon_sym_REG11] = ACTIONS(1980),
-    [anon_sym_REG12] = ACTIONS(1980),
-    [anon_sym_REG13] = ACTIONS(1980),
-    [anon_sym_REG14] = ACTIONS(1980),
-    [anon_sym_REG15] = ACTIONS(1980),
-    [anon_sym_REG16] = ACTIONS(1980),
-    [anon_sym_const] = ACTIONS(1980),
-    [anon_sym_constexpr] = ACTIONS(1980),
-    [anon_sym_volatile] = ACTIONS(1980),
-    [anon_sym_restrict] = ACTIONS(1980),
-    [anon_sym___restrict__] = ACTIONS(1980),
-    [anon_sym__Atomic] = ACTIONS(1980),
-    [anon_sym__Noreturn] = ACTIONS(1980),
-    [anon_sym_noreturn] = ACTIONS(1980),
-    [anon_sym__Nonnull] = ACTIONS(1980),
-    [anon_sym_alignas] = ACTIONS(1980),
-    [anon_sym__Alignas] = ACTIONS(1980),
-    [sym_primitive_type] = ACTIONS(1980),
-    [anon_sym_enum] = ACTIONS(1980),
-    [anon_sym_struct] = ACTIONS(1980),
-    [anon_sym_union] = ACTIONS(1980),
-    [anon_sym_if] = ACTIONS(1978),
-    [anon_sym_switch] = ACTIONS(1978),
-    [anon_sym_case] = ACTIONS(1978),
-    [anon_sym_default] = ACTIONS(1978),
-    [anon_sym_while] = ACTIONS(1978),
-    [anon_sym_do] = ACTIONS(1978),
-    [anon_sym_for] = ACTIONS(1978),
-    [anon_sym_return] = ACTIONS(1978),
-    [anon_sym_break] = ACTIONS(1978),
-    [anon_sym_continue] = ACTIONS(1978),
-    [anon_sym_goto] = ACTIONS(1978),
-    [anon_sym___try] = ACTIONS(1978),
-    [anon_sym___leave] = ACTIONS(1978),
-    [anon_sym_US] = ACTIONS(1978),
-    [anon_sym_CS] = ACTIONS(1978),
-    [anon_sym_DASH_DASH] = ACTIONS(1976),
-    [anon_sym_PLUS_PLUS] = ACTIONS(1976),
-    [anon_sym_sizeof] = ACTIONS(1978),
-    [anon_sym___alignof__] = ACTIONS(1978),
-    [anon_sym___alignof] = ACTIONS(1978),
-    [anon_sym__alignof] = ACTIONS(1978),
-    [anon_sym_alignof] = ACTIONS(1978),
-    [anon_sym__Alignof] = ACTIONS(1978),
-    [anon_sym_offsetof] = ACTIONS(1978),
-    [anon_sym__Generic] = ACTIONS(1978),
-    [anon_sym_asm] = ACTIONS(1978),
-    [anon_sym___asm__] = ACTIONS(1978),
-    [anon_sym___asm] = ACTIONS(1978),
-    [sym_number_literal] = ACTIONS(1978),
-    [anon_sym_L_SQUOTE] = ACTIONS(1976),
-    [anon_sym_u_SQUOTE] = ACTIONS(1976),
-    [anon_sym_U_SQUOTE] = ACTIONS(1976),
-    [anon_sym_u8_SQUOTE] = ACTIONS(1976),
-    [anon_sym_SQUOTE] = ACTIONS(1976),
-    [anon_sym_L_DQUOTE] = ACTIONS(1976),
-    [anon_sym_u_DQUOTE] = ACTIONS(1976),
-    [anon_sym_U_DQUOTE] = ACTIONS(1976),
-    [anon_sym_u8_DQUOTE] = ACTIONS(1976),
-    [anon_sym_DQUOTE] = ACTIONS(1976),
-    [sym_true] = ACTIONS(1978),
-    [sym_false] = ACTIONS(1978),
-    [anon_sym_NULL] = ACTIONS(1978),
-    [anon_sym_nullptr] = ACTIONS(1978),
-    [sym_comment] = ACTIONS(3),
-    [anon_sym_min_t] = ACTIONS(1978),
-    [anon_sym_IF_DESKTOP] = ACTIONS(1980),
-    [anon_sym___init] = ACTIONS(1980),
-    [anon_sym___cpuinit] = ACTIONS(1980),
-    [anon_sym_32_CS] = ACTIONS(1976),
-    [anon_sym_32_DS] = ACTIONS(1976),
-    [anon_sym_list_for_each_entry] = ACTIONS(1978),
-    [anon_sym_list_for_each_safe] = ACTIONS(1978),
-    [anon_sym_list_for_each_entry_safe] = ACTIONS(1978),
-    [anon_sym_list_for_each] = ACTIONS(1978),
-    [anon_sym_list_for_each_entry_rcu] = ACTIONS(1978),
-    [anon_sym_hlist_for_each_entry] = ACTIONS(1978),
-    [anon_sym_sk_for_each] = ACTIONS(1978),
-    [anon_sym_sctp_walk_params] = ACTIONS(1978),
-    [anon_sym_sctp_tsnmap_init] = ACTIONS(1978),
-    [anon_sym_receive_queue_for_each_skb] = ACTIONS(1978),
-    [anon_sym_forall_unix_sockets] = ACTIONS(1978),
-    [anon_sym_IFDBG] = ACTIONS(1978),
-    [anon_sym_JAS_CAST] = ACTIONS(1978),
-    [anon_sym_list_entry] = ACTIONS(1978),
-    [anon_sym_list_first_entry] = ACTIONS(1978),
-    [anon_sym_list_first_entry_or_null] = ACTIONS(1978),
-    [anon_sym_container_of] = ACTIONS(1978),
-    [anon_sym_list_next_entry] = ACTIONS(1978),
-    [anon_sym_list_prev_entry] = ACTIONS(1978),
-    [anon_sym_TALLOC_P] = ACTIONS(1978),
-    [anon_sym_talloc_get_type_abort] = ACTIONS(1978),
-    [anon_sym_DLIST_ADD_END] = ACTIONS(1978),
-    [anon_sym_g_new] = ACTIONS(1978),
-    [anon_sym_g_new0] = ACTIONS(1978),
-    [anon_sym_GNUTLS_HASH_LOOP] = ACTIONS(1978),
-    [anon_sym_va_arg] = ACTIONS(1978),
-    [anon_sym_noinline_for_stack] = ACTIONS(1980),
-    [anon_sym_noinline] = ACTIONS(1980),
-    [anon_sym___must_check] = ACTIONS(1980),
-    [anon_sym_SCTP_STATIC] = ACTIONS(1980),
-    [anon_sym_DECLARE_SOCKADDR] = ACTIONS(1978),
   },
   [STATE(397)] = {
     [ts_builtin_sym_end] = ACTIONS(1499),
@@ -113455,6 +113889,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1835),
     [anon_sym_forall_unix_sockets] = ACTIONS(1835),
     [anon_sym_IFDBG] = ACTIONS(1835),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1835),
     [anon_sym_JAS_CAST] = ACTIONS(1835),
     [anon_sym_list_entry] = ACTIONS(1835),
     [anon_sym_list_first_entry] = ACTIONS(1835),
@@ -113543,6 +113978,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(2531),
     [anon_sym_forall_unix_sockets] = ACTIONS(2531),
     [anon_sym_IFDBG] = ACTIONS(2531),
+    [anon_sym_xt_entry_foreach] = ACTIONS(2531),
     [anon_sym_JAS_CAST] = ACTIONS(2531),
     [anon_sym_list_entry] = ACTIONS(2531),
     [anon_sym_list_first_entry] = ACTIONS(2531),
@@ -113631,6 +114067,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_receive_queue_for_each_skb] = ACTIONS(1631),
     [anon_sym_forall_unix_sockets] = ACTIONS(1631),
     [anon_sym_IFDBG] = ACTIONS(1631),
+    [anon_sym_xt_entry_foreach] = ACTIONS(1631),
     [anon_sym_JAS_CAST] = ACTIONS(1631),
     [anon_sym_list_entry] = ACTIONS(1631),
     [anon_sym_list_first_entry] = ACTIONS(1631),
@@ -163657,7 +164094,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [5400] = {.entry = {.count = 1, .reusable = true}}, SHIFT(425),
   [5402] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_elifdef_in_field_declaration_list, 4, 0, 75),
   [5404] = {.entry = {.count = 1, .reusable = true}}, SHIFT(1491),
-  [5406] = {.entry = {.count = 1, .reusable = true}}, SHIFT(395),
+  [5406] = {.entry = {.count = 1, .reusable = true}}, SHIFT(396),
   [5408] = {.entry = {.count = 1, .reusable = true}}, SHIFT(1896),
   [5410] = {.entry = {.count = 1, .reusable = true}}, SHIFT(320),
   [5412] = {.entry = {.count = 1, .reusable = true}}, SHIFT(940),

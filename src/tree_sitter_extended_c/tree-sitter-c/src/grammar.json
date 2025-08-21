@@ -9972,6 +9972,10 @@
         {
           "type": "STRING",
           "value": "IFDBG"
+        },
+        {
+          "type": "STRING",
+          "value": "xt_entry_foreach"
         }
       ]
     },

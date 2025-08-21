@@ -1406,6 +1406,10 @@
           {
             "type": "sk_for_each",
             "named": false
+          },
+          {
+            "type": "xt_entry_foreach",
+            "named": false
           }
         ]
       }
@@ -5462,6 +5466,10 @@
   },
   {
     "type": "while",
+    "named": false
+  },
+  {
+    "type": "xt_entry_foreach",
     "named": false
   },
   {
