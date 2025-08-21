@@ -270,6 +270,10 @@
         "named": true
       },
       {
+        "type": "declaration_macro_statement",
+        "named": true
+      },
+      {
         "type": "do_statement",
         "named": true
       },
@@ -1009,6 +1013,10 @@
           "named": true
         },
         {
+          "type": "declaration_macro_statement",
+          "named": true
+        },
+        {
           "type": "do_statement",
           "named": true
         },
@@ -1587,6 +1595,52 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "declaration_macro_statement",
+    "named": true,
+    "fields": {
+      "declarator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "DECLARE_SOCKADDR",
+            "named": false
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -4427,6 +4481,14 @@
             "named": false
           },
           {
+            "type": "CS",
+            "named": false
+          },
+          {
+            "type": "US",
+            "named": false
+          },
+          {
             "type": "~",
             "named": false
           }
@@ -4744,6 +4806,14 @@
     "named": false
   },
   {
+    "type": "CS",
+    "named": false
+  },
+  {
+    "type": "DECLARE_SOCKADDR",
+    "named": false
+  },
+  {
     "type": "DLIST_ADD_END",
     "named": false
   },
@@ -4836,6 +4906,10 @@
     "named": false
   },
   {
+    "type": "SCTP_STATIC",
+    "named": false
+  },
+  {
     "type": "TALLOC_P",
     "named": false
   },
@@ -4845,6 +4919,10 @@
   },
   {
     "type": "U'",
+    "named": false
+  },
+  {
+    "type": "US",
     "named": false
   },
   {
@@ -4973,6 +5051,10 @@
   },
   {
     "type": "__leave",
+    "named": false
+  },
+  {
+    "type": "__must_check",
     "named": false
   },
   {

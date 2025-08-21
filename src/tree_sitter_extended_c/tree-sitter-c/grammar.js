@@ -70,7 +70,7 @@ module.exports = grammar({
   ],
 
   supertypes: $ => [
-    $.expression,
+   $.expression,
     $.statement,
     $.type_specifier,
     $._declarator,
@@ -815,6 +815,7 @@ module.exports = grammar({
     ),
 
     _non_case_statement: $ => choice(
+      $.declaration_macro_statement,
       $.control_flow_macro_statement, // linux macros
       $.attributed_statement,
       $.labeled_statement,
@@ -1070,7 +1071,7 @@ module.exports = grammar({
     )),
 
     unary_expression: $ => prec.left(PREC.UNARY, seq(
-      field('operator', choice('!', '~', '-', '+')),
+      field('operator', choice('!', '~', '-', '+', 'US', 'CS')),
       field('argument', $.expression),
     )),
 
@@ -1541,7 +1542,7 @@ module.exports = grammar({
     // MACRO(type, expression_count)
     glib_macro: $ => prec(2, seq(
       field('name', choice(
-        'g_new', 
+        'g_new',
         'g_new0'
       )),
       '(',
@@ -1561,6 +1562,7 @@ module.exports = grammar({
       ')'
     )),
 
+
     custom_macro_expressions: $ => choice(
       $.ete_lk_macro, // (expression, type, expression) linux kernel macro
       $.ee_lk_macro,  // (expression, expression) linux kernel macro
@@ -1573,10 +1575,24 @@ module.exports = grammar({
 
     function_attribute: $ => choice(
       'noinline_for_stack',
-      'noinline'
+      'noinline',
+      '__must_check',
+      'SCTP_STATIC'
     ),
 
-
+    declaration_macro_statement: $ => seq(
+      field('name', choice(
+        'DECLARE_SOCKADDR',
+      )),
+      '(',
+      field('type', $.type_descriptor),
+      ',',
+      field('declarator', $.identifier),
+      ',',
+      field('value', $.expression),
+      ')',
+      ';'
+    ),
 
   },
 

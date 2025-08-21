@@ -5957,6 +5957,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "declaration_macro_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "control_flow_macro_statement"
         },
         {
@@ -7106,6 +7110,14 @@
                 {
                   "type": "STRING",
                   "value": "+"
+                },
+                {
+                  "type": "STRING",
+                  "value": "US"
+                },
+                {
+                  "type": "STRING",
+                  "value": "CS"
                 }
               ]
             }
@@ -10449,6 +10461,76 @@
         {
           "type": "STRING",
           "value": "noinline"
+        },
+        {
+          "type": "STRING",
+          "value": "__must_check"
+        },
+        {
+          "type": "STRING",
+          "value": "SCTP_STATIC"
+        }
+      ]
+    },
+    "declaration_macro_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "DECLARE_SOCKADDR"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_descriptor"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "FIELD",
+          "name": "declarator",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     }
