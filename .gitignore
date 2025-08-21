@@ -1,7 +1,7 @@
 src/tree_sitter_extended_c.egg-info/
 src/tree_sitter_extended_c/__pycache__/
 src/tree_sitter_extended_c/parser.cpython-312-x86_64-linux-gnu.so
-
+src/tree_sitter_extended_c/parser.cpython-313-x86_64-linux-gnu.so
 
 src/tree_sitter_extended_c/tree-sitter-c/bindings
 src/tree_sitter_extended_c/tree-sitter-c/.editorconfig
