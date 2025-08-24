@@ -782,7 +782,10 @@ module.exports = grammar({
     parameter_list: $ => seq(
       '(',
       choice(
-        commaSep(choice($.parameter_declaration, $.variadic_parameter)),
+        seq(
+          commaSep(choice($.parameter_declaration, $.variadic_parameter)),
+          optional($._function_parameter_suffix_macro)
+        ),
         $.compound_statement,
       ),
       ')',
@@ -815,6 +818,7 @@ module.exports = grammar({
     ),
 
     _non_case_statement: $ => choice(
+      $.smartlist_foreach_statement,
       $.macro_wrapped_statement,
       $.declaration_macro_statement,
       $.control_flow_macro_statement, // linux macros
@@ -1441,7 +1445,8 @@ module.exports = grammar({
 
     init_specifier: $ => choice(
       '__init',
-      '__cpuinit'
+      '__cpuinit',
+      '__exit'
     ),
     asm_register: $ => choice(
       '32_CS',
@@ -1489,7 +1494,8 @@ module.exports = grammar({
         'list_entry',
         'list_first_entry',
         'list_first_entry_or_null',
-        'container_of'
+        'container_of',
+        'mono_array_get'
       )),
       '(',
       field('pointer', $.expression),
@@ -1517,7 +1523,8 @@ module.exports = grammar({
     et_lk_macro: $ => prec(2, seq(
       field('name', choice(
         'TALLOC_P',
-        'talloc_get_type_abort'
+        'talloc_get_type_abort',
+        'tevent_req_data'
       )),
       '(',
       field('arg1', $.expression),
@@ -1611,6 +1618,27 @@ module.exports = grammar({
         'ENDfunc'
       )),
       field('statement', $.statement)
+    ),
+
+    smartlist_foreach_statement: $ => seq(
+      'SMARTLIST_FOREACH',
+      '(',
+      field('list', $.expression),
+      ',',
+      field('type', $.type_descriptor),
+      ',',
+      field('variable', $.identifier),
+      ',',
+      field('body', choice(
+        $.compound_statement,
+        $.expression
+      )),
+      ')',
+      ';'
+    ),
+
+    _function_parameter_suffix_macro: $ => choice(
+      'EXTRA_ARGS'
     ),
 
 

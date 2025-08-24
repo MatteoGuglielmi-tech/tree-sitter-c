@@ -314,6 +314,10 @@
         "named": true
       },
       {
+        "type": "smartlist_foreach_statement",
+        "named": true
+      },
+      {
         "type": "switch_statement",
         "named": true
       },
@@ -1061,6 +1065,10 @@
           "named": true
         },
         {
+          "type": "smartlist_foreach_statement",
+          "named": true
+        },
+        {
           "type": "switch_statement",
           "named": true
         },
@@ -1105,16 +1113,6 @@
     "type": "cast_macro",
     "named": true,
     "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "JAS_CAST",
-            "named": false
-          }
-        ]
-      },
       "type": {
         "multiple": false,
         "required": true,
@@ -1910,6 +1908,10 @@
           {
             "type": "talloc_get_type_abort",
             "named": false
+          },
+          {
+            "type": "tevent_req_data",
+            "named": false
           }
         ]
       },
@@ -1957,6 +1959,10 @@
           },
           {
             "type": "list_first_entry_or_null",
+            "named": false
+          },
+          {
+            "type": "mono_array_get",
             "named": false
           }
         ]
@@ -4133,6 +4139,56 @@
     }
   },
   {
+    "type": "smartlist_foreach_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "list": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "storage_class_specifier",
     "named": true,
     "fields": {}
@@ -4292,7 +4348,6 @@
   {
     "type": "translation_unit",
     "named": true,
-    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -4898,6 +4953,10 @@
     "named": false
   },
   {
+    "type": "EXTRA_ARGS",
+    "named": false
+  },
+  {
     "type": "GNUTLS_HASH_LOOP",
     "named": false
   },
@@ -4907,10 +4966,6 @@
   },
   {
     "type": "IF_DESKTOP",
-    "named": false
-  },
-  {
-    "type": "JAS_CAST",
     "named": false
   },
   {
@@ -4987,6 +5042,10 @@
   },
   {
     "type": "SCTP_STATIC",
+    "named": false
+  },
+  {
+    "type": "SMARTLIST_FOREACH",
     "named": false
   },
   {
@@ -5102,6 +5161,10 @@
     "named": false
   },
   {
+    "type": "__exit",
+    "named": false
+  },
+  {
     "type": "__extension__",
     "named": false
   },
@@ -5207,8 +5270,7 @@
   },
   {
     "type": "comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "const",
@@ -5347,6 +5409,10 @@
     "named": false
   },
   {
+    "type": "mono_array_get",
+    "named": false
+  },
+  {
     "type": "ms_restrict_modifier",
     "named": true
   },
@@ -5460,6 +5526,10 @@
   },
   {
     "type": "talloc_get_type_abort",
+    "named": false
+  },
+  {
+    "type": "tevent_req_data",
     "named": false
   },
   {
