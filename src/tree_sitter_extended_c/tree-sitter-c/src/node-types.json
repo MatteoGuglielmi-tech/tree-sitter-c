@@ -124,7 +124,7 @@
         "named": true
       },
       {
-        "type": "asm_register",
+        "type": "asm_register_regex",
         "named": true
       },
       {
@@ -141,10 +141,6 @@
       },
       {
         "type": "cast_expression",
-        "named": true
-      },
-      {
-        "type": "cast_macro",
         "named": true
       },
       {
@@ -314,7 +310,7 @@
         "named": true
       },
       {
-        "type": "smartlist_foreach_statement",
+        "type": "smartlist_statement",
         "named": true
       },
       {
@@ -585,11 +581,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "asm_register",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "assignment_expression",
@@ -1065,7 +1056,7 @@
           "named": true
         },
         {
-          "type": "smartlist_foreach_statement",
+          "type": "smartlist_statement",
           "named": true
         },
         {
@@ -1113,6 +1104,16 @@
     "type": "cast_macro",
     "named": true,
     "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cast_macro_names",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": false,
         "required": true,
@@ -1370,36 +1371,8 @@
             "named": false
           },
           {
-            "type": "forall_unix_sockets",
-            "named": false
-          },
-          {
-            "type": "hlist_for_each_entry",
-            "named": false
-          },
-          {
-            "type": "list_for_each",
-            "named": false
-          },
-          {
-            "type": "list_for_each_entry",
-            "named": false
-          },
-          {
-            "type": "list_for_each_entry_rcu",
-            "named": false
-          },
-          {
-            "type": "list_for_each_entry_safe",
-            "named": false
-          },
-          {
-            "type": "list_for_each_safe",
-            "named": false
-          },
-          {
-            "type": "receive_queue_for_each_skb",
-            "named": false
+            "type": "for_each_macro_regex",
+            "named": true
           },
           {
             "type": "sctp_tsnmap_init",
@@ -1407,14 +1380,6 @@
           },
           {
             "type": "sctp_walk_params",
-            "named": false
-          },
-          {
-            "type": "sk_for_each",
-            "named": false
-          },
-          {
-            "type": "xt_entry_foreach",
             "named": false
           }
         ]
@@ -1429,6 +1394,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "cast_macro",
+          "named": true
+        },
         {
           "type": "ee_lk_macro",
           "named": true
@@ -1459,6 +1428,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "custom_type_qualifiers",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "declaration",
@@ -1530,15 +1504,31 @@
           "named": true
         },
         {
-          "type": "function_attribute",
+          "type": "gc_return_type_macro_names",
           "named": true
         },
         {
-          "type": "init_specifier",
+          "type": "init_specifier_regex",
+          "named": true
+        },
+        {
+          "type": "linkage_macro_regex",
           "named": true
         },
         {
           "type": "ms_declspec_modifier",
+          "named": true
+        },
+        {
+          "type": "noinline_regex",
+          "named": true
+        },
+        {
+          "type": "postfix_declarator_attribute",
+          "named": true
+        },
+        {
+          "type": "static_macro_regex",
           "named": true
         },
         {
@@ -1950,16 +1940,8 @@
             "named": false
           },
           {
-            "type": "list_entry",
-            "named": false
-          },
-          {
-            "type": "list_first_entry",
-            "named": false
-          },
-          {
-            "type": "list_first_entry_or_null",
-            "named": false
+            "type": "list_entry_macro_regex",
+            "named": true
           },
           {
             "type": "mono_array_get",
@@ -2065,15 +2047,27 @@
           "named": true
         },
         {
-          "type": "function_attribute",
+          "type": "gc_return_type_macro_names",
           "named": true
         },
         {
-          "type": "init_specifier",
+          "type": "init_specifier_regex",
+          "named": true
+        },
+        {
+          "type": "linkage_macro_regex",
           "named": true
         },
         {
           "type": "ms_declspec_modifier",
+          "named": true
+        },
+        {
+          "type": "noinline_regex",
+          "named": true
+        },
+        {
+          "type": "static_macro_regex",
           "named": true
         },
         {
@@ -2240,11 +2234,6 @@
     }
   },
   {
-    "type": "function_attribute",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "function_declarator",
     "named": true,
     "fields": {
@@ -2352,11 +2341,15 @@
           "named": true
         },
         {
-          "type": "function_attribute",
+          "type": "gc_return_type_macro_names",
           "named": true
         },
         {
-          "type": "init_specifier",
+          "type": "init_specifier_regex",
+          "named": true
+        },
+        {
+          "type": "linkage_macro_regex",
           "named": true
         },
         {
@@ -2365,6 +2358,14 @@
         },
         {
           "type": "ms_declspec_modifier",
+          "named": true
+        },
+        {
+          "type": "noinline_regex",
+          "named": true
+        },
+        {
+          "type": "static_macro_regex",
           "named": true
         },
         {
@@ -2741,7 +2742,7 @@
             "named": true
           },
           {
-            "type": "init_specifier",
+            "type": "init_specifier_regex",
             "named": true
           }
         ]
@@ -2761,11 +2762,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "init_specifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "initializer_list",
@@ -2957,12 +2953,8 @@
         "required": true,
         "types": [
           {
-            "type": "BEGINfunc",
-            "named": false
-          },
-          {
-            "type": "ENDfunc",
-            "named": false
+            "type": "begin_end_wrapper_regex",
+            "named": true
           }
         ]
       },
@@ -3091,9 +3083,13 @@
     "named": true,
     "fields": {
       "member": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": ".",
+            "named": false
+          },
           {
             "type": "field_identifier",
             "named": true
@@ -3154,15 +3150,31 @@
           "named": true
         },
         {
-          "type": "function_attribute",
+          "type": "gc_return_type_macro_names",
           "named": true
         },
         {
-          "type": "init_specifier",
+          "type": "init_specifier_regex",
+          "named": true
+        },
+        {
+          "type": "linkage_macro_regex",
           "named": true
         },
         {
           "type": "ms_declspec_modifier",
+          "named": true
+        },
+        {
+          "type": "noinline_regex",
+          "named": true
+        },
+        {
+          "type": "postfix_declarator_attribute",
+          "named": true
+        },
+        {
+          "type": "static_macro_regex",
           "named": true
         },
         {
@@ -3278,7 +3290,7 @@
             "named": true
           },
           {
-            "type": "init_specifier",
+            "type": "init_specifier_regex",
             "named": true
           }
         ]
@@ -3328,6 +3340,26 @@
           {
             "type": "*",
             "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "postfix_declarator_attribute",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
           }
         ]
       }
@@ -4139,6 +4171,62 @@
     }
   },
   {
+    "type": "smartlist_begin_end_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      },
+      "list": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "smartlist_foreach_statement",
     "named": true,
     "fields": {
@@ -4189,9 +4277,38 @@
     }
   },
   {
+    "type": "smartlist_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "smartlist_begin_end_statement",
+          "named": true
+        },
+        {
+          "type": "smartlist_foreach_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "storage_class_specifier",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "reg_macro_regex",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "string_literal",
@@ -4543,6 +4660,10 @@
         {
           "type": "alignas_qualifier",
           "named": true
+        },
+        {
+          "type": "custom_type_qualifiers",
+          "named": true
         }
       ]
     }
@@ -4869,14 +4990,6 @@
     "named": false
   },
   {
-    "type": "32_CS",
-    "named": false
-  },
-  {
-    "type": "32_DS",
-    "named": false
-  },
-  {
     "type": ":",
     "named": false
   },
@@ -4933,7 +5046,11 @@
     "named": false
   },
   {
-    "type": "BEGINfunc",
+    "type": "ALIGNED",
+    "named": false
+  },
+  {
+    "type": "ATTRIBUTE_UNUSED",
     "named": false
   },
   {
@@ -4949,11 +5066,15 @@
     "named": false
   },
   {
-    "type": "ENDfunc",
+    "type": "EXTRA_ARGS",
     "named": false
   },
   {
-    "type": "EXTRA_ARGS",
+    "type": "FAST_FUNC",
+    "named": false
+  },
+  {
+    "type": "GC_CALL",
     "named": false
   },
   {
@@ -4981,71 +5102,15 @@
     "named": false
   },
   {
-    "type": "REG1",
-    "named": false
-  },
-  {
-    "type": "REG11",
-    "named": false
-  },
-  {
-    "type": "REG12",
-    "named": false
-  },
-  {
-    "type": "REG13",
-    "named": false
-  },
-  {
-    "type": "REG14",
-    "named": false
-  },
-  {
-    "type": "REG15",
-    "named": false
-  },
-  {
-    "type": "REG16",
-    "named": false
-  },
-  {
-    "type": "REG2",
-    "named": false
-  },
-  {
-    "type": "REG3",
-    "named": false
-  },
-  {
-    "type": "REG4",
-    "named": false
-  },
-  {
-    "type": "REG5",
-    "named": false
-  },
-  {
-    "type": "REG6",
-    "named": false
-  },
-  {
-    "type": "REG7",
-    "named": false
-  },
-  {
-    "type": "REG8",
-    "named": false
-  },
-  {
-    "type": "REG9",
-    "named": false
-  },
-  {
-    "type": "SCTP_STATIC",
-    "named": false
-  },
-  {
     "type": "SMARTLIST_FOREACH",
+    "named": false
+  },
+  {
+    "type": "SMARTLIST_FOREACH_BEGIN",
+    "named": false
+  },
+  {
+    "type": "SMARTLIST_FOREACH_END",
     "named": false
   },
   {
@@ -5149,19 +5214,11 @@
     "named": false
   },
   {
-    "type": "__cpuinit",
-    "named": false
-  },
-  {
     "type": "__declspec",
     "named": false
   },
   {
     "type": "__except",
-    "named": false
-  },
-  {
-    "type": "__exit",
     "named": false
   },
   {
@@ -5181,10 +5238,6 @@
     "named": false
   },
   {
-    "type": "__init",
-    "named": false
-  },
-  {
     "type": "__inline",
     "named": false
   },
@@ -5193,11 +5246,11 @@
     "named": false
   },
   {
-    "type": "__leave",
+    "type": "__kprobes",
     "named": false
   },
   {
-    "type": "__must_check",
+    "type": "__leave",
     "named": false
   },
   {
@@ -5253,8 +5306,16 @@
     "named": false
   },
   {
+    "type": "asm_register_regex",
+    "named": true
+  },
+  {
     "type": "auto",
     "named": false
+  },
+  {
+    "type": "begin_end_wrapper_regex",
+    "named": true
   },
   {
     "type": "break",
@@ -5263,6 +5324,10 @@
   {
     "type": "case",
     "named": false
+  },
+  {
+    "type": "cast_macro_names",
+    "named": true
   },
   {
     "type": "character",
@@ -5309,6 +5374,10 @@
     "named": false
   },
   {
+    "type": "epitem",
+    "named": false
+  },
+  {
     "type": "escape_sequence",
     "named": true
   },
@@ -5329,8 +5398,8 @@
     "named": false
   },
   {
-    "type": "forall_unix_sockets",
-    "named": false
+    "type": "for_each_macro_regex",
+    "named": true
   },
   {
     "type": "g_new",
@@ -5341,11 +5410,11 @@
     "named": false
   },
   {
-    "type": "goto",
-    "named": false
+    "type": "gc_return_type_macro_names",
+    "named": true
   },
   {
-    "type": "hlist_for_each_entry",
+    "type": "goto",
     "named": false
   },
   {
@@ -5357,40 +5426,20 @@
     "named": false
   },
   {
+    "type": "init_specifier_regex",
+    "named": true
+  },
+  {
     "type": "inline",
     "named": false
   },
   {
-    "type": "list_entry",
-    "named": false
+    "type": "linkage_macro_regex",
+    "named": true
   },
   {
-    "type": "list_first_entry",
-    "named": false
-  },
-  {
-    "type": "list_first_entry_or_null",
-    "named": false
-  },
-  {
-    "type": "list_for_each",
-    "named": false
-  },
-  {
-    "type": "list_for_each_entry",
-    "named": false
-  },
-  {
-    "type": "list_for_each_entry_rcu",
-    "named": false
-  },
-  {
-    "type": "list_for_each_entry_safe",
-    "named": false
-  },
-  {
-    "type": "list_for_each_safe",
-    "named": false
+    "type": "list_entry_macro_regex",
+    "named": true
   },
   {
     "type": "list_next_entry",
@@ -5425,12 +5474,8 @@
     "named": true
   },
   {
-    "type": "noinline",
-    "named": false
-  },
-  {
-    "type": "noinline_for_stack",
-    "named": false
+    "type": "noinline_regex",
+    "named": true
   },
   {
     "type": "noreturn",
@@ -5461,8 +5506,8 @@
     "named": true
   },
   {
-    "type": "receive_queue_for_each_skb",
-    "named": false
+    "type": "reg_macro_regex",
+    "named": true
   },
   {
     "type": "register",
@@ -5497,16 +5542,16 @@
     "named": false
   },
   {
-    "type": "sk_for_each",
-    "named": false
-  },
-  {
     "type": "statement_identifier",
     "named": true
   },
   {
     "type": "static",
     "named": false
+  },
+  {
+    "type": "static_macro_regex",
+    "named": true
   },
   {
     "type": "string_content",
@@ -5582,10 +5627,6 @@
   },
   {
     "type": "while",
-    "named": false
-  },
-  {
-    "type": "xt_entry_foreach",
     "named": false
   },
   {

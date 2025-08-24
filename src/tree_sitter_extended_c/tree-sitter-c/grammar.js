@@ -1,4 +1,5 @@
 /**
+	-- enabled = false,
  * @file C grammar for tree-sitter
  * @author Max Brunsfeld <maxbrunsfeld@gmail.com>
  * @author Amaan Qureshi <amaanq12@gmail.com>
@@ -53,6 +54,7 @@ module.exports = grammar({
     [$._top_level_item, $._top_level_statement],
     [$.type_specifier, $._top_level_expression_statement],
     [$.type_qualifier, $.extension_expression],
+    // [$.cast_macro, $.call_expression],
   ],
 
   extras: $ => [
@@ -243,6 +245,7 @@ module.exports = grammar({
       optional($.ms_call_modifier),
       $._declaration_specifiers,
       optional($.ms_call_modifier),
+      optional($._declarator_attribute_macro), // optional attributes after return type
       field('declarator', $._declarator),
       field('body', $.compound_statement),
     ),
@@ -255,7 +258,7 @@ module.exports = grammar({
       field('body', $.compound_statement),
     ),
 
-    declaration: $ => seq(
+    declaration: $ => prec(16, seq(
       $._declaration_specifiers,
       commaSep1(field('declarator', choice(
         seq(
@@ -266,8 +269,9 @@ module.exports = grammar({
         $.init_declarator,
       ),
       )),
+      optional($.postfix_declarator_attribute),
       ';',
-    ),
+    )),
 
     type_definition: $ => seq(
       optional('__extension__'),
@@ -281,15 +285,12 @@ module.exports = grammar({
     _type_definition_declarators: $ => commaSep1(field('declarator', $._type_declarator)),
 
     _declaration_modifiers: $ => choice(
+      $._declarator_modifiers,
       $.storage_class_specifier,
       $.type_qualifier,
       $.attribute_specifier,
       $.attribute_declaration,
       $.ms_declspec_modifier,
-
-      // custom
-      $.init_specifier,
-      $.function_attribute
     ),
 
     _declaration_specifiers: $ => prec.right(seq(
@@ -458,7 +459,7 @@ module.exports = grammar({
       '*',
       repeat($.ms_pointer_modifier),
       repeat($.type_qualifier),
-      field('declarator', seq( optional($.init_specifier), $._declarator ))
+      field('declarator', seq( optional($.init_specifier_regex), $._declarator ))
     ))),
     pointer_field_declarator: $ => prec.dynamic(1, prec.right(seq(
       optional($.ms_based_modifier),
@@ -550,7 +551,7 @@ module.exports = grammar({
 
     init_declarator: $ => seq(
       field('declarator', seq(
-        optional($.init_specifier),
+        optional($.init_specifier_regex),
         $._declarator
       )),
       '=',
@@ -563,7 +564,7 @@ module.exports = grammar({
       '}',
     ),
 
-    storage_class_specifier: _ => choice(
+    storage_class_specifier: $ => choice( // changed _ to $
       'extern',
       'static',
       'auto',
@@ -574,22 +575,7 @@ module.exports = grammar({
       '__forceinline',
       'thread_local',
       '__thread',
-      // -- preprocessor macros --
-      'REG1',
-      'REG2',
-      'REG3',
-      'REG4',
-      'REG5',
-      'REG6',
-      'REG7',
-      'REG8',
-      'REG9',
-      'REG11',
-      'REG12',
-      'REG13',
-      'REG14',
-      'REG15',
-      'REG16'
+      $.reg_macro_regex
     ),
 
     type_qualifier: $ => choice(
@@ -604,6 +590,7 @@ module.exports = grammar({
       'noreturn',
       '_Nonnull',
       $.alignas_qualifier,
+      $.custom_type_qualifiers,
     ),
 
     alignas_qualifier: $ => seq(
@@ -798,10 +785,13 @@ module.exports = grammar({
 
     parameter_declaration: $ => seq(
       $._declaration_specifiers,
-      optional(field('declarator', choice(
+      optional(seq(
+        field('declarator', choice(
         $._declarator,
         $._abstract_declarator,
-      ))),
+        )),
+        optional($.postfix_declarator_attribute),
+      )),
       repeat($.attribute_specifier),
     ),
 
@@ -818,10 +808,13 @@ module.exports = grammar({
     ),
 
     _non_case_statement: $ => choice(
-      $.smartlist_foreach_statement,
+      // --start custom--
+      $.smartlist_statement,
+      $.control_flow_macro_statement,
+      // $.smartlist_foreach_statement,
       $.macro_wrapped_statement,
       $.declaration_macro_statement,
-      $.control_flow_macro_statement, // linux macros
+      // --end custom--
       $.attributed_statement,
       $.labeled_statement,
       $.compound_statement,
@@ -993,10 +986,9 @@ module.exports = grammar({
     ),
 
     _expression_not_binary: $ => choice(
-      $.cast_macro,
       $.custom_macro_expressions,
       $.min_t_expression, // min_t expressions
-      $.asm_register, // asm register
+      $.asm_register_regex, // asm register
 
       $.conditional_expression,
       $.assignment_expression,
@@ -1148,9 +1140,21 @@ module.exports = grammar({
       seq('(', field('type', $.type_descriptor), ')'),
     )),
 
+    /* --start custom-- */
+    _field_designator: $ => seq(
+      $._field_identifier,
+      repeat(seq('.', $._field_identifier))
+    ),
+    /* --end custom-- */
+
     offsetof_expression: $ => prec(PREC.OFFSETOF, seq(
       'offsetof',
-      seq('(', field('type', $.type_descriptor), ',', field('member', $._field_identifier), ')'),
+      // seq('(', field('type', $.type_descriptor), ',', field('member', $._field_identifier), ')'), // cannot handle chained members
+      '(',
+      field('type', $.type_descriptor),
+      ',',
+      field('member', $._field_designator),
+      ')'
     )),
 
     generic_expression: $ => prec(PREC.CALL, seq(
@@ -1384,6 +1388,23 @@ module.exports = grammar({
     false: _ => token(choice('FALSE', 'false')),
     null: _ => choice('NULL', 'nullptr'),
 
+    // --start custom--
+    init_specifier_regex: _ => token(prec(1,/__((cpu|mem|dev)?init|exit|must_check)/)), // HAVE TO BE BEFORE `identifier`
+    reg_macro_regex: _ => token(prec(1, /REG[0-9]{1,2}/)), // REG1, ..., REG99
+    asm_register_regex: _ => token(prec(1, /[0-9]+_[a-zA-Z0-9]+/)), // 32_CS, 32_DS
+    begin_end_wrapper_regex: _ => token(prec(1, /(BEGIN|END)func/)), // BEGINfunc, ENDfunc
+    for_each_macro_regex: _ => token(prec(1, /[a-z_]*for_?(each|all)[a-z_]*/i)), // list_for_each_entry, list_for_each_entry_safe etc
+    list_entry_macro_regex: _ => token(prec(1, /(list|rb)_[a-z_]*entry[a-z_]*/)), // list_entry, list_first_entry, 'list_first_entry_or_null'
+    noinline_regex: _ => token(prec(1, /[a-z_]*noinline[a-z0-9_]*/i)),  // match any token containing `noinline`. case-insensitive
+    static_macro_regex: _ => token(prec(1, /[a-z_]*STATIC[a-z0-9_]*/i)),  // match all macro that contains static in uppercase
+    cast_macro_names: _ => token(choice('CAST', 'JAS_CAST')),  // CAST, JAS_CAST
+    linkage_macro_regex: _ => token(prec(1, /[a-z]*linkage/i)),
+    gc_return_type_macro_names: _ => token(prec(1, choice(
+      'GC_API',
+      'GC_INNER'
+    ))),
+    // --end custom--
+
     identifier: _ =>
       /(\p{XID_Start}|\$|_|\\u[0-9A-Fa-f]{4}|\\U[0-9A-Fa-f]{8})(\p{XID_Continue}|\$|\\u[0-9A-Fa-f]{4}|\\U[0-9A-Fa-f]{8})*/,
 
@@ -1417,8 +1438,9 @@ module.exports = grammar({
     )),
 
 
-    /*
-     * Custom rules to match non-standard GCC patterns
+    /* =================================================================
+    *  CUSTOM KEYWORD TOKENS
+    *  =================================================================
     */
     min_t_expression: $ => seq(
       'min_t',
@@ -1431,7 +1453,6 @@ module.exports = grammar({
       ')',
     ),
 
-
     if_desktop_macro: $ => seq(
       'IF_DESKTOP',
       '(',
@@ -1443,30 +1464,11 @@ module.exports = grammar({
       ')'
     ),
 
-    init_specifier: $ => choice(
-      '__init',
-      '__cpuinit',
-      '__exit'
-    ),
-    asm_register: $ => choice(
-      '32_CS',
-      '32_DS',
-    ),
-
     _control_flow_macro_name: $ => choice(
-      'list_for_each_entry',
-      'list_for_each_safe',
-      'list_for_each_entry_safe',
-      'list_for_each',
-      'list_for_each_entry_rcu',
-      'hlist_for_each_entry',
-      'sk_for_each',
+      $.for_each_macro_regex,
       'sctp_walk_params',
       'sctp_tsnmap_init',
-      'receive_queue_for_each_skb',
-      'forall_unix_sockets',
       'IFDBG',
-      'xt_entry_foreach'
     ),
 
     control_flow_macro_statement: $ => prec(1, seq(
@@ -1477,10 +1479,9 @@ module.exports = grammar({
       field('body', $.statement)
     )),
 
-    _cast_macro_name: $ => 'JAS_CAST',
 
     cast_macro: $ => prec(2, seq(
-      field('name', $._cast_macro_name),
+      field('name', $.cast_macro_names),
       '(',
       field('type', $.type_descriptor),
       ',',
@@ -1491,11 +1492,13 @@ module.exports = grammar({
     // MACRO(expression, type, expression)
     ete_lk_macro: $ => prec(2, seq(
       field('name', choice(
-        'list_entry',
-        'list_first_entry',
-        'list_first_entry_or_null',
+        $.list_entry_macro_regex,
+        // 'list_entry',
+        // 'list_first_entry',
+        // 'list_first_entry_or_null',
         'container_of',
-        'mono_array_get'
+        'mono_array_get',
+        // 'rb_entry'
       )),
       '(',
       field('pointer', $.expression),
@@ -1582,6 +1585,7 @@ module.exports = grammar({
     )),
 
     custom_macro_expressions: $ => choice(
+      $.cast_macro,  // CAST(type, expression)
       $.ete_lk_macro, // (expression, type, expression) linux kernel macro
       $.ee_lk_macro,  // (expression, expression) linux kernel macro
       $.et_lk_macro,  // (expression, type) linux kernel macro
@@ -1589,13 +1593,6 @@ module.exports = grammar({
       $.glib_macro,   // (expression, type) glib macro
       $.macro_with_statement_arg,
       $.va_arg_expression
-    ),
-
-    function_attribute: $ => choice(
-      'noinline_for_stack',
-      'noinline',
-      '__must_check',
-      'SCTP_STATIC'
     ),
 
     declaration_macro_statement: $ => seq(
@@ -1613,10 +1610,7 @@ module.exports = grammar({
     ),
 
     macro_wrapped_statement: $ => seq(
-      field('name', choice(
-        'BEGINfunc',
-        'ENDfunc'
-      )),
+      field('name', $.begin_end_wrapper_regex),
       field('statement', $.statement)
     ),
 
@@ -1637,9 +1631,59 @@ module.exports = grammar({
       ';'
     ),
 
+    smartlist_begin_end_statement: $ => seq(
+      'SMARTLIST_FOREACH_BEGIN',
+      '(',
+      field('list', $.expression),
+      ',',
+      field('type', $.type_descriptor),
+      ',',
+      field('variable', $.identifier),
+      ')',
+      field('body', $.compound_statement),
+      'SMARTLIST_FOREACH_END',
+      '(',
+      $.identifier,
+      ')',
+      ';'
+    ),
+
+    smartlist_statement: $ => choice(
+      $.smartlist_begin_end_statement,
+      $.smartlist_foreach_statement
+    ),
+
     _function_parameter_suffix_macro: $ => choice(
       'EXTRA_ARGS'
     ),
+
+    _declarator_attribute_macro: $ => choice(
+      '__kprobes',
+      'FAST_FUNC',
+    ),
+
+    _declarator_modifiers: $ => choice(
+      $.init_specifier_regex,
+      $.noinline_regex,
+      $.static_macro_regex,
+      $.linkage_macro_regex,
+      $.gc_return_type_macro_names
+    ),
+
+    postfix_declarator_attribute: $ => choice(seq(
+      'ALIGNED',
+      '(',
+      field('arguments', commaSep1($.expression)),
+      ')'
+      ),
+      'ATTRIBUTE_UNUSED'
+    ),
+
+    custom_type_qualifiers: _ => choice( // custom types, same logical position as `const`
+      'GC_CALL',
+      'epitem'
+    ),
+
 
 
   },
