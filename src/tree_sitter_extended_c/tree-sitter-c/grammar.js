@@ -54,7 +54,9 @@ module.exports = grammar({
     [$._top_level_item, $._top_level_statement],
     [$.type_specifier, $._top_level_expression_statement],
     [$.type_qualifier, $.extension_expression],
-    // [$.cast_macro, $.call_expression],
+    // --custom--
+     [$.expression, $.argument_list],
+    // [$._field_declarator, $.type_specifier],
   ],
 
   extras: $ => [
@@ -73,12 +75,12 @@ module.exports = grammar({
 
   supertypes: $ => [
    $.expression,
-    $.statement,
-    $.type_specifier,
-    $._declarator,
-    $._field_declarator,
-    $._type_declarator,
-    $._abstract_declarator,
+  $.statement,
+   $.type_specifier,
+   $._declarator,
+   $._field_declarator,
+   $._type_declarator,
+   $._abstract_declarator,
   ],
 
   word: $ => $.identifier,
@@ -243,7 +245,7 @@ module.exports = grammar({
 
     function_definition: $ => seq(
       optional($.ms_call_modifier),
-      $._declaration_specifiers,
+      field('specifier', $._declaration_specifiers),
       optional($.ms_call_modifier),
       optional($._declarator_attribute_macro), // optional attributes after return type
       field('declarator', $._declarator),
@@ -770,7 +772,17 @@ module.exports = grammar({
       '(',
       choice(
         seq(
-          commaSep(choice($.parameter_declaration, $.variadic_parameter)),
+          commaSep(choice(
+            $.parameter_declaration,
+            $.standalone_param_macro, /* custom */
+            $.variadic_parameter,
+          )),
+          /* --custom: repeatable block for _DC macros here-- */
+          repeat(seq(
+            optional(','),
+            $._declaration_context_macro
+          )),
+          /* ---- */
           optional($._function_parameter_suffix_macro)
         ),
         $.compound_statement,
@@ -809,9 +821,13 @@ module.exports = grammar({
 
     _non_case_statement: $ => choice(
       // --start custom--
+      $.exif_error_macro_statement,
+      $.zend_try_statement,
+      $.zend_foreach_statement,
+      $.zend_fetch_resource_statement,
+      $.empty_macros_no_args,
       $.smartlist_statement,
       $.control_flow_macro_statement,
-      // $.smartlist_foreach_statement,
       $.macro_wrapped_statement,
       $.declaration_macro_statement,
       // --end custom--
@@ -986,9 +1002,13 @@ module.exports = grammar({
     ),
 
     _expression_not_binary: $ => choice(
+      /*--start custom--*/
+      $.context_suffixed_expression,
+      $._context_passing_macro,
       $.custom_macro_expressions,
       $.min_t_expression, // min_t expressions
       $.asm_register_regex, // asm register
+      /*--end custom--*/
 
       $.conditional_expression,
       $.assignment_expression,
@@ -1127,6 +1147,12 @@ module.exports = grammar({
       field('declarator', optional($._abstract_declarator)),
     ),
 
+    /* -- custom -- */
+    // type_descriptor: $ => seq(
+    //   $._declaration_specifiers,
+    //   field('declarator', optional($._abstract_declarator)),
+    // ),
+
     sizeof_expression: $ => prec(PREC.SIZEOF, seq(
       'sizeof',
       choice(
@@ -1249,8 +1275,24 @@ module.exports = grammar({
 
     extension_expression: $ => seq('__extension__', $.expression),
 
-    // The compound_statement is added to parse macros taking statements as arguments, e.g. MYFORLOOP(1, 10, i, { foo(i); bar(i); })
-    argument_list: $ => seq('(', commaSep(choice($.expression, $.compound_statement)), ')'),
+    /* -- custom --*/
+    argument_list: $ => seq(
+      '(',
+      optional(
+        // a sequence of ...
+        seq(
+          // ... a standard list of arguments ...
+          commaSep(choice($.expression, $.compound_statement)),
+            // ...followed by zero or more special trailing macros.
+            repeat(seq(
+              optional(','), // the comma may or may not be present
+              $._context_passing_macro
+            ))
+        ),
+
+      ),
+      ')',
+    ),
 
     field_expression: $ => seq(
       prec(PREC.FIELD, seq(
@@ -1389,20 +1431,26 @@ module.exports = grammar({
     null: _ => choice('NULL', 'nullptr'),
 
     // --start custom--
-    init_specifier_regex: _ => token(prec(1,/__((cpu|mem|dev)?init|exit|must_check)/)), // HAVE TO BE BEFORE `identifier`
-    reg_macro_regex: _ => token(prec(1, /REG[0-9]{1,2}/)), // REG1, ..., REG99
+    /* regex */
+    init_specifier_regex: _ => token(/__((cpu|mem|dev)?init|exit|must_check)/), // HAVE TO BE BEFORE `identifier`
+    reg_macro_regex: _ => token(/REG[0-9]{1,2}/), // REG1, ..., REG99
     asm_register_regex: _ => token(prec(1, /[0-9]+_[a-zA-Z0-9]+/)), // 32_CS, 32_DS
-    begin_end_wrapper_regex: _ => token(prec(1, /(BEGIN|END)func/)), // BEGINfunc, ENDfunc
-    for_each_macro_regex: _ => token(prec(1, /[a-z_]*for_?(each|all)[a-z_]*/i)), // list_for_each_entry, list_for_each_entry_safe etc
-    list_entry_macro_regex: _ => token(prec(1, /(list|rb)_[a-z_]*entry[a-z_]*/)), // list_entry, list_first_entry, 'list_first_entry_or_null'
-    noinline_regex: _ => token(prec(1, /[a-z_]*noinline[a-z0-9_]*/i)),  // match any token containing `noinline`. case-insensitive
-    static_macro_regex: _ => token(prec(1, /[a-z_]*STATIC[a-z0-9_]*/i)),  // match all macro that contains static in uppercase
-    cast_macro_names: _ => token(choice('CAST', 'JAS_CAST')),  // CAST, JAS_CAST
-    linkage_macro_regex: _ => token(prec(1, /[a-z]*linkage/i)),
-    gc_return_type_macro_names: _ => token(prec(1, choice(
-      'GC_API',
-      'GC_INNER'
-    ))),
+    begin_end_wrapper_regex: _ => token(/(BEGIN|END)func/), // BEGINfunc, ENDfunc
+    for_each_macro_regex: _ => token(/[a-z_]*list[a-z_]*for_?(each|all)[a-z_]*/i), // list_for_each_entry, list_for_each_entry_safe etc
+    list_entry_macro_regex: _ => token(/(list|rb)_[a-z_]*entry[a-z_]*/), // list_entry, list_first_entry, 'list_first_entry_or_null'
+    noinline_regex: _ => token(/[a-z_]*noinline[a-z0-9_]*/i),  // match any token containing `noinline`. case-insensitive
+    static_macro_regex: _ => token(/(SCTP)?STATIC[a-z0-9_]*/i),  // match all macro that contains static in uppercase
+    linkage_macro_regex: _ => token(/[a-z]*linkage/i),
+
+    /* names */
+    zend_foreach_begin_macro_names: _ => token(choice('ZEND_HASH_FOREACH_VAL', 'ZEND_HASH_FOREACH_KEY_VAL')),
+    zend_fetch_resource_names: _ => choice('ZEND_FETCH_RESOURCE', 'ZEND_FETCH_RESOURCE_NO_RETURN'),
+    cast_macro_names: _ => token(choice('CAST', 'JAS_CAST', 'RCAST')),  // CAST, JAS_CAST
+    gc_return_type_macro_names: _ => token(choice('GC_API', 'GC_INNER')),
+    _context_passing_macro: _ => token(choice('STREAMS_CC', 'TSRMLS_CC', 'EXIFERR_CC')), // call context macro
+    _declaration_context_macro: _ => token(choice('STREAMS_DC', 'TSRMLS_DC')),
+    /* A new rule for macros that expand into a list of parameters */
+    standalone_param_macro: _ => token(choice( 'UNSERIALIZE_PARAMETER', 'TSRMLS_DC', 'STREAMS_DC')),
     // --end custom--
 
     identifier: _ =>
@@ -1479,15 +1527,25 @@ module.exports = grammar({
       field('body', $.statement)
     )),
 
+    _macro_type_argument: $ => seq(
+      repeat1(
+        choice(
+          $.type_specifier,
+          $._declarator_modifiers
+        )
+      ),
+      optional($._abstract_declarator)
+    ),
 
-    cast_macro: $ => prec(2, seq(
+    cast_macro: $ => seq(
       field('name', $.cast_macro_names),
       '(',
-      field('type', $.type_descriptor),
+      // field('type', $.type_descriptor),
+      field('type', $._macro_type_argument),
       ',',
       field('value', $.expression),
       ')'
-    )),
+    ),
 
     // MACRO(expression, type, expression)
     ete_lk_macro: $ => prec(2, seq(
@@ -1566,8 +1624,8 @@ module.exports = grammar({
 
     macro_with_statement_arg: $ => prec(2, seq(
       field('name', choice(
-        'GNUTLS_HASH_LOOP'
-        // Add other macros with this signature here
+        'GNUTLS_HASH_LOOP',
+        //..
       )),
       '(',
       field('body', $.statement),
@@ -1657,17 +1715,22 @@ module.exports = grammar({
       'EXTRA_ARGS'
     ),
 
+    /* modifiers that appear AFTER return type. */
     _declarator_attribute_macro: $ => choice(
       '__kprobes',
       'FAST_FUNC',
     ),
 
+    /* modifiers that appear BEFORE return type. same role as static, inline etc */
     _declarator_modifiers: $ => choice(
       $.init_specifier_regex,
       $.noinline_regex,
       $.static_macro_regex,
       $.linkage_macro_regex,
-      $.gc_return_type_macro_names
+      $.gc_return_type_macro_names,
+      'ZEND_API',
+      'private',
+      'zend_always_inline'
     ),
 
     postfix_declarator_attribute: $ => choice(seq(
@@ -1681,9 +1744,65 @@ module.exports = grammar({
 
     custom_type_qualifiers: _ => choice( // custom types, same logical position as `const`
       'GC_CALL',
-      'epitem'
+      'epitem',
+      'PHPAPI'
     ),
 
+    empty_macros_no_args: _ => seq(
+      choice('EMPTY_SWITCH_DEFAULT_CASE'),
+      '(',
+      ')'
+    ),
+
+    zend_fetch_resource_statement: $ => seq(
+      $.zend_fetch_resource_names,
+      '(',
+      field('target', $.expression),
+      ',',
+      field('type', $.type_descriptor),
+      ',',
+      // The rest of the arguments are a standard expression list
+      field('arguments', commaSep($.expression)),
+      ')',
+      ';'
+    ),
+
+    /* rule for ZEND_HASH_FOREACH BEGIN...END loop block */
+    zend_foreach_statement: $ => seq(
+      field('name', $.zend_foreach_begin_macro_names),
+      '(',
+      field('arguments', commaSep($.expression)),
+      ')',
+      field('body', $.compound_statement),
+      'ZEND_HASH_FOREACH_END',
+      '(',
+      ')',
+      ';'
+    ),
+
+    /* zend_first_try...zend_end_try block */
+    zend_try_statement: $ => seq(
+      'zend_first_try',
+      field('body', $.compound_statement),
+      'zend_end_try',
+      '(',
+      ')',
+      ';'
+    ),
+
+    /* expression followed by a comma-less macro */
+    context_suffixed_expression: $ => prec(1, seq(
+      $.expression,
+      $._context_passing_macro
+    )),
+
+    exif_error_macro_statement: $ => seq(
+      choice(
+        'EXIF_ERRLOG_FILEEOF',
+        'EXIF_ERRLOG_TRACE'
+      ),
+      $.argument_list
+    ),
 
 
   },

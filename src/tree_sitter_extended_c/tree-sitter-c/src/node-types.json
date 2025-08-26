@@ -160,6 +160,10 @@
         "named": true
       },
       {
+        "type": "context_suffixed_expression",
+        "named": true
+      },
+      {
         "type": "custom_macro_expressions",
         "named": true
       },
@@ -274,6 +278,14 @@
         "named": true
       },
       {
+        "type": "empty_macros_no_args",
+        "named": true
+      },
+      {
+        "type": "exif_error_macro_statement",
+        "named": true
+      },
+      {
         "type": "expression_statement",
         "named": true
       },
@@ -319,6 +331,18 @@
       },
       {
         "type": "while_statement",
+        "named": true
+      },
+      {
+        "type": "zend_fetch_resource_statement",
+        "named": true
+      },
+      {
+        "type": "zend_foreach_statement",
+        "named": true
+      },
+      {
+        "type": "zend_try_statement",
         "named": true
       }
     ]
@@ -1020,6 +1044,14 @@
           "named": true
         },
         {
+          "type": "empty_macros_no_args",
+          "named": true
+        },
+        {
+          "type": "exif_error_macro_statement",
+          "named": true
+        },
+        {
           "type": "expression_statement",
           "named": true
         },
@@ -1070,6 +1102,18 @@
         {
           "type": "while_statement",
           "named": true
+        },
+        {
+          "type": "zend_fetch_resource_statement",
+          "named": true
+        },
+        {
+          "type": "zend_foreach_statement",
+          "named": true
+        },
+        {
+          "type": "zend_try_statement",
+          "named": true
         }
       ]
     }
@@ -1115,12 +1159,48 @@
         ]
       },
       "type": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "type_descriptor",
+            "type": "ZEND_API",
+            "named": false
+          },
+          {
+            "type": "_abstract_declarator",
             "named": true
+          },
+          {
+            "type": "gc_return_type_macro_names",
+            "named": true
+          },
+          {
+            "type": "init_specifier_regex",
+            "named": true
+          },
+          {
+            "type": "linkage_macro_regex",
+            "named": true
+          },
+          {
+            "type": "noinline_regex",
+            "named": true
+          },
+          {
+            "type": "private",
+            "named": false
+          },
+          {
+            "type": "static_macro_regex",
+            "named": true
+          },
+          {
+            "type": "type_specifier",
+            "named": true
+          },
+          {
+            "type": "zend_always_inline",
+            "named": false
           }
         ]
       },
@@ -1327,6 +1407,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "context_suffixed_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1775,6 +1870,11 @@
     }
   },
   {
+    "type": "empty_macros_no_args",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "enum_specifier",
     "named": true,
     "fields": {
@@ -1969,6 +2069,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "exif_error_macro_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2310,6 +2425,68 @@
           {
             "type": "_declarator",
             "named": true
+          }
+        ]
+      },
+      "specifier": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "ZEND_API",
+            "named": false
+          },
+          {
+            "type": "attribute_declaration",
+            "named": true
+          },
+          {
+            "type": "attribute_specifier",
+            "named": true
+          },
+          {
+            "type": "gc_return_type_macro_names",
+            "named": true
+          },
+          {
+            "type": "init_specifier_regex",
+            "named": true
+          },
+          {
+            "type": "linkage_macro_regex",
+            "named": true
+          },
+          {
+            "type": "ms_declspec_modifier",
+            "named": true
+          },
+          {
+            "type": "noinline_regex",
+            "named": true
+          },
+          {
+            "type": "private",
+            "named": false
+          },
+          {
+            "type": "static_macro_regex",
+            "named": true
+          },
+          {
+            "type": "storage_class_specifier",
+            "named": true
+          },
+          {
+            "type": "type_qualifier",
+            "named": true
+          },
+          {
+            "type": "type_specifier",
+            "named": true
+          },
+          {
+            "type": "zend_always_inline",
+            "named": false
           }
         ]
       },
@@ -3206,6 +3383,10 @@
         },
         {
           "type": "parameter_declaration",
+          "named": true
+        },
+        {
+          "type": "standalone_param_macro",
           "named": true
         },
         {
@@ -4846,6 +5027,117 @@
     }
   },
   {
+    "type": "zend_fetch_resource_names",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "zend_fetch_resource_statement",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "zend_fetch_resource_names",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "zend_foreach_statement",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "zend_foreach_begin_macro_names",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "zend_try_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "\n",
     "named": false
   },
@@ -5066,6 +5358,18 @@
     "named": false
   },
   {
+    "type": "EMPTY_SWITCH_DEFAULT_CASE",
+    "named": false
+  },
+  {
+    "type": "EXIF_ERRLOG_FILEEOF",
+    "named": false
+  },
+  {
+    "type": "EXIF_ERRLOG_TRACE",
+    "named": false
+  },
+  {
     "type": "EXTRA_ARGS",
     "named": false
   },
@@ -5102,6 +5406,10 @@
     "named": false
   },
   {
+    "type": "PHPAPI",
+    "named": false
+  },
+  {
     "type": "SMARTLIST_FOREACH",
     "named": false
   },
@@ -5127,6 +5435,22 @@
   },
   {
     "type": "US",
+    "named": false
+  },
+  {
+    "type": "ZEND_API",
+    "named": false
+  },
+  {
+    "type": "ZEND_FETCH_RESOURCE",
+    "named": false
+  },
+  {
+    "type": "ZEND_FETCH_RESOURCE_NO_RETURN",
+    "named": false
+  },
+  {
+    "type": "ZEND_HASH_FOREACH_END",
     "named": false
   },
   {
@@ -5506,6 +5830,10 @@
     "named": true
   },
   {
+    "type": "private",
+    "named": false
+  },
+  {
     "type": "reg_macro_regex",
     "named": true
   },
@@ -5540,6 +5868,10 @@
   {
     "type": "sizeof",
     "named": false
+  },
+  {
+    "type": "standalone_param_macro",
+    "named": true
   },
   {
     "type": "statement_identifier",
@@ -5628,6 +5960,22 @@
   {
     "type": "while",
     "named": false
+  },
+  {
+    "type": "zend_always_inline",
+    "named": false
+  },
+  {
+    "type": "zend_end_try",
+    "named": false
+  },
+  {
+    "type": "zend_first_try",
+    "named": false
+  },
+  {
+    "type": "zend_foreach_begin_macro_names",
+    "named": true
   },
   {
     "type": "{",
