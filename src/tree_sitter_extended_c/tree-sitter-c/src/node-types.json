@@ -5362,6 +5362,14 @@
     "named": false
   },
   {
+    "type": "EXIFERR_DC",
+    "named": false
+  },
+  {
+    "type": "EXIF_ERRLOG_CORRUPT",
+    "named": false
+  },
+  {
     "type": "EXIF_ERRLOG_FILEEOF",
     "named": false
   },
@@ -5407,6 +5415,10 @@
   },
   {
     "type": "PHPAPI",
+    "named": false
+  },
+  {
+    "type": "PHP_HASH_API",
     "named": false
   },
   {

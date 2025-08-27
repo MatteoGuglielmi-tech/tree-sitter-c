@@ -56,7 +56,6 @@ module.exports = grammar({
     [$.type_qualifier, $.extension_expression],
     // --custom--
      [$.expression, $.argument_list],
-    // [$._field_declarator, $.type_specifier],
   ],
 
   extras: $ => [
@@ -1449,8 +1448,7 @@ module.exports = grammar({
     gc_return_type_macro_names: _ => token(choice('GC_API', 'GC_INNER')),
     _context_passing_macro: _ => token(choice('STREAMS_CC', 'TSRMLS_CC', 'EXIFERR_CC')), // call context macro
     _declaration_context_macro: _ => token(choice('STREAMS_DC', 'TSRMLS_DC')),
-    /* A new rule for macros that expand into a list of parameters */
-    standalone_param_macro: _ => token(choice( 'UNSERIALIZE_PARAMETER', 'TSRMLS_DC', 'STREAMS_DC')),
+    standalone_param_macro: _ => token(choice('UNSERIALIZE_PARAMETER', 'TSRMLS_DC', 'STREAMS_DC', 'EXIFERR_DC')), // standalone macro that expands to a list of params
     // --end custom--
 
     identifier: _ =>
@@ -1733,19 +1731,22 @@ module.exports = grammar({
       'zend_always_inline'
     ),
 
-    postfix_declarator_attribute: $ => choice(seq(
-      'ALIGNED',
-      '(',
-      field('arguments', commaSep1($.expression)),
-      ')'
+    postfix_declarator_attribute: $ => choice(
+      seq(
+        'ALIGNED',
+        '(',
+        field('arguments', commaSep1($.expression)),
+        ')'
       ),
-      'ATTRIBUTE_UNUSED'
+      'ATTRIBUTE_UNUSED',
+      'EXIFERR_DC'
     ),
 
     custom_type_qualifiers: _ => choice( // custom types, same logical position as `const`
       'GC_CALL',
       'epitem',
-      'PHPAPI'
+      'PHPAPI',
+      'PHP_HASH_API'
     ),
 
     empty_macros_no_args: _ => seq(
@@ -1796,13 +1797,14 @@ module.exports = grammar({
       $._context_passing_macro
     )),
 
-    exif_error_macro_statement: $ => seq(
+    exif_error_macro_statement: $ => prec(1, seq(
       choice(
         'EXIF_ERRLOG_FILEEOF',
-        'EXIF_ERRLOG_TRACE'
+        'EXIF_ERRLOG_TRACE',
+        'EXIF_ERRLOG_CORRUPT'
       ),
       $.argument_list
-    ),
+    )),
 
 
   },

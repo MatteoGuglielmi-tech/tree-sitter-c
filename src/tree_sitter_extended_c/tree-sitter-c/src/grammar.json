@@ -10012,6 +10012,10 @@
           {
             "type": "STRING",
             "value": "STREAMS_DC"
+          },
+          {
+            "type": "STRING",
+            "value": "EXIFERR_DC"
           }
         ]
       }
@@ -11147,6 +11151,10 @@
         {
           "type": "STRING",
           "value": "ATTRIBUTE_UNUSED"
+        },
+        {
+          "type": "STRING",
+          "value": "EXIFERR_DC"
         }
       ]
     },
@@ -11164,6 +11172,10 @@
         {
           "type": "STRING",
           "value": "PHPAPI"
+        },
+        {
+          "type": "STRING",
+          "value": "PHP_HASH_API"
         }
       ]
     },
@@ -11404,26 +11416,34 @@
       }
     },
     "exif_error_macro_statement": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "EXIF_ERRLOG_FILEEOF"
-            },
-            {
-              "type": "STRING",
-              "value": "EXIF_ERRLOG_TRACE"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "argument_list"
-        }
-      ]
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "EXIF_ERRLOG_FILEEOF"
+              },
+              {
+                "type": "STRING",
+                "value": "EXIF_ERRLOG_TRACE"
+              },
+              {
+                "type": "STRING",
+                "value": "EXIF_ERRLOG_CORRUPT"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "argument_list"
+          }
+        ]
+      }
     }
   },
   "extras": [
