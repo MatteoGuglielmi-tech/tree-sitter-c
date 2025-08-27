@@ -1520,6 +1520,10 @@
         {
           "type": "va_arg_expression",
           "named": true
+        },
+        {
+          "type": "zend_fetch_resource_expression",
+          "named": true
         }
       ]
     }
@@ -3135,6 +3139,10 @@
         "types": [
           {
             "type": "GNUTLS_HASH_LOOP",
+            "named": false
+          },
+          {
+            "type": "PS_ENCODE_LOOP",
             "named": false
           }
         ]
@@ -5047,6 +5055,56 @@
     }
   },
   {
+    "type": "zend_fetch_resource_expression",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_descriptor",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "zend_fetch_resource_names",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "zend_fetch_resource_names",
     "named": true,
     "fields": {}
@@ -5439,6 +5497,10 @@
   },
   {
     "type": "PHP_HASH_API",
+    "named": false
+  },
+  {
+    "type": "PS_ENCODE_LOOP",
     "named": false
   },
   {

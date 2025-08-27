@@ -1630,7 +1630,7 @@ module.exports = grammar({
     macro_with_statement_arg: $ => prec(2, seq(
       field('name', choice(
         'GNUTLS_HASH_LOOP',
-        //..
+        'PS_ENCODE_LOOP'
       )),
       '(',
       field('body', $.statement),
@@ -1648,6 +1648,7 @@ module.exports = grammar({
     )),
 
     custom_macro_expressions: $ => choice(
+      $.zend_fetch_resource_expression,
       $.cast_macro,  // CAST(type, expression)
       $.ete_lk_macro, // (expression, type, expression) linux kernel macro
       $.ee_lk_macro,  // (expression, expression) linux kernel macro
@@ -1774,6 +1775,17 @@ module.exports = grammar({
       ')',
       ';'
     ),
+
+    zend_fetch_resource_expression: $ => prec(2 ,seq(
+      $.zend_fetch_resource_names,
+      '(',
+      field('target', $.expression),
+      ',',
+      field('type', $.type_descriptor),
+      ',',
+      field('arguments', commaSep($.expression)),
+      ')'
+    )),
 
     /* rule for ZEND_HASH_FOREACH BEGIN...END loop block */
     zend_foreach_statement: $ => seq(
