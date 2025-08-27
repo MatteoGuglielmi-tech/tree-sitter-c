@@ -55,7 +55,7 @@ module.exports = grammar({
     [$.type_specifier, $._top_level_expression_statement],
     [$.type_qualifier, $.extension_expression],
     // --custom--
-     [$.expression, $.argument_list],
+    [$.expression, $.argument_list],
   ],
 
   extras: $ => [
@@ -886,7 +886,13 @@ module.exports = grammar({
 
     if_statement: $ => prec.right(seq(
       'if',
-      field('condition', $.parenthesized_expression),
+      field('condition', choice(
+        $.parenthesized_expression,
+        seq(
+          field('name', $.zend_if_macro_name),
+          field('arguments', $.argument_list),
+        )
+      )),
       field('consequence', $.statement),
       optional(field('alternative', $.else_clause)),
     )),
@@ -1449,6 +1455,7 @@ module.exports = grammar({
     _context_passing_macro: _ => token(choice('STREAMS_CC', 'TSRMLS_CC', 'EXIFERR_CC')), // call context macro
     _declaration_context_macro: _ => token(choice('STREAMS_DC', 'TSRMLS_DC')),
     standalone_param_macro: _ => token(choice('UNSERIALIZE_PARAMETER', 'TSRMLS_DC', 'STREAMS_DC', 'EXIFERR_DC')), // standalone macro that expands to a list of params
+    zend_if_macro_name: _ => token(choice('Z_REFCOUNTED', 'Z_ISREF')),
     // --end custom--
 
     identifier: _ =>
