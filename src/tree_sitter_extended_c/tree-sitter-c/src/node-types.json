@@ -2884,9 +2884,19 @@
           }
         ]
       },
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "argument_list",
+            "named": true
+          }
+        ]
+      },
       "condition": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "parenthesized_expression",
@@ -2900,6 +2910,16 @@
         "types": [
           {
             "type": "statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "zend_if_macro_name",
             "named": true
           }
         ]
@@ -5987,6 +6007,10 @@
   },
   {
     "type": "zend_foreach_begin_macro_names",
+    "named": true
+  },
+  {
+    "type": "zend_if_macro_name",
     "named": true
   },
   {

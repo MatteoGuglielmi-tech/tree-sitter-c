@@ -6255,8 +6255,34 @@
             "type": "FIELD",
             "name": "condition",
             "content": {
-              "type": "SYMBOL",
-              "name": "parenthesized_expression"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "parenthesized_expression"
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "name",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "zend_if_macro_name"
+                      }
+                    },
+                    {
+                      "type": "FIELD",
+                      "name": "arguments",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "argument_list"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -10016,6 +10042,22 @@
           {
             "type": "STRING",
             "value": "EXIFERR_DC"
+          }
+        ]
+      }
+    },
+    "zend_if_macro_name": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "Z_REFCOUNTED"
+          },
+          {
+            "type": "STRING",
+            "value": "Z_ISREF"
           }
         ]
       }
