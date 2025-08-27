@@ -820,11 +820,12 @@ module.exports = grammar({
 
     _non_case_statement: $ => choice(
       // --start custom--
+      $.macro_no_parens_statement,
+      $.macro_empty_parens_statement,
       $.exif_error_macro_statement,
       $.zend_try_statement,
       $.zend_foreach_statement,
       $.zend_fetch_resource_statement,
-      $.empty_macros_no_args,
       $.smartlist_statement,
       $.control_flow_macro_statement,
       $.macro_wrapped_statement,
@@ -1448,8 +1449,9 @@ module.exports = grammar({
     linkage_macro_regex: _ => token(/[a-z]*linkage/i),
 
     /* names */
-    zend_foreach_begin_macro_names: _ => token(choice('ZEND_HASH_FOREACH_VAL', 'ZEND_HASH_FOREACH_KEY_VAL')),
-    zend_fetch_resource_names: _ => choice('ZEND_FETCH_RESOURCE', 'ZEND_FETCH_RESOURCE_NO_RETURN'),
+    zend_foreach_begin_macro_names: _ => token(choice('ZEND_HASH_FOREACH_VAL', 'ZEND_HASH_FOREACH_KEY_VAL', 'ZEND_HASH_FOREACH_PTR')),
+    zend_fetch_resource_names: _ => token(choice('ZEND_FETCH_RESOURCE', 'ZEND_FETCH_RESOURCE_NO_RETURN')),
+    zend_return_type_modifier: _ => token(choice('ZEND_API', 'ZEND_COLD')),
     cast_macro_names: _ => token(choice('CAST', 'JAS_CAST', 'RCAST')),  // CAST, JAS_CAST
     gc_return_type_macro_names: _ => token(choice('GC_API', 'GC_INNER')),
     _context_passing_macro: _ => token(choice('STREAMS_CC', 'TSRMLS_CC', 'EXIFERR_CC')), // call context macro
@@ -1734,9 +1736,9 @@ module.exports = grammar({
       $.static_macro_regex,
       $.linkage_macro_regex,
       $.gc_return_type_macro_names,
-      'ZEND_API',
+      $.zend_return_type_modifier,
       'private',
-      'zend_always_inline'
+      'zend_always_inline',
     ),
 
     postfix_declarator_attribute: $ => choice(
@@ -1750,14 +1752,17 @@ module.exports = grammar({
       'EXIFERR_DC'
     ),
 
-    custom_type_qualifiers: _ => choice( // custom types, same logical position as `const`
+    /* custom type before return type */
+    custom_type_qualifiers: _ => choice(
       'GC_CALL',
       'epitem',
       'PHPAPI',
-      'PHP_HASH_API'
+      'PHP_HASH_API',
+      'PHP_XML_API'
     ),
 
-    empty_macros_no_args: _ => seq(
+    macro_no_parens_statement: $ => choice('MCRYPT_GET_INI'),
+    macro_empty_parens_statement: $ => seq(
       choice('EMPTY_SWITCH_DEFAULT_CASE'),
       '(',
       ')'

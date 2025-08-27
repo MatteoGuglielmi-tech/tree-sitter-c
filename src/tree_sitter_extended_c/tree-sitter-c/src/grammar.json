@@ -5998,6 +5998,14 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "macro_no_parens_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "macro_empty_parens_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "exif_error_macro_statement"
         },
         {
@@ -6011,10 +6019,6 @@
         {
           "type": "SYMBOL",
           "name": "zend_fetch_resource_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "empty_macros_no_args"
         },
         {
           "type": "SYMBOL",
@@ -9933,22 +9937,45 @@
           {
             "type": "STRING",
             "value": "ZEND_HASH_FOREACH_KEY_VAL"
+          },
+          {
+            "type": "STRING",
+            "value": "ZEND_HASH_FOREACH_PTR"
           }
         ]
       }
     },
     "zend_fetch_resource_names": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "ZEND_FETCH_RESOURCE"
-        },
-        {
-          "type": "STRING",
-          "value": "ZEND_FETCH_RESOURCE_NO_RETURN"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "ZEND_FETCH_RESOURCE"
+          },
+          {
+            "type": "STRING",
+            "value": "ZEND_FETCH_RESOURCE_NO_RETURN"
+          }
+        ]
+      }
+    },
+    "zend_return_type_modifier": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "ZEND_API"
+          },
+          {
+            "type": "STRING",
+            "value": "ZEND_COLD"
+          }
+        ]
+      }
     },
     "cast_macro_names": {
       "type": "TOKEN",
@@ -11136,8 +11163,8 @@
           "name": "gc_return_type_macro_names"
         },
         {
-          "type": "STRING",
-          "value": "ZEND_API"
+          "type": "SYMBOL",
+          "name": "zend_return_type_modifier"
         },
         {
           "type": "STRING",
@@ -11226,10 +11253,23 @@
         {
           "type": "STRING",
           "value": "PHP_HASH_API"
+        },
+        {
+          "type": "STRING",
+          "value": "PHP_XML_API"
         }
       ]
     },
-    "empty_macros_no_args": {
+    "macro_no_parens_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "MCRYPT_GET_INI"
+        }
+      ]
+    },
+    "macro_empty_parens_statement": {
       "type": "SEQ",
       "members": [
         {

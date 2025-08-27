@@ -278,10 +278,6 @@
         "named": true
       },
       {
-        "type": "empty_macros_no_args",
-        "named": true
-      },
-      {
         "type": "exif_error_macro_statement",
         "named": true
       },
@@ -303,6 +299,14 @@
       },
       {
         "type": "labeled_statement",
+        "named": true
+      },
+      {
+        "type": "macro_empty_parens_statement",
+        "named": true
+      },
+      {
+        "type": "macro_no_parens_statement",
         "named": true
       },
       {
@@ -1044,10 +1048,6 @@
           "named": true
         },
         {
-          "type": "empty_macros_no_args",
-          "named": true
-        },
-        {
           "type": "exif_error_macro_statement",
           "named": true
         },
@@ -1069,6 +1069,14 @@
         },
         {
           "type": "labeled_statement",
+          "named": true
+        },
+        {
+          "type": "macro_empty_parens_statement",
+          "named": true
+        },
+        {
+          "type": "macro_no_parens_statement",
           "named": true
         },
         {
@@ -1163,10 +1171,6 @@
         "required": true,
         "types": [
           {
-            "type": "ZEND_API",
-            "named": false
-          },
-          {
             "type": "_abstract_declarator",
             "named": true
           },
@@ -1201,6 +1205,10 @@
           {
             "type": "zend_always_inline",
             "named": false
+          },
+          {
+            "type": "zend_return_type_modifier",
+            "named": true
           }
         ]
       },
@@ -1637,6 +1645,10 @@
         {
           "type": "type_qualifier",
           "named": true
+        },
+        {
+          "type": "zend_return_type_modifier",
+          "named": true
         }
       ]
     }
@@ -1872,11 +1884,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "empty_macros_no_args",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "enum_specifier",
@@ -2196,6 +2203,10 @@
         {
           "type": "type_qualifier",
           "named": true
+        },
+        {
+          "type": "zend_return_type_modifier",
+          "named": true
         }
       ]
     }
@@ -2437,10 +2448,6 @@
         "required": false,
         "types": [
           {
-            "type": "ZEND_API",
-            "named": false
-          },
-          {
             "type": "attribute_declaration",
             "named": true
           },
@@ -2491,6 +2498,10 @@
           {
             "type": "zend_always_inline",
             "named": false
+          },
+          {
+            "type": "zend_return_type_modifier",
+            "named": true
           }
         ]
       },
@@ -2555,6 +2566,10 @@
         },
         {
           "type": "type_qualifier",
+          "named": true
+        },
+        {
+          "type": "zend_return_type_modifier",
           "named": true
         }
       ]
@@ -3094,6 +3109,16 @@
     }
   },
   {
+    "type": "macro_empty_parens_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "macro_no_parens_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "macro_type_specifier",
     "named": true,
     "fields": {
@@ -3388,6 +3413,10 @@
         },
         {
           "type": "type_qualifier",
+          "named": true
+        },
+        {
+          "type": "zend_return_type_modifier",
           "named": true
         }
       ]
@@ -5105,11 +5134,6 @@
     }
   },
   {
-    "type": "zend_fetch_resource_names",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "zend_fetch_resource_statement",
     "named": true,
     "fields": {
@@ -5488,6 +5512,10 @@
     "named": false
   },
   {
+    "type": "MCRYPT_GET_INI",
+    "named": false
+  },
+  {
     "type": "NULL",
     "named": false
   },
@@ -5497,6 +5525,10 @@
   },
   {
     "type": "PHP_HASH_API",
+    "named": false
+  },
+  {
+    "type": "PHP_XML_API",
     "named": false
   },
   {
@@ -5529,18 +5561,6 @@
   },
   {
     "type": "US",
-    "named": false
-  },
-  {
-    "type": "ZEND_API",
-    "named": false
-  },
-  {
-    "type": "ZEND_FETCH_RESOURCE",
-    "named": false
-  },
-  {
-    "type": "ZEND_FETCH_RESOURCE_NO_RETURN",
     "named": false
   },
   {
@@ -6064,6 +6084,10 @@
     "named": false
   },
   {
+    "type": "zend_fetch_resource_names",
+    "named": true
+  },
+  {
     "type": "zend_first_try",
     "named": false
   },
@@ -6073,6 +6097,10 @@
   },
   {
     "type": "zend_if_macro_name",
+    "named": true
+  },
+  {
+    "type": "zend_return_type_modifier",
     "named": true
   },
   {
