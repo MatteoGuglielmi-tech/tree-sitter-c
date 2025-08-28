@@ -6006,7 +6006,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "exif_error_macro_statement"
+          "name": "macro_parents_args_statement"
         },
         {
           "type": "SYMBOL",
@@ -11266,6 +11266,14 @@
         {
           "type": "STRING",
           "value": "MCRYPT_GET_INI"
+        },
+        {
+          "type": "STRING",
+          "value": "PHP_MCRYPT_INIT_CHECK"
+        },
+        {
+          "type": "STRING",
+          "value": "RETURN_FALSE"
         }
       ]
     },
@@ -11290,6 +11298,40 @@
           "value": ")"
         }
       ]
+    },
+    "macro_parents_args_statement": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "EXIF_ERRLOG_FILEEOF"
+              },
+              {
+                "type": "STRING",
+                "value": "EXIF_ERRLOG_TRACE"
+              },
+              {
+                "type": "STRING",
+                "value": "EXIF_ERRLOG_CORRUPT"
+              },
+              {
+                "type": "STRING",
+                "value": "MCRYPT_GET_MODE_DIR_ARGS"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "argument_list"
+          }
+        ]
+      }
     },
     "zend_fetch_resource_statement": {
       "type": "SEQ",
@@ -11583,36 +11625,6 @@
           {
             "type": "SYMBOL",
             "name": "_context_passing_macro"
-          }
-        ]
-      }
-    },
-    "exif_error_macro_statement": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "EXIF_ERRLOG_FILEEOF"
-              },
-              {
-                "type": "STRING",
-                "value": "EXIF_ERRLOG_TRACE"
-              },
-              {
-                "type": "STRING",
-                "value": "EXIF_ERRLOG_CORRUPT"
-              }
-            ]
-          },
-          {
-            "type": "SYMBOL",
-            "name": "argument_list"
           }
         ]
       }

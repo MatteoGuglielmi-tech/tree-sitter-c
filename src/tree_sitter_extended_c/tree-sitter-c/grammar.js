@@ -822,7 +822,7 @@ module.exports = grammar({
       // --start custom--
       $.macro_no_parens_statement,
       $.macro_empty_parens_statement,
-      $.exif_error_macro_statement,
+      $.macro_parents_args_statement,
       $.zend_try_statement,
       $.zend_foreach_statement,
       $.zend_fetch_resource_statement,
@@ -1761,12 +1761,21 @@ module.exports = grammar({
       'PHP_XML_API'
     ),
 
-    macro_no_parens_statement: $ => choice('MCRYPT_GET_INI'),
+    macro_no_parens_statement: $ => choice('MCRYPT_GET_INI', 'PHP_MCRYPT_INIT_CHECK', 'RETURN_FALSE'),
     macro_empty_parens_statement: $ => seq(
       choice('EMPTY_SWITCH_DEFAULT_CASE'),
       '(',
       ')'
     ),
+    macro_parents_args_statement: $ => prec(1, seq(
+      choice(
+        'EXIF_ERRLOG_FILEEOF',
+        'EXIF_ERRLOG_TRACE',
+        'EXIF_ERRLOG_CORRUPT',
+        'MCRYPT_GET_MODE_DIR_ARGS'
+      ),
+      $.argument_list
+    )),
 
     zend_fetch_resource_statement: $ => seq(
       $.zend_fetch_resource_names,
@@ -1821,14 +1830,6 @@ module.exports = grammar({
       $._context_passing_macro
     )),
 
-    exif_error_macro_statement: $ => prec(1, seq(
-      choice(
-        'EXIF_ERRLOG_FILEEOF',
-        'EXIF_ERRLOG_TRACE',
-        'EXIF_ERRLOG_CORRUPT'
-      ),
-      $.argument_list
-    )),
 
 
   },
