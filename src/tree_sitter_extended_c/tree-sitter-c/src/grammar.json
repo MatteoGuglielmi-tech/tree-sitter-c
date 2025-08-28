@@ -72,6 +72,10 @@
         {
           "type": "SYMBOL",
           "name": "preproc_call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "zend_vm_handler"
         }
       ]
     },
@@ -9925,6 +9929,13 @@
         "flags": "i"
       }
     },
+    "api_return_type_regex": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[A-Z0-9_]*API"
+      }
+    },
     "zend_foreach_begin_macro_names": {
       "type": "TOKEN",
       "content": {
@@ -10029,6 +10040,10 @@
           {
             "type": "STRING",
             "value": "EXIFERR_CC"
+          },
+          {
+            "type": "STRING",
+            "value": "STREAMS_REL_CC"
           }
         ]
       }
@@ -11136,6 +11151,10 @@
         {
           "type": "STRING",
           "value": "FAST_FUNC"
+        },
+        {
+          "type": "STRING",
+          "value": "ZEND_FASTCALL"
         }
       ]
     },
@@ -11232,6 +11251,10 @@
         {
           "type": "STRING",
           "value": "EXIFERR_DC"
+        },
+        {
+          "type": "STRING",
+          "value": "ARG_UNUSED"
         }
       ]
     },
@@ -11247,16 +11270,8 @@
           "value": "epitem"
         },
         {
-          "type": "STRING",
-          "value": "PHPAPI"
-        },
-        {
-          "type": "STRING",
-          "value": "PHP_HASH_API"
-        },
-        {
-          "type": "STRING",
-          "value": "PHP_XML_API"
+          "type": "SYMBOL",
+          "name": "api_return_type_regex"
         }
       ]
     },
@@ -11274,6 +11289,18 @@
         {
           "type": "STRING",
           "value": "RETURN_FALSE"
+        },
+        {
+          "type": "STRING",
+          "value": "RETURN_TRUE"
+        },
+        {
+          "type": "STRING",
+          "value": "MCRYPT_GET_TD_ARG"
+        },
+        {
+          "type": "STRING",
+          "value": "USE_OPLINE"
         }
       ]
     },
@@ -11323,6 +11350,10 @@
               {
                 "type": "STRING",
                 "value": "MCRYPT_GET_MODE_DIR_ARGS"
+              },
+              {
+                "type": "STRING",
+                "value": "ALLOCA_FLAG"
               }
             ]
           },
@@ -11609,6 +11640,72 @@
         {
           "type": "STRING",
           "value": ";"
+        }
+      ]
+    },
+    "zend_vm_handler": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_declaration_specifiers"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "ZEND_VM_HANDLER"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "arguments",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "expression"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "compound_statement"
+          }
         }
       ]
     },

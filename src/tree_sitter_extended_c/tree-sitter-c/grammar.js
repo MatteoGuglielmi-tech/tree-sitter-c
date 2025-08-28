@@ -103,6 +103,8 @@ module.exports = grammar({
       $.preproc_def,
       $.preproc_function_def,
       $.preproc_call,
+      // --custom--
+      $.zend_vm_handler
     ),
 
     _block_item: $ => choice(
@@ -1447,6 +1449,7 @@ module.exports = grammar({
     noinline_regex: _ => token(/[a-z_]*noinline[a-z0-9_]*/i),  // match any token containing `noinline`. case-insensitive
     static_macro_regex: _ => token(/(SCTP)?STATIC[a-z0-9_]*/i),  // match all macro that contains static in uppercase
     linkage_macro_regex: _ => token(/[a-z]*linkage/i),
+    api_return_type_regex: _ => token(/[A-Z0-9_]*API/), // 'PHPAPI', 'PHP_HASH_API', 'PHP_XML_API', 'SAPI_API', 'PHP_BZ2_API', 'CWD_API', 'ZEND_API'
 
     /* names */
     zend_foreach_begin_macro_names: _ => token(choice('ZEND_HASH_FOREACH_VAL', 'ZEND_HASH_FOREACH_KEY_VAL', 'ZEND_HASH_FOREACH_PTR')),
@@ -1454,7 +1457,7 @@ module.exports = grammar({
     zend_return_type_modifier: _ => token(choice('ZEND_API', 'ZEND_COLD')),
     cast_macro_names: _ => token(choice('CAST', 'JAS_CAST', 'RCAST')),  // CAST, JAS_CAST
     gc_return_type_macro_names: _ => token(choice('GC_API', 'GC_INNER')),
-    _context_passing_macro: _ => token(choice('STREAMS_CC', 'TSRMLS_CC', 'EXIFERR_CC')), // call context macro
+    _context_passing_macro: _ => token(choice('STREAMS_CC', 'TSRMLS_CC', 'EXIFERR_CC', 'STREAMS_REL_CC')), // call context macro
     _declaration_context_macro: _ => token(choice('STREAMS_DC', 'TSRMLS_DC')),
     standalone_param_macro: _ => token(choice('UNSERIALIZE_PARAMETER', 'TSRMLS_DC', 'STREAMS_DC', 'EXIFERR_DC')), // standalone macro that expands to a list of params
     zend_if_macro_name: _ => token(choice('Z_REFCOUNTED', 'Z_ISREF')),
@@ -1727,6 +1730,7 @@ module.exports = grammar({
     _declarator_attribute_macro: $ => choice(
       '__kprobes',
       'FAST_FUNC',
+      'ZEND_FASTCALL'
     ),
 
     /* modifiers that appear BEFORE return type. same role as static, inline etc */
@@ -1749,19 +1753,25 @@ module.exports = grammar({
         ')'
       ),
       'ATTRIBUTE_UNUSED',
-      'EXIFERR_DC'
+      'EXIFERR_DC',
+      'ARG_UNUSED'
     ),
 
     /* custom type before return type */
-    custom_type_qualifiers: _ => choice(
+    custom_type_qualifiers: $ => choice(
       'GC_CALL',
       'epitem',
-      'PHPAPI',
-      'PHP_HASH_API',
-      'PHP_XML_API'
+      $.api_return_type_regex
     ),
 
-    macro_no_parens_statement: $ => choice('MCRYPT_GET_INI', 'PHP_MCRYPT_INIT_CHECK', 'RETURN_FALSE'),
+    macro_no_parens_statement: $ => choice(
+      'MCRYPT_GET_INI',
+      'PHP_MCRYPT_INIT_CHECK',
+      'RETURN_FALSE',
+      'RETURN_TRUE',
+      'MCRYPT_GET_TD_ARG',
+      'USE_OPLINE'
+    ),
     macro_empty_parens_statement: $ => seq(
       choice('EMPTY_SWITCH_DEFAULT_CASE'),
       '(',
@@ -1772,7 +1782,8 @@ module.exports = grammar({
         'EXIF_ERRLOG_FILEEOF',
         'EXIF_ERRLOG_TRACE',
         'EXIF_ERRLOG_CORRUPT',
-        'MCRYPT_GET_MODE_DIR_ARGS'
+        'MCRYPT_GET_MODE_DIR_ARGS',
+        'ALLOCA_FLAG'
       ),
       $.argument_list
     )),
@@ -1824,13 +1835,20 @@ module.exports = grammar({
       ';'
     ),
 
+    zend_vm_handler: $ => seq(
+      optional($._declaration_specifiers),
+      'ZEND_VM_HANDLER',
+      '(',
+      field('arguments', commaSep1($.expression)),
+      ')',
+      field('body', $.compound_statement)
+    ),
+
     /* expression followed by a comma-less macro */
     context_suffixed_expression: $ => prec(1, seq(
       $.expression,
       $._context_passing_macro
     )),
-
-
 
   },
 

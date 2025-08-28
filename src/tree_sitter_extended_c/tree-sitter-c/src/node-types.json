@@ -1539,7 +1539,17 @@
   {
     "type": "custom_type_qualifiers",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "api_return_type_regex",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "declaration",
@@ -4807,6 +4817,10 @@
         {
           "type": "while_statement",
           "named": true
+        },
+        {
+          "type": "zend_vm_handler",
+          "named": true
         }
       ]
     }
@@ -5240,6 +5254,96 @@
     }
   },
   {
+    "type": "zend_vm_handler",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_specifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute_declaration",
+          "named": true
+        },
+        {
+          "type": "attribute_specifier",
+          "named": true
+        },
+        {
+          "type": "gc_return_type_macro_names",
+          "named": true
+        },
+        {
+          "type": "init_specifier_regex",
+          "named": true
+        },
+        {
+          "type": "linkage_macro_regex",
+          "named": true
+        },
+        {
+          "type": "ms_declspec_modifier",
+          "named": true
+        },
+        {
+          "type": "noinline_regex",
+          "named": true
+        },
+        {
+          "type": "static_macro_regex",
+          "named": true
+        },
+        {
+          "type": "storage_class_specifier",
+          "named": true
+        },
+        {
+          "type": "type_qualifier",
+          "named": true
+        },
+        {
+          "type": "zend_return_type_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "\n",
     "named": false
   },
@@ -5444,6 +5548,14 @@
     "named": false
   },
   {
+    "type": "ALLOCA_FLAG",
+    "named": false
+  },
+  {
+    "type": "ARG_UNUSED",
+    "named": false
+  },
+  {
     "type": "ATTRIBUTE_UNUSED",
     "named": false
   },
@@ -5520,23 +5632,15 @@
     "named": false
   },
   {
+    "type": "MCRYPT_GET_TD_ARG",
+    "named": false
+  },
+  {
     "type": "NULL",
     "named": false
   },
   {
-    "type": "PHPAPI",
-    "named": false
-  },
-  {
-    "type": "PHP_HASH_API",
-    "named": false
-  },
-  {
     "type": "PHP_MCRYPT_INIT_CHECK",
-    "named": false
-  },
-  {
-    "type": "PHP_XML_API",
     "named": false
   },
   {
@@ -5545,6 +5649,10 @@
   },
   {
     "type": "RETURN_FALSE",
+    "named": false
+  },
+  {
+    "type": "RETURN_TRUE",
     "named": false
   },
   {
@@ -5576,7 +5684,19 @@
     "named": false
   },
   {
+    "type": "USE_OPLINE",
+    "named": false
+  },
+  {
+    "type": "ZEND_FASTCALL",
+    "named": false
+  },
+  {
     "type": "ZEND_HASH_FOREACH_END",
+    "named": false
+  },
+  {
+    "type": "ZEND_VM_HANDLER",
     "named": false
   },
   {
@@ -5750,6 +5870,10 @@
   {
     "type": "alignof",
     "named": false
+  },
+  {
+    "type": "api_return_type_regex",
+    "named": true
   },
   {
     "type": "asm",
