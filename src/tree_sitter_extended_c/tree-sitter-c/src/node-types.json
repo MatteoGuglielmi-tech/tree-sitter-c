@@ -346,6 +346,10 @@
         "named": true
       },
       {
+        "type": "zend_parameter_parsing_block",
+        "named": true
+      },
+      {
         "type": "zend_try_statement",
         "named": true
       }
@@ -1117,6 +1121,10 @@
         },
         {
           "type": "zend_foreach_statement",
+          "named": true
+        },
+        {
+          "type": "zend_parameter_parsing_block",
           "named": true
         },
         {
@@ -5238,6 +5246,21 @@
     }
   },
   {
+    "type": "zend_parameter_parsing_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "zend_try_statement",
     "named": true,
     "fields": {
@@ -5696,7 +5719,27 @@
     "named": false
   },
   {
+    "type": "ZEND_PARSE_PARAMETERS_END",
+    "named": false
+  },
+  {
+    "type": "ZEND_PARSE_PARAMETERS_START",
+    "named": false
+  },
+  {
     "type": "ZEND_VM_HANDLER",
+    "named": false
+  },
+  {
+    "type": "Z_PARAM_OPTIONAL",
+    "named": false
+  },
+  {
+    "type": "Z_PARAM_STRING",
+    "named": false
+  },
+  {
+    "type": "Z_PARAM_ZVAL",
     "named": false
   },
   {

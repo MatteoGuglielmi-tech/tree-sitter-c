@@ -825,6 +825,7 @@ module.exports = grammar({
       $.macro_no_parens_statement,
       $.macro_empty_parens_statement,
       $.macro_parents_args_statement,
+      $.zend_parameter_parsing_block,
       $.zend_try_statement,
       $.zend_foreach_statement,
       $.zend_fetch_resource_statement,
@@ -1849,6 +1850,25 @@ module.exports = grammar({
       $.expression,
       $._context_passing_macro
     )),
+
+    _zend_param_declaration: $ => seq(
+      choice(
+        'Z_PARAM_ZVAL',
+        'Z_PARAM_OPTIONAL',
+        'Z_PARAM_STRING'
+      ),
+      optional($.argument_list)
+    ),
+
+    zend_parameter_parsing_block: $ => seq(
+      'ZEND_PARSE_PARAMETERS_START',
+      $.argument_list,
+      repeat($._zend_param_declaration),
+      'ZEND_PARSE_PARAMETERS_END',
+      '(',
+      ')',
+      ';'
+    ),
 
   },
 

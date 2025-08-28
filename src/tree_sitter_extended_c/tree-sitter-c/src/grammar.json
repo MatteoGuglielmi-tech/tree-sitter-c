@@ -6014,6 +6014,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "zend_parameter_parsing_block"
+        },
+        {
+          "type": "SYMBOL",
           "name": "zend_try_statement"
         },
         {
@@ -11725,6 +11729,76 @@
           }
         ]
       }
+    },
+    "_zend_param_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Z_PARAM_ZVAL"
+            },
+            {
+              "type": "STRING",
+              "value": "Z_PARAM_OPTIONAL"
+            },
+            {
+              "type": "STRING",
+              "value": "Z_PARAM_STRING"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "argument_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "zend_parameter_parsing_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ZEND_PARSE_PARAMETERS_START"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "argument_list"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_zend_param_declaration"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "ZEND_PARSE_PARAMETERS_END"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
     }
   },
   "extras": [
