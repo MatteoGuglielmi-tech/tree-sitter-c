@@ -6014,11 +6014,15 @@
         },
         {
           "type": "SYMBOL",
+          "name": "macro_statement_arg_column"
+        },
+        {
+          "type": "SYMBOL",
           "name": "zend_parameter_parsing_block"
         },
         {
           "type": "SYMBOL",
-          "name": "zend_try_statement"
+          "name": "zend_try_catch_statement"
         },
         {
           "type": "SYMBOL",
@@ -6027,6 +6031,10 @@
         {
           "type": "SYMBOL",
           "name": "zend_fetch_resource_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "zend_labeled_statement"
         },
         {
           "type": "SYMBOL",
@@ -7229,6 +7237,10 @@
                 {
                   "type": "STRING",
                   "value": "CS"
+                },
+                {
+                  "type": "STRING",
+                  "value": "BAD_CAST"
                 }
               ]
             }
@@ -8789,6 +8801,18 @@
                   "type": "CHOICE",
                   "members": [
                     {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
                       "type": "SEQ",
                       "members": [
                         {
@@ -8796,7 +8820,7 @@
                           "members": [
                             {
                               "type": "SYMBOL",
-                              "name": "expression"
+                              "name": "_call_argument"
                             },
                             {
                               "type": "SYMBOL",
@@ -8818,7 +8842,7 @@
                                 "members": [
                                   {
                                     "type": "SYMBOL",
-                                    "name": "expression"
+                                    "name": "_call_argument"
                                   },
                                   {
                                     "type": "SYMBOL",
@@ -9660,6 +9684,19 @@
                     "name": "identifier"
                   }
                 ]
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "string_literal"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_argument_suffix_macro"
+                  }
+                ]
               }
             ]
           },
@@ -9675,6 +9712,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "identifier"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_argument_suffix_macro"
                 }
               ]
             }
@@ -9921,8 +9962,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "(SCTP)?STATIC[a-z0-9_]*",
-        "flags": "i"
+        "value": "(SCTP)?STATIC[a-z0-9_]*"
       }
     },
     "linkage_macro_regex": {
@@ -9940,24 +9980,18 @@
         "value": "[A-Z0-9_]*API"
       }
     },
-    "zend_foreach_begin_macro_names": {
+    "zend_foreach_begin_macro_regex": {
       "type": "TOKEN",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "ZEND_HASH_FOREACH_VAL"
-          },
-          {
-            "type": "STRING",
-            "value": "ZEND_HASH_FOREACH_KEY_VAL"
-          },
-          {
-            "type": "STRING",
-            "value": "ZEND_HASH_FOREACH_PTR"
-          }
-        ]
+        "type": "PATTERN",
+        "value": "ZEND_HASH_FOREACH[A-Z_]*"
+      }
+    },
+    "zend_vm_handler_regex": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "ZEND_VM_[A-Z_]*HANDLER"
       }
     },
     "zend_fetch_resource_names": {
@@ -10048,6 +10082,10 @@
           {
             "type": "STRING",
             "value": "STREAMS_REL_CC"
+          },
+          {
+            "type": "STRING",
+            "value": "ZEND_FILE_LINE_RELAY_CC"
           }
         ]
       }
@@ -10064,6 +10102,10 @@
           {
             "type": "STRING",
             "value": "TSRMLS_DC"
+          },
+          {
+            "type": "STRING",
+            "value": "ZEND_FILE_LINE_DC"
           }
         ]
       }
@@ -10807,6 +10849,148 @@
         ]
       }
     },
+    "macro_statement_arg_column": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "IF_FEATURE_MDEV_EXEC"
+                },
+                {
+                  "type": "STRING",
+                  "value": "IF_FEATURE_WGET_HTTPS"
+                },
+                {
+                  "type": "STRING",
+                  "value": "IF_FEATURE_UDHCP_PORT"
+                },
+                {
+                  "type": "STRING",
+                  "value": "IF_FEATURE_UDHCPC_ARPING"
+                },
+                {
+                  "type": "STRING",
+                  "value": "USE_FOR_MMU"
+                },
+                {
+                  "type": "STRING",
+                  "value": "IF_FEATURE_WGET_TIMEOUT"
+                },
+                {
+                  "type": "STRING",
+                  "value": "IF_NOT_FEATURE_WGET_TIMEOUT"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "body",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "statement"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "declaration"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "_argument_suffix_macro": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "IF_FEATURE_UDHCP_PORT"
+            },
+            {
+              "type": "STRING",
+              "value": "IF_UDHCP_VERBOSE"
+            },
+            {
+              "type": "STRING",
+              "value": "IF_FEATURE_UDHCPC_ARPING"
+            },
+            {
+              "type": "STRING",
+              "value": "USE_FOR_MMU"
+            },
+            {
+              "type": "STRING",
+              "value": "IF_FEATURE_WGET_LONG_OPTIONS"
+            },
+            {
+              "type": "STRING",
+              "value": "IF_FEATURE_WGET_TIMEOUT"
+            },
+            {
+              "type": "STRING",
+              "value": "IF_NOT_FEATURE_WGET_TIMEOUT"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "argument_list"
+        }
+      ]
+    },
+    "_call_argument": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "REPEAT1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_argument_suffix_macro"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
     "va_arg_expression": {
       "type": "PREC",
       "value": 2,
@@ -11159,6 +11343,10 @@
         {
           "type": "STRING",
           "value": "ZEND_FASTCALL"
+        },
+        {
+          "type": "STRING",
+          "value": "SLJIT_FUNC"
         }
       ]
     },
@@ -11196,6 +11384,10 @@
         {
           "type": "STRING",
           "value": "zend_always_inline"
+        },
+        {
+          "type": "STRING",
+          "value": "SLJIT_INLINE"
         }
       ]
     },
@@ -11259,6 +11451,10 @@
         {
           "type": "STRING",
           "value": "ARG_UNUSED"
+        },
+        {
+          "type": "STRING",
+          "value": "UNUSED_PARAM"
         }
       ]
     },
@@ -11276,6 +11472,14 @@
         {
           "type": "SYMBOL",
           "name": "api_return_type_regex"
+        },
+        {
+          "type": "STRING",
+          "value": "ZEND_FASTCALL"
+        },
+        {
+          "type": "STRING",
+          "value": "FAST_FUNC"
         }
       ]
     },
@@ -11317,6 +11521,14 @@
             {
               "type": "STRING",
               "value": "EMPTY_SWITCH_DEFAULT_CASE"
+            },
+            {
+              "type": "STRING",
+              "value": "RETURN_EMPTY_STRING"
+            },
+            {
+              "type": "STRING",
+              "value": "APR_ARRAY_FOREACH_CLOSE"
             }
           ]
         },
@@ -11353,11 +11565,19 @@
               },
               {
                 "type": "STRING",
+                "value": "EXIF_ERRLOG_THUMBEOF"
+              },
+              {
+                "type": "STRING",
                 "value": "MCRYPT_GET_MODE_DIR_ARGS"
               },
               {
                 "type": "STRING",
                 "value": "ALLOCA_FLAG"
+              },
+              {
+                "type": "STRING",
+                "value": "APR_ARRAY_FOREACH_OPEN"
               }
             ]
           },
@@ -11540,7 +11760,7 @@
           "name": "name",
           "content": {
             "type": "SYMBOL",
-            "name": "zend_foreach_begin_macro_names"
+            "name": "zend_foreach_begin_macro_regex"
           }
         },
         {
@@ -11614,12 +11834,12 @@
         }
       ]
     },
-    "zend_try_statement": {
+    "zend_catch_clause": {
       "type": "SEQ",
       "members": [
         {
           "type": "STRING",
-          "value": "zend_first_try"
+          "value": "zend_catch"
         },
         {
           "type": "FIELD",
@@ -11628,6 +11848,44 @@
             "type": "SYMBOL",
             "name": "compound_statement"
           }
+        }
+      ]
+    },
+    "zend_try_catch_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "zend_first_try"
+            },
+            {
+              "type": "STRING",
+              "value": "zend_try"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "compound_statement"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "zend_catch_clause"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -11663,8 +11921,8 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "ZEND_VM_HANDLER"
+          "type": "SYMBOL",
+          "name": "zend_vm_handler_regex"
         },
         {
           "type": "STRING",
@@ -11747,6 +12005,14 @@
             {
               "type": "STRING",
               "value": "Z_PARAM_STRING"
+            },
+            {
+              "type": "STRING",
+              "value": "Z_PARAM_STR"
+            },
+            {
+              "type": "STRING",
+              "value": "Z_PARAM_BOOL"
             }
           ]
         },
@@ -11797,6 +12063,56 @@
         {
           "type": "STRING",
           "value": ";"
+        }
+      ]
+    },
+    "_zend_label_macro": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ZEND_VM_C_LABEL"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "label",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "zend_labeled_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_zend_label_macro"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "FIELD",
+          "name": "statement",
+          "content": {
+            "type": "SYMBOL",
+            "name": "statement"
+          }
         }
       ]
     }

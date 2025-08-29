@@ -825,10 +825,12 @@ module.exports = grammar({
       $.macro_no_parens_statement,
       $.macro_empty_parens_statement,
       $.macro_parents_args_statement,
+      $.macro_statement_arg_column,
       $.zend_parameter_parsing_block,
-      $.zend_try_statement,
+      $.zend_try_catch_statement,
       $.zend_foreach_statement,
       $.zend_fetch_resource_statement,
+      $.zend_labeled_statement,
       $.smartlist_statement,
       $.control_flow_macro_statement,
       $.macro_wrapped_statement,
@@ -1097,7 +1099,7 @@ module.exports = grammar({
     )),
 
     unary_expression: $ => prec.left(PREC.UNARY, seq(
-      field('operator', choice('!', '~', '-', '+', 'US', 'CS')),
+      field('operator', choice('!', '~', '-', '+', 'US', 'CS', 'BAD_CAST')),
       field('argument', $.expression),
     )),
 
@@ -1290,8 +1292,11 @@ module.exports = grammar({
       optional(
         // a sequence of ...
         seq(
-          // ... a standard list of arguments ...
-          commaSep(choice($.expression, $.compound_statement)),
+          // allow leading comma
+          optional(","),
+          //.. a standard list of arguments ...
+          // commaSep(choice($.expression, $.compound_statement)),
+          commaSep(choice($._call_argument, $.compound_statement)),
             // ...followed by zero or more special trailing macros.
             repeat(seq(
               optional(','), // the comma may or may not be present
@@ -1405,8 +1410,9 @@ module.exports = grammar({
         seq($.identifier, $.string_literal),
         seq($.string_literal, $.string_literal),
         seq($.string_literal, $.identifier),
+        seq($.string_literal, $._argument_suffix_macro)
       ),
-      repeat(choice($.string_literal, $.identifier)),
+      repeat(choice($.string_literal, $.identifier, $._argument_suffix_macro)),
     )),
 
     string_literal: $ => seq(
@@ -1448,18 +1454,20 @@ module.exports = grammar({
     for_each_macro_regex: _ => token(/[a-z_]*list[a-z_]*for_?(each|all)[a-z_]*/i), // list_for_each_entry, list_for_each_entry_safe etc
     list_entry_macro_regex: _ => token(/(list|rb)_[a-z_]*entry[a-z_]*/), // list_entry, list_first_entry, 'list_first_entry_or_null'
     noinline_regex: _ => token(/[a-z_]*noinline[a-z0-9_]*/i),  // match any token containing `noinline`. case-insensitive
-    static_macro_regex: _ => token(/(SCTP)?STATIC[a-z0-9_]*/i),  // match all macro that contains static in uppercase
+    static_macro_regex: _ => token(/(SCTP)?STATIC[a-z0-9_]*/),  // match all macro that contains static in uppercase
     linkage_macro_regex: _ => token(/[a-z]*linkage/i),
     api_return_type_regex: _ => token(/[A-Z0-9_]*API/), // 'PHPAPI', 'PHP_HASH_API', 'PHP_XML_API', 'SAPI_API', 'PHP_BZ2_API', 'CWD_API', 'ZEND_API'
+    zend_foreach_begin_macro_regex: _ => token(/ZEND_HASH_FOREACH[A-Z_]*/),
+    zend_vm_handler_regex: _ => token(/ZEND_VM_[A-Z_]*HANDLER/),
 
     /* names */
-    zend_foreach_begin_macro_names: _ => token(choice('ZEND_HASH_FOREACH_VAL', 'ZEND_HASH_FOREACH_KEY_VAL', 'ZEND_HASH_FOREACH_PTR')),
+    // zend_foreach_begin_macro_names: _ => token(choice('ZEND_HASH_FOREACH_VAL', 'ZEND_HASH_FOREACH_KEY_VAL', 'ZEND_HASH_FOREACH_PTR')),
     zend_fetch_resource_names: _ => token(choice('ZEND_FETCH_RESOURCE', 'ZEND_FETCH_RESOURCE_NO_RETURN')),
     zend_return_type_modifier: _ => token(choice('ZEND_API', 'ZEND_COLD')),
     cast_macro_names: _ => token(choice('CAST', 'JAS_CAST', 'RCAST')),  // CAST, JAS_CAST
     gc_return_type_macro_names: _ => token(choice('GC_API', 'GC_INNER')),
-    _context_passing_macro: _ => token(choice('STREAMS_CC', 'TSRMLS_CC', 'EXIFERR_CC', 'STREAMS_REL_CC')), // call context macro
-    _declaration_context_macro: _ => token(choice('STREAMS_DC', 'TSRMLS_DC')),
+    _context_passing_macro: _ => token(choice('STREAMS_CC', 'TSRMLS_CC', 'EXIFERR_CC', 'STREAMS_REL_CC', 'ZEND_FILE_LINE_RELAY_CC')), // call context macro
+    _declaration_context_macro: _ => token(choice('STREAMS_DC', 'TSRMLS_DC', 'ZEND_FILE_LINE_DC')),
     standalone_param_macro: _ => token(choice('UNSERIALIZE_PARAMETER', 'TSRMLS_DC', 'STREAMS_DC', 'EXIFERR_DC')), // standalone macro that expands to a list of params
     zend_if_macro_name: _ => token(choice('Z_REFCOUNTED', 'Z_ISREF')),
     // --end custom--
@@ -1636,12 +1644,49 @@ module.exports = grammar({
     macro_with_statement_arg: $ => prec(2, seq(
       field('name', choice(
         'GNUTLS_HASH_LOOP',
-        'PS_ENCODE_LOOP'
+        'PS_ENCODE_LOOP',
       )),
       '(',
       field('body', $.statement),
-      ')'
+      ')',
     )),
+
+    macro_statement_arg_column: $ => prec(1, seq(
+      field('name', choice(
+        'IF_FEATURE_MDEV_EXEC',
+        'IF_FEATURE_WGET_HTTPS',
+        'IF_FEATURE_UDHCP_PORT',
+        'IF_FEATURE_UDHCPC_ARPING',
+        'USE_FOR_MMU',
+        'IF_FEATURE_WGET_TIMEOUT',
+        'IF_NOT_FEATURE_WGET_TIMEOUT'
+      )),
+      '(',
+      field('body', choice($.statement, $.declaration)),
+      ')',
+    )),
+
+    _argument_suffix_macro: $ => seq(
+      choice(
+        'IF_FEATURE_UDHCP_PORT',
+        'IF_UDHCP_VERBOSE',
+        'IF_FEATURE_UDHCPC_ARPING',
+        'USE_FOR_MMU',
+        'IF_FEATURE_WGET_LONG_OPTIONS',
+        'IF_FEATURE_WGET_TIMEOUT',
+        'IF_NOT_FEATURE_WGET_TIMEOUT'
+      ),
+      $.argument_list
+    ),
+
+    _call_argument: $ => choice(
+      prec(1, seq(
+        $.expression,
+        repeat1($._argument_suffix_macro)
+      )),
+      $.expression
+    ),
+
 
     // va_arg(argument_list, type_name)
     va_arg_expression: $ => prec(2, seq(
@@ -1731,7 +1776,8 @@ module.exports = grammar({
     _declarator_attribute_macro: $ => choice(
       '__kprobes',
       'FAST_FUNC',
-      'ZEND_FASTCALL'
+      'ZEND_FASTCALL',
+      'SLJIT_FUNC'
     ),
 
     /* modifiers that appear BEFORE return type. same role as static, inline etc */
@@ -1744,6 +1790,7 @@ module.exports = grammar({
       $.zend_return_type_modifier,
       'private',
       'zend_always_inline',
+      'SLJIT_INLINE'
     ),
 
     postfix_declarator_attribute: $ => choice(
@@ -1755,14 +1802,21 @@ module.exports = grammar({
       ),
       'ATTRIBUTE_UNUSED',
       'EXIFERR_DC',
-      'ARG_UNUSED'
+      'ARG_UNUSED',
+      'UNUSED_PARAM'
     ),
 
-    /* custom type before return type */
+    /* custom type qualifiers:
+     * - same syntactic meaning as `const`
+     * - before return type
+     * - pointer type declarations
+    */
     custom_type_qualifiers: $ => choice(
       'GC_CALL',
       'epitem',
-      $.api_return_type_regex
+      $.api_return_type_regex,
+      'ZEND_FASTCALL',
+      'FAST_FUNC'
     ),
 
     macro_no_parens_statement: $ => choice(
@@ -1773,8 +1827,9 @@ module.exports = grammar({
       'MCRYPT_GET_TD_ARG',
       'USE_OPLINE'
     ),
+
     macro_empty_parens_statement: $ => seq(
-      choice('EMPTY_SWITCH_DEFAULT_CASE'),
+      choice('EMPTY_SWITCH_DEFAULT_CASE', 'RETURN_EMPTY_STRING', 'APR_ARRAY_FOREACH_CLOSE'),
       '(',
       ')'
     ),
@@ -1783,8 +1838,10 @@ module.exports = grammar({
         'EXIF_ERRLOG_FILEEOF',
         'EXIF_ERRLOG_TRACE',
         'EXIF_ERRLOG_CORRUPT',
+        'EXIF_ERRLOG_THUMBEOF',
         'MCRYPT_GET_MODE_DIR_ARGS',
-        'ALLOCA_FLAG'
+        'ALLOCA_FLAG',
+        'APR_ARRAY_FOREACH_OPEN'
       ),
       $.argument_list
     )),
@@ -1815,7 +1872,8 @@ module.exports = grammar({
 
     /* rule for ZEND_HASH_FOREACH BEGIN...END loop block */
     zend_foreach_statement: $ => seq(
-      field('name', $.zend_foreach_begin_macro_names),
+      // field('name', $.zend_foreach_begin_macro_names),
+      field('name', $.zend_foreach_begin_macro_regex),
       '(',
       field('arguments', commaSep($.expression)),
       ')',
@@ -1826,10 +1884,16 @@ module.exports = grammar({
       ';'
     ),
 
+    zend_catch_clause: $ => seq(
+      'zend_catch',
+      field('body', $.compound_statement)
+    ),
+
     /* zend_first_try...zend_end_try block */
-    zend_try_statement: $ => seq(
-      'zend_first_try',
+    zend_try_catch_statement: $ => seq(
+      choice('zend_first_try', 'zend_try'),
       field('body', $.compound_statement),
+      optional($.zend_catch_clause),
       'zend_end_try',
       '(',
       ')',
@@ -1838,7 +1902,8 @@ module.exports = grammar({
 
     zend_vm_handler: $ => seq(
       optional($._declaration_specifiers),
-      'ZEND_VM_HANDLER',
+      $.zend_vm_handler_regex,
+      // choice('ZEND_VM_HANDLER', 'ZEND_VM_COLD_CONST_HANDLER'),
       '(',
       field('arguments', commaSep1($.expression)),
       ')',
@@ -1855,7 +1920,9 @@ module.exports = grammar({
       choice(
         'Z_PARAM_ZVAL',
         'Z_PARAM_OPTIONAL',
-        'Z_PARAM_STRING'
+        'Z_PARAM_STRING',
+        'Z_PARAM_STR',
+        'Z_PARAM_BOOL'
       ),
       optional($.argument_list)
     ),
@@ -1868,6 +1935,19 @@ module.exports = grammar({
       '(',
       ')',
       ';'
+    ),
+
+    _zend_label_macro: $ => seq(
+      'ZEND_VM_C_LABEL',
+      '(',
+      field('label', $.identifier),
+      ')'
+    ),
+
+    zend_labeled_statement: $ => seq(
+      field('name', $._zend_label_macro),
+      ':',
+      field('statement', $.statement)
     ),
 
   },

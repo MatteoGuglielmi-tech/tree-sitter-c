@@ -310,6 +310,10 @@
         "named": true
       },
       {
+        "type": "macro_statement_arg_column",
+        "named": true
+      },
+      {
         "type": "macro_wrapped_statement",
         "named": true
       },
@@ -346,11 +350,15 @@
         "named": true
       },
       {
+        "type": "zend_labeled_statement",
+        "named": true
+      },
+      {
         "type": "zend_parameter_parsing_block",
         "named": true
       },
       {
-        "type": "zend_try_statement",
+        "type": "zend_try_catch_statement",
         "named": true
       }
     ]
@@ -551,6 +559,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
         {
           "type": "compound_statement",
           "named": true
@@ -1084,6 +1096,10 @@
           "named": true
         },
         {
+          "type": "macro_statement_arg_column",
+          "named": true
+        },
+        {
           "type": "macro_wrapped_statement",
           "named": true
         },
@@ -1124,11 +1140,15 @@
           "named": true
         },
         {
+          "type": "zend_labeled_statement",
+          "named": true
+        },
+        {
           "type": "zend_parameter_parsing_block",
           "named": true
         },
         {
-          "type": "zend_try_statement",
+          "type": "zend_try_catch_statement",
           "named": true
         }
       ]
@@ -1178,6 +1198,10 @@
         "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "SLJIT_INLINE",
+            "named": false
+          },
           {
             "type": "_abstract_declarator",
             "named": true
@@ -1374,6 +1398,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -2451,6 +2479,10 @@
         "required": false,
         "types": [
           {
+            "type": "SLJIT_INLINE",
+            "named": false
+          },
+          {
             "type": "attribute_declaration",
             "named": true
           },
@@ -3134,6 +3166,60 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "macro_statement_arg_column",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration",
+            "named": true
+          },
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "IF_FEATURE_MDEV_EXEC",
+            "named": false
+          },
+          {
+            "type": "IF_FEATURE_UDHCPC_ARPING",
+            "named": false
+          },
+          {
+            "type": "IF_FEATURE_UDHCP_PORT",
+            "named": false
+          },
+          {
+            "type": "IF_FEATURE_WGET_HTTPS",
+            "named": false
+          },
+          {
+            "type": "IF_FEATURE_WGET_TIMEOUT",
+            "named": false
+          },
+          {
+            "type": "IF_NOT_FEATURE_WGET_TIMEOUT",
+            "named": false
+          },
+          {
+            "type": "USE_FOR_MMU",
+            "named": false
+          }
+        ]
+      }
     }
   },
   {
@@ -4963,6 +5049,10 @@
             "named": false
           },
           {
+            "type": "BAD_CAST",
+            "named": false
+          },
+          {
             "type": "CS",
             "named": false
           },
@@ -5106,6 +5196,22 @@
     }
   },
   {
+    "type": "zend_catch_clause",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "zend_fetch_resource_expression",
     "named": true,
     "fields": {
@@ -5238,7 +5344,55 @@
         "required": true,
         "types": [
           {
-            "type": "zend_foreach_begin_macro_names",
+            "type": "zend_foreach_begin_macro_regex",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "zend_labeled_statement",
+    "named": true,
+    "fields": {
+      "label": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "ZEND_VM_C_LABEL",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "statement": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "statement",
             "named": true
           }
         ]
@@ -5261,7 +5415,7 @@
     }
   },
   {
-    "type": "zend_try_statement",
+    "type": "zend_try_catch_statement",
     "named": true,
     "fields": {
       "body": {
@@ -5274,6 +5428,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "zend_catch_clause",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -5317,7 +5481,7 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "attribute_declaration",
@@ -5361,6 +5525,10 @@
         },
         {
           "type": "zend_return_type_modifier",
+          "named": true
+        },
+        {
+          "type": "zend_vm_handler_regex",
           "named": true
         }
       ]
@@ -5575,11 +5743,23 @@
     "named": false
   },
   {
+    "type": "APR_ARRAY_FOREACH_CLOSE",
+    "named": false
+  },
+  {
+    "type": "APR_ARRAY_FOREACH_OPEN",
+    "named": false
+  },
+  {
     "type": "ARG_UNUSED",
     "named": false
   },
   {
     "type": "ATTRIBUTE_UNUSED",
+    "named": false
+  },
+  {
+    "type": "BAD_CAST",
     "named": false
   },
   {
@@ -5611,6 +5791,10 @@
     "named": false
   },
   {
+    "type": "EXIF_ERRLOG_THUMBEOF",
+    "named": false
+  },
+  {
     "type": "EXIF_ERRLOG_TRACE",
     "named": false
   },
@@ -5636,6 +5820,38 @@
   },
   {
     "type": "IF_DESKTOP",
+    "named": false
+  },
+  {
+    "type": "IF_FEATURE_MDEV_EXEC",
+    "named": false
+  },
+  {
+    "type": "IF_FEATURE_UDHCPC_ARPING",
+    "named": false
+  },
+  {
+    "type": "IF_FEATURE_UDHCP_PORT",
+    "named": false
+  },
+  {
+    "type": "IF_FEATURE_WGET_HTTPS",
+    "named": false
+  },
+  {
+    "type": "IF_FEATURE_WGET_LONG_OPTIONS",
+    "named": false
+  },
+  {
+    "type": "IF_FEATURE_WGET_TIMEOUT",
+    "named": false
+  },
+  {
+    "type": "IF_NOT_FEATURE_WGET_TIMEOUT",
+    "named": false
+  },
+  {
+    "type": "IF_UDHCP_VERBOSE",
     "named": false
   },
   {
@@ -5671,11 +5887,23 @@
     "named": false
   },
   {
+    "type": "RETURN_EMPTY_STRING",
+    "named": false
+  },
+  {
     "type": "RETURN_FALSE",
     "named": false
   },
   {
     "type": "RETURN_TRUE",
+    "named": false
+  },
+  {
+    "type": "SLJIT_FUNC",
+    "named": false
+  },
+  {
+    "type": "SLJIT_INLINE",
     "named": false
   },
   {
@@ -5703,7 +5931,15 @@
     "named": false
   },
   {
+    "type": "UNUSED_PARAM",
+    "named": false
+  },
+  {
     "type": "US",
+    "named": false
+  },
+  {
+    "type": "USE_FOR_MMU",
     "named": false
   },
   {
@@ -5727,11 +5963,19 @@
     "named": false
   },
   {
-    "type": "ZEND_VM_HANDLER",
+    "type": "ZEND_VM_C_LABEL",
+    "named": false
+  },
+  {
+    "type": "Z_PARAM_BOOL",
     "named": false
   },
   {
     "type": "Z_PARAM_OPTIONAL",
+    "named": false
+  },
+  {
+    "type": "Z_PARAM_STR",
     "named": false
   },
   {
@@ -6259,6 +6503,10 @@
     "named": false
   },
   {
+    "type": "zend_catch",
+    "named": false
+  },
+  {
     "type": "zend_end_try",
     "named": false
   },
@@ -6271,7 +6519,7 @@
     "named": false
   },
   {
-    "type": "zend_foreach_begin_macro_names",
+    "type": "zend_foreach_begin_macro_regex",
     "named": true
   },
   {
@@ -6280,6 +6528,14 @@
   },
   {
     "type": "zend_return_type_modifier",
+    "named": true
+  },
+  {
+    "type": "zend_try",
+    "named": false
+  },
+  {
+    "type": "zend_vm_handler_regex",
     "named": true
   },
   {
